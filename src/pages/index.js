@@ -1,5 +1,9 @@
 import Image from "next/image";
 import { useState, useRef } from "react";
+import { RxEnvelopeClosed } from "react-icons/rx";
+import { GoCalendar } from "react-icons/go";
+import { GoDeviceCameraVideo } from "react-icons/go";
+import { LuUserPlus } from "react-icons/lu";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("rewrite");
@@ -56,8 +60,8 @@ export default function Home() {
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
-        <div className="grid max-w-screen-xl px-4 py-16 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-          <div className="mr-auto place-self-center lg:col-span-7 text-center md:text-start">
+        <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
+          <div className="mr-auto place-self-center md:col-span-7 text-center md:text-start">
             <h1 className="max-w-3xl mb-4 text-3xl md:text-7xl font-medium tracking-tight md:leading-[96px] dark:text-white">
               AI Powered <br /> Email Experience
             </h1> 
@@ -96,97 +100,37 @@ export default function Home() {
               style={{ backgroundColor: "#F9F1EF" }}
             ></div>
 
-            <div className="grid grid-cols-5 gap-8 relative min-w-max">
+            <div className="grid grid-cols-5 gap-2 md:gap-8 relative ">
               <div
-                className="md:h-[180px] w-full rounded-lg shadow-lg flex items-center justify-center relative z-10"
+                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <svg
-                  className="w-16 h-16 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                  />
-                </svg>
+                <RxEnvelopeClosed className="md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="md:h-[180px] w-full rounded-lg shadow-lg flex items-center justify-center relative z-10"
+                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <svg
-                  className="w-16 h-16 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                </svg>
+                <GoCalendar className="md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="md:h-[180px] w-full rounded-lg shadow-lg flex items-center justify-center relative z-10"
+                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <svg
-                  className="w-16 h-16 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+                <GoDeviceCameraVideo className="md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="md:h-[180px] w-full rounded-lg shadow-lg flex items-center justify-center relative z-10"
+                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <svg
-                  className="w-16 h-16 text-primary-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                  />
-                </svg>
+                <LuUserPlus className="md:w-16 md:h-16 text-primary-600" />
               </div>
 
-              <div className="md:h-[180px] w-full bg-primary-500 rounded-lg shadow-lg flex items-center justify-center relative z-10">
-                <svg
-                  className="w-16 h-16 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
+              <div className=" h-12 md:h-[180px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
+                <img src="/logo-icon-white.png" alt="logo-icon-white" className="max-h-8 max-w-8 md:w-16 md:h-16" />
               </div>
             </div>
           </div>
@@ -207,7 +151,7 @@ export default function Home() {
                   <button
                     key={key}
                     ref={(el) => buttonRefs.current[key] = el}
-                    className={`whitespace-nowrap text-left py-4 lg:border-b-2 ${activeTab === key
+                    className={`whitespace-nowrap text-sm text-left py-4 lg:border-b-2 ${activeTab === key
                       ? "border-b-2 border-primary-600 text-gray-900 dark:text-white"
                       : "border-transparent text-gray-500"
                       } text-xl font-medium transition-colors`}
@@ -258,8 +202,8 @@ export default function Home() {
           <img className="" src="/section-6.png" />
         </div>
       </section>
-      <section className="bg-primary-500 dark:bg-gray-900 py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 md:py-5 md:px-8 items-center gap-8 md:gap-0">
+      <section className=" dark:bg-gray-900 py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="bg-primary-500 grid grid-cols-1 md:grid-cols-12 py-5 px-8 items-center gap-8 md:gap-0">
           <div className="md:col-span-5 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-white leading-tight md:leading-[56px] mb-3 md:mb-5">
               Predict Spam with AI-Powered Insights

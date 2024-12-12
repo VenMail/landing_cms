@@ -12,7 +12,7 @@ export default function MainLayout({ children }) {
   return (
     <div className={`flex flex-col min-h-screen sm:p-8 ${onest.variable} font-[family-name:var(--font-onest)]`}>
       <Header />
-      <main className="flex-grow pt-16">
+      <main className="flex-grow md:pt-16 pt-8">
         {children}
       </main>
       <Footer />
