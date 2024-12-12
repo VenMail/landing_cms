@@ -30,36 +30,70 @@ import {
 
 const products = [
   {
-    name: "Analytics",
-    description: "Get a better understanding of your traffic",
+    name: "Mail",
     href: "#",
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers",
+    name: "Calendar",
     href: "#",
-    icon: CursorArrowRaysIcon,
+    icon: ChartPieIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
+    name: "Meetings",
     href: "#",
-    icon: FingerPrintIcon,
+    icon: ChartPieIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools",
+    name: "Contacts",
     href: "#",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
+    icon: ChartPieIcon,
   },
 ];
+
+const resources = [
+  {
+    name: "Contact us",
+    href: "#",
+  },
+  {
+    name: "About",
+    href: "#",
+  },
+  {
+    name: "Career",
+    href: "#",
+  },
+  {
+    name: "Join our community",
+    href: "#",
+  },
+  {
+    name: "Terms of use",
+    href: "#",
+  },
+  {
+    name: "FAQs",
+    href: "#",
+  },
+  {
+    name: "Partner Program",
+    href: "#",
+  },
+  {
+    name: "Product Tour",
+    href: "#",
+  },
+  {
+    name: "What's New",
+    href: "#",
+  },
+  {
+    name: "Download Desktop App",
+    href: "#",
+  },
+];
+
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact sales", href: "#", icon: PhoneIcon },
@@ -128,7 +162,7 @@ export default function Example() {
                 <span className="sr-only">Your Company</span>
                 <img
                   alt=""
-                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
+                  src="/logo-text.png"
                   className="h-8 w-auto"
                 />
               </a>
@@ -158,7 +192,49 @@ export default function Example() {
                           key={item.name}
                           as="a"
                           href={item.href}
-                          className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      ))}
+                    </DisclosurePanel>
+                  </Disclosure>
+                  <Disclosure as="div" className="-mx-3">
+                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                      Solutions
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
+                    </DisclosureButton>
+                    <DisclosurePanel className="mt-2 space-y-2">
+                      {[...products, ...callsToAction].map((item) => (
+                        <DisclosureButton
+                          key={item.name}
+                          as="a"
+                          href={item.href}
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      ))}
+                    </DisclosurePanel>
+                  </Disclosure>
+                  <Disclosure as="div" className="-mx-3">
+                    <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                      Resources
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
+                    </DisclosureButton>
+                    <DisclosurePanel className="mt-2 space-y-2">
+                      {resources.map((item) => (
+                        <DisclosureButton
+                          key={item.name}
+                          as="a"
+                          href={item.href}
+                          className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
                         >
                           {item.name}
                         </DisclosureButton>
@@ -169,28 +245,22 @@ export default function Example() {
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    Features
-                  </a>
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >
-                    Marketplace
-                  </a>
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >
-                    Company
+                    Pricing
                   </a>
                 </div>
                 <div className="py-6">
-                  <a
+                  <Button
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    className="w-full border-[1px] border-black px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 mb-3"
                   >
-                    Log in
-                  </a>
+                    Login
+                  </Button>
+                  <Button
+                    href="#"
+                    className="w-full bg-primary-600 text-white px-3 py-2.5 text-base/7 font-semibold"
+                  >
+                    Sign up for Free
+                  </Button>
                 </div>
               </div>
             </div>
