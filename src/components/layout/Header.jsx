@@ -31,22 +31,22 @@ import {
 const products = [
   {
     name: "Mail",
-    href: "#",
+    href: "/product/mail",
     icon: ChartPieIcon,
   },
   {
     name: "Calendar",
-    href: "#",
+    href: "/product/calendar",
     icon: ChartPieIcon,
   },
   {
     name: "Meetings",
-    href: "#",
+    href: "/product/meeting",
     icon: ChartPieIcon,
   },
   {
     name: "Contacts",
-    href: "#",
+    href: "/product/contacts",
     icon: ChartPieIcon,
   },
 ];
@@ -107,7 +107,7 @@ export default function Example() {
       <header className="bg-white">
         <nav
           aria-label="Global"
-          className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between p-6"
         >
           <div className="flex lg:flex-1 items-center">
             <a href="#" className="p-1.5">
@@ -208,7 +208,7 @@ export default function Example() {
                       />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 space-y-2">
-                      {[...products, ...callsToAction].map((item) => (
+                      {/* {[...products, ...callsToAction].map((item) => (
                         <DisclosureButton
                           key={item.name}
                           as="a"
@@ -217,7 +217,7 @@ export default function Example() {
                         >
                           {item.name}
                         </DisclosureButton>
-                      ))}
+                      ))} */}
                     </DisclosurePanel>
                   </Disclosure>
                   <Disclosure as="div" className="-mx-3">
