@@ -130,7 +130,7 @@ export default function Home() {
               </div>
 
               <div className=" h-12 md:h-[180px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
-                <img src="/logo-icon-white.png" alt="logo-icon-white" className="max-h-8 max-w-8 md:w-16 md:h-16" />
+                <img src="/logo-icon-white.png" alt="logo-icon-white" className="max-h-16 max-w-16 md:w-16 md:h-16" />
               </div>
             </div>
           </div>
