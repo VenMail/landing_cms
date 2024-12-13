@@ -142,7 +142,7 @@ export default function Example() {
           </div>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Button className="border-[1px] border-black rounded-md px-3 py-1 mr-3">
+            <Button className="border-[1px] border-black text-black rounded-md px-3 py-1 mr-3">
               Login
             </Button>
             <Button className="bg-primary-600 text-white fw-bold rounded-md px-3 py-2">

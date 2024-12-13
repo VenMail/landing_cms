@@ -10,7 +10,7 @@ const onest = Onest({
 
 export default function MainLayout({ children }) {
   return (
-    <div className={`flex flex-col min-h-screen ${onest.variable} font-[family-name:var(--font-onest)]`}>
+    <div className={`bg-white flex flex-col min-h-screen ${onest.variable} font-[family-name:var(--font-onest)]`}>
       <Header />
       <main className="flex-grow md:pt-16 pt-8">
         {children}
