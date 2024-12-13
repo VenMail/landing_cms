@@ -43,7 +43,7 @@ export default function Footer() {
 
   return (
     <>
-      <section className=" py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="bg-primary-500 grid grid-cols-1 md:grid-cols-12 py-5 px-8 items-center gap-8 md:gap-0">
           <div className="md:col-span-5 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl text-white leading-tight md:leading-[56px] mb-3 md:mb-5">
@@ -62,8 +62,8 @@ export default function Footer() {
           </div>
         </div>
       </section>
-      <footer className="bg-background border-black/[.1] ">
-        <p className="md:text-[350px] text-8xl text-center leading-none md:my-32 my-24">
+      <footer className="bg-white border-black/[.1] ">
+        <p className="md:text-[350px] text-8xl text-center text-black leading-none md:my-32 my-24">
           Venmail
         </p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

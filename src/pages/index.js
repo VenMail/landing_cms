@@ -137,7 +137,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-white  py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <h2 className="text-xl md:text-7xl md:leading-[75px]">
+        <h2 className="text-xl md:text-7xl text-dark md:leading-[75px]">
           Our software suite empowers both small businesses and enterprises,
           unlocking opportunities and driving growth regardless of challenges
         </h2>
