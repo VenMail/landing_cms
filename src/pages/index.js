@@ -4,6 +4,7 @@ import { RxEnvelopeClosed } from "react-icons/rx";
 import { GoCalendar } from "react-icons/go";
 import { GoDeviceCameraVideo } from "react-icons/go";
 import { LuUserPlus } from "react-icons/lu";
+import CompareSlider from "@/components/PageSections/CompareSlider";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("rewrite");
@@ -12,47 +13,41 @@ export default function Home() {
   const handleTabClick = (tabName) => {
     setActiveTab(tabName);
     buttonRefs.current[tabName]?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center'
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
     });
   };
 
   const tabContent = {
     rewrite: {
       title: "AI Rewrite",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Write better emails, faster, with AI-powered rewrites.",
       image: "/home/section-4a.png",
     },
     prospects: {
       title: "Generate Prospects",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Find and connect with the right leads instantly.",
       image: "/home/section-4b.png",
     },
     schedule_meetings: {
       title: "Schedule Meetings",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Book meetings effortlessly, straight from your inbox.",
       image: "/home/section-4c.png",
     },
     summary: {
       title: "Instant EmailSummary",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Get the gist of long emails in seconds with AI summaries.",
       image: "/home/section-4d.png",
     },
     analytics: {
       title: "Mail Analytics",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Track email performance and gain actionable insights.",
       image: "/home/section-4e.png",
     },
     spam: {
       title: "Spam Detection",
-      description:
-        "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      description: "Eliminate spam and phishing with advanced AI filters.",
       image: "/home/section-4f.png",
     },
   };
@@ -63,11 +58,11 @@ export default function Home() {
         <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-7 text-center md:text-start">
             <h1 className="max-w-3xl mb-4 text-3xl md:text-7xl font-medium tracking-tight md:leading-[96px] text-black">
-              AI Powered <br /> Email Experience
-            </h1> 
-            <p className="max-w-lg mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
-              Venmail provides small business and enterprise with the tools to
-              grow.
+              Smarter Email. <br /> Lower Costs. <br /> Higher Productivity.
+            </h1>
+            <p className="max-w-lg mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
+              Venmail delivers secure, AI-powered email that keeps you organized
+              and drives your business growth. 
             </p>
             <a
               href="#"
@@ -77,9 +72,9 @@ export default function Home() {
             </a>
             <a
               href="#"
-              className="md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+              className="md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
-              Get started
+              Get started for Free
             </a>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex">
@@ -89,9 +84,9 @@ export default function Home() {
       </section>
       <section className="bg-white ">
         <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-          <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+          <div className="mx-auto max-w-screen text-center mb-8 lg:mb-16">
             <h2 className="mb-4 text-2xl md:text-3xl tracking-tight font-medium text-gray-900 ">
-              Better together. Venmail everything in one.
+              Better together. Venmail is all your favourite tools in one.
             </h2>
           </div>
           <div className="relative overflow-x-auto">
@@ -102,35 +97,35 @@ export default function Home() {
 
             <div className="grid grid-cols-5 gap-2 md:gap-8 relative ">
               <div
-                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <RxEnvelopeClosed className="md:w-16 md:h-16 text-primary-600" />
+                <RxEnvelopeClosed className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <GoCalendar className="md:w-16 md:h-16 text-primary-600" />
+                <GoCalendar className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <GoDeviceCameraVideo className="md:w-16 md:h-16 text-primary-600" />
+                <GoDeviceCameraVideo className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className=" h-12 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
-                <LuUserPlus className="md:w-16 md:h-16 text-primary-600" />
+                <LuUserPlus className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
-              <div className=" h-12 md:h-[180px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
-                <img src="/logo-icon-white.png" alt="logo-icon-white" className="max-h-16 max-w-16 md:w-16 md:h-16" />
+              <div className="h-20 md:h-[180px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
+                <img src="/logo-icon-white.png" alt="logo-icon-white" className="h-8 w-8 md:w-16 md:h-16" />
               </div>
             </div>
           </div>
@@ -138,8 +133,8 @@ export default function Home() {
       </section>
       <section className="bg-white  py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <h2 className="text-xl md:text-7xl text-black md:leading-[75px]">
-          Our software suite empowers both small businesses and enterprises,
-          unlocking opportunities and driving growth regardless of challenges
+          Email has evolved. It is where business happens. Venmail makes it
+          smarter, safer, and seamless. For less.
         </h2>
       </section>
       <section className="bg-white  py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
@@ -150,11 +145,12 @@ export default function Home() {
                 {Object.entries(tabContent).map(([key, _]) => (
                   <button
                     key={key}
-                    ref={(el) => buttonRefs.current[key] = el}
-                    className={`whitespace-nowrap text-sm text-left py-4 lg:border-b-2 ${activeTab === key
-                      ? "border-b-2 border-primary-600 text-gray-900 "
-                      : "border-transparent text-gray-500"
-                      } text-xl font-medium transition-colors`}
+                    ref={(el) => (buttonRefs.current[key] = el)}
+                    className={`whitespace-nowrap text-sm text-left py-4 lg:border-b-2 ${
+                      activeTab === key
+                        ? "border-b-2 border-primary-600 text-gray-900 "
+                        : "border-transparent text-gray-500"
+                    } text-xl font-medium transition-colors`}
                     onClick={() => handleTabClick(key)}
                   >
                     {_.title}
@@ -193,16 +189,18 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-white ">
-        <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+        <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-32 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 className="mb-4 text-2xl md:text-3xl tracking-tight font-medium text-gray-900 ">
-             Choose a better <span className="text-primary-500">Email Experience</span>
+            <h2 className="mb-4 text-2xl md:text-6xl tracking-tight font-medium text-gray-900 ">
+              Choose a better <br />{" "}
+              <span className="text-primary-500">Email Experience</span>
             </h2>
           </div>
-          <img className="" src="/home/section-6.png" />
+          <div className="rounded-3xl shadow-md md:h-[750px]">
+            <CompareSlider />
+          </div>
         </div>
       </section>
-      
     </>
   );
 }
