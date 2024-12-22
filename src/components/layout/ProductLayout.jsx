@@ -6,12 +6,14 @@ import { BsListUl } from "react-icons/bs";
 import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import Pricing from "../PageSections/Pricing";
+import FAQs from "../PageSections/FAQs";
 
 export default function ProductLayout({ children }) {
   return (
     <>
       {children}
       <Pricing />
+      <FAQs />
     </>
   );
 }

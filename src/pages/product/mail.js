@@ -6,6 +6,7 @@ import { BsListUl } from "react-icons/bs";
 import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
+import { RxEnvelopeClosed } from "react-icons/rx";
 
 export default function Mail() {
   const features = [
@@ -14,7 +15,7 @@ export default function Mail() {
         <HiOutlineBolt className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Personalise your Email Tune",
-      text: "Craft email.s that resonate, connect, and drive results with Personalise your Email Tune.",
+      text: "Craft emails that resonate, connect, and drive results with Personalise your Email Tune.",
     },
     {
       icon: (
@@ -34,13 +35,13 @@ export default function Mail() {
     {
       subheading: "AI Email Rewrites",
       title: "Personalise Your Email Tune",
-      description: "Description for box 1. Add your content here.",
+      description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
       image: "/product/feature-1.png",
     },
     {
       subheading: "Auto Task Extraction",
       title: "Ready Made Task Powered by AI",
-      description: "Description for box 2. Add your content here.",
+      description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
       image: "/product/feature-2.png",
     },
     {
@@ -62,7 +63,7 @@ export default function Mail() {
   return (
     <ProductLayout>
       <ProductHero
-        subheading={"MAIL"}
+        subheading={<RxEnvelopeClosed className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
         title={"Start leveraging AI automation"}
         description={
           "Our cutting-edge AI-powered email automation tool is designed to save you time and eliminate manual tasks."
@@ -78,8 +79,8 @@ export default function Mail() {
             {features.map((feature) => (
               <div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="mb-2 text-xl">{feature.title}</h3>
-                <p className="text-gray-500 ">
+                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
+                <p className="text-gray-400 ">
                   {feature.text}
                 </p>
               </div>
@@ -98,6 +99,7 @@ export default function Mail() {
                 title={box.title}
                 description={box.description}
                 image={box.image}
+                count={boxes.length}
               />
             ))}
           </div>

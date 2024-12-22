@@ -45,23 +45,23 @@ export default function Footer() {
   return (
     <>
       <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div className="bg-primary-600 grid grid-cols-1 md:grid-cols-12 py-5 px-8 md:py-20 md:px-12 items-center gap-8 md:gap-0">
-          <div className="md:col-span-5 text-center md:text-left">
-            <h2 className="text-2xl md:text-4xl font-medium text-white leading-tight md:leading-[48px] mb-3 md:mb-5">
-              Spam Stops Here. <br /> Smarter Detections, <br /> Zero
-              Distractions.
+        <div className="bg-primary-500 grid grid-cols-1 md:grid-cols-12 py-5 px-8 md:py-20 md:px-12 items-center gap-8 md:gap-0">
+          <div className="md:col-span-6 text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight md:leading-[48px] mb-3 md:mb-5">
+              Help us understand <br /> your Goal
             </h2>
-            <p className="text-white text-sm md:text-base leading-6">
-              Venmail doesn't just filter spam. It transforms your inbox into a
-              focused, secure, and actionable workspace. AI That Learns. Zero
-              False Positives. Real-Time Protection.
+            <p className="text-white text-sm md:text-base leading-6 max-w-md py-5">
+              Tell us about your business and we'll get you to the right place.
             </p>
+            <a
+                href="#"
+                className="block md:inline-flex items-center justify-center px-12 py-4 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300 rounded-sm"
+              >
+                Contact Us
+              </a>
           </div>
-          <div className="md:col-span-7">
-            <div className="flex md:gap-4 items-center md:justify-end">
-              <img src="/home/section-7a.svg" className="w-1/2 md:w-auto" />
-              <img src="/home/section-7b.svg" className="w-1/2 md:w-auto" />
-            </div>
+          <div className="md:col-span-6">
+            <img src="/home/section-7.png" className="" />
           </div>
         </div>
       </section>

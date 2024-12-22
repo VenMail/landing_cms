@@ -6,69 +6,71 @@ import { BsListUl } from "react-icons/bs";
 import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
+import { VideoCameraIcon, ClockIcon, LinkIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+
 
 export default function Mail() {
   const features = [
     {
       icon: (
-        <HiOutlineBolt className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+        <ClockIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Personalise your Email Tune",
-      text: "Craft email.s that resonate, connect, and drive results with Personalise your Email Tune.",
+      title: "Set Availability",
+      text: "Scheduling takes care of the details—focus on what matters most.",
     },
     {
       icon: (
-        <LuFileMinus className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+        <LinkIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Ready Made Task Powered by AI",
-      text: "Let the technology do the heavy lifting so you can focus on what truly matters",
+      title: "Shareable Link",
+      text: "Let your links do the heavy lifting share effortlessly, and stay connected with ease.",
     },
     {
-      icon: <BsListUl className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Stay Ahead, Never Miss a Key Detail",
-      text: "Save time, boost productivity, and never miss an important insight again.",
+      icon: <LockClosedIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
+      title: "Secured Meeting",
+      text: "Let security take care of the details enjoy stress-free, protected meetings.",
     },
   ];
 
   const boxes = [
     {
       subheading: "AI Email Rewrites",
-      title: "Personalise Your Email Tune",
-      description: "Description for box 1. Add your content here.",
-      image: "/product/feature-1.png",
+      title: "Share Links, Simplify Access",
+      description: "Effortlessly generate and share links to keep everyone connected and on the same page.",
+      image: "/product/meeting/meeting-feat-1.png",
     },
     {
       subheading: "Auto Task Extraction",
-      title: "Ready Made Task Powered by AI",
-      description: "Description for box 2. Add your content here.",
-      image: "/product/feature-2.png",
+      title: "Effortless Scheduling Made Easy",
+      description: "Streamline your scheduling process and plan meetings quickly and efficiently your way, every time.",
+      image: "/product/meeting/meeting-feat-2.png",
     },
     {
       subheading: "instant ai summaries",
-      title: "Stay Ahead, Never Miss a Key Detail",
+      title: "Safeguard Your Inbox, Anytime, Anywheres",
       description:
-        "Save time, boost productivity, and never miss an important insight again. Stay informed with less effort and more clarity.",
-      image: "/product/feature-3.png",
-    },
+        "Protect your inbox with reliable security, ensuring peace of mind and easy access anytime, anywhere.",
+        image: "/product/meeting/meeting-feat-3.png",
+      },
     {
       subheading: "spam detection",
-      title: "Identify and Prevent Suspicious Activity Before It Happens",
+      title: "Control Your Schedule with Ease",
       description:
-        "Protect your platform and users from unwanted disruptions with our advanced spam detection system.",
-      image: "/product/feature-4.png",
-    },
+        "Manage your time efficiently and stay in control set your availability with ease.",
+        image: "/product/meeting/meeting-feat-4.png",
+      },
   ];
 
   return (
     <ProductLayout>
       <ProductHero
-        subheading={"MAIL"}
-        title={"Start leveraging AI automation"}
+        subheading={<VideoCameraIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
+        title={"Transform Meetings into Results in Record Time"}
         description={
-          "Our cutting-edge AI-powered email automation tool is designed to save you time and eliminate manual tasks."
+          "Effortless scheduling and collaboration to make every meeting meaningful."
         }
-        image={"/product/mail.png"}
-        button1Text={"Get Mail"}
+        image={"/product/meetings.png"}
+        button1Text={"Schedule Meeting"}
         button2Text={"Compare Pricing"}
       />
 
@@ -78,8 +80,8 @@ export default function Mail() {
             {features.map((feature) => (
               <div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="mb-2 text-xl">{feature.title}</h3>
-                <p className="text-gray-500 ">
+                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
+                <p className="text-gray-400 ">
                   {feature.text}
                 </p>
               </div>
@@ -98,6 +100,7 @@ export default function Mail() {
                 title={box.title}
                 description={box.description}
                 image={box.image}
+                count={boxes.length}
               />
             ))}
           </div>

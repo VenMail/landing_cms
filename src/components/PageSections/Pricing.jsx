@@ -82,6 +82,7 @@ export default function Pricing() {
           <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
             Find the perfect plan for you
           </p>
+          
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-6 sm:mt-20 md:grid-cols-3">
           {pricingPlans.map((tier, tierIdx) => (
@@ -94,8 +95,8 @@ export default function Pricing() {
                   : "h-full"
               )}
             >
-              <div className={tierIdx === 3 ? "space-y-6" : ""}>
-                <h3 id={tier.id} className="text-base/7 font-semibold">
+              <div className={tierIdx === 3 ? "space-y-3" : ""}>
+                <h3 id={tier.id} className="text-base/7 font-semibold text-black uppercase">
                   {tier.name}
                 </h3>
                 <p className="mt-4 flex items-baseline gap-x-2">
@@ -116,10 +117,10 @@ export default function Pricing() {
                     /month
                   </span>
                 </p>
-                <p className="text-gray-600 mt-6 text-base/7">
+                <p className="text-black mt-6 text-base/7">
                   {tier.description1}
                 </p>
-                <p className="text-gray-600 mt-2 text-base/7">
+                <p className="text-black text-base/7">
                   {tier.description2}
                 </p>
               </div>
@@ -129,7 +130,7 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="border border-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
+                    className="border border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
                     Get started today
                   </a>
@@ -154,9 +155,9 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="border border-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
+                    className="border border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
-                    Get started today
+                    Contact sales
                   </a>
                 )}
               </div>

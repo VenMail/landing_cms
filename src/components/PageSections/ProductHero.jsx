@@ -8,9 +8,9 @@ export default function ProductHero({subheading, title, description, button1Text
   return (
     <section className="bg-white ">
       <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
-        <div className="mr-auto place-self-center md:col-span-7 text-center md:text-start">
+        <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
           <p className="mb-8 text-sm">{subheading}</p>
-          <h1 className="max-w-xl mb-4 text-black text-3xl md:text-7xl font-medium tracking-tight md:leading-[96px]">
+          <h1 className="max-w-2xl mb-4 text-black text-3xl md:text-6xl font-medium tracking-tight md:leading-[96px]">
             {title}
           </h1>
           <p className="max-w-lg mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
@@ -29,7 +29,7 @@ export default function ProductHero({subheading, title, description, button1Text
             {button2Text}
           </a>
         </div>
-        <div className="lg:mt-0 lg:col-span-5 lg:flex">
+        <div className="lg:mt-0 lg:col-span-6 lg:flex">
           <img src={image} alt="mockup" />
         </div>
       </div>

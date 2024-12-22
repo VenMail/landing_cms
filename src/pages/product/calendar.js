@@ -6,66 +6,53 @@ import { BsListUl } from "react-icons/bs";
 import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
+import { CalendarIcon, Square3Stack3DIcon, BellIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
 
 export default function Mail() {
   const features = [
     {
       icon: (
-        <HiOutlineBolt className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+        <Square3Stack3DIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Personalise your Email Tune",
-      text: "Craft email.s that resonate, connect, and drive results with Personalise your Email Tune.",
+      title: "Easily manage your schedule",
+      text: "Take control of your time manage your schedule with ease.",
     },
     {
       icon: (
-        <LuFileMinus className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+        <BellIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Ready Made Task Powered by AI",
-      text: "Let the technology do the heavy lifting so you can focus on what truly matters",
+      title: "Multiple Reminders",
+      text: "Stay on top of your tasks set multiple reminders and never miss a beat.",
     },
     {
-      icon: <BsListUl className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Stay Ahead, Never Miss a Key Detail",
-      text: "Save time, boost productivity, and never miss an important insight again.",
+      icon: <Squares2X2Icon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
+      title: "Organize your time effectively",
+      text: "Organize your time effectively and stay on top of your tasks achieve more and meet your goals with ease.",
     },
   ];
 
   const boxes = [
     {
-      subheading: "AI Email Rewrites",
-      title: "Personalise Your Email Tune",
-      description: "Description for box 1. Add your content here.",
-      image: "/product/feature-1.png",
+      subheading: "Organize meetings",
+      title: "Easily view your schedule",
+      description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      image: "/product/calendar/feature-1.png",
     },
     {
-      subheading: "Auto Task Extraction",
-      title: "Ready Made Task Powered by AI",
-      description: "Description for box 2. Add your content here.",
-      image: "/product/feature-2.png",
-    },
-    {
-      subheading: "instant ai summaries",
-      title: "Stay Ahead, Never Miss a Key Detail",
-      description:
-        "Save time, boost productivity, and never miss an important insight again. Stay informed with less effort and more clarity.",
-      image: "/product/feature-3.png",
-    },
-    {
-      subheading: "spam detection",
-      title: "Identify and Prevent Suspicious Activity Before It Happens",
-      description:
-        "Protect your platform and users from unwanted disruptions with our advanced spam detection system.",
-      image: "/product/feature-4.png",
+      subheading: "create events",
+      title: "Schedule an event on the calendar.",
+      description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
+      image: "/product/calendar/feature-2.png",
     },
   ];
 
   return (
     <ProductLayout>
       <ProductHero
-        subheading={"CALENDAR"}
-        title={"Perform better with data-driven insights"}
+        subheading={<CalendarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
+        title={"Personalized Calendar, Stay Organized and On Track"}
         description={
-          "Our cutting-edge AI-powered email automation tool is designed to save you time and eliminate manual tasks."
+          "Plan your days with ease, stay organized, and keep on track everything you need in one personalized calendar"
         }
         image={"/product/calendar.png"}
         button1Text={"Schedule Event"}
@@ -78,8 +65,8 @@ export default function Mail() {
             {features.map((feature) => (
               <div>
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="mb-2 text-xl">{feature.title}</h3>
-                <p className="text-gray-500 ">
+                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
+                <p className="text-gray-400 ">
                   {feature.text}
                 </p>
               </div>
@@ -98,6 +85,7 @@ export default function Mail() {
                 title={box.title}
                 description={box.description}
                 image={box.image}
+                count={boxes.length}
               />
             ))}
           </div>
