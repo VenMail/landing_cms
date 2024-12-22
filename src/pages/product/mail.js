@@ -36,27 +36,27 @@ export default function Mail() {
       subheading: "AI Email Rewrites",
       title: "Personalise Your Email Tune",
       description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
-      image: "/product/feature-1.png",
+      image: "/product/mail/feature-1.png",
     },
     {
       subheading: "Auto Task Extraction",
       title: "Ready Made Task Powered by AI",
       description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
-      image: "/product/feature-2.png",
+      image: "/product/mail/feature-2.png",
     },
     {
       subheading: "instant ai summaries",
       title: "Stay Ahead, Never Miss a Key Detail",
       description:
         "Save time, boost productivity, and never miss an important insight again. Stay informed with less effort and more clarity.",
-      image: "/product/feature-3.png",
+      image: "/product/mail/feature-3.png",
     },
     {
       subheading: "spam detection",
       title: "Identify and Prevent Suspicious Activity Before It Happens",
       description:
         "Protect your platform and users from unwanted disruptions with our advanced spam detection system.",
-      image: "/product/feature-4.png",
+      image: "/product/mail/feature-4.png",
     },
   ];
 
