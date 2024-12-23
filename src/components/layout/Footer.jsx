@@ -127,10 +127,10 @@ export default function Footer() {
           <div className="mt-6 pt-8 border-t border-gray-200 ">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="flex space-x-6 mb-4 md:mb-0">
-                <a href="/cms/terms-of-use" className="text-black text-sm">
+                <a href="/resources/terms-of-use" className="text-black text-sm">
                   Terms of Use
                 </a>
-                <a href="/cms/privacy-policy" className="text-black text-sm">
+                <a href="/resources/privacy-policy" className="text-black text-sm">
                   Privacy Policy
                 </a>
                 <a href="#" className="text-black text-sm">
