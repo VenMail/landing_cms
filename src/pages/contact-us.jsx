@@ -10,7 +10,7 @@ function PrivacyPolicy() {
             <h1 className="mb-4 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
               Contact Us
             </h1>
-            <p className="text-black">
+            <p className="text-black text-2xl">
               Our sales and support teams are more than happy to answer your
               questions and discuss our products and integrations. Send us a
               message, and we will get back to you as soon as possible. For
