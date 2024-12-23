@@ -29,8 +29,8 @@ export default function Footer() {
       title: "Resources",
       links: [
         { label: "Contact Us", href: "/resources/contact-us" },
-        { label: "About", href: "/resources/about" },
-        { label: "Career", href: "/resources/career" },
+        { label: "About", href: "/about" },
+        { label: "Career", href: "/career" },
         { label: "Join Our Community", href: "/resources/community" },
         { label: "Terms of Service", href: "/resources/terms-of-service" },
         {
@@ -125,12 +125,12 @@ export default function Footer() {
 
           {/* Bottom Section */}
           <div className="mt-6 pt-8 border-t border-gray-200 ">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex space-x-6 mb-4 md:mb-0">
-                <a href="/resources/terms-of-service" className="text-black text-sm">
+            <div className="flex flex-col md:flex-row justify-start md:justify-between md:items-center">
+              <div className="flex flex-wrap mb-4 md:mb-0">
+                <a href="/resources/terms-of-service" className="text-black text-sm mr-4 mb-4">
                   Terms of Service
                 </a>
-                <a href="/resources/privacy-policy" className="text-black text-sm">
+                <a href="/resources/privacy-policy" className="text-black text-sm mr-4 mb-4">
                   Privacy Policy
                 </a>
                 <a href="#" className="text-black text-sm">
@@ -140,7 +140,7 @@ export default function Footer() {
               {/* <p className="text-sm text-gray-600 ">
                 © {currentYear} Venmail Management Inc.
               </p> */}
-              <div className="flex space-x-6 mb-4 md:mb-0">
+              <div className="flex flex-row space-x-6 mb-4 md:mb-0">
                 <a
                   href="#"
                   className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center"

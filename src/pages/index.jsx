@@ -5,6 +5,7 @@ import { GoCalendar } from "react-icons/go";
 import { GoDeviceCameraVideo } from "react-icons/go";
 import { LuUserPlus } from "react-icons/lu";
 import CompareSlider from "@/components/PageSections/CompareSlider";
+import DefaultLayout from "@/components/layout/DefaultLayout";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("rewrite");
@@ -53,7 +54,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <DefaultLayout>
       <section className="bg-white ">
         <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-7 text-center md:text-start">
@@ -201,6 +202,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </DefaultLayout>
   );
 }

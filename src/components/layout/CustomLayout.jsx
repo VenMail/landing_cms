@@ -8,12 +8,12 @@ const onest = Onest({
   subsets: ["latin"],
 });
 
-export default function MainLayout({ children }) {
+export default function CustomLayout({ children, logoVariant, headerColor }) {
   return (
-    <div
-      className={`bg-white flex flex-col min-h-screen ${onest.variable} font-[family-name:var(--font-onest)]`}
-    >
-      {children}
-    </div>
+    <>
+      <Header logoVariant={logoVariant} bgColor={headerColor} />
+      <main className="flex-grow">{children}</main>
+      <Footer />
+    </>
   );
 }

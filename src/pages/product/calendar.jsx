@@ -7,7 +7,7 @@ import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
 import { CalendarIcon, Square3Stack3DIcon, BellIcon, Squares2X2Icon } from "@heroicons/react/24/outline";
-
+import DefaultLayout from "@/components/layout/DefaultLayout";
 export default function Mail() {
   const features = [
     {

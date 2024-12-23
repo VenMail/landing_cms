@@ -63,19 +63,19 @@ const products = [
 const solutions = [
   {
     name: "Founders",
-    href: "/solutions/founders"
+    href: "/solutions/founders",
   },
   {
     name: "Marketing",
-    href: "/solutions/marketing"
+    href: "/solutions/marketing",
   },
   {
     name: "Agency",
-    href: "/solutions/agency"
+    href: "/solutions/agency",
   },
   {
     name: "Freelancers",
-    href: "/solutions/freelancers"
+    href: "/solutions/freelancers",
   },
 ];
 
@@ -119,11 +119,14 @@ const callsToAction = [
   { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
-export default function Header() {
+export default function Header({ logoVariant, bgColor = "#FFF" }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const logoIsDark = () => {
+    return logoVariant === "dark";
+  };
 
   return (
-    <header className="bg-white relative z-50">
+    <header className={`relative z-50 bg-[${bgColor}]`}>
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6"
@@ -131,12 +134,22 @@ export default function Header() {
         <div className="flex lg:flex-1 items-center">
           <a href="/" className="p-1.5">
             <span className="sr-only">Your Company</span>
-            <img alt="" src="/logo-text.png" className="h-8 mg:h-auto w-auto" />
+            <img
+              alt=""
+              src={
+                logoVariant === "dark" ? "/logo-text.png" : "/logo-white.png"
+              }
+              className="h-6 md:h-auto w-auto"
+            />
           </a>
           <div className="hidden lg:flex lg:gap-x-12 ml-10 pt-2">
             <NavMenu
               trigger={
-                <button className="flex items-center gap-x-1 text-sm/6 font-medium text-gray-900">
+                <button
+                  className={`flex items-center gap-x-1 text-sm/6 font-medium text-${
+                    logoIsDark ? "white" : "black"
+                  }`}
+                >
                   Products
                   <ChevronDownIcon
                     className="h-5 w-5 flex-none text-gray-400"
@@ -211,7 +224,11 @@ export default function Header() {
 
             <NavMenu
               trigger={
-                <button className="flex items-center gap-x-1 text-sm/6 font-medium text-gray-900">
+                <button
+                  className={`flex items-center gap-x-1 text-sm/6 font-medium text-${
+                    logoIsDark ? "white" : "black"
+                  }`}
+                >
                   Solutions
                   <ChevronDownIcon
                     className="h-5 w-5 flex-none text-gray-400"
@@ -240,7 +257,11 @@ export default function Header() {
 
             <NavMenu
               trigger={
-                <button className="flex items-center gap-x-1 text-sm/6 font-medium text-gray-900">
+                <button
+                  className={`flex items-center gap-x-1 text-sm/6 font-medium text-${
+                    logoIsDark ? "white" : "black"
+                  }`}
+                >
                   Resources
                 </button>
               }
@@ -287,7 +308,9 @@ export default function Header() {
 
             <a
               href="#"
-              className="text-sm/6 font-medium text-gray-900 hover:border-b-2 hover:border-primary-600"
+              className={`text-sm/6 font-medium text-${
+                logoIsDark ? "white" : "black"
+              } hover:border-b-2 hover:border-primary-600`}
             >
               Pricing
             </a>
@@ -305,7 +328,11 @@ export default function Header() {
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button className="border-[1px] border-black text-black rounded-sm px-3 py-1 mr-3">
+          <Button
+            className={`border-[1px] border-${
+              logoIsDark ? "white" : "black"
+            } text-${logoIsDark ? "white" : "black"} rounded-sm px-3 py-1 mr-3`}
+          >
             Login
           </Button>
           <Button className="bg-primary-600 text-white fw-bold rounded-sm px-3 py-2">
@@ -338,7 +365,11 @@ export default function Header() {
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
+                  <DisclosureButton
+                    className={`group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-${
+                      logoIsDark ? "white" : "black"
+                    } hover:bg-gray-50`}
+                  >
                     Product
                     <ChevronDownIcon
                       aria-hidden="true"
@@ -354,7 +385,7 @@ export default function Header() {
                         className="flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50 font-medium"
                       >
                         <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-primary-100 mr-3">
-                          <item.icon className="h-6 w-6 text-[#1C323B]" /> 
+                          <item.icon className="h-6 w-6 text-[#1C323B]" />
                         </div>
                         {item.name}
                       </DisclosureButton>

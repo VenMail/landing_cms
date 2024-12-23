@@ -7,13 +7,13 @@ import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import Pricing from "../PageSections/Pricing";
 import FAQs from "../PageSections/FAQs";
-
+import DefaultLayout from "./DefaultLayout";
 export default function ProductLayout({ children }) {
   return (
-    <>
+    <DefaultLayout>
       {children}
       <Pricing />
       <FAQs />
-    </>
+    </DefaultLayout>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-
+import DefaultLayout from "@/components/layout/DefaultLayout";
 const data = {
   termsVersion: "1.0",
   lastUpdated: "2024-12-23",
@@ -188,42 +188,44 @@ const data = {
 
 function PrivacyPolicy() {
   return (
-    <section className="bg-white ">
-      <div className="max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0">
-        <h1 className="mb-4 py-14 md:py-20 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
-          Terms of Service
-        </h1>
-        {data.sections.map((section) => (
-          <div key={section.id} className="mb-8">
-            <h2 className="text-black text-xl md:text-3xl font-medium mb-5">
-              {section.id} {section.title}
-            </h2>
-            {section.content.map((item, index) => {
-              if (item.type === "paragraph") {
-                return (
-                  <p key={index} className="text-black">
-                    {item.text}
-                  </p>
-                );
-              } else if (item.type === "list") {
-                return (
-                  <div className="pl-5">
-                    <ul key={index} className="list-disc">
-                      {item.items.map((listItem, listIndex) => (
-                        <li className="text-black" key={listIndex}>
-                          {listItem}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              }
-              return null; // Handle other content types if necessary
-            })}
-          </div>
-        ))}
-      </div>
-    </section>
+    <DefaultLayout>
+      <section className="bg-white ">
+        <div className="max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0">
+          <h1 className="mb-4 py-14 md:py-20 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
+            Terms of Service
+          </h1>
+          {data.sections.map((section) => (
+            <div key={section.id} className="mb-8">
+              <h2 className="text-black text-xl md:text-3xl font-medium mb-5">
+                {section.id} {section.title}
+              </h2>
+              {section.content.map((item, index) => {
+                if (item.type === "paragraph") {
+                  return (
+                    <p key={index} className="text-black">
+                      {item.text}
+                    </p>
+                  );
+                } else if (item.type === "list") {
+                  return (
+                    <div className="pl-5">
+                      <ul key={index} className="list-disc">
+                        {item.items.map((listItem, listIndex) => (
+                          <li className="text-black" key={listIndex}>
+                            {listItem}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                }
+                return null; // Handle other content types if necessary
+              })}
+            </div>
+          ))}
+        </div>
+      </section>
+    </DefaultLayout>
   );
 }
 

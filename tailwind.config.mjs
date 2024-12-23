@@ -20,6 +20,7 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
+          "50":"#FFEFEB",
           "100": "#fff7ed",
           "200": "#ffedd5",
           "300": "#fed7aa",
