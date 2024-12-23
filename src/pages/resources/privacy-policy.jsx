@@ -128,12 +128,12 @@ function PrivacyPolicy() {
   return (
     <section className="bg-white ">
       <div className="max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0">
-        <h1 className="mb-4 py-20 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
+        <h1 className="mb-4 py-14 md:py-20 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
           Privacy Policy
         </h1>
         {data.sections.map((section) => (
           <div key={section.id} className="mb-8">
-            <h2 className="text-black text-3xl font-medium mb-5">
+            <h2 className="text-black text-xl md:text-3xl font-medium mb-5">
               {section.id} {section.title}
             </h2>
             {section.content.map((item, index) => {

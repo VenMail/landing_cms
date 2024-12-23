@@ -62,26 +62,20 @@ const products = [
 
 const solutions = [
   {
-    name: "Department",
-    children: [
-      "Sales",
-      "Founders",
-      "Marketing",
-      "Engineering",
-      "Security",
-      "Human Resources",
-    ],
+    name: "Founders",
+    href: "/solutions/founders"
   },
   {
-    name: "Industry",
-    children: [
-      "Small Business",
-      "Agency",
-      "Freelancers",
-      "Market Research",
-      "IT and Operations",
-      "Real Estate",
-    ],
+    name: "Marketing",
+    href: "/solutions/marketing"
+  },
+  {
+    name: "Agency",
+    href: "/solutions/agency"
+  },
+  {
+    name: "Freelancers",
+    href: "/solutions/freelancers"
   },
 ];
 
@@ -99,12 +93,8 @@ const resources = [
     href: "#",
   },
   {
-    name: "Join our community",
-    href: "#",
-  },
-  {
-    name: "Terms of use",
-    href: "#",
+    name: "Terms of Service",
+    href: "/resources/terms-of-service",
   },
   {
     name: "FAQs",
@@ -116,10 +106,6 @@ const resources = [
   },
   {
     name: "Product Tour",
-    href: "#",
-  },
-  {
-    name: "What's New",
     href: "#",
   },
   {
@@ -143,7 +129,7 @@ export default function Header() {
         className="mx-auto flex max-w-7xl items-center justify-between p-6"
       >
         <div className="flex lg:flex-1 items-center">
-          <a href="#" className="p-1.5">
+          <a href="/" className="p-1.5">
             <span className="sr-only">Your Company</span>
             <img alt="" src="/logo-text.png" className="h-8 mg:h-auto w-auto" />
           </a>
@@ -235,24 +221,20 @@ export default function Header() {
               }
             >
               <div className="grid grid-cols-3 gap-8">
-              {solutions.map((item) => (
-  <div key={item.name}>
-    <a
-      href={item.href}
-      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
-    >
-      <div className="flex-auto">
-        <span className="block font-semibold text-[#1C323B] uppercase">
-          {item.name}
-        </span>
-        {item.children.map((c, index) => (
-          <p key={index} className="py-3 text-black">{c}</p> 
-        ))}
-      </div>
-    </a>
-  </div>
-))}
-
+                {solutions.map((item) => (
+                  <div key={item.name}>
+                    <a
+                      href={item.href}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                    >
+                      <div className="flex-auto">
+                        <span className="block font-semibold text-[#1C323B] uppercase">
+                          {item.name}
+                        </span>
+                      </div>
+                    </a>
+                  </div>
+                ))}
               </div>
             </NavMenu>
 
@@ -364,13 +346,16 @@ export default function Header() {
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
+                    {products.map((item) => (
                       <DisclosureButton
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
+                        className="flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50 font-medium"
                       >
+                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-primary-100 mr-3">
+                          <item.icon className="h-6 w-6 text-[#1C323B]" /> 
+                        </div>
                         {item.name}
                       </DisclosureButton>
                     ))}
@@ -385,7 +370,7 @@ export default function Header() {
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {/* {[...products, ...callsToAction].map((item) => (
+                    {solutions.map((item) => (
                       <DisclosureButton
                         key={item.name}
                         as="a"
@@ -394,7 +379,7 @@ export default function Header() {
                       >
                         {item.name}
                       </DisclosureButton>
-                    ))} */}
+                    ))}
                   </DisclosurePanel>
                 </Disclosure>
                 <Disclosure as="div" className="-mx-3">
@@ -419,7 +404,7 @@ export default function Header() {
                   </DisclosurePanel>
                 </Disclosure>
                 <a
-                  href="#"
+                  href="/pricing"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Pricing
