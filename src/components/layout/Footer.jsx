@@ -32,7 +32,7 @@ export default function Footer() {
         { label: "About", href: "/resources/about" },
         { label: "Career", href: "/resources/career" },
         { label: "Join Our Community", href: "/resources/community" },
-        { label: "Terms of use", href: "/resources/terms-of-use" },
+        { label: "Terms of Service", href: "/resources/terms-of-service" },
         {
           label: "Download desktop app",
           href: "/resources/download-desktop-app",
@@ -127,8 +127,8 @@ export default function Footer() {
           <div className="mt-6 pt-8 border-t border-gray-200 ">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="flex space-x-6 mb-4 md:mb-0">
-                <a href="/resources/terms-of-use" className="text-black text-sm">
-                  Terms of Use
+                <a href="/resources/terms-of-service" className="text-black text-sm">
+                  Terms of Service
                 </a>
                 <a href="/resources/privacy-policy" className="text-black text-sm">
                   Privacy Policy
