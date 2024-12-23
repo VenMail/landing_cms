@@ -30,7 +30,7 @@ export default function Partner() {
             <h1 className="max-w-3xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[72px] text-white">
               Earn Money as a Venmail Partner
             </h1>
-            <p className="max-w-lg mb-5">
+            <p className="max-w-lg mb-5 text-white">
               Say goodbye to the hassle of manual prospecting and let Venmail
               help you focus on what matters{" "}
             </p>
@@ -81,7 +81,7 @@ export default function Partner() {
       <section className="bg-white py-20 px-4 mx-auto max-w-screen-xl md:px-6">
         <div className="grid md:grid-cols-12 items-center">
           <div className="lg:mt-0 md:col-span-6 flex">
-            <img src="/partner/partner-1.png" alt="mockup" />
+            <img src="/partner/partner-2.png" alt="mockup" />
           </div>
           <div className="md:col-span-6 flex justify-end">
             <div className="max-w-md">
