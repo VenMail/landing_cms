@@ -53,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <CustomLayout logoVariant="light" headerColor="#16292F">
+    <CustomLayout logoVariant="light" headerColor="#16292F" textColor="white">
       <section className="bg-[#16292F]">
         <div className="grid max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0 py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-12 text-center md:text-start">
