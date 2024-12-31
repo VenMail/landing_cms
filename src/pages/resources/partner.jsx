@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CustomLayout from "@/components/layout/CustomLayout";
 import { FiUpload, FiUsers, FiUserCheck } from "react-icons/fi";
+import { HiArrowRight } from "react-icons/hi2";
 export default function Partner() {
   const features = [
     {
@@ -22,9 +23,9 @@ export default function Partner() {
     },
   ];
   return (
-    <CustomLayout logoVariant="light" headerColor="#16292F">
+    <CustomLayout logoVariant="light" headerColor="#16292F" textColor={"white"}>
       <section className="bg-[#16292F]">
-        <div className="grid max-w-screen-xl px-4 py-32 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
+        <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
             <p className="uppercase text-white mb-3">partner</p>
             <h1 className="max-w-3xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[72px] text-white">
@@ -53,7 +54,7 @@ export default function Partner() {
               <div>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
-                <p className="text-gray-400 ">{feature.text}</p>
+                <p className="text-[#637074]">{feature.text}</p>
               </div>
             ))}
           </div>
@@ -63,34 +64,36 @@ export default function Partner() {
         <div className="grid md:grid-cols-12 items-center">
           <div className="md:col-span-6">
             <div className="max-w-md">
-              <h2 className="text-xl font-medium md:text-5xl text-black md:leading-[56px] mb-5">
+              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
                 Receive your payout instantly
               </h2>
-              <p className="text-[#637074] text-base">
+              <p className="text-[#637074] text-base my-5">
                 Venmail harnesses the power of artificial intelligence to
                 streamline your workflows, save valuable time, and maximize
                 results.
               </p>
+              <a href="" className="text-primary-500 font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
             </div>
           </div>
           <div className="lg:mt-0 md:col-span-6 flex justify-end ">
-            <img src="/partner/partner-1.png" alt="mockup" />
+            <img src="/partner/partner-1.png" alt="mockup" className="mt-10 md:mt-0"/>
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-4 mx-auto max-w-screen-xl md:px-6">
+      <section className="bg-white py-10 px-4 mx-auto max-w-screen-xl md:px-6">
         <div className="grid md:grid-cols-12 items-center">
-          <div className="lg:mt-0 md:col-span-6 flex">
-            <img src="/partner/partner-2.png" alt="mockup" />
+          <div className="lg:mt-0 md:col-span-6 flex order-12 md:order-1">
+            <img src="/partner/partner-2.png" alt="mockup" className="mt-10 md:mt-0" />
           </div>
-          <div className="md:col-span-6 flex justify-end">
+          <div className="md:col-span-6 flex justify-end order-1 md:order-12">
             <div className="max-w-md">
-              <h2 className="text-xl font-medium md:text-5xl text-black md:leading-[56px] mb-5">
+              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
                 Manage customers and subscriptions
               </h2>
-              <p className="text-[#637074] text-base">
+              <p className="text-[#637074] text-base my-5">
               Venmail harnesses the power of artificial intelligence to streamline your workflows, save valuable time, and maximize results.
               </p>
+              <a href="" className="text-primary-500 font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
             </div>
           </div>
         </div>

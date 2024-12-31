@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
       </section>
       <footer className="bg-white border-black/[.1] ">
-        <p className="md:text-[350px] text-8xl text-center text-[#16292F] leading-none md:mt-14 md:mb-8">
+        <p className="md:text-[350px] text-8xl text-center text-[#16292F] leading-none md:mt-14 mb-8">
           Venmail
         </p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
