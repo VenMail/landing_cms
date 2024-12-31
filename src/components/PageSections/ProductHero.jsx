@@ -9,7 +9,7 @@ export default function ProductHero({subheading, title, description, button1Text
     <section className="bg-white ">
       <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
         <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
-          <p className="mb-8 text-sm">{subheading}</p>
+          <p className="mb-3 text-sm flex justify-center md:justify-start"><span>{subheading}</span></p>
           <h1 className="max-w-2xl mb-4 text-black text-3xl md:text-6xl font-medium tracking-tight md:leading-[96px]">
             {title}
           </h1>

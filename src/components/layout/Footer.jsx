@@ -66,13 +66,13 @@ export default function Footer() {
         </div>
       </section>
       <footer className="bg-white border-black/[.1] ">
-        <p className="md:text-[350px] text-8xl text-center text-[#16292F] leading-none md:my-36 my-24">
+        <p className="md:text-[350px] text-8xl text-center text-[#16292F] leading-none md:mt-14 md:mb-8">
           Venmail
         </p>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="grid grid-cols-12 gap-8">
             {/* Company Info */}
-            <div className="col-span-12 md:col-span-6">
+            <div className="col-span-12 md:col-span-6 hidden md:block">
               <div>
                 <h3 className="text-sm font-semibold mb-4 text-black">
                   Get Started
@@ -98,7 +98,30 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-6 grid grid-cols-3 gap-8">
+            <div className="col-span-12 md:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="md:hidden block">
+                <h3 className="text-sm font-semibold mb-4 text-black">
+                  Get Started
+                </h3>
+                <ul className="space-y-3">
+                  <li>
+                    <Link
+                      href=""
+                      className="text-sm text-black transition-colors"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href=""
+                      className="text-sm text-black transition-colors"
+                    >
+                      Sign In
+                    </Link>
+                  </li>
+                </ul>
+              </div>
               {/* Footer Sections */}
               {footerSections.map((section) => (
                 <div key={section.title}>

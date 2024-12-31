@@ -28,7 +28,7 @@ export default function CompareSlider(props) {
           src="/slider-1.png"
           alt="Image one"
           style={{
-            borderRadius: '24px'
+            borderRadius: '12px'
           }}
         />
       }
@@ -37,7 +37,7 @@ export default function CompareSlider(props) {
           src="slider-2.png"
           alt="Image two"
           style={{
-            borderRadius: '24px'
+            borderRadius: '12px'
           }}
         />
       }

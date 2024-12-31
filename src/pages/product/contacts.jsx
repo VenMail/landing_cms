@@ -7,7 +7,7 @@ import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
 import { FiUserCheck, FiUsers, FiUpload } from "react-icons/fi";
-
+import { LuUserPlus } from "react-icons/lu";
 export default function Mail() {
   const features = [
     {
@@ -56,7 +56,7 @@ export default function Mail() {
   return (
     <ProductLayout>
       <ProductHero
-        subheading={"CONTACT"}
+        subheading={<LuUserPlus className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />}
         title={"Manage Your Contacts Easily and Efficiently"}
         description={
           " Keep your contacts organized and easily accessible stay connected with clients, colleagues, and friends in one convenient place."

@@ -8,10 +8,10 @@ const onest = Onest({
   subsets: ["latin"],
 });
 
-export default function CustomLayout({ children, logoVariant, headerColor }) {
+export default function CustomLayout({ children, logoVariant, headerColor, textColor }) {
   return (
     <>
-      <Header logoVariant={logoVariant} bgColor={headerColor} />
+      <Header logoVariant={logoVariant} bgColor={headerColor} textColor={textColor} />
       <main className="flex-grow">{children}</main>
       <Footer />
     </>

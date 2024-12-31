@@ -82,7 +82,8 @@ export default function Pricing() {
           <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
             Find the perfect plan for you
           </p>
-          
+          <button className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See all benefits</button>
+
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-6 sm:mt-20 md:grid-cols-3">
           {pricingPlans.map((tier, tierIdx) => (

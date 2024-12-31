@@ -55,7 +55,7 @@ export default function Home() {
   return (
     <CustomLayout logoVariant="light" headerColor="#16292F">
       <section className="bg-[#16292F]">
-        <div className="grid max-w-screen-xl px-4 py-32 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
+        <div className="grid max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0 py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-12 text-center md:text-start">
           <p className="uppercase text-white mb-3">about</p>
             <h1 className="max-w-4xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[96px] text-white">
@@ -96,7 +96,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-primary-50">
-        <div className="">
+        <div className="py-20 px-4 mx-auto max-w-screen-xl md:py-44 md:px-6">
           <div className="grid md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="uppercase text-sm text-black mb-5">our story</p>
