@@ -28,7 +28,7 @@ export default function Footer() {
     {
       title: "Resources",
       links: [
-        { label: "Contact Us", href: "/resources/contact-us" },
+        { label: "Contact Us", href: "/contact-us" },
         { label: "About", href: "/about" },
         { label: "Career", href: "/career" },
         { label: "Join Our Community", href: "/resources/community" },
@@ -54,7 +54,7 @@ export default function Footer() {
               Tell us about your business and we'll get you to the right place.
             </p>
             <a
-                href="#"
+                href="/contact-us"
                 className="block md:inline-flex items-center justify-center px-12 py-4 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300 rounded-sm"
               >
                 Contact Us
