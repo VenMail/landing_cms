@@ -2,6 +2,8 @@ import React from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
+import SolutionJumbotron from "@/components/PageSections/SolutionJumbotron";
+import Testimonial from "@/components/PageSections/Testimonial";
 
 export default function Faqs() {
 
@@ -12,7 +14,7 @@ export default function Faqs() {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"}>
+    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"} hideFooterJumbo={true}>
       <section className="bg-[#FEF3CB]">
         <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
@@ -98,7 +100,16 @@ export default function Faqs() {
           </div>
         </div>
       </section>
-
+      <section className="bg-white py-12 md:py-24 px-4 mx-auto max-w-screen-xl md:px-6">
+        <SolutionJumbotron
+          subheading={"venmail for founders"}
+          title={"Founder-led sales with AI rewrites and more"}
+          text={
+            "Whether you're looking to expand your customer base, drive conversions, or build meaningful relationships, we ensure every lead is tailored to your goals. Say goodbye to guesswork and hello to results-driven prospecting!"
+          }
+        ></SolutionJumbotron>
+      </section>
+      <Testimonial />
     </CustomLayout>
   );
 }

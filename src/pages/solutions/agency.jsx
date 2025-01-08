@@ -2,25 +2,46 @@ import React from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
+import Pie from "@/components/ProgressBar";
+import SolutionJumbotron from "@/components/PageSections/SolutionJumbotron";
+import Testimonial from "@/components/PageSections/Testimonial";
 
 export default function Faqs() {
-
   // State to track the currently expanded FAQ
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const features = [
+    {
+      color: "#26D07C",
+      name: "Ease of Use",
+      text: "Effortlessly generate high-quality prospects connect with the right leads and drive business growth.",
+    },
+    {
+      color: "#2F7FE2",
+      name: "Quality of Support",
+      text: "Escalate your most critical questions to our VIP support team, day or night.",
+    },
+    {
+      color: "#FF5C39",
+      name: "Ease of Setup",
+      text: "Quickly import your contacts and stay connected—manage relationships efficiently and effortlessly.",
+    },
+  ];
   return (
-    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"}>
+    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"} hideFooterJumbo={true}>
       <section className="bg-[#FEF3CB]">
         <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
             <h1 className="max-w-3xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[72px] text-black">
-            Scale pipeline for clients
+              Scale pipeline for clients
             </h1>
             <p className="max-w-lg mb-5 text-black">
-            Say goodbye to the hassle of manual prospecting and let Venmail help you focus on what matters 
+              Say goodbye to the hassle of manual prospecting and let Venmail
+              help you focus on what matters
             </p>
             <a
               href="#"
@@ -37,6 +58,19 @@ export default function Faqs() {
           </div>
           <div className="mt-5 lg:col-span-6 lg:flex">
             <img src="/solutions/agencies/section-1.png" alt="mockup" />
+          </div>
+        </div>
+      </section>
+      <section className="bg-white ">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+            {features.map((feature) => (
+              <div>
+                <Pie percentage={97} colour={feature.color} />
+                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
+                <p className="text-gray-400 text-sm">{feature.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -62,7 +96,7 @@ export default function Faqs() {
           </div>
           <div className="lg:mt-0 md:col-span-6 flex justify-end ">
             <img
-              src="/partner/partner-1.png"
+              src="/solutions/agencies/content-image-1.png"
               alt="mockup"
               className="mt-10 md:mt-0"
             />
@@ -73,7 +107,7 @@ export default function Faqs() {
         <div className="grid md:grid-cols-12 items-center">
           <div className="lg:mt-0 md:col-span-6 flex order-12 md:order-1">
             <img
-              src="/partner/partner-2.png"
+              src="/solutions/agencies/content-image-2.png"
               alt="mockup"
               className="mt-10 md:mt-0"
             />
@@ -98,7 +132,16 @@ export default function Faqs() {
           </div>
         </div>
       </section>
-
+      <section className="bg-white py-12 md:py-24 px-4 mx-auto max-w-screen-xl md:px-6">
+        <SolutionJumbotron
+          subheading={"venmail for founders"}
+          title={"Founder-led sales with AI rewrites and more"}
+          text={
+            "Whether you're looking to expand your customer base, drive conversions, or build meaningful relationships, we ensure every lead is tailored to your goals. Say goodbye to guesswork and hello to results-driven prospecting!"
+          }
+        ></SolutionJumbotron>
+      </section>
+      <Testimonial />
     </CustomLayout>
   );
 }

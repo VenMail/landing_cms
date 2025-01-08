@@ -1,11 +1,156 @@
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { GoCalendar } from "react-icons/go";
 import { GoDeviceCameraVideo } from "react-icons/go";
 import { LuUserPlus } from "react-icons/lu";
 import CompareSlider from "@/components/PageSections/CompareSlider";
 import DefaultLayout from "@/components/layout/DefaultLayout";
+import Testimonial from "@/components/PageSections/Testimonial";
+
+const TabComponent = () => {
+  const [activeTab, setActiveTab] = useState("rewrite");
+  const buttonRefs = useRef({});
+  const [loadingProgress, setLoadingProgress] = useState(0); // For the loading bar
+  const intervalRef = useRef(null);
+  
+
+  const tabContent = {
+    rewrite: {
+      title: "AI Rewrite",
+      description: "Write better emails, faster, with AI-powered rewrites.",
+      image: "/home/section-4a.png",
+    },
+    prospects: {
+      title: "Generate Prospects",
+      description: "Find and connect with the right leads instantly.",
+      image: "/home/section-4b.png",
+    },
+    schedule_meetings: {
+      title: "Schedule Meetings",
+      description: "Book meetings effortlessly, straight from your inbox.",
+      image: "/home/section-4c.png",
+    },
+    summary: {
+      title: "Instant Email Summary",
+      description: "Get the gist of long emails in seconds with AI summaries.",
+      image: "/home/section-4d.png",
+    },
+    analytics: {
+      title: "Mail Analytics",
+      description: "Track email performance and gain actionable insights.",
+      image: "/home/section-4e.png",
+    },
+    spam: {
+      title: "Spam Detection",
+      description: "Eliminate spam and phishing with advanced AI filters.",
+      image: "/home/section-4f.png",
+    },
+  };
+
+  const tabs = Object.keys(tabContent);
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+    resetLoading();
+    buttonRefs.current[tabName]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
+
+  const resetLoading = () => {
+    clearInterval(intervalRef.current);
+    setLoadingProgress(0);
+    startAutoLoading();
+  };
+
+  const startAutoLoading = () => {
+    intervalRef.current = setInterval(() => {
+      setLoadingProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(intervalRef.current);
+          const currentIndex = tabs.indexOf(activeTab);
+          const nextIndex = (currentIndex + 1) % tabs.length;
+          setActiveTab(tabs[nextIndex]);
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 50); // Adjust speed of loading here
+  };
+
+  useEffect(() => {
+    startAutoLoading();
+    return () => clearInterval(intervalRef.current); // Cleanup on unmount
+  }, [activeTab]);
+
+  return (
+    <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="md:col-span-3 flex flex-col md:justify-between">
+          <div className="overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
+            <div className="flex lg:flex-col space-x-4 lg:space-x-0 lg:space-y-4 min-w-max lg:min-w-0">
+              {Object.entries(tabContent).map(([key, _]) => (
+                <div key={key} className="flex flex-col w-full">
+                  <button
+                    ref={(el) => (buttonRefs.current[key] = el)}
+                    className={`whitespace-nowrap text-sm text-left py-4 ${
+                      activeTab === key
+                        ? " text-primary-600"
+                        : "border-transparent text-gray-500"
+                    } text-xl font-medium transition-colors`}
+                    onClick={() => handleTabClick(key)}
+                  >
+                    {_.title}
+                  </button>
+                  {/* Loading bar */}
+                  <div className="h-[1px] md:block hidden w-full bg-gray-200">
+                    <div
+                      className="h-[1px] bg-orange-500 transition-all duration-100"
+                      style={{
+                        width:
+                          activeTab === key ? `${loadingProgress}%` : "0%",
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:hidden block mt-6 lg:mt-0">
+            <img
+              src={tabContent[activeTab].image}
+              alt={`${activeTab} Dashboard`}
+              className="rounded-lg shadow-lg w-full h-auto transition-all duration-300"
+            />
+          </div>
+
+          <div className="mt-6">
+            <p className="text-gray-600  mb-3 text-lg">
+              {tabContent[activeTab].description}
+            </p>
+            <a
+              href="#"
+              className="block md:inline-flex items-center justify-center px-4 py-2 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300"
+            >
+              Signup for Free
+            </a>
+          </div>
+        </div>
+        <div className="hidden md:block col-span-9">
+          <img
+            src={tabContent[activeTab].image}
+            alt={`${tabContent[activeTab].title} Dashboard`}
+            className="rounded-lg shadow-lg w-full h-auto transition-all duration-300"
+          />
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("rewrite");
@@ -138,7 +283,7 @@ export default function Home() {
           smarter, safer, and seamless. For less.
         </h2>
       </section>
-      <section className="bg-white  py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      {/* <section className="bg-white hidden  py-8 px-4 mx-auto max-w-screen-xl lg:py-20 lg:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           <div className="md:col-span-3 flex flex-col md:justify-between">
             <div className="overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
@@ -188,7 +333,9 @@ export default function Home() {
             />
           </div>
         </div>
-      </section>
+      </section> */}
+      <TabComponent />
+      <Testimonial />
       <section className="bg-white ">
         <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-32 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
