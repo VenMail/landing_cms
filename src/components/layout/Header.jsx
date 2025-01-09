@@ -305,7 +305,7 @@ export default function Header({
             </NavMenu>
 
             <a
-              href="#"
+              href="/pricing"
               className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600`}
             >
               Pricing
