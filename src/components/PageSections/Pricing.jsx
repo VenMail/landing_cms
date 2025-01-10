@@ -131,7 +131,7 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="border border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
+                    className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
                     Get started today
                   </a>
@@ -156,7 +156,7 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="border border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
+                    className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
                     Contact sales
                   </a>

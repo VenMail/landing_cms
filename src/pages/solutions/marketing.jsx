@@ -21,13 +21,13 @@ export default function Marketing() {
             </p>
             <a
               href="#"
-              className="md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 mr-0 md:mr-4"
+              className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 mr-0 md:mr-4"
             >
               Get started
             </a>
             <a
               href="/pricing"
-              className="md:inline-flex block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   "
+              className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   "
             >
               Compare Pricing
             </a>
@@ -51,7 +51,7 @@ export default function Marketing() {
               </p>
               <a
                 href=""
-                className="text-primary-500 font-bold flex items-center"
+                className="text-primary-500 font-bold flex items-center cursor-pointer"
               >
                 Sign up for free
               </a>
@@ -87,7 +87,7 @@ export default function Marketing() {
               </p>
               <a
                 href=""
-                className="text-primary-500 font-bold flex items-center"
+                className="text-primary-500 font-bold flex items-center cursor-pointer"
               >
                 Sign up for free
               </a>

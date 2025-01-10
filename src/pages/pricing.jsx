@@ -415,7 +415,7 @@ function pricing() {
                       <a
                         href={tier.href}
                         aria-describedby={tier.id}
-                        className={`${
+                        className={`cursor-pointer ${
                           tier.featured
                             ? "bg-primary-600 text-white"
                             : "bg-white text-black border border-black"

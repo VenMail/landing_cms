@@ -63,13 +63,13 @@ export default function Home() {
             </h1>
             <a
               href="/careers"
-              className="md:inline-flex block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-white border border-white"
+              className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-white border border-white"
             >
               Explore Careers
             </a>
             <a
               href="#"
-              className="md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
+              className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
               Get started
             </a>

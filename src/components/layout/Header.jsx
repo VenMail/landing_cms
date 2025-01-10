@@ -136,8 +136,8 @@ export default function Header({
         className="mx-auto flex max-w-7xl items-center justify-between p-6"
       >
         <div className="flex lg:flex-1 items-center">
-          <a href="/" className="p-1.5">
-            <span className="sr-only">Your Company</span>
+          <a href="/" className="p-1.5 cursor-pointer">
+            <span className="sr-only">Venmail</span>
             <img
               alt=""
               src={
@@ -166,7 +166,7 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
                     >
                       <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
@@ -187,7 +187,7 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
                     >
                       <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
@@ -208,7 +208,7 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
                     >
                       <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 ">
                         <item.icon className="h-6 w-6 text-gray-600 " />
@@ -242,7 +242,7 @@ export default function Header({
                   <div key={item.name}>
                     <a
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
                     >
                       <div className="flex-auto">
                         <span className="block font-semibold text-[#1C323B] uppercase">
@@ -270,7 +270,7 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
                     >
                       {/* <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
@@ -288,7 +288,7 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
                     >
                       {/* <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
@@ -306,7 +306,7 @@ export default function Header({
 
             <a
               href="/pricing"
-              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600`}
+              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600 cursor-pointer`}
             >
               Pricing
             </a>
@@ -342,8 +342,8 @@ export default function Header({
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between bg-white">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+            <a href="/" className="-m-1.5 p-1.5 cursor-pointer">
+              <span className="sr-only">Venmail</span>
               <img alt="" src="/logo-text.png" className="h-6 md:h-auto w-auto" />
             </a>
             <button
@@ -428,7 +428,7 @@ export default function Header({
                 </Disclosure>
                 <a
                   href="/pricing"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 cursor-pointer"
                 >
                   Pricing
                 </a>

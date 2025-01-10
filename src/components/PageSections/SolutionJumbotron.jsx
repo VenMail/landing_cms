@@ -14,7 +14,7 @@ function SolutionJumbotron({ subheading, title, text }) {
         <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
           <a
             href="#"
-            class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-sm bg-primary-600"
+            class="inline-flex cursor-pointer justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-sm bg-primary-600"
           >
             Get started
           </a>

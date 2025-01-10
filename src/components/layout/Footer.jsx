@@ -158,17 +158,17 @@ export default function Footer({ hideFooterJumbo = false }) {
               <div className="flex flex-wrap mb-4 md:mb-0">
                 <a
                   href="/resources/terms-of-service"
-                  className="text-black text-sm mr-4 mb-4"
+                  className="text-black text-sm mr-4 mb-4 cursor-pointer"
                 >
                   Terms of Service
                 </a>
                 <a
                   href="/resources/privacy-policy"
-                  className="text-black text-sm mr-4 mb-4"
+                  className="text-black text-sm mr-4 mb-4 cursor-pointer"
                 >
                   Privacy Policy
                 </a>
-                <a href="#" className="text-black text-sm">
+                <a href="#" className="text-black text-sm cursor-pointer">
                   © {currentYear} Venmail Management Inc.
                 </a>
               </div>
@@ -178,25 +178,25 @@ export default function Footer({ hideFooterJumbo = false }) {
               <div className="flex flex-row space-x-6 mb-4 md:mb-0">
                 <a
                   href="#"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center"
+                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaFacebookF />
                 </a>
                 <a
                   href="#"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center"
+                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaLinkedinIn />
                 </a>
                 <a
                   href="#"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center"
+                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaInstagram />
                 </a>
                 <a
                   href="#"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center"
+                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaYoutube />
                 </a>

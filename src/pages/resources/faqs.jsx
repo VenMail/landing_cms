@@ -129,7 +129,7 @@ export default function Faqs() {
             </p>
             <a
               href="#"
-              className="md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
+              className="cursor-pointer md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
               Get started
             </a>
