@@ -1,4 +1,5 @@
 import DefaultLayout from "@/components/layout/DefaultLayout";
+import FAQs from "@/components/PageSections/FAQs";
 import PricingToggle from "@/components/PageSections/PricingToggle";
 import React from "react";
 import { useState } from "react";
@@ -19,21 +20,27 @@ const PricingTable = () => {
         Search: "yes",
         "Email signatures": "yes",
         "Outgoing Email Validator": "yes",
-        "Sync Contact": "no",
-        "Secure Email Hosting": "no",
-        "Generate Prospects": "no",
-        "Auto Meeting Scheduler": "no",
-        "Mail Analytics": "no",
-        "Storage Usage": "no",
+        "Sync Contact": "yes",
+        "Secure Email Hosting": "yes",
+        "Instant AI Summaries": "yes",
+        "Generate Prospects": "5",
+        "Auto Meeting Scheduler": "yes",
+        "Auto Tasks Extraction": "yes",
+        "Split your inbox": "yes",
+        Storage: "5GB",
+        "SMTP API Access": "no",
+        "Addon Installation Request": "no",
+        "Mail Analytics": "yes",
+        "Storage Usage": "yes",
         "Employee Insight": "no",
-        "Multi-factor authentication": "no",
-        "Email encryption": "no",
-        "Automated encrypted backups": "no",
-        "Phishing protection": "no",
-        "Advanced threat protection": "no",
-        "Custom security policies": "no",
-        "Customizable encryption keys": "no",
-        "Priority Email Support": "no",
+        "Multi-factor authentication": "yes",
+        "Email encryption": "yes",
+        "Automated encrypted backups": "yes",
+        "Phishing protection": "yes",
+        "Advanced threat protection": "yes",
+        "Custom security policies": "yes",
+        "Customizable encryption keys": "yes",
+        "Priority Email Support": "yes",
         "Dedicated Account manager": "no",
       },
     },
@@ -50,19 +57,25 @@ const PricingTable = () => {
         "Outgoing Email Validator": "yes",
         "Sync Contact": "yes",
         "Secure Email Hosting": "yes",
-        "Generate Prospects": "yes",
+        "Instant AI Summaries": "yes",
+        "Generate Prospects": "10",
         "Auto Meeting Scheduler": "yes",
-        "Mail Analytics": "no",
-        "Storage Usage": "no",
-        "Employee Insight": "no",
-        "Multi-factor authentication": "no",
-        "Email encryption": "no",
-        "Automated encrypted backups": "no",
-        "Phishing protection": "no",
-        "Advanced threat protection": "no",
-        "Custom security policies": "no",
-        "Customizable encryption keys": "no",
-        "Priority Email Support": "no",
+        "Auto Tasks Extraction": "yes",
+        "Split your inbox": "yes",
+        Storage: "10GB",
+        "SMTP API Access": "no",
+        "Addon Installation Request": "no",
+        "Mail Analytics": "yes",
+        "Storage Usage": "yes",
+        "Employee Insight": "yes",
+        "Multi-factor authentication": "yes",
+        "Email encryption": "yes",
+        "Automated encrypted backups": "yes",
+        "Phishing protection": "yes",
+        "Advanced threat protection": "yes",
+        "Custom security policies": "yes",
+        "Customizable encryption keys": "yes",
+        "Priority Email Support": "yes",
         "Dedicated Account manager": "no",
       },
     },
@@ -80,8 +93,14 @@ const PricingTable = () => {
         "Outgoing Email Validator": "yes",
         "Sync Contact": "yes",
         "Secure Email Hosting": "yes",
-        "Generate Prospects": "yes",
+        "Instant AI Summaries": "yes",
+        "Generate Prospects": "50",
         "Auto Meeting Scheduler": "yes",
+        "Auto Tasks Extraction": "yes",
+        "Split your inbox": "yes",
+        Storage: "15GB",
+        "SMTP API Access": "no",
+        "Addon Installation Request": "no",
         "Mail Analytics": "yes",
         "Storage Usage": "yes",
         "Employee Insight": "yes",
@@ -92,7 +111,7 @@ const PricingTable = () => {
         "Advanced threat protection": "yes",
         "Custom security policies": "yes",
         "Customizable encryption keys": "yes",
-        "Priority Email Support": "yes",
+        "Priority Email Support": "no",
         "Dedicated Account manager": "no",
       },
     },
@@ -109,8 +128,14 @@ const PricingTable = () => {
         "Outgoing Email Validator": "yes",
         "Sync Contact": "yes",
         "Secure Email Hosting": "yes",
-        "Generate Prospects": "yes",
+        "Instant AI Summaries": "yes",
+        "Generate Prospects": "200",
         "Auto Meeting Scheduler": "yes",
+        "Auto Tasks Extraction": "yes",
+        "Split your inbox": "yes",
+        Storage: "25GB",
+        "SMTP API Access": "25,000 emails /day",
+        "Addon Installation Request": "1",
         "Mail Analytics": "yes",
         "Storage Usage": "yes",
         "Employee Insight": "yes",
@@ -147,8 +172,14 @@ const PricingTable = () => {
     ],
     PRODUCTIVITY: [
       "Secure Email Hosting",
+      "Instant AI summaries",
       "Generate Prospects",
       "Auto Meeting Scheduler",
+      "Auto Tasks Extraction",
+      "Split your inbox",
+      "Storage",
+      "SMTP API Access",
+      "Addon Installation Request",
     ],
     INTELLIGENCE: ["Mail Analytics", "Storage Usage", "Employee Insight"],
     SECURITY: [
@@ -225,15 +256,15 @@ const PricingTable = () => {
                   {plans.map((plan, planIdx) => (
                     <td
                       key={planIdx}
-                      className={`p-4 text-center border-r ${
+                      className={`p-4 border-r ${
                         plan.isHighlighted ? "bg-yellow-50" : ""
                       }`}
                     >
-                      {plan.features[feature] !== "yes"
-                        ? plan.features[feature]
-                        : plan.features[feature] === "yes"
-                        ? <GoCheck className="text-[#26D07C]" />
-                        : <VscChromeClose />}
+                      <div className="flex justify-center items-center">
+                        {plan.features[feature] === 'yes' && (<GoCheck className="text-[#26D07C] text-2xl" />)}
+                        {plan.features[feature] === 'no' && (<VscChromeClose className="text-[#949D9F] text-xl" />)}
+                        {plan.features[feature] !== 'yes' && plan.features[feature] !== 'no' && (plan.features[feature])}
+                      </div>
                     </td>
                   ))}
                 </tr>
@@ -416,12 +447,13 @@ function pricing() {
             ))}
           </div>
 
-          <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-            Find the perfect plan for you
+          <p className="mt-5 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
+          Compare all features plans 
           </p>
           <PricingTable />
         </div>
       </section>
+      <FAQs />
     </DefaultLayout>
   );
 }
