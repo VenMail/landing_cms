@@ -40,7 +40,7 @@ export default function Footer({ hideFooterJumbo = false }) {
           label: "Download desktop app",
           href: "/resources/download-desktop-app",
         },
-        { label: "Partnership", href: "/resources/partnership" },
+        { label: "Partnership", href: "/resources/partner" },
       ],
     },
   ];
