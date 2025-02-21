@@ -32,7 +32,7 @@ export default function Footer({ hideFooterJumbo = false }) {
       title: "Resources",
       links: [
         { label: "Contact Us", href: "/contact-us" },
-        { label: "About", href: "/about" },
+        { label: "About", href: "/about-us" },
         { label: "Career", href: "/career" },
         { label: "Join Our Community", href: "/resources/community" },
         { label: "Terms of Service", href: "/resources/terms-of-service" },
