@@ -102,11 +102,11 @@ const resources = [
   },
   {
     name: "Partner Program",
-    href: "#",
+    href: "/resources/partner",
   },
   {
     name: "Product Tour",
-    href: "/resources/partner",
+    href: "#",
   },
   {
     name: "Download Desktop App",
