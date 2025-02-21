@@ -1,0 +1,98 @@
+{
+"name": "VenMail",
+"short_name": "VenMail",
+"start_url": "https://m.venmail.io",
+"display": "standalone",
+"description": "AI-Powered Email for Businesses",
+"lang": " en-US",
+"dir": "auto",
+"theme_color": "#4589F7",
+"background_color": "#262730",
+"orientation": "any",
+"icons": [
+    {
+        "src": "https://m.venmail.io/manifest-icon-512.maskable.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-192.maskable.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-384.maskable.png",
+        "sizes": "384x384",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-256.maskable.png",
+        "sizes": "256x256",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-128.maskable.png",
+        "sizes": "128x128",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-64.maskable.png",
+        "sizes": "64x64",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-48.maskable.png",
+        "sizes": "48x48",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-32.maskable.png",
+        "sizes": "32x32",
+        "type": "image/png",
+        "purpose": "any"
+    },
+    {
+        "src": "https://m.venmail.io/manifest-icon-16.maskable.png",
+        "sizes": "16x16",
+        "type": "image/png",
+        "purpose": "any"
+    }
+],
+"screenshots": [
+    {
+        "src": "https://www.venmail.io/wp-content/themes/venmail-theme/assets/images/header-hero.png",
+        "sizes": "2880x1800",
+        "type": "image/png",
+        "description": "A screenshot of the home page"
+    }
+],
+"related_applications": [
+    {
+        "platform":"windows",
+        "url": "https://m.venmail.io"
+    }
+],
+"prefer_related_applications": false,
+"protocol_handlers": [{
+    "protocol": "venmail",
+    "url": "/%s"
+}],
+"shortcuts": [
+    {
+    "name": "VenMail Inbox",
+    "url": "/m/inbox",
+    "description": "Read Mail"
+    }
+],
+"handle_links": "preferred",
+"launch_handler": {
+    "client_mode": ["navigate-existing", "auto"]
+}
+}
