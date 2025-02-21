@@ -82,15 +82,15 @@ const solutions = [
 const resources = [
   {
     name: "Contact us",
-    href: "#",
+    href: "/contact-us",
   },
   {
     name: "About",
-    href: "#",
+    href: "/about-us",
   },
   {
     name: "Career",
-    href: "#",
+    href: "/career",
   },
   {
     name: "Terms of Service",
@@ -98,7 +98,7 @@ const resources = [
   },
   {
     name: "FAQs",
-    href: "#",
+    href: "/resources/faqs",
   },
   {
     name: "Partner Program",
@@ -106,7 +106,7 @@ const resources = [
   },
   {
     name: "Product Tour",
-    href: "#",
+    href: "/resources/partner",
   },
   {
     name: "Download Desktop App",
