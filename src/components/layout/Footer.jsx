@@ -19,27 +19,27 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "Meetings", href: "/product/meeting" },
       ],
     },
-    {
-      title: "Solutions",
-      links: [
-        { label: "Founders", href: "/solutions/founders" },
-        { label: "Marketing", href: "/solutions/marketing" },
-        { label: "Agency", href: "/solutions/agency" },
-        { label: "Freelancers", href: "/solutions/freelancers" },
-      ],
-    },
+    // {
+    //   title: "Solutions",
+    //   links: [
+    //     { label: "Founders", href: "/solutions/founders" },
+    //     { label: "Marketing", href: "/solutions/marketing" },
+    //     { label: "Agency", href: "/solutions/agency" },
+    //     { label: "Freelancers", href: "/solutions/freelancers" },
+    //   ],
+    // },
     {
       title: "Resources",
       links: [
-        { label: "Contact Us", href: "/contact-us" },
-        { label: "About", href: "/about-us" },
-        { label: "Career", href: "/career" },
-        { label: "Join Our Community", href: "/resources/community" },
+        // { label: "Contact Us", href: "/contact-us" },
+        // { label: "About", href: "/about-us" },
+        // { label: "Career", href: "/career" },
+        // { label: "Join Our Community", href: "/resources/community" },
         { label: "Terms of Service", href: "/resources/terms-of-service" },
-        {
-          label: "Download desktop app",
-          href: "/resources/download-desktop-app",
-        },
+        // {
+        //   label: "Download desktop app",
+        //   href: "/resources/download-desktop-app",
+        // },
         { label: "Partnership", href: "/resources/partner" },
       ],
     },
@@ -52,11 +52,10 @@ export default function Footer({ hideFooterJumbo = false }) {
           <div className="bg-primary-500 grid grid-cols-1 md:grid-cols-12 py-5 px-8 md:py-20 md:px-12 items-center gap-8 md:gap-0">
             <div className="md:col-span-6 text-center md:text-left">
               <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight md:leading-[48px] mb-3 md:mb-5">
-                Help us understand <br /> your Goal
+                Have a specific <br /> question? Let's talk
               </h2>
               <p className="text-white text-sm md:text-base leading-6 max-w-md py-5">
-                Tell us about your business and we'll get you to the right
-                place.
+                Get pricing details, technical specs, or migration help from our team.
               </p>
               <a
                 href="/contact-us"

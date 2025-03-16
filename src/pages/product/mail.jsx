@@ -14,48 +14,48 @@ export default function Mail() {
       icon: (
         <HiOutlineBolt className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Personalise your Email Tune",
-      text: "Craft emails that resonate, connect, and drive results with Personalise your Email Tune.",
+      title: "Write perfect emails instantly",
+      text: 'Type "Schedule meeting next week" and watch as your email gets written, calendar gets checked.',
     },
     {
       icon: (
         <LuFileMinus className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Ready Made Task Powered by AI",
-      text: "Let the technology do the heavy lifting so you can focus on what truly matters",
+      title: "Emails turn into action automatically",
+      text: "Email → Action Meetings schedule. Tasks track. Follow-ups set.",
     },
     {
       icon: <BsListUl className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Stay Ahead, Never Miss a Key Detail",
-      text: "Save time, boost productivity, and never miss an important insight again.",
+      title: "Important emails find you",
+      text: "Client emails surface first. Deal-related messages get flagged. Urgent requests jump the queue.",
     },
   ];
 
   const boxes = [
     {
       subheading: "AI Email Rewrites",
-      title: "Personalise Your Email Tune",
-      description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      title: "Emails write themselves",
+      description: "Email style matches yours. Responses adapt to context. Perfect tone every time.",
       image: "/product/mail/feature-1.png",
     },
     {
       subheading: "Auto Task Extraction",
-      title: "Ready Made Task Powered by AI",
-      description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
+      title: "Tasks extract themselves",
+      description: "Meeting request? Added to calendar. Action item? Created in tasks. Follow-up needed? Scheduled automatically.",
       image: "/product/mail/feature-2.png",
     },
     {
       subheading: "instant ai summaries",
-      title: "Stay Ahead, Never Miss a Key Detail",
+      title: "Important stuff finds you",
       description:
-        "Save time, boost productivity, and never miss an important insight again. Stay informed with less effort and more clarity.",
+        "Urgent items surface first. Key details get highlighted. Never miss client messages",
       image: "/product/mail/feature-3.png",
     },
     {
       subheading: "spam detection",
-      title: "Identify and Prevent Suspicious Activity Before It Happens",
+      title: "Never check spam folders again",
       description:
-        "Protect your platform and users from unwanted disruptions with our advanced spam detection system.",
+        "Our system learns which emails matter to you and ensures they land in your primary inbox.",
       image: "/product/mail/feature-4.png",
     },
   ];
@@ -64,9 +64,9 @@ export default function Mail() {
     <ProductLayout>
       <ProductHero
         subheading={<RxEnvelopeClosed className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
-        title={"Start leveraging AI automation"}
+        title={"Process email like you've got a team of assistants"}
         description={
-          "Our cutting-edge AI-powered email automation tool is designed to save you time and eliminate manual tasks."
+          "Smart task extraction, meeting scheduling, and follow-ups that work quietly in the background."
         }
         image={"/product/mail.png"}
         button1Text={"Get Mail"}

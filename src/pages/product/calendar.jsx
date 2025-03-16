@@ -14,34 +14,34 @@ export default function Mail() {
       icon: (
         <Square3Stack3DIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Easily manage your schedule",
-      text: "Take control of your time manage your schedule with ease.",
+      title: "Smart time blocking",
+      text: "Spots conflicts. Blocks focus time. Guards your schedule.",
     },
     {
       icon: (
         <BellIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Multiple Reminders",
-      text: "Stay on top of your tasks set multiple reminders and never miss a beat.",
+      title: "Never drop the ball",
+      text: "Meeting prep → Follow-ups → Task deadlines All tracked automatically",
     },
     {
       icon: <Squares2X2Icon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Organize your time effectively",
-      text: "Organize your time effectively and stay on top of your tasks achieve more and meet your goals with ease.",
+      title: "Everyone on the same page",
+      text: "See team availability. Find meeting times instantly. Schedule in one click. Even tighter version:",
     },
   ];
 
   const boxes = [
     {
       subheading: "Organize meetings",
-      title: "Easily view your schedule",
-      description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
+      title: "Meeting request in your inbox?",
+      description: "Calendar checks availability and schedules instantly. No more back-and-forth",
       image: "/product/calendar/feature-1.png",
     },
     {
       subheading: "create events",
-      title: "Schedule an event on the calendar.",
-      description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
+      title: "Calendar that prevents problems",
+      description: "Spots scheduling conflicts. Warns about tight timing. Shows team availability. Blocks focus time automatically ",
       image: "/product/calendar/feature-2.png",
     },
   ];
@@ -50,9 +50,9 @@ export default function Mail() {
     <ProductLayout>
       <ProductHero
         subheading={<CalendarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
-        title={"Personalized Calendar, Stay Organized and On Track"}
+        title={"Your calendar works with your inbox now"}
         description={
-          "Plan your days with ease, stay organized, and keep on track everything you need in one personalized calendar"
+          "Emails turn into events automatically. Meeting requests get scheduled instantly. Never miss a follow-up."
         }
         image={"/product/calendar.png"}
         button1Text={"Schedule Event"}

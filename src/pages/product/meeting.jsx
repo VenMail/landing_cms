@@ -15,48 +15,48 @@ export default function Mail() {
       icon: (
         <ClockIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Set Availability",
-      text: "Scheduling takes care of the details—focus on what matters most.",
+      title: "Email → Meeting",
+      text: "'Let's meet next week' becomes a scheduled meeting. Your calendar checked. Time found. Done.",
     },
     {
       icon: (
         <LinkIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Shareable Link",
-      text: "Let your links do the heavy lifting share effortlessly, and stay connected with ease.",
+      title: "One link does it all",
+      text: "Your personal scheduling link learns your preferences. People pick times that work for both.",
     },
     {
       icon: <LockClosedIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Secured Meeting",
-      text: "Let security take care of the details enjoy stress-free, protected meetings.",
+      title: "Meetings stay secure",
+      text: "Private links. Verified guests. Controlled access. Enterprise-grade security. End-to-end encryption",
     },
   ];
 
   const boxes = [
     {
-      subheading: "AI Email Rewrites",
-      title: "Share Links, Simplify Access",
-      description: "Effortlessly generate and share links to keep everyone connected and on the same page.",
+      subheading: "Shareable Link",
+      title: "One link books all your meetings",
+      description: "Share your scheduling link once, let people pick times that work.",
       image: "/product/meeting/meeting-feat-1.png",
     },
     {
-      subheading: "Auto Task Extraction",
-      title: "Effortless Scheduling Made Easy",
-      description: "Streamline your scheduling process and plan meetings quickly and efficiently your way, every time.",
+      subheading: "Schedule",
+      title: "Schedule meetings in seconds",
+      description: "Pick your times once, booking happens automatically",
       image: "/product/meeting/meeting-feat-2.png",
     },
     {
-      subheading: "instant ai summaries",
-      title: "Safeguard Your Inbox, Anytime, Anywheres",
+      subheading: "secured",
+      title: "Enterprise-grade security built in",
       description:
-        "Protect your inbox with reliable security, ensuring peace of mind and easy access anytime, anywhere.",
+        "End-to-end encryption. Two-factor auth. SOC 2 certified.",
         image: "/product/meeting/meeting-feat-3.png",
       },
     {
-      subheading: "spam detection",
-      title: "Control Your Schedule with Ease",
+      subheading: "set availability",
+      title: "Set your rules, booking handles itself",
       description:
-        "Manage your time efficiently and stay in control set your availability with ease.",
+        "Block off focus time. Set working hours. Never get double-booked.",
         image: "/product/meeting/meeting-feat-4.png",
       },
   ];
@@ -65,9 +65,9 @@ export default function Mail() {
     <ProductLayout>
       <ProductHero
         subheading={<VideoCameraIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
-        title={"Transform Meetings into Results in Record Time"}
+        title={"Every meeting moves work forward"}
         description={
-          "Effortless scheduling and collaboration to make every meeting meaningful."
+          "Auto agendas. Smart summaries. Tracked actions."
         }
         image={"/product/meetings.png"}
         button1Text={"Schedule Meeting"}

@@ -80,7 +80,7 @@ export default function Pricing() {
       <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
         <div className="">
           <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-            Find the perfect plan for you
+          One flat rate per team. Save up to 92% vs Gmail.
           </p>
           <button className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See all benefits</button>
 

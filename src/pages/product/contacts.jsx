@@ -14,41 +14,41 @@ export default function Mail() {
       icon: (
         <FiUserCheck className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Generate Prospects",
-      text: "Effortlessly generate high-quality prospects connect with the right leads and drive business growth.",
+      title: "Find prospects that match",
+      text: "Target ideal companies, get decision-maker contacts, start conversations.",
     },
     {
       icon: (
         <FiUsers className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
-      title: "Manage Contacts",
-      text: "Organize and manage your contacts seamlessly stay connected, nurture relationships, and build  network",
+      title: "Track relationships",
+      text: "See full history with any contact: emails, meetings, deals, and next steps.",
     },
     {
       icon: <FiUpload className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
-      title: "Import Contacts",
-      text: "Quickly import your contacts and stay connected—manage relationships efficiently and effortlessly.",
+      title: "Import and sync",
+      text: "One click to import contacts from anywhere. Stay synced across your whole team.",
     },
   ];
 
   const boxes = [
     {
       subheading: "shareable link",
-      title: "Personalise Your Email Tune",
+      title: "Find ideal customers instantly",
       description: "Craft emails that resonate, connect, and drive results with Personalise Your Email Tune.",
       image: "/product/contact/feature-1.png",
     },
     {
       subheading: "schedule",
-      title: "Automatic sync from everywhere",
+      title: "Never lose track of relationships",
       description: "Let the technology do the heavy lifting so you can focus on what truly matters. ",
       image: "/product/contact/feature-2.png",
     },
     {
       subheading: "secured",
-      title: "Find your contact instantly",
+      title: "Find any contact in seconds",
       description:
-        "Save time, boost productivity, and never miss an important insight again. Stay informed with less effort and more clarity.",
+        "Search by name, company, conversation history, or last interaction",
       image: "/product/contact/feature-3.png",
     },
   ];
@@ -57,9 +57,9 @@ export default function Mail() {
     <ProductLayout>
       <ProductHero
         subheading={<LuUserPlus className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />}
-        title={"Manage Your Contacts Easily and Efficiently"}
+        title={"Your contacts become a sales engine"}
         description={
-          " Keep your contacts organized and easily accessible stay connected with clients, colleagues, and friends in one convenient place."
+          " See prospect data alongside every email. Track engagement. Never miss follow-up opportunities."
         }
         image={"/product/contacts.png"}
         button1Text={"Generate Prospects"}

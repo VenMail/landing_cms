@@ -300,7 +300,7 @@ function pricing() {
     {
       name: "start up",
       monthly: 4.55,
-      yearly: 0,
+      yearly: 43.68,
       description1: "Essential tools for small teams",
       description2: "10 team members included",
       featured: false,
@@ -317,7 +317,7 @@ function pricing() {
     {
       name: "business",
       monthly: 23.5,
-      yearly: 0,
+      yearly: 225.6,
       description1: "Premium email suite for SMEs",
       description2: "25 team members included",
       featured: true,
@@ -334,7 +334,7 @@ function pricing() {
     {
       name: "enterprise",
       monthly: 95,
-      yearly: 0,
+      yearly: 912,
       description1: "Tailored plans for big companies",
       description2: "100 team members included",
       featured: false,
@@ -359,8 +359,8 @@ function pricing() {
         <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
           <div className="text-center md:pb-24 pb-12">
             <p className="uppercase text-sm text-black">pricing</p>
-            <p className="mt-2 max-w-md mx-auto text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-              Find the perfect plan for you
+            <p className="mt-2 max-w-4xl mx-auto text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+              Team pricing that makes sense. $5 for 10 users
             </p>
             <PricingToggle setPricingPeriod={setPricingPeriod} />
           </div>

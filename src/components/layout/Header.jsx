@@ -80,18 +80,18 @@ const solutions = [
 ];
 
 const resources = [
-  {
-    name: "Contact us",
-    href: "/contact-us",
-  },
-  {
-    name: "About",
-    href: "/about-us",
-  },
-  {
-    name: "Career",
-    href: "/career",
-  },
+  // {
+  //   name: "Contact us",
+  //   href: "/contact-us",
+  // },
+  // {
+  //   name: "About",
+  //   href: "/about-us",
+  // },
+  // {
+  //   name: "Career",
+  //   href: "/career",
+  // },
   {
     name: "Terms of Service",
     href: "/resources/terms-of-service",
@@ -100,18 +100,18 @@ const resources = [
     name: "FAQs",
     href: "/resources/faqs",
   },
-  {
-    name: "Partner Program",
-    href: "/resources/partner",
-  },
-  {
-    name: "Product Tour",
-    href: "#",
-  },
-  {
-    name: "Download Desktop App",
-    href: "#",
-  },
+  // {
+  //   name: "Partner Program",
+  //   href: "/resources/partner",
+  // },
+  // {
+  //   name: "Product Tour",
+  //   href: "#",
+  // },
+  // {
+  //   name: "Download Desktop App",
+  //   href: "#",
+  // },
 ];
 
 const callsToAction = [
@@ -143,7 +143,7 @@ export default function Header({
               src={
                 logoVariant === "dark" ? "/logo-text.png" : "/logo-white.png"
               }
-              className="h-6 md:h-auto w-auto"
+              className="h-8 w-auto"
             />
           </a>
           <div className="hidden lg:flex lg:gap-x-12 ml-10 pt-2">
@@ -224,7 +224,7 @@ export default function Header({
               </div>
             </NavMenu>
 
-            <NavMenu
+            {/* <NavMenu
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -253,7 +253,7 @@ export default function Header({
                   </div>
                 ))}
               </div>
-            </NavMenu>
+            </NavMenu> */}
 
             <NavMenu
               trigger={
@@ -384,7 +384,7 @@ export default function Header({
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
-                <Disclosure as="div" className="-mx-3">
+                {/* <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                     Solutions
                     <ChevronDownIcon
@@ -404,7 +404,7 @@ export default function Header({
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
-                </Disclosure>
+                </Disclosure> */}
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                     Resources

@@ -204,23 +204,17 @@ export default function Home() {
         <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
           <div className="mr-auto place-self-center md:col-span-7 text-center md:text-start">
             <h1 className="max-w-3xl mb-4 text-3xl md:text-7xl font-medium tracking-tight md:leading-[96px] text-black">
-              Smarter Email. <br /> Lower Costs. <br /> Higher Productivity.
+            Email that works as hard as you do
             </h1>
             <p className="max-w-lg mb-6 font-normal text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
-              Venmail delivers secure, AI-powered email that keeps you organized
-              and drives your business growth. 
+            Your inbox with a built-in assistant: Turns emails into meetings, tasks, and leads. Gmail-level polish at half a dollar per user.
             </p>
-            <a
-              href="#"
-              className="md:inline-flex block cursor-pointer items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   "
-            >
-              Contact sales
-            </a>
+
             <a
               href="#"
               className="md:inline-flex block cursor-pointer items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
-              Get started for Free
+              Start a 30-day free trial
             </a>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex">
@@ -232,7 +226,7 @@ export default function Home() {
         <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
           <div className="mx-auto max-w-screen text-center mb-8 lg:mb-16">
             <h2 className="mb-4 text-2xl md:text-3xl tracking-tight font-medium text-gray-900 ">
-              Better together. Venmail is all your favourite tools in one.
+              Everything lives in your inbox now.
             </h2>
           </div>
           <div className="relative overflow-x-auto">
@@ -243,44 +237,43 @@ export default function Home() {
 
             <div className="grid grid-cols-5 gap-2 md:gap-8 relative ">
               <div
-                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[150px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
                 <RxEnvelopeClosed className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[150px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
                 <GoCalendar className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[150px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
                 <GoDeviceCameraVideo className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
               <div
-                className="h-20 md:h-[180px] w-full rounded-md flex items-center justify-center relative z-10"
+                className="h-20 md:h-[150px] w-full rounded-md flex items-center justify-center relative z-10"
                 style={{ backgroundColor: "#F9F1EF" }}
               >
                 <LuUserPlus className="w-8 h-8 md:w-16 md:h-16 text-primary-600" />
               </div>
 
-              <div className="h-20 md:h-[180px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
+              <div className="h-20 md:h-[150px] w-full bg-primary-500 rounded-md flex items-center justify-center relative z-10">
                 <img src="/logo-icon-white.png" alt="logo-icon-white" className="h-8 w-8 md:w-16 md:h-16" />
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white  py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <h2 className="text-xl md:text-7xl text-black md:leading-[75px]">
-          Email has evolved. It is where business happens. Venmail makes it
-          smarter, safer, and seamless. For less.
+      <section className="bg-white  py-8 px-4 max-w-screen-xl lg:py-16 mx-auto lg:px-6">
+        <h2 className="text-xl md:text-6xl text-black md:leading-[75px] max-w-4xl">
+        Stop managing email. Let it manage itself. Every message automatically turns into the right kind of work.
         </h2>
       </section>
       {/* <section className="bg-white hidden  py-8 px-4 mx-auto max-w-screen-xl lg:py-20 lg:px-6">
@@ -339,9 +332,8 @@ export default function Home() {
       <section className="bg-white ">
         <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-32 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
-            <h2 className="mb-4 text-2xl md:text-6xl tracking-tight font-medium text-gray-900 ">
-              Choose a better <br />{" "}
-              <span className="text-primary-500">Email Experience</span>
+            <h2 className="mb-4 text-2xl md:text-6xl tracking-tight leading-loose font-medium text-gray-900 ">
+              40% more productive at 1/10th the cost
             </h2>
           </div>
           <div className="rounded-3xl shadow-md md:h-[750px]">
