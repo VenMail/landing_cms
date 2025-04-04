@@ -272,7 +272,7 @@ export default function Header({
             >
               <div className="grid grid-cols-3 gap-8">
                 <div>
-                  {resources.slice(0, 6).map((item) => (
+                  {resources.slice(0, 4).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -290,7 +290,7 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {resources.slice(6).map((item) => (
+                  {resources.slice(4).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
