@@ -100,6 +100,12 @@ const resources = [
     name: "FAQs",
     href: "/resources/faqs",
   },
+  { label: "Privacy Policy", href: "/resources/privacy-policy" },
+  { label: "Partnership", href: "/resources/partner" },
+  { label: "Cookie Policy", href: "/resources/cookie-policy" },
+  { label: "Cookie & CCPA Policy", href: "/resources/cookie_ccpa-policy" },
+  { label: "AI Principles", href: "/resources/ai-principles" },
+
   // {
   //   name: "Partner Program",
   //   href: "/resources/partner",

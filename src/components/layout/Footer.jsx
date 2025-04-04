@@ -36,11 +36,15 @@ export default function Footer({ hideFooterJumbo = false }) {
         // { label: "Career", href: "/career" },
         // { label: "Join Our Community", href: "/resources/community" },
         { label: "Terms of Service", href: "/resources/terms-of-service" },
+        { label: "Privacy Policy", href: "/resources/privacy-policy" },
+        { label: "Partnership", href: "/resources/partner" },
+        { label: "Cookie Policy", href: "/resources/cookie-policy" },
+        { label: "Cookie & CCPA Policy", href: "/resources/cookie_ccpa-policy" },
+        { label: "AI Principles", href: "/resources/ai-principles" },
         // {
         //   label: "Download desktop app",
         //   href: "/resources/download-desktop-app",
         // },
-        { label: "Partnership", href: "/resources/partner" },
       ],
     },
   ];
