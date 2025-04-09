@@ -1,90 +1,106 @@
 {
-    "name": "VenMail",
-    "short_name": "VenMail",
-    "start_url": "https://app.venmail.io",
+    "name": "Venmail",
+    "short_name": "Venmail",
+    "start_url": "/",
     "display": "standalone",
-    "description": "AI-Powered Email for Businesses",
-    "lang": " en-US",
-    "dir": "auto",
-    "theme_color": "#4589F7",
-    "background_color": "#262730",
-    "orientation": "any",
+    "description": "AI-powered email management platform for efficient communication",
+    "lang": "en-US",
+    "dir": "ltr",
+    "theme_color": "#ea580c",
+    "background_color": "#ffffff",
+    "orientation": "portrait-primary",
     "icons": [
         {
-            "src": "https://app.venmail.io/manifest-icon-512.maskable.png",
-            "sizes": "512x512",
+            "src": "/manifest-icon-16.maskable.png",
+            "sizes": "16x16",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "https://app.venmail.io/manifest-icon-192.maskable.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-384.maskable.png",
-            "sizes": "384x384",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-256.maskable.png",
-            "sizes": "256x256",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-128.maskable.png",
-            "sizes": "128x128",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-64.maskable.png",
-            "sizes": "64x64",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-48.maskable.png",
-            "sizes": "48x48",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "https://app.venmail.io/manifest-icon-32.maskable.png",
+            "src": "/manifest-icon-32.maskable.png",
             "sizes": "32x32",
             "type": "image/png",
-            "purpose": "any"
+            "purpose": "maskable"
         },
         {
-            "src": "https://app.venmail.io/manifest-icon-16.maskable.png",
-            "sizes": "16x16",
+            "src": "/manifest-icon-48.maskable.png",
+            "sizes": "48x48",
             "type": "image/png",
-            "purpose": "any"
-        }
-    ],
-    "screenshots": [
+            "purpose": "maskable"
+        },
         {
-            "src": "https://www.venmail.io/wp-content/themes/venmail-theme/assets/images/header-hero.png",
-            "sizes": "2880x1800",
+            "src": "/manifest-icon-72.maskable.png",
+            "sizes": "72x72",
             "type": "image/png",
-            "description": "A screenshot of the home page"
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-96.maskable.png",
+            "sizes": "96x96",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-128.maskable.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-144.maskable.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-152.maskable.png",
+            "sizes": "152x152",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-192.maskable.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-256.maskable.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-384.maskable.png",
+            "sizes": "384x384",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/manifest-icon-512.maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
+    "shortcuts": [
+        {
+            "name": "Open App",
+            "short_name": "App",
+            "description": "Open Venmail App",
+            "url": "https://app.venmail.io",
+            "icons": [{ "src": "/manifest-icon-96.maskable.png", "sizes": "96x96" }]
+        }
+    ],
+    "categories": ["productivity", "business", "utilities"],
     "related_applications": [
         {
-            "platform":"windows",
+            "platform": "windows",
             "url": "https://app.venmail.io"
         }
     ],
     "prefer_related_applications": false,
-    "shortcuts": [
-        {
-            "name":"VenMail Inbox",
-            "url":"/m/inbox",
-            "description":"Read Mail"
-        }
-    ]
-    }
+    "scope": "/",
+    "dir": "ltr",
+    "lang": "en-US"
+}
