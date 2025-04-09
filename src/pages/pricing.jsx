@@ -277,6 +277,66 @@ const PricingTable = () => {
   );
 };
 
+const PricingSlider = ({ pricingPlans }) => {
+  const [employees, setEmployees] = useState(9);
+  
+  const getPlan = (count) => {
+    if (count === 1) return "SOLO FOUNDER";
+    if (count <= 10) return "START UP";
+    if (count <= 25) return "BUSINESS";
+    return "ENTERPRISE";
+  };
+
+  const getPricePerMonth = (count) => {
+    if (count === 1) return 0;
+    if (count <= 10) return 4.55;
+    if (count <= 25) return 23.5;
+    return 95;
+  };
+
+  return (
+    <div className="w-full max-w-3xl mx-auto my-16 px-4">
+      <h2 className="text-4xl font-bold text-center mb-12">
+        How many employees do you have?
+      </h2>
+      <div className="w-full flex flex-col items-center gap-8">
+        <div className="text-xl">{employees} employees</div>
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value={employees}
+          onChange={(e) => setEmployees(parseInt(e.target.value))}
+          className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+        />
+        <div className="grid grid-cols-4 w-full gap-4 mt-8">
+          {pricingPlans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`p-6 rounded-lg border ${
+                getPlan(employees) === plan.name.toUpperCase()
+                  ? "border-primary-600 bg-primary-50"
+                  : "border-gray-200"
+              }`}
+            >
+              <div className="font-semibold uppercase">{plan.name}</div>
+              <div className="text-2xl font-bold mt-2">${plan.monthly}/mo</div>
+              <div className="text-sm text-gray-600 mt-1">
+                {plan.description2}
+              </div>
+              {getPlan(employees) === plan.name.toUpperCase() && (
+                <div className="text-primary-600 text-sm mt-2">
+                  This is plan for you
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function pricing() {
   const [pricingPeriod, setPricingPeriod] = useState("monthly");
   const pricingPlans = [
@@ -446,6 +506,8 @@ function pricing() {
               </div>
             ))}
           </div>
+
+          <PricingSlider pricingPlans={pricingPlans} />
 
           <p className="mt-5 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
           Compare all features plans 
