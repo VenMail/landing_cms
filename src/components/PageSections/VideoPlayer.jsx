@@ -113,7 +113,7 @@ export default function VideoPlayer() {
       </div>
     </div>
 
-    <div className="mt-4 flex justify-center">
+    <div className="mt-10 flex justify-center">
       <a
         href="https://app.venmail.io"
         className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-none hover:bg-primary-700 transition-colors duration-200"
