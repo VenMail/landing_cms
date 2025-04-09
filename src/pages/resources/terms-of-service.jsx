@@ -209,7 +209,7 @@ function TermsOfService() {
       <section className="bg-white">
         <div className="max-w-screen-xl px-4 mx-auto md:gap-8 xl:gap-0">
           <h1 className="mb-4 pt-3 pb-6 md:py-18 text-3xl md:text-7xl text-center font-medium tracking-tight md:leading-[96px] text-black">
-            Venmail Terms of Service
+            Terms of Service
           </h1>
           {data.sections.map((section) => (
             <div key={section.id} className="mb-8">
