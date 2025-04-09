@@ -72,7 +72,7 @@ export default function Partner() {
                 streamline your workflows, save valuable time, and maximize
                 results.
               </p>
-              <a href="" className="text-primary-600 cursor-pointer font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
+              <a href="https://app.venmail.io" className="text-primary-600 cursor-pointer font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
             </div>
           </div>
           <div className="lg:mt-0 md:col-span-6 flex justify-end ">
@@ -93,7 +93,7 @@ export default function Partner() {
               <p className="text-[#637074] text-base my-5">
               Venmail harnesses the power of artificial intelligence to streamline your workflows, save valuable time, and maximize results.
               </p>
-              <a href="" className="text-primary-600 cursor-pointer font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
+              <a href="https://app.venmail.io" className="text-primary-600 cursor-pointer font-bold flex items-center">Sign up for free <HiArrowRight className="ml-2" /></a>
             </div>
           </div>
         </div>

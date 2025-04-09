@@ -7,6 +7,8 @@ import { LuUserPlus } from "react-icons/lu";
 import CompareSlider from "@/components/PageSections/CompareSlider";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
+import { PricingSlider, pricingPlans } from "./pricing";
+import VideoPlayer from "@/components/PageSections/VideoPlayer";
 
 const TabComponent = () => {
   const [activeTab, setActiveTab] = useState("rewrite");
@@ -271,6 +273,14 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="bg-white ">
+        <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-20 lg:px-6">
+          <div className="rounded-3xl">
+            <VideoPlayer />
+          </div>
+        </div>
+      </section>
+      {/*Add video player here */}
       <section className="bg-white  py-8 px-4 max-w-screen-xl lg:py-16 mx-auto lg:px-6">
         <h2 className="text-xl md:text-6xl text-black md:leading-[75px] max-w-4xl">
         Stop managing email. Let it manage itself. Every message automatically turns into the right kind of work.
@@ -329,7 +339,7 @@ export default function Home() {
       </section> */}
       <TabComponent />
       <Testimonial />
-      <section className="bg-white ">
+      {/* <section className="bg-white ">
         <div className="py-16 px-4 mx-auto max-w-screen-xl lg:py-32 lg:px-6">
           <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
             <h2 className="mb-4 text-2xl md:text-6xl tracking-tight leading-loose font-medium text-gray-900 ">
@@ -340,7 +350,8 @@ export default function Home() {
             <CompareSlider />
           </div>
         </div>
-      </section>
+      </section> */}
+      <PricingSlider pricingPlans={pricingPlans} hasButton={true} />
     </DefaultLayout>
   );
 }

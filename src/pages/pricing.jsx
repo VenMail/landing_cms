@@ -277,7 +277,7 @@ const PricingTable = () => {
   );
 };
 
-const PricingSlider = ({ pricingPlans }) => {
+export const PricingSlider = ({ pricingPlans, hasButton }) => {
   const [employees, setEmployees] = useState(9);
   
   const getPlan = (count) => {
@@ -295,7 +295,7 @@ const PricingSlider = ({ pricingPlans }) => {
   };
 
   return (
-    <div className="bg-gray-100 py-8 sm:py-20">
+    <div className="bg-gray-100 py-8 sm:py-24">
       <div className="w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
         <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-8 sm:mb-12">
           How many employees <br className="hidden sm:block"/> do you have?
@@ -367,84 +367,91 @@ const PricingSlider = ({ pricingPlans }) => {
               </div>
             ))}
           </div>
+          {hasButton && (
+            <a href="/pricing" className="bg-black text-white px-8 py-2 rounded-none mt-10">
+              Learn More
+            </a>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
+export const pricingPlans = [
+  {
+    name: "solo founder",
+    monthly: 0,
+    yearly: 0,
+    description1: "perfect for solo founders",
+    description2: "only one person included",
+    featured: false,
+    features: [
+      "secure email hosting",
+      "5GB total storage",
+      "advanced spam protection",
+      "smart email labelling",
+      "auto contact synchronization",
+    ],
+    buttonText: "Get Started",
+    buttonLink: "/",
+  },
+  {
+    name: "start up",
+    monthly: 4.55,
+    yearly: 43.68,
+    description1: "Essential tools for small teams",
+    description2: "10 team members included",
+    featured: false,
+    features: [
+      "Secure business mails@yourdomain.com",
+      "10GB storage per user",
+      "advanced spam protection",
+      "20 daily AI email rewrites/user",
+      "10 daily prospect generations",
+    ],
+    buttonText: "Get Started",
+    buttonLink: "/",
+  },
+  {
+    name: "business",
+    monthly: 23.5,
+    yearly: 225.6,
+    description1: "Premium email suite for SMEs",
+    description2: "25 team members included",
+    featured: true,
+    features: [
+      "AI summarisation",
+      "15GB storage per user (375GB total)",
+      "Advanced spam protection",
+      "50 daily prospect generations",
+      "50 daily AI email rewrites/user",
+    ],
+    buttonText: "Get Started",
+    buttonLink: "/",
+  },
+  {
+    name: "enterprise",
+    monthly: 95,
+    yearly: 912,
+    description1: "Tailored plans for big companies",
+    description2: "100 team members included",
+    featured: false,
+    features: [
+      "Dedicated account manager",
+      "25GB storage per user (2.5TB total)",
+      "advanced spam protection",
+      "200 daily prospect generations",
+      "100 daily AI email rewrites/user",
+    ],
+    buttonText: "Contact Sales",
+    buttonLink: "/",
+  },
+];
+
 function pricing() {
   const [pricingPeriod, setPricingPeriod] = useState("monthly");
-  const pricingPlans = [
-    {
-      name: "solo founder",
-      monthly: 0,
-      yearly: 0,
-      description1: "perfect for solo founders",
-      description2: "only one person included",
-      featured: false,
-      features: [
-        "secure email hosting",
-        "5GB total storage",
-        "advanced spam protection",
-        "smart email labelling",
-        "auto contact synchronization",
-      ],
-      buttonText: "Get Started",
-      buttonLink: "/",
-    },
-    {
-      name: "start up",
-      monthly: 4.55,
-      yearly: 43.68,
-      description1: "Essential tools for small teams",
-      description2: "10 team members included",
-      featured: false,
-      features: [
-        "Secure business mails@yourdomain.com",
-        "10GB storage per user",
-        "advanced spam protection",
-        "20 daily AI email rewrites/user",
-        "10 daily prospect generations",
-      ],
-      buttonText: "Get Started",
-      buttonLink: "/",
-    },
-    {
-      name: "business",
-      monthly: 23.5,
-      yearly: 225.6,
-      description1: "Premium email suite for SMEs",
-      description2: "25 team members included",
-      featured: true,
-      features: [
-        "AI summarisation",
-        "15GB storage per user (375GB total)",
-        "Advanced spam protection",
-        "50 daily prospect generations",
-        "50 daily AI email rewrites/user",
-      ],
-      buttonText: "Get Started",
-      buttonLink: "/",
-    },
-    {
-      name: "enterprise",
-      monthly: 95,
-      yearly: 912,
-      description1: "Tailored plans for big companies",
-      description2: "100 team members included",
-      featured: false,
-      features: [
-        "Dedicated account manager",
-        "25GB storage per user (2.5TB total)",
-        "advanced spam protection",
-        "200 daily prospect generations",
-        "100 daily AI email rewrites/user",
-      ],
-      buttonText: "Contact Sales",
-      buttonLink: "/",
-    },
-  ];
+  
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -544,7 +551,7 @@ function pricing() {
           </div>
         </div>
 
-        <PricingSlider pricingPlans={pricingPlans} />
+        {/* <PricingSlider pricingPlans={pricingPlans} /> */}
 
         <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-16">
           <p className="mt-5 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
