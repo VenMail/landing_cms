@@ -295,46 +295,74 @@ const PricingSlider = ({ pricingPlans }) => {
   };
 
   return (
-    <div className="bg-gray-200 sm:py-16">
-      <div className="w-full max-w-7xl mx-auto my-16 px-4">
-        <h2 className="text-7xl font-semibold text-center mb-12">
-          How many employees <br/ > do you have?
+    <div className="bg-gray-100 py-8 sm:py-20">
+      <div className="w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-8 sm:mb-12">
+          How many employees <br className="hidden sm:block"/> do you have?
         </h2>
-        <div className="w-full flex flex-col items-center gap-8">
-          <div className="text-xl">{employees} employees</div>
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value={employees}
-            onChange={(e) => setEmployees(parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer before:bg-primary-600 relative
-              [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 
-              [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 
-              [&::-webkit-slider-thumb]:border-primary-600 [&::-webkit-slider-thumb]:cursor-pointer
-              [&::-webkit-slider-thumb]:shadow-md"
-          />
-          <div className="grid grid-cols-4 w-full gap-4 mt-8">
+        <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
+          <div className="text-lg sm:text-xl">{employees} employees</div>
+          <div className="w-full sm:w-[90%] lg:w-[80%] mx-auto">
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value={employees}
+              onChange={(e) => setEmployees(parseInt(e.target.value))}
+              className="w-full appearance-none cursor-pointer relative
+                [&::-webkit-slider-runnable-track]:h-[6px]
+                [&::-webkit-slider-runnable-track]:bg-[#CCCCCC]
+                [&::-webkit-slider-thumb]:appearance-none 
+                [&::-webkit-slider-thumb]:h-12
+                [&::-webkit-slider-thumb]:w-12
+                sm:[&::-webkit-slider-thumb]:h-16 
+                sm:[&::-webkit-slider-thumb]:w-16 
+                [&::-webkit-slider-thumb]:rounded-full 
+                [&::-webkit-slider-thumb]:bg-white 
+                [&::-webkit-slider-thumb]:outline-none
+                [&::-webkit-slider-thumb]:ring-4
+                [&::-webkit-slider-thumb]:ring-black
+                [&::-webkit-slider-thumb]:mt-[-25px]
+                sm:[&::-webkit-slider-thumb]:mt-[-29px]
+                [&::-webkit-slider-thumb]:cursor-pointer
+                [&::-webkit-slider-thumb]:shadow-sm
+                [&::-webkit-slider-thumb]:relative
+                [&::-webkit-slider-thumb]:z-[2]
+                before:content-['']
+                before:absolute
+                before:left-0
+                before:top-[50%]
+                before:h-[6px]
+                before:bg-black
+                before:w-[var(--before-width)]
+                before:pointer-events-none
+                before:z-[1]"
+              style={{
+                '--before-width': `${(employees - 1) / 99 * 100}%`
+              }}
+            />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full gap-4 mt-4 sm:mt-8">
             {pricingPlans.map((plan) => (
               <div
                 key={plan.name}
-                className={`p-6 rounded-md border transition-all duration-300 ${
+                className={`p-4 sm:p-6 rounded-md border transition-all duration-300 ${
                   getPlan(employees) === plan.name.toUpperCase()
                     ? "bg-white scale-105 shadow-lg border-black"
                     : "opacity-50 bg-transparent border-black"
                 }`}
               >
-                <div className="py-4">
-                <div className="font-semibold uppercase">{plan.name}</div>
-                <div className="text-2xl font-bold mt-2">${plan.monthly}/mo</div>
-                <div className="text-sm text-gray-600 mt-1">
-                  {plan.description2}
-                </div>
-                {getPlan(employees) === plan.name.toUpperCase() && (
-                  <div className="text-primary-600 text-sm mt-2">
-                    This is plan for you
+                <div className="py-2 sm:py-4">
+                  <div className="font-semibold uppercase text-sm sm:text-base">{plan.name}</div>
+                  <div className="text-xl sm:text-2xl font-bold mt-2">${plan.monthly}/mo</div>
+                  <div className="text-xs sm:text-sm text-gray-600 mt-1">
+                    {plan.description2}
                   </div>
-                )}
+                  {getPlan(employees) === plan.name.toUpperCase() && (
+                    <div className="text-primary-600 text-xs sm:text-sm mt-2">
+                      This is plan for you
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -427,7 +455,7 @@ function pricing() {
         <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
           <div className="text-center md:pb-24 pb-12">
             <p className="uppercase text-sm text-black">pricing</p>
-            <p className="mt-2 max-w-4xl mx-auto text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+            <p className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
               Team pricing that makes sense. $5 for 10 users
             </p>
             <PricingToggle setPricingPeriod={setPricingPeriod} />
@@ -518,7 +546,7 @@ function pricing() {
 
         <PricingSlider pricingPlans={pricingPlans} />
 
-        <div className="max-w-screen-xl mx-auto px-4 lg:px-6">
+        <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-16">
           <p className="mt-5 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
           Compare all features plans 
           </p>
