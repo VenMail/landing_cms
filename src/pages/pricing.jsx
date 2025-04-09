@@ -297,11 +297,11 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
   return (
     <div className="bg-gray-100 py-8 sm:py-24">
       <div className="w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-8 sm:mb-12">
+        <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-8 sm:mb-12 text-black">
           How many employees <br className="hidden sm:block"/> do you have?
         </h2>
         <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
-          <div className="text-lg sm:text-xl">{employees} employees</div>
+          <div className="text-lg sm:text-xl text-black">{employees} employees</div>
           <div className="w-full sm:w-[90%] lg:w-[80%] mx-auto">
             <input
               type="range"
@@ -353,8 +353,8 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
                 }`}
               >
                 <div className="py-2 sm:py-4">
-                  <div className="font-semibold uppercase text-sm sm:text-base">{plan.name}</div>
-                  <div className="text-xl sm:text-2xl font-bold mt-2">${plan.monthly}/mo</div>
+                  <div className="text-black font-semibold uppercase text-sm sm:text-base">{plan.name}</div>
+                  <div className="text-xl sm:text-2xl font-bold mt-2 text-black">${plan.monthly}/mo</div>
                   <div className="text-xs sm:text-sm text-gray-600 mt-1">
                     {plan.description2}
                   </div>
