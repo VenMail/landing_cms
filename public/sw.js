@@ -28,7 +28,26 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        return cache.addAll(urlsToCache);
+        // Cache each URL individually to handle failures gracefully
+        return Promise.all(
+          urlsToCache.map(url => {
+            return fetch(url)
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`Failed to fetch ${url}: ${response.status}`);
+                }
+                return cache.put(url, response);
+              })
+              .catch(error => {
+                console.error(`Failed to cache ${url}:`, error);
+                // Continue with other URLs even if one fails
+                return Promise.resolve();
+              });
+          })
+        );
+      })
+      .catch(error => {
+        console.error('Service Worker installation failed:', error);
       })
   );
 });
@@ -48,9 +67,17 @@ self.addEventListener('fetch', event => {
             const responseToCache = response.clone();
             caches.open(CACHE_NAME)
               .then(cache => {
-                cache.put(event.request, responseToCache);
+                cache.put(event.request, responseToCache)
+                  .catch(error => {
+                    console.error('Failed to cache response:', error);
+                  });
               });
             return response;
+          })
+          .catch(error => {
+            console.error('Fetch failed:', error);
+            // Return a fallback response if available
+            return caches.match('/offline.html');
           });
       })
   );
