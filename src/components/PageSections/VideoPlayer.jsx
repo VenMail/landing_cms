@@ -116,7 +116,7 @@ export default function VideoPlayer() {
     <div className="mt-4 flex justify-center">
       <a
         href="https://app.venmail.io"
-        className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-full hover:bg-primary-700 transition-colors duration-200"
+        className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-primary-600 rounded-none hover:bg-primary-700 transition-colors duration-200"
       >
         Sign up now
       </a>
