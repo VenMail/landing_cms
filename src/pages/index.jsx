@@ -216,7 +216,7 @@ export default function Home() {
               href="#"
               className="md:inline-flex block cursor-pointer items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
-              Start a 30-day free trial
+              Get Started for Free
             </a>
           </div>
           <div className="lg:mt-0 lg:col-span-5 lg:flex">
