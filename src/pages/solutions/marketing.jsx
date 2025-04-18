@@ -50,7 +50,8 @@ export default function Marketing() {
                 results.
               </p>
               <a
-                href=""
+                href="https://app.venmail.io/register"
+                target="_blank"
                 className="text-primary-500 font-bold flex items-center cursor-pointer"
               >
                 Sign up for free
@@ -86,7 +87,8 @@ export default function Marketing() {
                 results.
               </p>
               <a
-                href=""
+                href="https://app.venmail.io/register"
+                target="_blank"
                 className="text-primary-500 font-bold flex items-center cursor-pointer"
               >
                 Sign up for free

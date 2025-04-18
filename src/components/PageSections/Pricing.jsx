@@ -16,7 +16,7 @@ export default function Pricing() {
         "auto contact synchronization",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "start up",
@@ -25,14 +25,14 @@ export default function Pricing() {
       description1: "Essential tools for small teams",
       description2: "10 team members included",
       features: [
-        "Secure business mails@yourdomain.com",
+        "Secure business mails@yourdomain.com",
         "10GB storage per user",
         "advanced spam protection",
         "20 daily AI email rewrites/user",
         "10 daily prospect generations",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "business",
@@ -49,7 +49,7 @@ export default function Pricing() {
         "50 daily AI email rewrites/user",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "enterprise",
@@ -66,7 +66,7 @@ export default function Pricing() {
         "100 daily AI email rewrites/user",
       ],
       buttonText: "Contact Sales",
-      buttonLink: "/",
+      buttonLink: "/contact-us",
     },
   ];
 
@@ -131,6 +131,7 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
+                    target="_blank"
                     className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
                     Get started today
