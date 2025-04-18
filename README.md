@@ -1,4 +1,4 @@
-## Venmail
+## Venmail Landing
 
 First, run the development server:
 
