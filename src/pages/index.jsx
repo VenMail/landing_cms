@@ -135,7 +135,7 @@ const TabComponent = () => {
               {tabContent[activeTab].description}
             </p>
             <a
-              href="#"
+              href="https://app.venmail.io"
               className="block md:inline-flex cursor-pointer items-center justify-center px-4 py-2 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300"
             >
               Signup for Free
@@ -321,7 +321,7 @@ export default function Home() {
                 {tabContent[activeTab].description}
               </p>
               <a
-                href="#"
+                href="https://app.venmail.io"
                 className="block md:inline-flex items-center justify-center px-4 py-2 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300"
               >
                 Signup for Free
