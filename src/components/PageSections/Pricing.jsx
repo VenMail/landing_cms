@@ -79,10 +79,10 @@ export default function Pricing() {
 
       <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
         <div className="">
-          <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
+          <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl pb-5">
           One flat rate per team. Save up to 92% vs Gmail.
           </p>
-          <button className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See all benefits</button>
+          <a href="/pricing" className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See all benefits</a>
 
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-6 sm:mt-20 md:grid-cols-3">
@@ -129,7 +129,7 @@ export default function Pricing() {
               <div className={tierIdx === 3 ? "space-y-8" : ""}>
                 {tierIdx !== 3 && (
                   <a
-                    href={tier.href}
+                    href={tier.buttonLink}
                     aria-describedby={tier.id}
                     target="_blank"
                     className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
@@ -155,7 +155,7 @@ export default function Pricing() {
                 </ul>
                 {tierIdx === 3 && (
                   <a
-                    href={tier.href}
+                    href={tier.buttonLink}
                     aria-describedby={tier.id}
                     className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >

@@ -17,14 +17,15 @@ export default function ProductHero({subheading, title, description, button1Text
             {description}
           </p>
           <a
-            href="#"
-            className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-white bg-primary-600 hover:bg-primary-800 focus:ring-4 focus:ring-primary-30"
+            href="https://app.venmail.io/register"
+            target="_blank"
+            className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-30"
           >
             {button1Text}
           </a>
           <a
-            href="#"
-            className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100  "
+            href="/pricing"
+            className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 text-base font-medium text-center text-black border border-black focus:ring-4 focus:ring-gray-100  "
           >
             {button2Text}
           </a>

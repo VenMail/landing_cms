@@ -32,6 +32,7 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import NavMenu from "./NavMenu";
+import Link from "next/link";
 
 const products = [
   {
@@ -330,14 +331,16 @@ export default function Header({
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Button
-            className={`border-[1px] border-${textColor} text-${textColor} rounded-sm px-3 py-1 mr-3`}
+          <Link
+            target="_blank"
+            href="https://app.venmail.io/login"
+            className={`border-[1px] border-${textColor} flex items-center text-${textColor} rounded-none px-3 py-1 mr-3`}
           >
             Login
-          </Button>
-          <Button className="bg-primary-600 text-white fw-bold rounded-sm px-3 py-2">
+          </Link>
+          <Link href="https://app.venmail.io/register" target="_blank" className="bg-primary-600 text-white fw-bold rounded-none px-3 py-2">
             Signup for Free
-          </Button>
+          </Link>
         </div>
       </nav>
       <Dialog
@@ -440,18 +443,20 @@ export default function Header({
                 </a>
               </div>
               <div className="py-6">
-                <Button
-                  href="#"
+                <Link
+                  href="https://app.venmail.io/login"
+                  target="_blank"
                   className="w-full border-[1px] border-black px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 mb-3"
                 >
                   Login
-                </Button>
-                <Button
-                  href="#"
+                </Link>
+                <Link
+                  href="https://app.venmail.io/register"
+                  target="_blank"
                   className="w-full bg-primary-600 text-white px-3 py-2.5 text-base/7 font-semibold"
                 >
                   Sign up for Free
-                </Button>
+                </Link>
               </div>
             </div>
           </div>

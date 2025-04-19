@@ -212,16 +212,18 @@ const PricingTable = () => {
               >
                 <div className="text-center">
                   <div>{plan.name}</div>
-                  <div className="text-lg font-semibold">{plan.price}</div>
-                  <button
-                    className={`mt-6 px-7 py-2 rounded-sm text-sm ${
+                  <div className="text-lg font-semibold pb-6">{plan.price}</div>
+                  <a
+                    target="_blank"
+                    href="https://app.venmail.io/register"
+                    className={`px-7 py-2 rounded-sm text-sm ${
                       plan.isHighlighted
                         ? "bg-primary-600 text-white"
                         : "border border-gray-300 text-gray-700"
                     }`}
                   >
                     {plan.button}
-                  </button>
+                  </a>
                 </div>
               </th>
             ))}
@@ -394,7 +396,7 @@ export const pricingPlans = [
         "auto contact synchronization",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "start up",
@@ -411,7 +413,7 @@ export const pricingPlans = [
         "10 daily prospect generations",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "business",
@@ -428,7 +430,7 @@ export const pricingPlans = [
         "50 daily AI email rewrites/user",
       ],
       buttonText: "Get Started",
-      buttonLink: "/",
+      buttonLink: "https://app.venmail.io/register",
     },
     {
       name: "enterprise",
@@ -445,7 +447,7 @@ export const pricingPlans = [
         "100 daily AI email rewrites/user",
       ],
       buttonText: "Contact Sales",
-      buttonLink: "/",
+      buttonLink: "/contact-us",
     },
   ];
 
@@ -516,7 +518,7 @@ function pricing() {
                   <div className="pb-48">
                     {tierIdx !== 13 && (
                       <a
-                        href={tier.href}
+                        href={tier.buttonLink}
                         aria-describedby={tier.id}
                         className={`cursor-pointer ${
                           tier.featured
