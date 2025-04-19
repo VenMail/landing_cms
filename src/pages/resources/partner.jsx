@@ -77,7 +77,7 @@ export default function Partner() {
           </div>
           <div className="lg:mt-0 md:col-span-6 flex justify-end ">
             <img src="/partner/partner-1.png" alt="mockup" className="mt-10 md:mt-0"/> 
-          </div>
+          </div> 
         </div>
       </section>
       <section className="bg-white py-10 px-4 mx-auto max-w-screen-xl md:px-6">
