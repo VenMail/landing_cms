@@ -442,7 +442,7 @@ export default function Header({
                   Pricing
                 </a>
               </div>
-              <div className="py-6">
+              <div className="py-6 flex flex-col">
                 <Link
                   href="https://app.venmail.io/login"
                   target="_blank"
