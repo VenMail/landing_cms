@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { BsTwitterX } from "react-icons/bs";
 import {
   FaMedium,
   FaYoutube,
   FaLinkedinIn,
-  FaXTwitter,
+  FaTwitter,
 } from "react-icons/fa";
 
 export default function Footer({ hideFooterJumbo = false }) {
@@ -199,7 +200,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   href="https://x.com/venmailhq"
                   className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
-                  <FaXTwitter />
+                  <BsTwitterX />
                 </a>
                 <a
                   href="https://www.youtube.com/@venmail"
