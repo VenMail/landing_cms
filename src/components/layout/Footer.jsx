@@ -4,6 +4,7 @@ import {
   FaYoutube,
   FaInstagram,
   FaLinkedinIn,
+  FaXTwitter,
 } from "react-icons/fa";
 
 export default function Footer({ hideFooterJumbo = false }) {
@@ -184,10 +185,10 @@ export default function Footer({ hideFooterJumbo = false }) {
               </p> */}
               <div className="flex flex-row space-x-6 mb-4 md:mb-0">
                 <a
-                  href="#"
+                  href="https://x.com/venmailhq"
                   className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
-                  <FaFacebookF />
+                  <FaXTwitter />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/venmail"
