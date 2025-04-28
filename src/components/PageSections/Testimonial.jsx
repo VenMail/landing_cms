@@ -4,7 +4,7 @@ const Testimonial = () => {
   const testimonials = [
     {
       text: `"Venmail simplifies contact management and meeting scheduling, freeing you to focus on selecting the right customers and closing sales effectively."`,
-      author: "Ola Ogunsumi, KPMG",
+      author: "Stefan Riuki, BitPesa",
     },
   ];
 

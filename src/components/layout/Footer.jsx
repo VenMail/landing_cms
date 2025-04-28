@@ -176,7 +176,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   Privacy Policy
                 </a>
                 <a href="#" className="text-black text-sm cursor-pointer">
-                  © {currentYear} Venmail Management Inc.
+                  © {currentYear} Venmail LLC.
                 </a>
               </div>
               {/* <p className="text-sm text-gray-600 ">
