@@ -55,7 +55,7 @@ export default function Faqs() {
                 results.
               </p>
               <a
-                href="https://app.venmail.io/register"
+                href="https://m.venmail.io/register"
                 target="_blank"
                 className="text-primary-500 font-bold flex items-center cursor-pointer"
               >
@@ -92,7 +92,7 @@ export default function Faqs() {
                 results.
               </p>
               <a
-                href="https://app.venmail.io/register"
+                href="https://m.venmail.io/register"
                 target="_blank"
                 className="text-primary-500 font-bold flex items-center cursor-pointer"
               >

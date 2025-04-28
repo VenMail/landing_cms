@@ -31,36 +31,36 @@ const dynamicPages = [
 ];
 
 self.addEventListener('install', event => {
-  event.waitUntil(
-    Promise.all([
-      // Cache static assets
-      caches.open(STATIC_CACHE).then(cache => {
-        return Promise.all(
-          staticAssets.map(url => {
-            return fetch(url)
-              .then(response => {
-                if (!response.ok) throw new Error(`Failed to fetch ${url}`);
-                return cache.put(url, response);
-              })
-              .catch(error => console.error(`Failed to cache ${url}:`, error));
-          })
-        );
-      }),
-      // Cache dynamic pages
-      caches.open(DYNAMIC_CACHE).then(cache => {
-        return Promise.all(
-          dynamicPages.map(async url => {
-            return fetch(url)
-              .then(response => {
-                if (!response.ok) throw new Error(`Failed to fetch ${url}`);
-                return cache.put(url, response);
-              })
-              .catch(error => console.error(`Failed to cache ${url}:`, error));
-          })
-        );
-      })
-    ])
-  );
+  // event.waitUntil(
+  //   Promise.all([
+  //     // Cache static assets
+  //     caches.open(STATIC_CACHE).then(cache => {
+  //       return Promise.all(
+  //         staticAssets.map(url => {
+  //           return fetch(url)
+  //             .then(response => {
+  //               if (!response.ok) throw new Error(`Failed to fetch ${url}`);
+  //               return cache.put(url, response);
+  //             })
+  //             .catch(error => console.error(`Failed to cache ${url}:`, error));
+  //         })
+  //       );
+  //     }),
+  //     // Cache dynamic pages
+  //     caches.open(DYNAMIC_CACHE).then(cache => {
+  //       return Promise.all(
+  //         dynamicPages.map(async url => {
+  //           return fetch(url)
+  //             .then(response => {
+  //               if (!response.ok) throw new Error(`Failed to fetch ${url}`);
+  //               return cache.put(url, response);
+  //             })
+  //             .catch(error => console.error(`Failed to cache ${url}:`, error));
+  //         })
+  //       );
+  //     })
+  //   ])
+  // );
 });
 
 self.addEventListener('fetch', event => {

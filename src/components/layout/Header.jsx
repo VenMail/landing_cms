@@ -333,12 +333,12 @@ export default function Header({
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             target="_blank"
-            href="https://app.venmail.io/login"
+            href="https://m.venmail.io/login"
             className={`border-[1px] border-${textColor} flex items-center text-${textColor} rounded-none px-3 py-1 mr-3`}
           >
             Login
           </Link>
-          <Link href="https://app.venmail.io/register" target="_blank" className="bg-primary-600 text-white fw-bold rounded-none px-3 py-2">
+          <Link href="https://m.venmail.io/register" target="_blank" className="bg-primary-600 text-white fw-bold rounded-none px-3 py-2">
             Signup for Free
           </Link>
         </div>
@@ -444,14 +444,14 @@ export default function Header({
               </div>
               <div className="py-6 flex flex-col">
                 <Link
-                  href="https://app.venmail.io/login"
+                  href="https://m.venmail.io/login"
                   target="_blank"
                   className="w-full border-[1px] border-black px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 mb-3"
                 >
                   Login
                 </Link>
                 <Link
-                  href="https://app.venmail.io/register"
+                  href="https://m.venmail.io/register"
                   target="_blank"
                   className="w-full bg-primary-600 text-white px-3 py-2.5 text-base/7 font-semibold"
                 >

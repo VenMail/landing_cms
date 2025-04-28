@@ -215,7 +215,7 @@ const PricingTable = () => {
                   <div className="text-lg font-semibold pb-6">{plan.price}</div>
                   <a
                     target="_blank"
-                    href="https://app.venmail.io/register"
+                    href="https://m.venmail.io/register"
                     className={`px-7 py-2 rounded-sm text-sm ${
                       plan.isHighlighted
                         ? "bg-primary-600 text-white"
@@ -396,7 +396,7 @@ export const pricingPlans = [
         "auto contact synchronization",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "start up",
@@ -413,7 +413,7 @@ export const pricingPlans = [
         "10 daily prospect generations",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "business",
@@ -430,7 +430,7 @@ export const pricingPlans = [
         "50 daily AI email rewrites/user",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "enterprise",

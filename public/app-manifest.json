@@ -88,7 +88,7 @@
             "name": "Open App",
             "short_name": "App",
             "description": "Open Venmail App",
-            "url": "https://app.venmail.io",
+            "url": "https://m.venmail.io",
             "icons": [{ "src": "/manifest-icon-96.maskable.png", "sizes": "96x96" }]
         }
     ],
@@ -96,7 +96,7 @@
     "related_applications": [
         {
             "platform": "windows",
-            "url": "https://app.venmail.io"
+            "url": "https://m.venmail.io"
         }
     ],
     "prefer_related_applications": false,

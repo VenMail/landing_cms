@@ -17,7 +17,7 @@ export default function ProductHero({subheading, title, description, button1Text
             {description}
           </p>
           <a
-            href="https://app.venmail.io/register"
+            href="https://m.venmail.io/register"
             target="_blank"
             className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-30"
           >

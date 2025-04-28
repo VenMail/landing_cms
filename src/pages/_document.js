@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="author" content="Venmail Management Inc" />
+        <meta name="author" content="Venmail LLC" />
         
         {/* Favicon and App Icons */}
         <link rel="icon" href="/favicon.ico" />
@@ -17,7 +17,7 @@ export default function Document() {
         <link rel="manifest" href="/app-manifest.json" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://beta.venmail.io" />
+        <link rel="canonical" href="https://venmail.io" />
         
         {/* Application Meta */}
         <meta name="application-name" content="Venmail" />
@@ -73,7 +73,7 @@ export default function Document() {
       <body className="antialiased">
         <Main />
         <NextScript />
-        <script src="/register-sw.js" async />
+        {/* <script src="/register-sw.js" async /> */}
       </body>
     </Html>
   );

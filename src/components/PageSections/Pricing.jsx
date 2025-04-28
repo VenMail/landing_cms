@@ -16,7 +16,7 @@ export default function Pricing() {
         "auto contact synchronization",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "start up",
@@ -32,7 +32,7 @@ export default function Pricing() {
         "10 daily prospect generations",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "business",
@@ -49,7 +49,7 @@ export default function Pricing() {
         "50 daily AI email rewrites/user",
       ],
       buttonText: "Get Started",
-      buttonLink: "https://app.venmail.io/register",
+      buttonLink: "https://m.venmail.io/register",
     },
     {
       name: "enterprise",

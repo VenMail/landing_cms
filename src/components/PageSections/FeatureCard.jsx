@@ -34,7 +34,7 @@ export default function FeatureCard({
             {title}
           </h3>
           <p className="mb-6 text-gray-500  leading-[24px]">{description}</p>
-          <a href="https://app.venmail.io/register" target="_blank" className="text-base font-semibold cursor-pointer text-primary-600">
+          <a href="https://m.venmail.io/register" target="_blank" className="text-base font-semibold cursor-pointer text-primary-600">
             Signup for free
           </a>
         </div>

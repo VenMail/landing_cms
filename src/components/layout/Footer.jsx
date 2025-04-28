@@ -89,7 +89,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://app.venmail.io/register"
+                      href="https://m.venmail.io/register"
                       target="_blank"
                       className="text-sm text-black transition-colors"
                     >
@@ -98,7 +98,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   </li>
                   <li>
                     <Link
-                      href="https://app.venmail.io/login"
+                      href="https://m.venmail.io/login"
                       target="_blank"
                       className="text-sm text-black transition-colors"
                     >
@@ -117,7 +117,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                 <ul className="space-y-3">
                   <li>
                     <Link
-                      href="https://app.venmail.io/register"
+                      href="https://m.venmail.io/register"
                       target="_blank"
                       className="text-sm text-black transition-colors"
                     >
@@ -126,7 +126,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   </li>
                   <li>
                     <Link
-                      href="https://app.venmail.io/login"
+                      href="https://m.venmail.io/login"
                       target="_blank"
                       className="text-sm text-black transition-colors"
                     >
