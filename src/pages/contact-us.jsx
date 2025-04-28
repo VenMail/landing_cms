@@ -14,7 +14,7 @@ function PrivacyPolicy() {
               Our sales and support teams are more than happy to answer your
               questions and discuss our products and integrations. Send us a
               message, and we will get back to you as soon as possible. For
-              payment issues,Contact: disputes@venmail.com
+              payment issues, Contact: hello@venmail.com
             </p>
           </div>
           <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl md:py-44 md:px-6">

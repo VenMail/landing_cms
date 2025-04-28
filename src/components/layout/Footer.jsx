@@ -190,7 +190,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   <FaFacebookF />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/venmail"
                   className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaLinkedinIn />
@@ -202,7 +202,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   <FaInstagram />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.youtube.com/@venmail"
                   className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
                 >
                   <FaYoutube />
