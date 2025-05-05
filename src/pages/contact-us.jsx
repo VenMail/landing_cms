@@ -33,10 +33,10 @@ function ContactUs() {
 
   return (
     <DefaultLayout>
-      <section className="bg-black min-h-screen text-white">
+      <section className="min-h-screen">
         <div className="max-w-7xl px-4 mx-auto relative">
           <div className="max-w-4xl mx-auto pt-20 md:pt-32">
-            <h1 className="mb-8 text-4xl md:text-8xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
+            <h1 className="mb-8 text-4xl md:text-8xl font-bold tracking-tight leading-none text-black bg-clip-text">
               Contact Us
             </h1>
             <p className="text-xl md:text-2xl font-light opacity-80 h-8">
@@ -52,7 +52,7 @@ function ContactUs() {
                 className="w-full object-cover rounded-lg shadow-2xl"
                 style={{ filter: 'brightness(0.8) contrast(1.2)' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
+              <div className="absolute inset-0 border-2 border-white/20 blur-2xl rounded-lg"></div>
             </div>
 
             <div className="space-y-8">
