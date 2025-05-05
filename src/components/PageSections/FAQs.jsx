@@ -6,7 +6,7 @@ function FAQs() {
   const faqs = [
     {
       question: "Is it really just $5 total for 10 users?",
-      answer: "Yes. You pay $5/month total, not per user. Gmail would charge you $63 for the same team size. We believe email shouldn't cost more just because your team grows.",
+      answer: "$4.5 actually. You pay $4.5/month for 10 users, not per user. Some providers would charge you $63 for the same team size. We believe email shouldn't cost more just because your team grows.",
     },
     {
       question: "What's the catch with the pricing?",
