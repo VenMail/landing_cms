@@ -5,7 +5,7 @@ function ContactUs() {
   const [displayEmail, setDisplayEmail] = useState("");
   const [displayText, setDisplayText] = useState("");
   const originalText = "We are constantly improving our platform to better serve you. If you have any questions or feedback, please don't hesitate to contact us.";
-  const emailParts = ['hello', 'venmail', 'io'];
+  const emailParts = ['hel', 'lo', 'ven', 'mail', 'io'];
 
   useEffect(() => {
     // Text animation
@@ -17,21 +17,23 @@ function ContactUs() {
       } else {
         clearInterval(textInterval);
       }
-    }, 100);
+    }, 20);
 
-    // Email obfuscation
-    setDisplayEmail(`${emailParts[0]}@${emailParts[1]}.${emailParts[2]}`);
+    setTimeout(() => {
+      // Email obfuscation
+      setDisplayEmail(`${emailParts[0]}${emailParts[1]}@${emailParts[2]}${emailParts[3]}.${emailParts[4]}`);
+    }, 1000);
 
     return () => clearInterval(textInterval);
   }, []);
 
   const handleContactClick = () => {
-    window.location.href = `mailto:${emailParts[0]}@${emailParts[1]}.${emailParts[2]}`;
+    window.location.href = `mailto:${emailParts[0]}${emailParts[1]}@${emailParts[2]}${emailParts[3]}.${emailParts[4]}`;
   };
 
   return (
     <DefaultLayout>
-      <section className="bg-black min-h-screen text-white">
+      <section className="min-h-screen">
         <div className="max-w-7xl px-4 mx-auto relative">
           <div className="max-w-4xl mx-auto pt-20 md:pt-32">
             <h1 className="mb-8 text-4xl md:text-8xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
