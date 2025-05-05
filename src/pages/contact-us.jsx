@@ -33,7 +33,7 @@ function ContactUs() {
 
   return (
     <DefaultLayout>
-      <section className="min-h-screen">
+      <section className="bg-black min-h-screen text-white">
         <div className="max-w-7xl px-4 mx-auto relative">
           <div className="max-w-4xl mx-auto pt-20 md:pt-32">
             <h1 className="mb-8 text-4xl md:text-8xl font-bold tracking-tight leading-none bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-transparent bg-clip-text">
