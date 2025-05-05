@@ -21,8 +21,8 @@ function FAQs() {
       answer: "We maintain 99.9% uptime, backed by the same enterprise-grade security as major providers. But don't take our word - try it free for 30 days. If anything doesn't work as promised, cancel instantly. No questions asked.",
     },
     {
-      question: "How does your AI actually help?",
-      answer: "Bring your existing domain or set up a new one. We'll help configure everything properly, including SPF and DKIM records for optimal delivery rates.",
+      question: "How does Venmail make email work better?",
+      answer: "Venmail provides a robust smart email experience allowing you to open, read mails faster and take action on them via email summaries and instant task and meeting scheduling. You'll just notice work getting done faster.",
     },
     {
       question: "How does your AI actually help?",
