@@ -34,6 +34,13 @@ export default function Calendar() {
     },
     {
       icon: (
+        <CalendarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Clickable dates in email",
+      text: "Dates mentioned in emails become clickable. One click turns any date into a scheduled meeting.",
+    },
+    {
+      icon: (
         <BellIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Never drop the ball",
@@ -52,6 +59,12 @@ export default function Calendar() {
   ];
 
   const boxes = [
+    {
+      subheading: "Quick Scheduling",
+      title: "Dates in emails become meetings",
+      description: "Any date mentioned in an email automatically becomes clickable. Schedule meetings instantly without switching between apps.",
+      image: "/quick-meeting-scheduler.png",
+    },
     {
       subheading: "Personal Booking",
       title: "Share your booking page",
@@ -84,7 +97,7 @@ export default function Calendar() {
         subheading={<CalendarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
         title={"Your calendar works with your inbox now"}
         description={
-          "Emails turn into events automatically. Meeting requests get scheduled instantly. Import Google Calendar and share your booking page."
+          "Emails turn into events automatically. Dates become clickable. Import Google Calendar and share your booking page."
         }
         image={"/product/calendar.png"}
         button1Text={"Schedule Event"}

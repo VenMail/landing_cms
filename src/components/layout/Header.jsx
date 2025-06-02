@@ -27,6 +27,7 @@ import {
   UsersIcon,
   CogIcon,
   ShareIcon,
+  SparklesIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -66,6 +67,12 @@ const products = [
     description: "Advanced tracking, validation, and follow-ups",
     href: "/product/email-automation",
     icon: CogIcon,
+  },
+  {
+    name: "Email-to-Action",
+    description: "Turn emails into tasks and meetings instantly",
+    href: "/product/email-to-action",
+    icon: SparklesIcon,
   },
   {
     name: "Booking",
@@ -183,7 +190,7 @@ export default function Header({
             >
               <div className="grid grid-cols-3 gap-8">
                 <div>
-                  {products.slice(0, 2).map((item) => (
+                  {products.slice(0, 3).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -204,11 +211,11 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {products.slice(2, 4).map((item) => (
+                  {products.slice(3, 5).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
                     >
                       <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
@@ -225,7 +232,7 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {products.slice(4, 6).map((item) => (
+                  {products.slice(5, 7).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}

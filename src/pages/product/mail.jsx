@@ -7,7 +7,7 @@ import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
 import { RxEnvelopeClosed } from "react-icons/rx";
-import { EyeIcon, ShieldCheckIcon, DocumentArrowUpIcon, ChartBarIcon, ArrowPathIcon, ServerIcon } from "@heroicons/react/24/outline";
+import { EyeIcon, ShieldCheckIcon, DocumentArrowUpIcon, ChartBarIcon, ArrowPathIcon, ServerIcon, CursorArrowRaysIcon, CalendarDaysIcon, TagIcon } from "@heroicons/react/24/outline";
 
 export default function Mail() {
   const features = [
@@ -17,6 +17,27 @@ export default function Mail() {
       ),
       title: "Write perfect emails instantly",
       text: 'Type "Schedule meeting next week" and watch as your email gets written, calendar gets checked.',
+    },
+    {
+      icon: (
+        <CalendarDaysIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Dates become clickable",
+      text: "Dates in emails automatically turn into clickable meeting schedulers. One click to schedule from any email.",
+    },
+    {
+      icon: (
+        <CursorArrowRaysIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Highlight text → instant task",
+      text: "Select any text in your email and instantly turn it into a task. Quick task creation has never been easier.",
+    },
+    {
+      icon: (
+        <TagIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Smart AI labels",
+      text: "AI automatically categorizes emails with smart labels. Use natural language prompts to organize your inbox.",
     },
     {
       icon: (
@@ -40,27 +61,6 @@ export default function Mail() {
       text: "Email → Action Meetings schedule. Tasks track. Follow-ups set.",
     },
     {
-      icon: (
-        <ChartBarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
-      ),
-      title: "Sent panel management",
-      text: "Track delivery rates, open rates, and responses. Manage your email performance dashboard.",
-    },
-    {
-      icon: (
-        <ArrowPathIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
-      ),
-      title: "Automated follow-ups",
-      text: "Never miss a follow-up opportunity. Auto-detect when emails need responses.",
-    },
-    {
-      icon: (
-        <DocumentArrowUpIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
-      ),
-      title: "Import from anywhere",
-      text: "Upload .zip, .eml, .mbox files or connect via IMAP/POP. Bring your entire email history.",
-    },
-    {
       icon: <BsListUl className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
       title: "Important emails find you",
       text: "Client emails surface first. Deal-related messages get flagged. Urgent requests jump the queue.",
@@ -68,6 +68,24 @@ export default function Mail() {
   ];
 
   const boxes = [
+    {
+      subheading: "Quick Meeting Scheduling",
+      title: "Dates in emails become clickable",
+      description: "Any date mentioned in an email automatically becomes a clickable meeting scheduler. Schedule meetings instantly without leaving your inbox.",
+      image: "/quick-meeting-scheduler.png",
+    },
+    {
+      subheading: "Instant Task Creation",
+      title: "Highlight text to create tasks",
+      description: "Select any text in your email and instantly convert it to a task. Perfect for capturing action items from conversations.",
+      image: "/quick_tasks.png",
+    },
+    {
+      subheading: "AI-Powered Organization",
+      title: "Smart labels with natural language",
+      description: "Use AI prompts to automatically categorize and label your emails. Organize your inbox with intelligent, context-aware labels.",
+      image: "/smart-labels.png",
+    },
     {
       subheading: "Email Performance",
       title: "Track and optimize your emails",
@@ -98,24 +116,6 @@ export default function Mail() {
       description: "Upload email files or connect via IMAP/POP. Import your entire email history and continue where you left off.",
       image: "/import-options.png",
     },
-    {
-      subheading: "IMAP/POP Support",
-      title: "Connect your email server",
-      description: "Seamlessly connect to any email provider using IMAP or POP protocols. Keep your existing email setup.",
-      image: "/import-imap-pop.png",
-    },
-    {
-      subheading: "AI Email Rewrites",
-      title: "Emails write themselves",
-      description: "Email style matches yours. Responses adapt to context. Perfect tone every time.",
-      image: "/product/mail/feature-1.png",
-    },
-    {
-      subheading: "Auto Task Extraction",
-      title: "Tasks extract themselves",
-      description: "Meeting request? Added to calendar. Action item? Created in tasks. Follow-up needed? Scheduled automatically.",
-      image: "/product/mail/feature-2.png",
-    },
   ];
 
   return (
@@ -124,7 +124,7 @@ export default function Mail() {
         subheading={<RxEnvelopeClosed className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
         title={"Process email like you've got a team of assistants"}
         description={
-          "Smart task extraction, meeting scheduling, tracking, validation, and automated follow-ups that work quietly in the background."
+          "Smart task extraction, meeting scheduling, tracking, validation, and automated follow-ups. Dates become clickable, text becomes tasks."
         }
         image={"/product/mail.png"}
         button1Text={"Get Mail"}
