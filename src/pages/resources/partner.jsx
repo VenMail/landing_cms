@@ -36,7 +36,7 @@ export default function Partner() {
               help you focus on what matters{" "}
             </p>
             <a
-              href="#"
+              href="https://m.venmail.io/partner/signup"
               className="md:inline-flex block cursor-pointer items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 "
             >
               Get started

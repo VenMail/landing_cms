@@ -6,10 +6,9 @@ import { BsListUl } from "react-icons/bs";
 import ProductHero from "@/components/PageSections/ProductHero";
 import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
-import { VideoCameraIcon, ClockIcon, LinkIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { VideoCameraIcon, ClockIcon, LinkIcon, LockClosedIcon, ShareIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
-
-export default function Mail() {
+export default function Meeting() {
   const features = [
     {
       icon: (
@@ -26,6 +25,20 @@ export default function Mail() {
       text: "Your personal scheduling link learns your preferences. People pick times that work for both.",
     },
     {
+      icon: (
+        <ShareIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Personal booking pages",
+      text: "Beautiful, branded booking pages that reflect your style. Share your availability without sharing your calendar.",
+    },
+    {
+      icon: (
+        <CalendarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
+      ),
+      title: "Google Calendar sync",
+      text: "Two-way sync with your existing calendar. All meetings appear where you expect them.",
+    },
+    {
       icon: <LockClosedIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />,
       title: "Meetings stay secure",
       text: "Private links. Verified guests. Controlled access. Enterprise-grade security. End-to-end encryption",
@@ -34,31 +47,29 @@ export default function Mail() {
 
   const boxes = [
     {
+      subheading: "Personal Booking",
+      title: "Share your booking page",
+      description: "Create beautiful booking pages with your branding. Let others schedule meetings based on your availability automatically.",
+      image: "/personal_booking.png",
+    },
+    {
       subheading: "Shareable Link",
       title: "One link books all your meetings",
-      description: "Share your scheduling link once, let people pick times that work.",
+      description: "Share your scheduling link once, let people pick times that work for both of you.",
       image: "/product/meeting/meeting-feat-1.png",
     },
     {
       subheading: "Schedule",
       title: "Schedule meetings in seconds",
-      description: "Pick your times once, booking happens automatically",
+      description: "Pick your times once, booking happens automatically with intelligent conflict detection.",
       image: "/product/meeting/meeting-feat-2.png",
     },
     {
-      subheading: "secured",
-      title: "Enterprise-grade security built in",
-      description:
-        "End-to-end encryption. Two-factor auth. SOC 2 certified.",
-        image: "/product/meeting/meeting-feat-3.png",
-      },
-    {
       subheading: "set availability",
       title: "Set your rules, booking handles itself",
-      description:
-        "Block off focus time. Set working hours. Never get double-booked.",
-        image: "/product/meeting/meeting-feat-4.png",
-      },
+      description: "Block off focus time. Set working hours. Define meeting types. Never get double-booked.",
+      image: "/product/meeting/meeting-feat-4.png",
+    },
   ];
 
   return (
@@ -67,7 +78,7 @@ export default function Mail() {
         subheading={<VideoCameraIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
         title={"Every meeting moves work forward"}
         description={
-          "Auto agendas. Smart summaries. Tracked actions."
+          "Auto agendas. Smart summaries. Tracked actions. Beautiful booking pages that make scheduling effortless."
         }
         image={"/product/meetings.png"}
         button1Text={"Schedule Meeting"}
@@ -77,8 +88,8 @@ export default function Mail() {
       <section className="bg-white ">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            {features.map((feature) => (
-              <div>
+            {features.map((feature, index) => (
+              <div key={index}>
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
                 <p className="text-gray-400 ">

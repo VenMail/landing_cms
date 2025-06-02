@@ -25,6 +25,8 @@ import {
   CalendarIcon,
   VideoCameraIcon,
   UsersIcon,
+  CogIcon,
+  ShareIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -58,6 +60,18 @@ const products = [
     description: "View and manage potential contacts",
     href: "/product/contacts",
     icon: UsersIcon,
+  },
+  {
+    name: "Email Automation",
+    description: "Advanced tracking, validation, and follow-ups",
+    href: "/product/email-automation",
+    icon: CogIcon,
+  },
+  {
+    name: "Booking",
+    description: "Personal booking pages and availability management",
+    href: "/product/booking",
+    icon: ShareIcon,
   },
 ];
 
@@ -215,15 +229,18 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
                     >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 ">
-                        <item.icon className="h-6 w-6 text-gray-600 " />
+                      <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
+                        <item.icon className="h-6 w-6 text-[#1C323B]" />
                       </div>
                       <div className="flex-auto">
-                        <span className="block font-semibold text-gray-900">
+                        <span className="block font-semibold text-[#1C323B]">
                           {item.name}
                         </span>
+                        <p className="text-[#546E79] text-sm">
+                          {item?.description}
+                        </p>
                       </div>
                     </a>
                   ))}
