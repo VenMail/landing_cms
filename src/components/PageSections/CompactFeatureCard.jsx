@@ -12,18 +12,18 @@ export default function CompactFeatureCard({
   return (
     <>
       <div className="bg-[#f9f1ef] flex flex-col">
-        <div className="p-6 sm:p-8 md:p-10 flex-1">
+        <div className="p-8 sm:p-10 md:p-12 flex-1">
           <p
-            className={`uppercase text-base font-medium mb-4 ${
+            className={`uppercase text-base font-medium mb-6 ${
               index === 0 ? "text-primary-700" : "text-black"
             }`}
           >
             {subheading}
           </p>
-          <h3 className="mb-6 text-2xl md:text-4xl font-medium md:leading-[48px] text-black">
+          <h3 className="mb-8 text-2xl md:text-4xl font-medium md:leading-[48px] text-black">
             {title}
           </h3>
-          <p className="mb-6 text-gray-500 leading-[24px]">{description}</p>
+          <p className="mb-8 text-gray-500 leading-[28px]">{description}</p>
           <a href="https://m.venmail.io/register" target="_blank" className="text-base font-semibold cursor-pointer text-primary-600">
             Signup for free
           </a>

@@ -113,8 +113,8 @@ export default function EmailAutomation() {
       />
 
       <section className="bg-white">
-        <div className="py-6 px-4 mx-auto max-w-screen-xl sm:py-12 lg:px-6">
-          <div className="max-w-screen-md mb-6 lg:mb-12 mx-auto text-center">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div className="max-w-screen-md mb-8 lg:mb-16 mx-auto text-center">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
               Powerful email automation features
             </h2>
@@ -122,12 +122,12 @@ export default function EmailAutomation() {
               Everything you need to send professional emails, track engagement, and automate follow-ups
             </p>
           </div>
-          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+          <div className="space-y-12 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
             {features.map((feature, index) => (
               <div key={index}>
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
-                <p className="text-gray-400">
+                <div className="mb-6">{feature.icon}</div>
+                <h3 className="mb-4 text-xl font-semibold text-black">{feature.title}</h3>
+                <p className="text-gray-400 leading-[26px]">
                   {feature.text}
                 </p>
               </div>
@@ -137,8 +137,8 @@ export default function EmailAutomation() {
       </section>
 
       <section className="bg-gray-50">
-        <div className="py-6 px-4 mx-auto max-w-screen-xl sm:py-12 lg:px-6">
-          <div className="max-w-screen-md mb-6 lg:mb-12 mx-auto text-center">
+        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div className="max-w-screen-md mb-8 lg:mb-16 mx-auto text-center">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
               See it in action
             </h2>
@@ -146,7 +146,7 @@ export default function EmailAutomation() {
               Real screenshots of our email automation features working behind the scenes
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {boxes.map((box, index) => (
               <CompactFeatureCard
                 key={index}
