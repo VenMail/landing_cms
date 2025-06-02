@@ -39,9 +39,9 @@ const TabComponent = () => {
       image: "/home/section-4d.png",
     },
     analytics: {
-      title: "Mail Analytics",
-      description: "Track email performance and gain actionable insights.",
-      image: "/home/section-4e.png",
+      title: "Sent Mail Analytics",
+      description: "Track delivery rates, open rates, and email performance with detailed sent mail analytics.",
+      image: "/sent-panel.png",
     },
     spam: {
       title: "Spam Detection",
@@ -123,11 +123,13 @@ const TabComponent = () => {
           </div>
 
           <div className="md:hidden block mt-6 lg:mt-0">
-            <img
-              src={tabContent[activeTab].image}
-              alt={`${activeTab} Dashboard`}
-              className="rounded-lg shadow-lg w-full h-auto transition-all duration-300"
-            />
+            <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10 rounded-lg">
+              <img
+                src={tabContent[activeTab].image}
+                alt={`${activeTab} Dashboard`}
+                className="rounded-lg shadow-sm w-full h-auto transition-all duration-300"
+              />
+            </div>
           </div>
 
           <div className="mt-6">
@@ -144,11 +146,13 @@ const TabComponent = () => {
           </div>
         </div>
         <div className="hidden md:block col-span-9">
-          <img
-            src={tabContent[activeTab].image}
-            alt={`${tabContent[activeTab].title} Dashboard`}
-            className="rounded-lg shadow-lg w-full h-auto transition-all duration-300"
-          />
+          <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10 rounded-lg">
+            <img
+              src={tabContent[activeTab].image}
+              alt={`${tabContent[activeTab].title} Dashboard`}
+              className="rounded-lg shadow-sm w-full h-auto transition-all duration-300"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -190,9 +194,9 @@ export default function Home() {
       image: "/home/section-4d.png",
     },
     analytics: {
-      title: "Mail Analytics",
-      description: "Track email performance and gain actionable insights.",
-      image: "/home/section-4e.png",
+      title: "Sent Mail Analytics",
+      description: "Track delivery rates, open rates, and email performance with detailed sent mail analytics.",
+      image: "/sent-panel.png",
     },
     spam: {
       title: "Spam Detection",

@@ -38,13 +38,15 @@ export default function FeatureCard({
             Signup for free
           </a>
         </div>
-        <img
-          className={`${
-            count === 3 && index === 2 ? "w-full mt-auto self-end pt-16" : "w-full mt-auto"
-          }`}
-          src={image}
-          alt={title}
-        />
+        <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10">
+          <img
+            className={`${
+              count === 3 && index === 2 ? "w-full rounded-lg shadow-sm" : "w-full rounded-lg shadow-sm"
+            }`}
+            src={image}
+            alt={title}
+          />
+        </div>
       </div>
     </>
   );

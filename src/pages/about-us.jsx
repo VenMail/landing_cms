@@ -41,9 +41,9 @@ export default function Home() {
       image: "/home/section-4d.png",
     },
     analytics: {
-      title: "Mail Analytics",
-      description: "Track email performance and gain actionable insights.",
-      image: "/home/section-4e.png",
+      title: "Sent Mail Analytics",
+      description: "Track delivery rates, open rates, and email performance with detailed sent mail analytics.",
+      image: "/sent-panel.png",
     },
     spam: {
       title: "Spam Detection",

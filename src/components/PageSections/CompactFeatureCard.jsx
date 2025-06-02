@@ -28,9 +28,9 @@ export default function CompactFeatureCard({
             Signup for free
           </a>
         </div>
-        <div className="overflow-hidden">
+        <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10">
           <img
-            className="w-full h-48 sm:h-56 md:h-64 object-cover object-top"
+            className="w-full rounded-lg shadow-sm"
             src={image}
             alt={title}
           />

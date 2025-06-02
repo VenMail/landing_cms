@@ -31,7 +31,9 @@ export default function ProductHero({subheading, title, description, button1Text
           </a>
         </div>
         <div className="lg:mt-0 lg:col-span-6 lg:flex">
-          <img src={image} alt="mockup" />
+          <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10 rounded-lg w-full">
+            <img src={image} alt="mockup" className="w-full rounded-lg shadow-sm" />
+          </div>
         </div>
       </div>
     </section>
