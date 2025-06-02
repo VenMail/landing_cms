@@ -54,7 +54,7 @@ export default function Meeting() {
     },
     {
       subheading: "Shareable Link",
-      title: "One link books all your meetings",
+      title: "One link to book them all",
       description: "Share your scheduling link once, let people pick times that work for both of you.",
       image: "/product/meeting/meeting-feat-1.png",
     },
