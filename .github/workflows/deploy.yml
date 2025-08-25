@@ -1,0 +1,73 @@
+name: Deploy to Cloudflare R2
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Ensure static export exists
+        run: |
+          if [ ! -d "out" ]; then
+            echo "::error::No 'out/' directory found. To deploy to R2 (static hosting), enable static export by adding to next.config.mjs: export default { output: 'export', images: { unoptimized: true } } and re-run."
+            exit 1
+          fi
+
+      - name: Install AWS CLI (for R2 S3-compatible sync)
+        run: |
+          if ! command -v aws >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y awscli
+          fi
+
+      - name: Sync to Cloudflare R2
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+        run: |
+          if [ -z "$R2_BUCKET" ]; then
+            echo "::error::Missing secret: R2_BUCKET (your R2 bucket name)."
+            exit 1
+          fi
+          if [ -z "$R2_ENDPOINT" ] && [ -z "$R2_ACCOUNT_ID" ]; then
+            echo "::error::Provide either R2_ENDPOINT (jurisdiction-specific endpoint) or R2_ACCOUNT_ID to construct the default endpoint."
+            exit 1
+          fi
+          ENDPOINT=${R2_ENDPOINT:-"https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"}
+          echo "Syncing 'out/' to s3://${R2_BUCKET} via $ENDPOINT"
+          aws s3 sync ./out "s3://${R2_BUCKET}" \
+            --endpoint-url "$ENDPOINT" \
+            --delete \
+            --no-progress
+
+      - name: Post-deploy note
+        if: always()
+        run: |
+          echo "Deployed to R2 bucket: ${R2_BUCKET:-<missing>}"
+          echo "If using a custom domain through Cloudflare, point it to this bucket and (optionally) enable R2 Static Website to set index.html/404.html."
