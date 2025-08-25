@@ -72,6 +72,8 @@ const worker = {
     const ct = contentType(servedKey);
     const headers = new Headers(obj.httpMetadata || {});
     headers.set('content-type', ct);
+    headers.set('x-served-key', servedKey);
+    headers.set('x-requested-key', requestedKey);
     // Cache: HTML no-cache, assets long-lived
     if (/\.html$/i.test(servedKey)) headers.set('cache-control', 'no-cache');
     else headers.set('cache-control', 'public, max-age=31536000, immutable');

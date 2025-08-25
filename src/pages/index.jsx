@@ -506,7 +506,7 @@ export default function Home() {
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                     <img
-                      src="/email_dashboard_preview.png"
+                      src="/email-dashboard-preview.png"
                       alt="Email Dashboard Preview"
                       className="w-full h-full object-cover"
                     />
@@ -573,8 +573,8 @@ export default function Home() {
                 <div className="bg-gray-50 p-6 rounded-lg">
                   <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
                     <img
-                      src="/ai_progress.png"
-                      alt="AI Progress Dashboard"
+                      src="/personal_booking.png"
+                      alt="Personal Booking Page"
                       className="w-full h-full object-cover"
                     />
                   </div>
