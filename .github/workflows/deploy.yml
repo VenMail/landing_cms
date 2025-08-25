@@ -72,6 +72,44 @@ jobs:
             --delete \
             --no-progress
 
+      - name: Generate wrangler.toml for Worker
+        env:
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+        run: |
+          if [ -z "$R2_BUCKET" ]; then
+            echo "::error::Missing secret: R2_BUCKET (your R2 bucket name)."
+            exit 1
+          fi
+          cat > wrangler.toml <<EOF
+          name = "venmail-worker"
+          main = "worker.js"
+          compatibility_date = "2024-09-01"
+
+          routes = [
+            { pattern = "venmail.io/*", zone_name = "venmail.io" },
+            { pattern = "www.venmail.io/*", zone_name = "venmail.io" }
+          ]
+
+          [[r2_buckets]]
+          binding = "BUCKET"
+          bucket_name = "${R2_BUCKET}"
+          EOF
+
+      - name: Install Wrangler
+        run: npm i -g wrangler@3
+
+      - name: Deploy Worker
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          if [ -z "$R2_ACCOUNT_ID" ] || [ -z "$CF_API_TOKEN" ]; then
+            echo "::error::Missing Cloudflare secrets. Add R2_ACCOUNT_ID and CF_API_TOKEN."
+            exit 1
+          fi
+          export CLOUDFLARE_API_TOKEN="$CF_API_TOKEN"
+          wrangler deploy --account-id "$R2_ACCOUNT_ID"
+
       - name: Post-deploy note
         if: always()
         run: |
