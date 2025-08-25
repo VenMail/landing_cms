@@ -20,6 +20,15 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "Meetings", href: "/product/meeting" },
       ],
     },
+    {
+      title: "Compare",
+      links: [
+        { label: "VenMail vs Gmail", href: "/compare/gmail" },
+        { label: "VenMail vs Outlook", href: "/compare/outlook" },
+        { label: "VenMail vs Zoho", href: "/compare/zoho" },
+        { label: "VenMail vs Webmail", href: "/compare/webmail" },
+      ],
+    },
     // {
     //   title: "Solutions",
     //   links: [
@@ -63,7 +72,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                 Get pricing details, technical specs, or migration help from our team.
               </p>
               <a
-                href="/contact-us"
+                href="mailto:hello@venmail.io"
                 className="block md:inline-flex items-center justify-center px-12 py-4 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300 rounded-sm"
               >
                 Contact Us
