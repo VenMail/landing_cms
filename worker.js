@@ -28,12 +28,18 @@ const MIME = new Map(Object.entries({
 
 function toKey(pathname) {
   try {
-    // Normalize: collapse multiple slashes
-    pathname = pathname.replace(/\/+/g, '/');
-    if (pathname.endsWith('/')) return pathname + 'index.html';
-    const last = pathname.split('/').pop() || '';
-    if (!last.includes('.')) return pathname + '.html';
-    return pathname;
+    // Normalize: remove leading slash for R2 keys and collapse multiple slashes
+    let p = pathname.startsWith('/') ? pathname.slice(1) : pathname;
+    p = p.replace(/\/+/, '/');
+    // Root
+    if (p === '') return 'index.html';
+    // Directory -> index.html
+    if (p.endsWith('/')) return p + 'index.html';
+    // No file extension -> .html
+    const last = p.split('/').pop() || '';
+    if (!last.includes('.')) return p + '.html';
+    // Asset or file with extension
+    return p;
   } catch (_) {
     return pathname || '/index.html';
   }
@@ -47,22 +53,27 @@ function contentType(key) {
 const worker = {
   async fetch(req, env) {
     const url = new URL(req.url);
-    let key = toKey(url.pathname);
+    let requestedKey = toKey(url.pathname);
+    let servedKey = requestedKey;
 
-    let obj = await env.BUCKET.get(key);
+    let obj = await env.BUCKET.get(requestedKey);
     if (!obj) {
       // Try 404 then index as SPA shell
-      obj = await env.BUCKET.get('404.html');
-      if (!obj) obj = await env.BUCKET.get('index.html');
+      servedKey = '404.html';
+      obj = await env.BUCKET.get(servedKey);
+      if (!obj) {
+        servedKey = 'index.html';
+        obj = await env.BUCKET.get(servedKey);
+      }
     }
 
     if (!obj) return new Response('Not found', { status: 404 });
 
-    const ct = contentType(key);
+    const ct = contentType(servedKey);
     const headers = new Headers(obj.httpMetadata || {});
     headers.set('content-type', ct);
     // Cache: HTML no-cache, assets long-lived
-    if (/\.html$/i.test(key)) headers.set('cache-control', 'no-cache');
+    if (/\.html$/i.test(servedKey)) headers.set('cache-control', 'no-cache');
     else headers.set('cache-control', 'public, max-age=31536000, immutable');
 
     return new Response(obj.body, { status: 200, headers });
