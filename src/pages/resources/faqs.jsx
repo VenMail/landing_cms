@@ -123,9 +123,8 @@ export default function Faqs() {
             </h1>
             <p className="max-w-lg mb-5 text-black">
               We're here to answer any questions you have. Please do not
-              hesitate to <span className="text-primary-600">contact us</span>.
-              Our team is available and happy to assist. Email Address:
-              hey@venmail.com
+              hesitate to <a href="/contact-us" className="text-primary-600">contact us</a>.
+              Our team is available and happy to assist.
             </p>
             <a
               href="#"

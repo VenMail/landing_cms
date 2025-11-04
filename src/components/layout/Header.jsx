@@ -165,7 +165,7 @@ export default function Header({
       >
         <div className="flex lg:flex-1 items-center">
           <a href="/" className="p-1.5 cursor-pointer">
-            <span className="sr-only">Venmail</span>
+            <span className="sr-only">VenMail</span>
             <img
               alt=""
               src={
@@ -376,7 +376,7 @@ export default function Header({
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between bg-white">
             <a href="/" className="-m-1.5 p-1.5 cursor-pointer">
-              <span className="sr-only">Venmail</span>
+              <span className="sr-only">VenMail</span>
               <img alt="" src="/logo-text.png" className="h-6 md:h-auto w-auto" />
             </a>
             <button

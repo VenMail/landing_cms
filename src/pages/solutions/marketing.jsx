@@ -16,11 +16,12 @@ export default function Marketing() {
               Win deals, crush your quota
             </h1>
             <p className="max-w-lg mb-5 text-black">
-              Say goodbye to the hassle of manual prospecting and let Venmail
+              Say goodbye to the hassle of manual prospecting and let VenMail
               help you focus on what matters
             </p>
             <a
-              href="#"
+              href="https://m.venmail.io/register"
+              target="_blank"
               className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 mr-0 md:mr-4"
             >
               Get started
@@ -45,7 +46,7 @@ export default function Marketing() {
                 Build targeted lists of your ideal clients
               </h2>
               <p className="text-[#637074] text-base my-5">
-                Venmail harnesses the power of artificial intelligence to
+                VenMail harnesses the power of artificial intelligence to
                 streamline your workflows, save valuable time, and maximize
                 results.
               </p>

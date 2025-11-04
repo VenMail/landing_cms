@@ -5,12 +5,12 @@ import { useState } from "react";
 function FAQs() {
   const faqs = [
     {
-      question: "Is it really just $5 total for 10 users?",
-      answer: "$4.5 actually. You pay $4.5/month for 10 users, not per user. Some providers would charge you $63 for the same team size. We believe email shouldn't cost more just because your team grows.",
+      question: "Do paid plans include unlimited users?",
+      answer: "Yes — every paid plan includes unlimited users. Choose a plan by storage (60GB, 250GB, or 1.5TB) and features; you never pay per seat.",
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "No catch. No hidden fees. No sudden price jumps. You get all features, including AI assistance, at the advertised price. We keep costs low by running lean and focusing on what matters: making email work better for teams.",
+      answer: "No catch. No per-seat fees, no hidden add-ons. Plans are simple: pick your storage and feature set. We keep costs low by focusing on what matters: making email work better for teams.",
     },
     {
       question: "Will my team need training?",

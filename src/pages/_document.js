@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="author" content="Venmail LLC" />
+        <meta name="author" content="VenMail LLC" />
         
         {/* Favicon and App Icons */}
         <link rel="icon" href="/favicon.ico" />
@@ -20,8 +20,8 @@ export default function Document() {
         <link rel="canonical" href="https://venmail.io" />
         
         {/* Application Meta */}
-        <meta name="application-name" content="Venmail" />
-        <meta name="apple-mobile-web-app-title" content="Venmail" />
+        <meta name="application-name" content="VenMail" />
+        <meta name="apple-mobile-web-app-title" content="VenMail" />
         <meta name="apple-mobile-web-app-status-bar-style" content="#ea580c" />
         
         {/* Viewport and Mobile */}
@@ -38,9 +38,9 @@ export default function Document() {
         
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Venmail - AI-Powered Email Management" />
+        <meta property="og:title" content="VenMail - AI-Powered Email Management" />
         <meta property="og:description" content="AI-powered email management platform for efficient communication" />
-        <meta property="og:site_name" content="Venmail" />
+        <meta property="og:site_name" content="VenMail" />
         <meta property="og:url" content="https://venmail.io" />
         <meta property="og:image" content="/android-chrome-512x512.png" />
         <meta property="og:image:type" content="image/png" />
@@ -58,7 +58,7 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "Venmail",
+              "name": "VenMail",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
               "offers": {

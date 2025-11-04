@@ -10,188 +10,149 @@ import { VscChromeClose } from "react-icons/vsc";
 const PricingTable = () => {
   const plans = [
     {
-      name: "SOLO FOUNDER",
+      name: "FREE",
       price: "$0/mo",
+      caption: "Up to 5 users · 2GB shared storage",
       button: "Get Started",
+      href: "https://m.venmail.io/register",
+      external: true,
       features: {
-        "AI Email Rewrites": "10",
-        "AI Labeling": "yes",
-        "Instant AI summaries": "yes",
-        Search: "yes",
-        "Email signatures": "yes",
-        "Outgoing Email Validator": "yes",
-        "Sync Contact": "yes",
-        "Secure Email Hosting": "yes",
-        "Instant AI Summaries": "yes",
-        "Generate Prospects": "5",
-        "Auto Meeting Scheduler": "yes",
-        "Auto Tasks Extraction": "yes",
-        "Split your inbox": "yes",
-        Storage: "5GB",
-        "SMTP API Access": "no",
-        "Addon Installation Request": "no",
-        "Mail Analytics": "yes",
-        "Storage Usage": "yes",
-        "Employee Insight": "no",
+        "Users Included": "Up to 5 users",
+        "Storage Included": "2GB shared",
+        "Bring Your Own Storage": "$20/mo add-on",
+        "Prospect Discovery": "no",
+        "Campaigns & Bulk Email": "Basic broadcasts",
+        "Campaign/Newsletter Add-on": "$35/mo add-on",
+        "Automated Follow-ups": "Manual",
+        "AI Email Rewrites": "10 / user / day",
+        "AI Summaries": "Included",
+        "Mail Analytics": "Core reporting",
+        "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
         "Automated encrypted backups": "yes",
-        "Phishing protection": "yes",
         "Advanced threat protection": "yes",
-        "Custom security policies": "yes",
-        "Customizable encryption keys": "yes",
-        "Priority Email Support": "yes",
+        "Priority Support": "Email",
         "Dedicated Account manager": "no",
       },
     },
     {
-      name: "START UP",
-      price: "$4.55/mo",
-      button: "Get Started",
+      name: "STARTUP",
+      price: "$7/mo",
+      caption: "Unlimited users · 60GB shared storage",
+      button: "Choose Startup",
+      href: "https://m.venmail.io/register",
+      external: true,
       features: {
-        "AI Email Rewrites": "20",
-        "AI Labeling": "yes",
-        "Instant AI summaries": "yes",
-        Search: "yes",
-        "Email signatures": "yes",
-        "Outgoing Email Validator": "yes",
-        "Sync Contact": "yes",
-        "Secure Email Hosting": "yes",
-        "Instant AI Summaries": "yes",
-        "Generate Prospects": "10",
-        "Auto Meeting Scheduler": "yes",
-        "Auto Tasks Extraction": "yes",
-        "Split your inbox": "yes",
-        Storage: "10GB",
-        "SMTP API Access": "no",
-        "Addon Installation Request": "no",
-        "Mail Analytics": "yes",
-        "Storage Usage": "yes",
-        "Employee Insight": "yes",
+        "Users Included": "Unlimited users",
+        "Storage Included": "60GB shared",
+        "Bring Your Own Storage": "$20/mo add-on",
+        "Prospect Discovery": "250 credits / mo",
+        "Campaigns & Bulk Email": "Add-on",
+        "Campaign/Newsletter Add-on": "$35/mo add-on",
+        "Automated Follow-ups": "yes",
+        "AI Email Rewrites": "20 / user / day",
+        "AI Summaries": "Included",
+        "Mail Analytics": "Advanced analytics",
+        "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
         "Automated encrypted backups": "yes",
-        "Phishing protection": "yes",
         "Advanced threat protection": "yes",
-        "Custom security policies": "yes",
-        "Customizable encryption keys": "yes",
-        "Priority Email Support": "yes",
+        "Priority Support": "Priority email",
         "Dedicated Account manager": "no",
       },
     },
     {
       name: "BUSINESS",
-      price: "$23.5/mo",
-      button: "Get Started",
-      isHighlighted: "yes",
+      price: "$23.2/mo",
+      caption: "Unlimited users · 250GB shared storage",
+      button: "Choose Business",
+      href: "https://m.venmail.io/register",
+      external: true,
+      isHighlighted: true,
       features: {
-        "AI Email Rewrites": "50",
-        "AI Labeling": "yes",
-        "Instant AI summaries": "yes",
-        Search: "yes",
-        "Email signatures": "yes",
-        "Outgoing Email Validator": "yes",
-        "Sync Contact": "yes",
-        "Secure Email Hosting": "yes",
-        "Instant AI Summaries": "yes",
-        "Generate Prospects": "50",
-        "Auto Meeting Scheduler": "yes",
-        "Auto Tasks Extraction": "yes",
-        "Split your inbox": "yes",
-        Storage: "15GB",
-        "SMTP API Access": "no",
-        "Addon Installation Request": "no",
-        "Mail Analytics": "yes",
-        "Storage Usage": "yes",
-        "Employee Insight": "yes",
+        "Users Included": "Unlimited users",
+        "Storage Included": "250GB shared",
+        "Bring Your Own Storage": "$20/mo add-on",
+        "Prospect Discovery": "1,000 credits / mo",
+        "Campaigns & Bulk Email": "Unlimited + templates",
+        "Campaign/Newsletter Add-on": "Included",
+        "Automated Follow-ups": "yes",
+        "AI Email Rewrites": "50 / user / day",
+        "AI Summaries": "Included",
+        "Mail Analytics": "Advanced + deliverability",
+        "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
         "Automated encrypted backups": "yes",
-        "Phishing protection": "yes",
         "Advanced threat protection": "yes",
-        "Custom security policies": "yes",
-        "Customizable encryption keys": "yes",
-        "Priority Email Support": "no",
+        "Priority Support": "2-hour SLA",
         "Dedicated Account manager": "no",
       },
     },
     {
       name: "ENTERPRISE",
-      price: "$95/mo",
-      button: "Contact Sales",
+      price: "$100/mo",
+      caption: "Unlimited users · 1.5TB shared storage",
+      button: "Talk to Sales",
+      href: "/contact-us",
+      external: false,
       features: {
-        "AI Email Rewrites": "100",
-        "AI Labeling": "yes",
-        "Instant AI summaries": "yes",
-        Search: "yes",
-        "Email signatures": "yes",
-        "Outgoing Email Validator": "yes",
-        "Sync Contact": "yes",
-        "Secure Email Hosting": "yes",
-        "Instant AI Summaries": "yes",
-        "Generate Prospects": "200",
-        "Auto Meeting Scheduler": "yes",
-        "Auto Tasks Extraction": "yes",
-        "Split your inbox": "yes",
-        Storage: "25GB",
-        "SMTP API Access": "25,000 emails /day",
-        "Addon Installation Request": "1",
-        "Mail Analytics": "yes",
-        "Storage Usage": "yes",
-        "Employee Insight": "yes",
+        "Users Included": "Unlimited users",
+        "Storage Included": "1.5TB shared",
+        "Bring Your Own Storage": "Included",
+        "Prospect Discovery": "Unlimited*",
+        "Campaigns & Bulk Email": "Unlimited + SLA",
+        "Campaign/Newsletter Add-on": "Included",
+        "Automated Follow-ups": "yes",
+        "AI Email Rewrites": "100 / user / day",
+        "AI Summaries": "Included",
+        "Mail Analytics": "Advanced + custom reporting",
+        "SDR Agent": "yes",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
         "Automated encrypted backups": "yes",
-        "Phishing protection": "yes",
         "Advanced threat protection": "yes",
-        "Custom security policies": "yes",
-        "Customizable encryption keys": "yes",
-        "Priority Email Support": "yes",
+        "Priority Support": "24/7 concierge",
         "Dedicated Account manager": "yes",
       },
     },
   ];
 
   const sections = [
-    "SMART ASSISTANT",
-    "PRODUCTIVITY",
+    "TEAM SCALE",
+    "GROWTH & CAMPAIGNS",
     "INTELLIGENCE",
     "SECURITY",
     "SUPPORT",
   ];
 
   const features = {
-    "SMART ASSISTANT": [
+    "TEAM SCALE": [
+      "Users Included",
+      "Storage Included",
+      "Bring Your Own Storage",
+    ],
+    "GROWTH & CAMPAIGNS": [
+      "Prospect Discovery",
+      "Campaigns & Bulk Email",
+      "Campaign/Newsletter Add-on",
+      "Automated Follow-ups",
+    ],
+    INTELLIGENCE: [
       "AI Email Rewrites",
-      "AI Labeling",
-      "Instant AI summaries",
-      "Search",
-      "Email signatures",
-      "Outgoing Email Validator",
-      "Sync Contact",
+      "AI Summaries",
+      "Mail Analytics",
+      "SDR Agent",
     ],
-    PRODUCTIVITY: [
-      "Secure Email Hosting",
-      "Instant AI summaries",
-      "Generate Prospects",
-      "Auto Meeting Scheduler",
-      "Auto Tasks Extraction",
-      "Split your inbox",
-      "Storage",
-      "SMTP API Access",
-      "Addon Installation Request",
-    ],
-    INTELLIGENCE: ["Mail Analytics", "Storage Usage", "Employee Insight"],
     SECURITY: [
       "Multi-factor authentication",
       "Email encryption",
       "Automated encrypted backups",
-      "Phishing protection",
       "Advanced threat protection",
-      "Custom security policies",
-      "Customizable encryption keys",
     ],
-    SUPPORT: ["Priority Email Support", "Dedicated Account manager"],
+    SUPPORT: ["Priority Support", "Dedicated Account manager"],
   };
 
   return (
@@ -210,13 +171,21 @@ const PricingTable = () => {
                   plan.isHighlighted ? "bg-yellow-50" : ""
                 } ${idx === 0 ? "border-x" : "border-r"}`}
               >
-                <div className="text-center">
-                  <div>{plan.name}</div>
-                  <div className="text-lg font-semibold pb-6">{plan.price}</div>
+                <div className="text-center space-y-2">
+                  <div className="text-sm font-semibold uppercase tracking-wide text-gray-900">
+                    {plan.name}
+                  </div>
+                  <div className="text-lg font-semibold text-gray-900">{plan.price}</div>
+                  {plan.caption && (
+                    <div className="text-xs text-gray-500">
+                      {plan.caption}
+                    </div>
+                  )}
                   <a
-                    target="_blank"
-                    href="https://m.venmail.io/register"
-                    className={`px-7 py-2 rounded-sm text-sm ${
+                    href={plan.href}
+                    target={plan.external ? "_blank" : undefined}
+                    rel={plan.external ? "noreferrer" : undefined}
+                    className={`inline-flex justify-center px-7 py-2 rounded-sm text-sm ${
                       plan.isHighlighted
                         ? "bg-primary-600 text-white"
                         : "border border-gray-300 text-gray-700"
@@ -275,42 +244,54 @@ const PricingTable = () => {
           ))}
         </tbody>
       </table>
+      <p className="text-xs text-gray-500 mt-4 max-w-3xl">
+        *Unlimited prospect discovery on Enterprise is subject to fair-use policies. Bring Your Own Storage is available as a $20/mo add-on for all paid plans; Campaign/Newsletter automation add-on available for $35/mo when not included.
+      </p>
     </div>
   );
 };
 
 export const PricingSlider = ({ pricingPlans, hasButton }) => {
-  const [employees, setEmployees] = useState(9);
-  
-  const getPlan = (count) => {
-    if (count === 1) return "SOLO FOUNDER";
-    if (count <= 10) return "START UP";
-    if (count <= 25) return "BUSINESS";
-    return "ENTERPRISE";
+  const [storageGB, setStorageGB] = useState(60);
+  const MAX_STORAGE = 1500; // GB
+
+  const getPlan = (gb) => {
+    if (gb <= 2) return "Free";
+    if (gb <= 60) return "Startup";
+    if (gb <= 250) return "Business";
+    return "Enterprise";
   };
 
-  const getPricePerMonth = (count) => {
-    if (count === 1) return 0;
-    if (count <= 10) return 4.55;
-    if (count <= 25) return 23.5;
-    return 95;
+  const getPricePerMonth = (gb) => {
+    if (gb <= 2) return 0;
+    if (gb <= 60) return 7;
+    if (gb <= 250) return 23.2;
+    return 100;
+  };
+
+  const formatStorage = (gb) => {
+    if (gb >= 1000) {
+      const tb = gb / 1024;
+      return `${tb.toFixed(tb >= 2 ? 1 : 2)} TB`;
+    }
+    return `${gb} GB`;
   };
 
   return (
     <div className="bg-gray-100 py-8 sm:py-24">
       <div className="w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
         <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-8 sm:mb-12 text-black">
-          How many employees <br className="hidden sm:block"/> do you have?
+          How much storage <br className="hidden sm:block"/> do you need?
         </h2>
         <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
-          <div className="text-lg sm:text-xl text-black">{employees} employees</div>
+          <div className="text-lg sm:text-xl text-black">{formatStorage(storageGB)} storage</div>
           <div className="w-full sm:w-[90%] lg:w-[80%] mx-auto">
             <input
               type="range"
               min="1"
-              max="100"
-              value={employees}
-              onChange={(e) => setEmployees(parseInt(e.target.value))}
+              max={MAX_STORAGE}
+              value={storageGB}
+              onChange={(e) => setStorageGB(parseInt(e.target.value))}
               className="w-full appearance-none cursor-pointer relative
                 [&::-webkit-slider-runnable-track]:h-[6px]
                 [&::-webkit-slider-runnable-track]:bg-[#CCCCCC]
@@ -340,7 +321,7 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
                 before:pointer-events-none
                 before:z-[1]"
               style={{
-                '--before-width': `${(employees - 1) / 99 * 100}%`
+                '--before-width': `${(storageGB - 1) / (MAX_STORAGE - 1) * 100}%`
               }}
             />
           </div>
@@ -349,7 +330,7 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
               <div
                 key={plan.name}
                 className={`p-4 sm:p-6 rounded-md border transition-all duration-300 ${
-                  getPlan(employees) === plan.name.toUpperCase()
+                  getPlan(storageGB).toLowerCase() === plan.name.toLowerCase()
                     ? "bg-white scale-105 shadow-lg border-black"
                     : "opacity-50 bg-transparent border-black"
                 }`}
@@ -360,7 +341,7 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
                   <div className="text-xs sm:text-sm text-gray-600 mt-1">
                     {plan.description2}
                   </div>
-                  {getPlan(employees) === plan.name.toUpperCase() && (
+                  {getPlan(storageGB).toLowerCase() === plan.name.toLowerCase() && (
                     <div className="text-primary-600 text-xs sm:text-sm mt-2">
                       This is plan for you
                     </div>
@@ -368,6 +349,9 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="text-xs sm:text-sm text-gray-600 mt-4">
+            All paid plans include unlimited users. Choose your plan based on storage.
           </div>
           {hasButton && (
             <a href="/pricing" className="bg-black text-white px-8 py-2 rounded-none mt-10">
@@ -382,71 +366,78 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
 
 export const pricingPlans = [
     {
-      name: "solo founder",
+      name: "Free",
+      id: "free",
       monthly: 0,
       yearly: 0,
-      description1: "perfect for solo founders",
-      description2: "only one person included",
+      description1: "Launch your workspace with core email automation.",
+      description2: "Up to 5 users · 2GB shared storage",
       featured: false,
       features: [
-        "secure email hosting",
-        "5GB total storage",
-        "advanced spam protection",
-        "smart email labelling",
-        "auto contact synchronization",
+        "Up to 5 users included",
+        "2GB shared storage",
+        "AI rewrites (10 per user/day)",
+        "Basic campaigns & broadcasts",
+        "Smart email labelling",
       ],
-      buttonText: "Get Started",
+      buttonText: "Start for Free",
       buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "start up",
-      monthly: 4.55,
-      yearly: 43.68,
-      description1: "Essential tools for small teams",
-      description2: "10 team members included",
+      name: "Startup",
+      id: "startup",
+      monthly: 7,
+      yearly: 84,
+      description1: "Unlock growth with unlimited users and automations.",
+      description2: "Unlimited users · 60GB shared storage",
       featured: false,
       features: [
-        "Secure business mails@yourdomain.com",
-        "10GB storage per user",
-        "advanced spam protection",
-        "20 daily AI email rewrites/user",
-        "10 daily prospect generations",
+        "Unlimited users on a flat price",
+        "60GB shared storage",
+        "Prospect discovery (250 credits/mo)",
+        "Bulk email & automated follow-ups (add-on)",
+        "Bring Your Own Storage add-on ($20/mo)",
       ],
-      buttonText: "Get Started",
+      buttonText: "Choose Startup",
       buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "business",
-      monthly: 23.5,
-      yearly: 225.6,
-      description1: "Premium email suite for SMEs",
-      description2: "25 team members included",
+      name: "Business",
+      id: "business",
+      monthly: 23.2,
+      yearly: 278.4,
+      description1: "Advanced engagement, analytics, and deliverability.",
+      description2: "Unlimited users · 250GB shared storage",
       featured: true,
       features: [
-        "AI summarisation",
-        "15GB storage per user (375GB total)",
-        "Advanced spam protection",
-        "50 daily prospect generations",
-        "50 daily AI email rewrites/user",
+        "Unlimited users",
+        "250GB shared storage",
+        "Campaign & newsletter add-on included",
+        "Advanced deliverability analytics",
+        "Automated sequences & follow-ups",
+        "Priority email support (2-hour SLA)",
       ],
-      buttonText: "Get Started",
+      buttonText: "Choose Business",
       buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "enterprise",
-      monthly: 95,
-      yearly: 912,
-      description1: "Tailored plans for big companies",
-      description2: "100 team members included",
+      name: "Enterprise",
+      id: "enterprise",
+      monthly: 100,
+      yearly: 1200,
+      description1: "Custom security, governance, and onboarding.",
+      description2: "Unlimited users · 1.5TB shared storage",
       featured: false,
       features: [
-        "Dedicated account manager",
-        "25GB storage per user (2.5TB total)",
-        "advanced spam protection",
-        "200 daily prospect generations",
-        "100 daily AI email rewrites/user",
+        "Unlimited users",
+        "1.5TB shared storage",
+        "Bring your own storage included",
+        "Custom compliance & security controls",
+        "Unlimited prospect discovery*",
+        "Campaign & newsletter add-on included",
+        "Dedicated account manager + 24/7 support",
       ],
-      buttonText: "Contact Sales",
+      buttonText: "Talk to Sales",
       buttonLink: "/contact-us",
     },
   ];
@@ -463,9 +454,14 @@ function pricing() {
       <section className="w-full sm:py-16 ">
         <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
           <div className="text-center md:pb-24 pb-12">
-            <p className="uppercase text-sm text-black">pricing</p>
+            <p className="uppercase text-sm text-black tracking-[0.3em]">pricing</p>
             <p className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-              Team pricing that makes sense. $5 for 10 users
+              Don't let price constrain growth.
+              <br className="hidden sm:block" />
+              Powerful features. Unlimited options.
+            </p>
+            <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
+              Choose storage and features that fit your team. No per-seat pricing.
             </p>
             <PricingToggle setPricingPeriod={setPricingPeriod} />
           </div>

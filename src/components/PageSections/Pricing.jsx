@@ -60,7 +60,7 @@ export default function Pricing() {
       description3: "Everything in Business, and:",
       features: [
         "Dedicated account manager",
-        "25GB storage per user (2.5TB total)",
+        "25GB storage per user (1.5TB total)",
         "advanced spam protection",
         "200 daily prospect generations",
         "100 daily AI email rewrites/user",

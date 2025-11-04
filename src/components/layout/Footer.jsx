@@ -72,7 +72,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                 Get pricing details, technical specs, or migration help from our team.
               </p>
               <a
-                href="mailto:hello@venmail.io"
+                href="/contact-us"
                 className="block md:inline-flex items-center justify-center px-12 py-4 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300 rounded-sm"
               >
                 Contact Us
@@ -86,7 +86,7 @@ export default function Footer({ hideFooterJumbo = false }) {
       )}
       <footer className="bg-white border-black/[.1] ">
         <p className="md:text-[350px] text-8xl text-center text-[#16292F] leading-none md:mt-14 mb-8">
-          Venmail
+          VenMail
         </p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="grid grid-cols-12 gap-8">
@@ -186,7 +186,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   Privacy Policy
                 </a>
                 <a href="#" className="text-black text-sm cursor-pointer">
-                  © {currentYear} Venmail LLC.
+                  © {currentYear} VenMail LLC.
                 </a>
               </div>
               {/* <p className="text-sm text-gray-600 ">

@@ -168,6 +168,98 @@ const TabComponent = () => {
 export default function Home() {
   const [activeFeatureTab, setActiveFeatureTab] = useState('mail');
 
+  // Add this new component before the main return
+  const KeyDifferentiators = () => (
+    <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">Why Choose Us</h2>
+          <p className="mt-4 text-xl text-gray-600">
+            Built for businesses that value simplicity, flexibility, and growth
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Unlimited Users */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
+              <LuUserPlus className="w-6 h-6 text-blue-600" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Unlimited Team Members</h3>
+            <p className="text-gray-600">
+              Add as many team members as you need at no extra cost. Scale your business without worrying about per-user fees.
+            </p>
+          </div>
+          
+          {/* Lead Generation */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Smart Lead Discovery</h3>
+            <p className="text-gray-600">
+              Find and connect with high-quality prospects using our advanced discovery tools. Grow your network and business effortlessly.
+            </p>
+          </div>
+          
+          {/* Campaign Management */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Powerful Campaign Tools</h3>
+            <p className="text-gray-600">
+              Create, manage, and track email campaigns with our intuitive tools. Schedule bulk emails and automate follow-ups to maximize engagement.
+            </p>
+          </div>
+          
+          {/* Flat Pricing */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-yellow-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Simple, Flat Pricing</h3>
+            <p className="text-gray-600">
+              Choose the plan that fits your needs with our straightforward pricing. No hidden fees or surprise charges.
+            </p>
+          </div>
+          
+          {/* BYOS */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Bring Your Own Storage</h3>
+            <p className="text-gray-600">
+              Keep your data under your control with BYOS support for compliance and flexibility.
+            </p>
+          </div>
+          
+          {/* Free Plan */}
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-4">
+              <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Start Free</h3>
+            <p className="text-gray-600">
+              Try us risk-free with our free plan for up to 5 users with 2GB shared storage. No credit card required.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <DefaultLayout>
       {/* Hero Section */}
@@ -176,10 +268,12 @@ export default function Home() {
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 text-center md:text-left">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-                The Premium Email Worksuite Built for SMEs
+                Don't let price constrain growth.
+                <br className="hidden md:block" />
+                Powerful features. Unlimited options.
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
-                Mail + Calendly + Mailchimp in one unified platform. Get enterprise features at SME-friendly pricing.
+                Unlimited users on paid plans. Mail + Calendly + Mailchimp in one platform with simple, storage-based pricing.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <a
@@ -375,7 +469,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">See how VenMail compares to Gmail, Outlook, and Zoho</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Purpose-built for SMEs: one platform for email, campaigns, booking, and lead gen—no tool sprawl, no add-ons.</p>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">All-in-one email, campaigns, booking, and lead gen — without tool sprawl.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -554,7 +648,7 @@ export default function Home() {
                       </div>
                       <div className="ml-3">
                         <h4 className="text-lg font-medium text-gray-900">Video Conferencing</h4>
-                        <p className="text-gray-600">Built-in video calls with screen sharing and recording capabilities.</p>
+                        <p className="text-gray-600">Integrates with Zoom, Google Meet, and more for video calls with screen sharing.</p>
                       </div>
                     </div>
                     <div className="flex items-start">
@@ -635,6 +729,17 @@ export default function Home() {
                         <p className="text-gray-600">Get real-time notifications when your emails are opened and links are clicked.</p>
                       </div>
                     </div>
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
+                          ✓
+                        </div>
+                      </div>
+                      <div className="ml-3">
+                        <h4 className="text-lg font-medium text-gray-900">SDR Agent (Enterprise)</h4>
+                        <p className="text-gray-600">AI-powered assistant to help qualify leads and drive outreach for larger teams.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -655,6 +760,10 @@ export default function Home() {
       <TabComponent />
       <Testimonial />
       <PricingSlider pricingPlans={pricingPlans} hasButton={true} />
+      
+      {/* Key Differentiators Section */}
+      <KeyDifferentiators />
+      
     </DefaultLayout>
   );
-}
+};
