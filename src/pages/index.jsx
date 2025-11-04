@@ -5,7 +5,7 @@ import { GoDeviceCameraVideo } from "react-icons/go";
 import { LuUserPlus } from "react-icons/lu";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
-import { PricingSlider, pricingPlans } from "./pricing";
+import CostComparisonSlider from "@/components/PageSections/CostComparisonSlider";
 import VideoPlayer from "@/components/PageSections/VideoPlayer";
 import dynamic from 'next/dynamic';
 
@@ -42,11 +42,11 @@ const TabComponent = () => {
       description: "Get the gist of long emails in seconds with AI summaries.",
       image: "/home/section-4d.png",
     },
-    analytics: {
-      title: "Sent Mail Analytics",
-      description: "Track delivery rates, open rates, and email performance with detailed sent mail analytics.",
-      image: "/sent-panel.png",
-    },
+    // analytics: {
+    //   title: "Sent Mail Analytics",
+    //   description: "Track delivery rates, open rates, and email performance with detailed sent mail analytics.",
+    //   image: "/sent-panel.png",
+    // },
     spam: {
       title: "Spam Detection",
       description: "Eliminate spam and phishing with advanced AI filters.",
@@ -241,8 +241,7 @@ export default function Home() {
             <p className="text-gray-600">
               Keep your data under your control with BYOS support for compliance and flexibility.
             </p>
-          </div>
-          
+          </div>          
           {/* Free Plan */}
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
             <div className="w-12 h-12 bg-green-50 rounded-lg flex items-center justify-center mb-4">
@@ -252,7 +251,7 @@ export default function Home() {
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Start Free</h3>
             <p className="text-gray-600">
-              Try us risk-free with our free plan for up to 5 users with 2GB shared storage. No credit card required.
+              Try us risk-free with our free plan for up to 10 users with 5GB shared storage. No credit card required.
             </p>
           </div>
         </div>
@@ -268,12 +267,11 @@ export default function Home() {
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 text-center md:text-left">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-                Don't let price constrain growth.
-                <br className="hidden md:block" />
                 Powerful features. Unlimited options.
               </h1>
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
-                Unlimited users on paid plans. Mail + Calendly + Mailchimp in one platform with simple, storage-based pricing.
+                Don't let price constrain you. <br className="hidden md:block" />
+                Supercharge your growith with Mail + Calendly + Mailchimp + Auto Follow-ups in one platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <a
@@ -405,7 +403,7 @@ export default function Home() {
                 <LuUserPlus className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">AI-Powered Lead Gen</h3>
-              <p className="text-gray-600">AI-powered prospecting and contact enrichment at a fraction of Apollo's cost.</p>
+              <p className="text-gray-600">AI-powered prospecting and contact enrichment at a fraction of the cost.</p>
               <ul className="mt-4 space-y-2 text-sm text-gray-500">
                 <li className="flex items-center">
                   <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -464,7 +462,23 @@ export default function Home() {
         </div>
       </section> */}
 
-      {/* Differentiators vs common providers */}
+      
+
+      {/* Workflow Section */}
+      <WorkflowSection />
+
+      {/* Unified Platform Showcase */}
+      <section className="bg-white py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
+             
+      {/* Key Differentiators Section */}
+      <KeyDifferentiators />
+
+
+      </section>
+
+      <TabComponent />
+      <Testimonial />
+      {/* Differentiators vs common providers (moved above pricing slider) */}
       <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -473,7 +487,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">All-in-One, Not Add-Ons</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">All-in-One, Streamlined</h3>
               <p className="text-gray-600">Replace 3+ tools (Mail + Calendly + Mailchimp) with one integrated worksuite and one bill.</p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
@@ -481,7 +495,7 @@ export default function Home() {
               <p className="text-gray-600">Simple setup, unified analytics, and pricing that cuts costs by 60–90% vs stitching big-brand suites.</p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Across the Workflow</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI Powered Workflow</h3>
               <p className="text-gray-600">From rewriting and summarizing emails to generating campaigns and prospects—AI embedded end‑to‑end.</p>
             </div>
           </div>
@@ -493,276 +507,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Workflow Section */}
-      <WorkflowSection />
-
-      {/* Unified Platform Showcase */}
-      <section className="bg-white py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              The Complete Communication Suite
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Mail + Calendly + Mailchimp + AWS SES at an unbeatable price in a truly unified experience for SMEs.
-            </p>
-          </div>
-
-          {/* Tabs Navigation */}
-          <div className="flex flex-wrap justify-center mb-12 border-b border-gray-200">
-            <button
-              className={`px-6 py-3 font-medium text-lg border-b-2 transition-colors ${activeFeatureTab === 'mail' ? 'border-primary-600 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveFeatureTab('mail')}
-            >
-              <div className="flex items-center">
-                <RxEnvelopeClosed className="mr-2" />
-                Email & Campaigns
-              </div>
-            </button>
-            <button
-              className={`px-6 py-3 font-medium text-lg border-b-2 transition-colors ${activeFeatureTab === 'calendar' ? 'border-primary-600 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveFeatureTab('calendar')}
-            >
-              <div className="flex items-center">
-                <GoCalendar className="mr-2" />
-                Calendar & Scheduling
-              </div>
-            </button>
-            <button
-              className={`px-6 py-3 font-medium text-lg border-b-2 transition-colors ${activeFeatureTab === 'contacts' ? 'border-primary-600 text-primary-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
-              onClick={() => setActiveFeatureTab('contacts')}
-            >
-              <div className="flex items-center">
-                <LuUserPlus className="mr-2" />
-                Contacts & Prospects
-              </div>
-            </button>
-          </div>
-
-          {/* Tab Content */}
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            {/* Email & Campaigns */}
-            {activeFeatureTab === 'mail' && (
-              <div className="grid md:grid-cols-2 gap-8 p-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Email & Campaigns</h3>
-                  <p className="text-gray-600 mb-8">
-                    Advanced email capabilities with AI-powered features to enhance your communication and marketing efforts.
-                  </p>
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">AI-Powered Summaries</h4>
-                        <p className="text-gray-600">Get concise summaries of unread emails to quickly catch up on important messages.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Automated Follow-ups</h4>
-                        <p className="text-gray-600">Set up smart follow-up sequences that trigger based on recipient behavior.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Campaign Designer</h4>
-                        <p className="text-gray-600">Create beautiful, responsive email campaigns with our drag-and-drop editor.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">AI Newsletter Generation</h4>
-                        <p className="text-gray-600">Automatically generate engaging newsletter content with AI assistance.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                    <img
-                      src="/email-dashboard-preview.png"
-                      alt="Email Dashboard Preview"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Calendar & Scheduling */}
-            {activeFeatureTab === 'calendar' && (
-              <div className="grid md:grid-cols-2 gap-8 p-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Smart Scheduling</h3>
-                  <p className="text-gray-600 mb-8">
-                    Streamline your scheduling process with intelligent calendar management and meeting tools.
-                  </p>
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Personal Booking Page</h4>
-                        <p className="text-gray-600">Share your personalized booking link to let others schedule meetings at your convenience.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Calendar Sync</h4>
-                        <p className="text-gray-600">Seamlessly sync with Google, Outlook, and other calendar providers.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Video Conferencing</h4>
-                        <p className="text-gray-600">Integrates with Zoom, Google Meet, and more for video calls with screen sharing.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Smart Reminders</h4>
-                        <p className="text-gray-600">Automated meeting reminders and follow-ups to reduce no-shows.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                    <img
-                      src="/personal_booking.png"
-                      alt="Personal Booking Page"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Contacts & Prospects */}
-            {activeFeatureTab === 'contacts' && (
-              <div className="grid md:grid-cols-2 gap-8 p-8">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Lead Management</h3>
-                  <p className="text-gray-600 mb-8">
-                    Find, track, and convert more leads with our powerful contact management tools.
-                  </p>
-                  <div className="space-y-6">
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Contact Enrichment</h4>
-                        <p className="text-gray-600">Automatically enrich contact details with social profiles and company information.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">AI Lead Generation</h4>
-                        <p className="text-gray-600">Generate targeted leads by describing your ideal customer profile with AI.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Pipeline Automation</h4>
-                        <p className="text-gray-600">Automate your sales pipeline with AI-powered introductions and follow-ups.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">Email Tracking</h4>
-                        <p className="text-gray-600">Get real-time notifications when your emails are opened and links are clicked.</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="flex items-center justify-center h-6 w-6 rounded-full bg-green-100 text-green-700">
-                          ✓
-                        </div>
-                      </div>
-                      <div className="ml-3">
-                        <h4 className="text-lg font-medium text-gray-900">SDR Agent (Enterprise)</h4>
-                        <p className="text-gray-600">AI-powered assistant to help qualify leads and drive outreach for larger teams.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
-                    <img
-                      src="/discovery_preview.png"
-                      alt="Contacts Discovery"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <TabComponent />
-      <Testimonial />
-      <PricingSlider pricingPlans={pricingPlans} hasButton={true} />
-      
-      {/* Key Differentiators Section */}
-      <KeyDifferentiators />
+      <CostComparisonSlider hasButton={true} />
       
     </DefaultLayout>
   );

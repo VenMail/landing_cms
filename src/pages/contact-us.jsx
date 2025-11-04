@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import DefaultLayout from "@/components/layout/DefaultLayout";
+import { CONTACT_EMAIL, getContactMailtoHref } from "@/config/contact";
 
 function ContactUs() {
   const [displayEmail, setDisplayEmail] = useState("");
   const [displayText, setDisplayText] = useState("");
   const originalText = "We are constantly improving our platform to better serve you. If you have any questions or feedback, please don't hesitate to contact us.";
-  const emailParts = ['hel', 'lo', 'ven', 'mail', 'io'];
+  const contactEmail = CONTACT_EMAIL;
 
   useEffect(() => {
     // Text animation
     let currentIndex = 0;
+
     const textInterval = setInterval(() => {
       if (currentIndex <= originalText.length) {
         setDisplayText(originalText.slice(0, currentIndex));
@@ -20,15 +22,14 @@ function ContactUs() {
     }, 20);
 
     setTimeout(() => {
-      // Email obfuscation
-      setDisplayEmail(`${emailParts[0]}${emailParts[1]}@${emailParts[2]}${emailParts[3]}.${emailParts[4]}`);
+      setDisplayEmail(contactEmail);
     }, 1000);
 
     return () => clearInterval(textInterval);
-  }, []);
+  }, [contactEmail]);
 
   const handleContactClick = () => {
-    window.location.href = `mailto:${emailParts[0]}${emailParts[1]}@${emailParts[2]}${emailParts[3]}.${emailParts[4]}`;
+    window.location.href = getContactMailtoHref();
   };
 
   return (

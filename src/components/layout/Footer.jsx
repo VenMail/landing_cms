@@ -6,6 +6,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import { CONTACT_PAGE_PATH } from "@/config/contact";
 
 export default function Footer({ hideFooterJumbo = false }) {
   const currentYear = new Date().getFullYear();
@@ -72,7 +73,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                 Get pricing details, technical specs, or migration help from our team.
               </p>
               <a
-                href="/contact-us"
+                href={CONTACT_PAGE_PATH}
                 className="block md:inline-flex items-center justify-center px-12 py-4 text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300 rounded-sm"
               >
                 Contact Us

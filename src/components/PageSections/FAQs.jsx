@@ -10,7 +10,7 @@ function FAQs() {
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "No catch. No per-seat fees, no hidden add-ons. Plans are simple: pick your storage and feature set. We keep costs low by focusing on what matters: making email work better for teams.",
+      answer: "No catch. No per-seat fees, no hidden add-ons. Plans are simple: pick your storage and feature set. Pay for the true value of what you actually use and not worry about new costs.",
     },
     {
       question: "Will my team need training?",
@@ -18,15 +18,15 @@ function FAQs() {
     },
     {
       question: "How reliable is the service?",
-      answer: "We maintain 99.9% uptime, backed by the same enterprise-grade security as major providers. But don't take our word - try it free for 30 days. If anything doesn't work as promised, cancel instantly. No questions asked.",
+      answer: "We maintain 99.9% uptime, backed by the same enterprise-grade security as major providers. But don't take our word - try our free plan and come back for the paid plan. Yes we know you will.",
     },
     {
       question: "How does Venmail make email work better?",
-      answer: "Venmail provides a robust smart email experience allowing you to open, read mails faster and take action on them via email summaries and instant task and meeting scheduling. You'll just notice work getting done faster.",
+      answer: "Venmail provides a robust fast and smart email experience allowing you to open, read mails faster and take action on them quickly, initate auto follow-ups, see who has opened/read your emails, schedule meetings/tasks easily et cetera. You'll simply notice work getting done faster.",
     },
     {
       question: "How does your AI actually help?",
-      answer: "It works in three ways: Reads emails and extracts action items automatically, Suggests responses based on your writing style, Schedules meetings and follow-ups without you asking But it's subtle - you won't see 'AI' plastered everywhere. You'll just notice work getting done faster."
+      answer: "It works in three ways: Reads emails and extracts action items automatically, composes emails/campaigns/newsletters, suggests responses based on your writing style, and provides smart date highlights for easy scheduling in one click. For enterprise plan users, you get instant access to a suite of tools to find the right customers for your business"
     },
   ];
 

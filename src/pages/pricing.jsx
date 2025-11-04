@@ -12,13 +12,13 @@ const PricingTable = () => {
     {
       name: "FREE",
       price: "$0/mo",
-      caption: "Up to 5 users · 2GB shared storage",
+      caption: "Up to 10 users · 5GB shared storage",
       button: "Get Started",
       href: "https://m.venmail.io/register",
       external: true,
       features: {
-        "Users Included": "Up to 5 users",
-        "Storage Included": "2GB shared",
+        "Users Included": "Up to 10 users",
+        "Storage Included": "5GB shared",
         "Bring Your Own Storage": "$20/mo add-on",
         "Prospect Discovery": "no",
         "Campaigns & Bulk Email": "Basic broadcasts",
@@ -256,14 +256,14 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
   const MAX_STORAGE = 1500; // GB
 
   const getPlan = (gb) => {
-    if (gb <= 2) return "Free";
+    if (gb <= 5) return "Free";
     if (gb <= 60) return "Startup";
     if (gb <= 250) return "Business";
     return "Enterprise";
   };
 
   const getPricePerMonth = (gb) => {
-    if (gb <= 2) return 0;
+    if (gb <= 5) return 0;
     if (gb <= 60) return 7;
     if (gb <= 250) return 23.2;
     return 100;
@@ -371,11 +371,11 @@ export const pricingPlans = [
       monthly: 0,
       yearly: 0,
       description1: "Launch your workspace with core email automation.",
-      description2: "Up to 5 users · 2GB shared storage",
+      description2: "Up to 10 users · 5GB shared storage",
       featured: false,
       features: [
-        "Up to 5 users included",
-        "2GB shared storage",
+        "Up to 10 users included",
+        "5GB shared storage",
         "AI rewrites (10 per user/day)",
         "Basic campaigns & broadcasts",
         "Smart email labelling",
@@ -458,7 +458,6 @@ function pricing() {
             <p className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
               Don't let price constrain growth.
               <br className="hidden sm:block" />
-              Powerful features. Unlimited options.
             </p>
             <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
               Choose storage and features that fit your team. No per-seat pricing.

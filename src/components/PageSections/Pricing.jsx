@@ -1,72 +1,81 @@
 import React from "react";
 import { BsCheck2 } from "react-icons/bs";
+import { CONTACT_PAGE_PATH } from "@/config/contact";
+
+const SIGNUP_URL = "https://m.venmail.io/register";
+
 export default function Pricing() {
   const pricingPlans = [
     {
-      name: "solo founder",
+      id: "free",
+      name: "Free",
       monthly: 0,
-      yearly: 0,
-      description1: "perfect for solo founders",
-      description2: "only one person included",
+      description1: "Start with essential productivity tools.",
+      description2: "Up to 10 users · 5GB shared storage",
+      buttonText: "Get started free",
+      buttonLink: SIGNUP_URL,
+      external: true,
       features: [
-        "secure email hosting",
-        "5GB total storage",
-        "advanced spam protection",
-        "smart email labelling",
-        "auto contact synchronization",
+        "Secure email, calendar, and contact sync",
+        "AI summaries + 10 rewrites/day",
+        "Manual follow-ups",
+        "Core analytics & spam protection",
+        "Community support",
       ],
-      buttonText: "Get Started",
-      buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "start up",
-      monthly: 4.55,
-      yearly: 0,
-      description1: "Essential tools for small teams",
-      description2: "10 team members included",
+      id: "startup",
+      name: "Startup",
+      monthly: 7,
+      description1: "Storage-based plan for growing teams.",
+      description2: "Unlimited users · 60GB shared storage",
+      buttonText: "Choose Startup",
+      buttonLink: SIGNUP_URL,
+      external: true,
       features: [
-        "Secure business mails@yourdomain.com",
-        "10GB storage per user",
-        "advanced spam protection",
-        "20 daily AI email rewrites/user",
-        "10 daily prospect generations",
+        "60GB shared storage (BYOS add-on $20/mo)",
+        "250 prospect discovery credits / month",
+        "AI rewrites (20/day) & automated follow-ups",
+        "Campaign & newsletter add-on ($35/mo)",
+        "Priority email support",
       ],
-      buttonText: "Get Started",
-      buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "business",
-      monthly: 23.5,
-      yearly: 0,
-      description1: "Premium email suite for SMEs",
-      description2: "25 team members included",
-      description3: "Everything in Start Up, and:",
+      id: "business",
+      name: "Business",
+      monthly: 23.2,
+      description1: "Best for teams running campaigns at scale.",
+      description2: "Unlimited users · 250GB shared storage",
+      description3: "Campaigns & newsletter automation included.",
+      buttonText: "Choose Business",
+      buttonLink: SIGNUP_URL,
+      external: true,
+      featured: true,
       features: [
-        "AI summarisation",
-        "15GB storage per user (375GB total)",
-        "Advanced spam protection",
-        "50 daily prospect generations",
-        "50 daily AI email rewrites/user",
+        "1,000 prospect discovery credits / month",
+        "AI rewrites (50/day) & deliverability analytics",
+        "Campaigns & newsletters included",
+        "Advanced security & backups",
+        "2-hour SLA priority support",
       ],
-      buttonText: "Get Started",
-      buttonLink: "https://m.venmail.io/register",
     },
     {
-      name: "enterprise",
-      monthly: 95,
-      yearly: 0,
-      description1: "Tailored plans for larger companies",
-      description2: "100 team members included",
-      description3: "Everything in Business, and:",
+      id: "enterprise",
+      name: "Enterprise",
+      monthly: 100,
+      description1: "For organizations needing scale & compliance.",
+      description2: "Unlimited users · 2.5TB shared storage",
+      description3: "Includes BYOS, SDR Agent, and dedicated support.",
+      buttonText: "Talk to Sales",
+      buttonLink: CONTACT_PAGE_PATH,
+      external: false,
       features: [
-        "Dedicated account manager",
-        "25GB storage per user (1.5TB total)",
-        "advanced spam protection",
-        "200 daily prospect generations",
-        "100 daily AI email rewrites/user",
+        "Unlimited prospect discovery (fair use)",
+        "Campaigns, newsletters & BYOS included",
+        "AI rewrites (100/day) & custom analytics",
+        "Dedicated account manager & 24/7 support",
+        "SDR Agent for outbound automation",
       ],
-      buttonText: "Contact Sales",
-      buttonLink: "/contact-us",
     },
   ];
 
@@ -80,9 +89,9 @@ export default function Pricing() {
       <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
         <div className="">
           <p className="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl pb-5">
-          One flat rate per team. Save up to 92% vs Gmail.
+            Unlimited users on every paid plan. Pick the storage tier that fits your team.
           </p>
-          <a href="/pricing" className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See all benefits</a>
+          <a href="/pricing" className="py-3 my-5 px-8 border border-black text-black w-full md:w-auto">See full pricing details</a>
 
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-6 sm:mt-20 md:grid-cols-3">
@@ -131,10 +140,11 @@ export default function Pricing() {
                   <a
                     href={tier.buttonLink}
                     aria-describedby={tier.id}
-                    target="_blank"
+                    target={tier.external ? "_blank" : undefined}
+                    rel={tier.external ? "noreferrer" : undefined}
                     className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
-                    Get started today
+                    {tier.buttonText || "Get started today"}
                   </a>
                 )}
                 {(tier.name === "business" || tier.name === "enterprise") && (
@@ -159,7 +169,7 @@ export default function Pricing() {
                     aria-describedby={tier.id}
                     className="border cursor-pointer border-black text-black mt-8 block px-3.5 py-2.5 text-center text-sm font-semibold sm:mt-10"
                   >
-                    Contact sales
+                    {tier.buttonText || "Contact sales"}
                   </a>
                 )}
               </div>
