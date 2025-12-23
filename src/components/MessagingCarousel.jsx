@@ -1,0 +1,40 @@
+import { useState, useEffect } from 'react';
+
+const MessagingCarousel = () => {
+  const messages = [
+    'Email that works as hard as you do.',
+    'Powerful features. Unlimited options.'
+  ];
+  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false);
+      
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % messages.length);
+        setIsVisible(true);
+      }, 300);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="mb-8">
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight">
+        <span 
+          className={`inline-block transition-opacity duration-300 ${
+            isVisible ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          {messages[currentIndex]}
+        </span>
+      </h1>
+    </div>
+  );
+};
+
+export default MessagingCarousel;

@@ -84,22 +84,6 @@ export default function WorkflowSection() {
   return (
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Sidebar Navigation */}
-        <div className="hidden lg:block fixed left-8 top-1/2 transform -translate-y-1/2 z-10">
-          <div className="flex flex-col space-y-4">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  activeSection === section.id ? 'bg-primary-600 scale-125' : 'bg-gray-300'
-                }`}
-                aria-label={`Scroll to ${section.title}`}
-              />
-            ))}
-          </div>
-        </div>
-
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column - Text Content */}

@@ -7,6 +7,7 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import CostComparisonSlider from "@/components/PageSections/CostComparisonSlider";
 import VideoPlayer from "@/components/PageSections/VideoPlayer";
+import MessagingCarousel from "@/components/MessagingCarousel";
 import dynamic from 'next/dynamic';
 
 const WorkflowSection = dynamic(
@@ -266,9 +267,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-                Powerful features. Unlimited options.
-              </h1>
+              <MessagingCarousel />
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
                 Don't let price constrain you. <br className="hidden md:block" />
                 Supercharge your growith with Mail + Calendly + Mailchimp + Auto Follow-ups in one platform.
