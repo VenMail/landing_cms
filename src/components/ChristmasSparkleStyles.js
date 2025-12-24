@@ -29,7 +29,6 @@ export const christmasSparkleStyles = `
     animation: twinkle 3s ease-in-out infinite;
   }
 
-  .christmas-sparkle h1,
   .christmas-sparkle h2,
   .christmas-sparkle h3 {
     position: relative;
@@ -39,6 +38,14 @@ export const christmasSparkleStyles = `
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: glow 3s ease-in-out infinite;
+  }
+
+  /* Preserve brand colors for main jumbotron/headline */
+  .christmas-sparkle .text-gray-900,
+  .christmas-sparkle h1.text-gray-900 {
+    background: none !important;
+    -webkit-text-fill-color: #111827 !important;
+    color: #111827 !important;
   }
 
   .christmas-sparkle .btn-primary,

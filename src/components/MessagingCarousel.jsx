@@ -17,8 +17,8 @@ const MessagingCarousel = () => {
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % messages.length);
         setIsVisible(true);
-      }, 300);
-    }, 4000);
+      }, 500);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, []);
@@ -27,7 +27,7 @@ const MessagingCarousel = () => {
     <ChristmasSparkleWrapper className="mb-8">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight">
         <span 
-          className={`inline-block transition-opacity duration-300 ${
+          className={`inline-block transition-opacity duration-500 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >

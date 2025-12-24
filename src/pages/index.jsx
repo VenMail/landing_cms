@@ -273,7 +273,7 @@ export default function Home() {
               <MessagingCarousel />
               <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto md:mx-0">
                 Don't let price constrain you. <br className="hidden md:block" />
-                Supercharge your growith with Mail + Calendly + Mailchimp + Auto Follow-ups in one platform.
+                Supercharge your growth with Mail + Calendly + Mailchimp + Auto Follow-ups in one platform.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <a
