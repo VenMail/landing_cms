@@ -8,6 +8,9 @@ import Testimonial from "@/components/PageSections/Testimonial";
 import CostComparisonSlider from "@/components/PageSections/CostComparisonSlider";
 import VideoPlayer from "@/components/PageSections/VideoPlayer";
 import MessagingCarousel from "@/components/MessagingCarousel";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
+import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
+import "@/components/ChristmasSparkle.css";
 import dynamic from 'next/dynamic';
 
 const WorkflowSection = dynamic(
@@ -262,8 +265,9 @@ export default function Home() {
 
   return (
     <DefaultLayout>
+      <ExitIntentPopup />
       {/* Hero Section */}
-      <section className="bg-white">
+      <ChristmasSparkleWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 text-center md:text-left">
@@ -300,7 +304,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </ChristmasSparkleWrapper>
       <section className="bg-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">

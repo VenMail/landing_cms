@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { ChristmasSparkleWrapper } from '@/utils/christmasSparkle';
+import '@/components/ChristmasSparkle.css';
 
 const MessagingCarousel = () => {
   const messages = [
@@ -23,7 +25,7 @@ const MessagingCarousel = () => {
   }, []);
 
   return (
-    <div className="mb-8">
+    <ChristmasSparkleWrapper className="mb-8">
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900 leading-tight">
         <span 
           className={`inline-block transition-opacity duration-300 ${
@@ -33,7 +35,7 @@ const MessagingCarousel = () => {
           {messages[currentIndex]}
         </span>
       </h1>
-    </div>
+    </ChristmasSparkleWrapper>
   );
 };
 
