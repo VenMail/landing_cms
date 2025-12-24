@@ -1,0 +1,103 @@
+// Christmas Sparkle Styles - Inline styles to avoid CSS import issues
+export const christmasSparkleStyles = `
+  .christmas-sparkle {
+    position: relative;
+  }
+
+  .christmas-sparkle::before,
+  .christmas-sparkle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .christmas-sparkle::before {
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    animation: sparkle 20s linear infinite;
+    opacity: 0.3;
+  }
+
+  .christmas-sparkle::after {
+    background: radial-gradient(circle at 20% 80%, transparent 50%, rgba(255, 215, 0, 0.1) 51%, transparent 52%),
+                radial-gradient(circle at 80% 20%, transparent 50%, rgba(255, 0, 100, 0.1) 51%, transparent 52%),
+                radial-gradient(circle at 40% 40%, transparent 50%, rgba(0, 255, 255, 0.1) 51%, transparent 52%);
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .christmas-sparkle h1,
+  .christmas-sparkle h2,
+  .christmas-sparkle h3 {
+    position: relative;
+    background: linear-gradient(45deg, #FFD700, #FF6B6B, #4ECDC4, #FFD700);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .christmas-sparkle .btn-primary,
+  .christmas-sparkle button {
+    animation: glow 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  .christmas-sparkle .btn-primary:hover,
+  .christmas-sparkle button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+  }
+
+  /* Snowflake overlay for extra festive feel */
+  .christmas-sparkle.snowflakes::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0v100M25 25l50 50M75 25L25 75M0 50h100M15 15l70 70M85 15L15 85' stroke='%23FFD700' stroke-width='0.5' fill='none' opacity='0.3'/%3E%3C/svg%3E");
+    animation: sparkle 30s linear infinite;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .christmas-sparkle::before,
+    .christmas-sparkle::after {
+      opacity: 0.2;
+    }
+  }
+
+  @keyframes sparkle {
+    0%, 100% { 
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    50% { 
+      opacity: 1;
+      transform: scale(1) rotate(180deg);
+    }
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes glow {
+    0%, 100% { 
+      box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+  }
+`;
+
+export const injectChristmasStyles = () => {
+  if (typeof window !== 'undefined' && !document.getElementById('christmas-sparkle-styles')) {
+    const style = document.createElement('style');
+    style.id = 'christmas-sparkle-styles';
+    style.textContent = christmasSparkleStyles;
+    document.head.appendChild(style);
+  }
+};

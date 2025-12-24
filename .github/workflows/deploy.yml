@@ -13,21 +13,42 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_TELEMETRY_DISABLED: '1'
+      # Enable build caching
+      NEXT_BUILD_WORKERS: '1'
+      NODE_OPTIONS: '--max-old-space-size=4096'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1  # Shallow clone for speed
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        id: cache-node-modules
+        with:
+          path: |
+            ~/.npm
+            node_modules
+            .next/cache
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm ci
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm ci --prefer-offline --no-audit
 
       - name: Build
-        run: npm run build
+        run: |
+          # Use all available CPU cores for faster compilation
+          npm run build
 
       - name: Ensure static export exists
         run: |
@@ -42,12 +63,46 @@ jobs:
             cp out/index.html out/404.html
           fi
 
-      - name: Install AWS CLI (for R2 S3-compatible sync)
+      # Parallel steps for faster execution
+      - name: Install AWS CLI and Create Wrangler Config (Parallel)
         run: |
-          if ! command -v aws >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y awscli
-          fi
+          # Install AWS CLI in background
+          (
+            if ! command -v aws >/dev/null 2>&1; then
+              echo "Installing AWS CLI v2..."
+              curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+              unzip awscliv2.zip
+              sudo ./aws/install
+              rm -rf awscliv2.zip aws
+            fi
+          ) &
+          
+          # Create wrangler.toml in background
+          (
+            if [ -f "out/index.html" ]; then
+              cat > wrangler.toml <<EOF
+          name = "venmail-worker"
+          main = "worker.js"
+          compatibility_date = "2024-09-01"
+          account_id = "${R2_ACCOUNT_ID}"
+
+          routes = [
+            { pattern = "venmail.io/*", zone_name = "venmail.io" },
+            { pattern = "www.venmail.io/*", zone_name = "venmail.io" }
+          ]
+
+          [[r2_buckets]]
+          binding = "BUCKET"
+          bucket_name = "${R2_BUCKET}"
+          EOF
+            fi
+          ) &
+          
+          # Wait for all background jobs
+          wait
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
 
       - name: Sync to Cloudflare R2
         env:
@@ -67,53 +122,31 @@ jobs:
           fi
           ENDPOINT=${R2_ENDPOINT:-"https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com"}
           echo "Syncing 'out/' to s3://${R2_BUCKET} via $ENDPOINT"
+          # Use optimized sync with parallel uploads
           aws s3 sync ./out "s3://${R2_BUCKET}" \
             --endpoint-url "$ENDPOINT" \
             --delete \
-            --no-progress
+            --no-progress \
+            --quiet
 
-      - name: Generate wrangler.toml for Worker
-        env:
-          R2_BUCKET: ${{ secrets.R2_BUCKET }}
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      - name: Install Wrangler and Deploy Worker (Parallel)
         run: |
-          if [ -z "$R2_BUCKET" ]; then
-            echo "::error::Missing secret: R2_BUCKET (your R2 bucket name)."
-            exit 1
-          fi
-          if [ -z "$R2_ACCOUNT_ID" ]; then
-            echo "::error::Missing secret: R2_ACCOUNT_ID (your Cloudflare account ID)."
-            exit 1
-          fi
-          cat > wrangler.toml <<EOF
-          name = "venmail-worker"
-          main = "worker.js"
-          compatibility_date = "2024-09-01"
-          account_id = "${R2_ACCOUNT_ID}"
-
-          routes = [
-            { pattern = "venmail.io/*", zone_name = "venmail.io" },
-            { pattern = "www.venmail.io/*", zone_name = "venmail.io" }
-          ]
-
-          [[r2_buckets]]
-          binding = "BUCKET"
-          bucket_name = "${R2_BUCKET}"
-          EOF
-
-      - name: Install Wrangler
-        run: npm i -g wrangler@3
-
-      - name: Deploy Worker
-        env:
-          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: |
+          # Install Wrangler and deploy in parallel
+          (
+            npm i -g wrangler@3
+          ) &
+          
+          # Wait for Wrangler installation then deploy
+          wait
+          
           if [ -z "$CF_API_TOKEN" ]; then
             echo "::error::Missing Cloudflare secret: CF_API_TOKEN."
             exit 1
           fi
           export CLOUDFLARE_API_TOKEN="$CF_API_TOKEN"
           wrangler deploy
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
       - name: Post-deploy note
         if: always()

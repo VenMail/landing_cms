@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { ChristmasSparkleWrapper } from '@/utils/christmasSparkle';
-import '@/components/ChristmasSparkle.css';
 
 const MessagingCarousel = () => {
   const messages = [

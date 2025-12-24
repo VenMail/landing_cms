@@ -10,7 +10,6 @@ import VideoPlayer from "@/components/PageSections/VideoPlayer";
 import MessagingCarousel from "@/components/MessagingCarousel";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
-import "@/components/ChristmasSparkle.css";
 import dynamic from 'next/dynamic';
 
 const WorkflowSection = dynamic(

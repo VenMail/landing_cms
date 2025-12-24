@@ -3,6 +3,8 @@
  * Active between December 20th and January 10th
  */
 
+import { injectChristmasStyles } from '@/components/ChristmasSparkleStyles';
+
 export const isChristmasSeason = () => {
   const now = new Date();
   const year = now.getFullYear();
@@ -29,6 +31,11 @@ export const getChristmasClass = () => {
 export const ChristmasSparkleWrapper = ({ children, className = '' }) => {
   if (!isChristmasSeason()) {
     return <>{children}</>;
+  }
+
+  // Inject styles on client-side only
+  if (typeof window !== 'undefined') {
+    injectChristmasStyles();
   }
   
   return (

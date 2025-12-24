@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChristmasSparkleWrapper } from '@/utils/christmasSparkle';
-import { HiOutlineSparkles, HiOutlineTrendingUp, HiOutlineCurrencyDollar, HiOutlineChartBar, HiOutlineCheckCircle, HiOutlineCalendar, HiOutlineMail, HiOutlineUsers } from 'react-icons/hi';
+import { HiOutlineSparkles, HiOutlineTrendingUp, HiOutlineCurrencyDollar, HiOutlineChartBar, HiOutlineCheckCircle, HiOutlineCalendar, HiOutlineMail, HiOutlineUsers, HiOutlineGlobe } from 'react-icons/hi';
 
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -83,7 +83,7 @@ const ExitIntentPopup = () => {
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn">
-      <ChristmasSparkleWrapper className="bg-white rounded-3xl max-w-lg w-full p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100">
+      <ChristmasSparkleWrapper className="bg-white rounded-3xl max-w-lg w-full p-8 relative shadow-2xl border border-gray-100">
         <button
           onClick={closePopup}
           className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl transition-colors"
@@ -94,7 +94,7 @@ const ExitIntentPopup = () => {
 
         {currentStep === 1 && (
           <div className="text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <HiOutlineSparkles className="w-8 h-8 text-white" />
             </div>
             <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Before you go...</h2>
@@ -112,7 +112,7 @@ const ExitIntentPopup = () => {
                   onKeyPress={(e) => e.key === 'Enter' && analyzeDomain()}
                 />
                 <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                  <HiOutlineMail className="w-5 h-5 text-gray-400" />
+                  <HiOutlineGlobe className="w-5 h-5 text-gray-400" />
                 </div>
               </div>
               <button
