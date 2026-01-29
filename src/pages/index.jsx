@@ -9,6 +9,11 @@ import CostComparisonSlider from "@/components/PageSections/CostComparisonSlider
 import VideoPlayer from "@/components/PageSections/VideoPlayer";
 import MessagingCarousel from "@/components/MessagingCarousel";
 import ReminderButton from "@/components/ReminderButton";
+import IndividualUsersSection from "@/components/PageSections/IndividualUsersSection";
+import BusinessesSection from "@/components/PageSections/BusinessesSection";
+import DevelopersSection from "@/components/PageSections/DevelopersSection";
+import WhyVenmailSection from "@/components/PageSections/WhyVenmailSection";
+import MobileAppsSection from "@/components/PageSections/MobileAppsSection";
 import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
 import dynamic from 'next/dynamic';
 
@@ -96,7 +101,7 @@ const TabComponent = () => {
   }, [activeTab]);
 
   return (
-    <section className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <section id="see-it-in-action" className="bg-white py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6 scroll-mt-20">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         <div className="md:col-span-3 flex flex-col md:justify-between">
           <div className="overflow-x-auto lg:overflow-visible -mx-4 px-4 lg:mx-0 lg:px-0 no-scrollbar">
@@ -285,52 +290,65 @@ export default function Home() {
 
   return (
     <DefaultLayout>
-      {/* Hero Section */}
+      {/* Hero: Who are you? */}
       <ChristmasSparkleWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 text-center md:text-left">
               <MessagingCarousel />
-              <p className="text-xl text-gray-600 mb-4 max-w-2xl mx-auto md:mx-0">
-                Email, docs, campaigns — cut to fit your workflow.
-                <br className="hidden md:block" />
-                No stitching together tools. Everything sewn into one workspace.
+              <p className="text-xl text-gray-600 mb-6 max-w-2xl mx-auto md:mx-0">
+                One place for email, campaigns, and productivity. No stitching together tools.
               </p>
-              <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
-                <a 
-                  href="https://github.com/VenMail/vensuite" 
-                  target="_blank"
-                  className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-900 rounded-full text-white text-sm hover:bg-gray-800 transition-colors"
+              <p className="text-sm font-medium text-gray-500 mb-4">Who is this for?</p>
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+                <a
+                  href="#for-me"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 font-medium hover:border-primary-300 hover:bg-primary-50/50 transition-colors"
                 >
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-                  </svg>
-                  Open Source
+                  For me
                 </a>
-                <span className="text-sm text-gray-500">Productivity suite on GitHub</span>
+                <a
+                  href="#for-business"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 font-medium hover:border-primary-300 hover:bg-primary-50/50 transition-colors"
+                >
+                  For my business
+                </a>
+                <a
+                  href="#for-developers"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-gray-200 bg-white text-gray-900 font-medium hover:border-primary-300 hover:bg-primary-50/50 transition-colors"
+                >
+                  For my app
+                </a>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center sm:items-start">
                 <a
                   href="https://m.venmail.io/register"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-center text-white bg-black focus:ring-4 focus:ring-primary-300"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-primary-300"
                 >
                   Get Started Free
                 </a>
                 <a
-                  href="#how-it-works"
-                  className="inline-flex items-center justify-center px-8 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition-colors"
+                  href="#see-it-in-action"
+                  className="inline-flex items-center text-base font-medium text-gray-700 hover:text-primary-600 transition-colors"
                 >
-                  See How It Works
+                  See How Venmail Helps you win
                 </a>
+              </div>
+              <div className="mt-6 flex items-center gap-3 justify-center md:justify-start text-sm text-gray-500">
+                <span>Also on</span>
+                <a href="https://apps.apple.com/us/search?term=venmail" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">App Store</a>
+                <span aria-hidden>·</span>
+                <a href="https://play.google.com/store/apps/details?id=io.venmail.app" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">Google Play</a>
               </div>
             </div>
             <div className="md:col-span-5 mt-12 md:mt-0">
               <div className="relative">
-                <div className="absolute -inset-4 bg-primary-100 rounded-2xl transform rotate-1"></div>
+                <div className="absolute -inset-4 bg-primary-100 rounded-2xl transform rotate-1" />
                 <img
                   src="/home/section-1.png"
-                  alt="VenMail Dashboard"
+                  alt="Venmail Dashboard"
                   className="relative rounded-xl shadow-xl w-full h-auto"
                 />
               </div>
@@ -338,263 +356,16 @@ export default function Home() {
           </div>
         </div>
       </ChristmasSparkleWrapper>
-      <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Cut Costs by 90% Without Sacrificing Features
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything your SME needs: premium email, smart scheduling, lead generation, and automation - all in one affordable platform
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-[#F9F1EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                <RxEnvelopeClosed className="w-8 h-8 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Premium Email Suite</h3>
-              <p className="text-gray-600">Enterprise-grade email with AI assistance, delivery tracking and powerful spam protection.</p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-500">
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  AI email summaries & rewrites
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Advanced spam protection
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Custom domain & branding
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-[#F9F1EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                <GoCalendar className="w-8 h-8 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Built-in Calendly Alternative</h3>
-              <p className="text-gray-600">Professional booking pages and easy calendar management.</p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-500">
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Branded booking pages
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Multi-calendar sync
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Automated reminders
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-[#F9F1EF] rounded-full flex items-center justify-center mx-auto mb-6">
-                <GoDeviceCameraVideo className="w-8 h-8 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Email Marketing Suite</h3>
-              <p className="text-gray-600">Replace Mailchimp with built-in campaigns, automation, and advanced analytics.</p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-500">
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Quick campaign creation with AI
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Automated sequences
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Delivery analytics
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <LuUserPlus className="w-8 h-8 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">AI-Powered Lead Gen</h3>
-              <p className="text-gray-600">AI-powered prospecting and contact enrichment at a fraction of the cost.</p>
-              <ul className="mt-4 space-y-2 text-sm text-gray-500">
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  AI prospect generation
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Contact enrichment
-                </li>
-                <li className="flex items-center">
-                  <svg className="h-5 w-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Email verification
-                </li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="mt-16 text-center">
-            <a
-              href="https://m.venmail.io/register"
-              target="_blank"
-              className="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-black hover:bg-gray-800 md:py-4 md:text-lg md:px-10 transition-colors"
-            >
-              Get Started Free
-              <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section className="bg-transparent py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-transparent">
-            <VideoPlayer />
-          </div>
-        </div>
-      </section>
-      {/*Add video player here */}
-      {/* <section className="bg-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Save $500+/month on <span className="text-primary-600">communication tools</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Why pay for Gmail Workspace + Calendly + Apollo + Mailchimp separately when you can get everything in one premium platform?
-            </p>
-          </div>
-        </div>
-      </section> */}
 
-      
+      <IndividualUsersSection />
+      <BusinessesSection />
+      <DevelopersSection />
+      <WhyVenmailSection />
+      <MobileAppsSection />
 
-      {/* Open Source Productivity Suite Section */}
-      <section className="bg-gray-900 py-16 lg:py-24">
+      <section className="bg-transparent py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full mb-6">
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white text-sm font-medium">Open Source</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Vensuite: Your Complete Productivity Suite
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Google Docs, Sheets, Forms & Slides alternatives — fully open source. 
-              Self-host or use our managed service.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Docs */}
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-colors">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Docs</h3>
-              <p className="text-gray-400 text-sm">
-                Rich text editor with real-time collaboration, PDF export, and AI writing assistance.
-              </p>
-            </div>
-            
-            {/* Sheets */}
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-green-500 transition-colors">
-              <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Sheets</h3>
-              <p className="text-gray-400 text-sm">
-                Powerful spreadsheets with formulas, charts, and Excel/CSV import/export.
-              </p>
-            </div>
-            
-            {/* Forms */}
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-purple-500 transition-colors">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Forms</h3>
-              <p className="text-gray-400 text-sm">
-                Build surveys, quizzes, and data collection forms with payment integration.
-              </p>
-            </div>
-            
-            {/* Slides */}
-            <div className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-orange-500 transition-colors">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Slides</h3>
-              <p className="text-gray-400 text-sm">
-                Create presentations with templates, PPTX import/export, and PDF rendering.
-              </p>
-            </div>
-          </div>
-          
-          <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://github.com/venmail/vensuite"
-              target="_blank"
-              className="inline-flex items-center justify-center px-6 py-3 border border-gray-600 text-base font-medium rounded-md text-white bg-transparent hover:bg-gray-800 transition-colors"
-            >
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
-              </svg>
-              View on GitHub
-            </a>
-            <a
-              href="https://m.venmail.io"
-              target="_blank"
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 transition-colors"
-            >
-              Try Vensuite Free
-              <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
+          <VideoPlayer />
         </div>
       </section>
 
@@ -666,7 +437,13 @@ export default function Home() {
 
       </section>
 
-      <TabComponent />
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">See it in action</h2>
+          <p className="text-gray-600">AI rewrite, prospects, scheduling, summaries, and more — from one inbox.</p>
+        </div>
+        <TabComponent />
+      </section>
       <Testimonial />
       {/* Differentiators vs common providers (moved above pricing slider) */}
       <section className="bg-white py-16 lg:py-24">
@@ -698,6 +475,40 @@ export default function Home() {
         </div>
       </section>
       <CostComparisonSlider hasButton={true} />
+
+      {/* Footer CTA */}
+      <section className="bg-gray-50 py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Still not sure? Start free and see for yourself
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+            <a
+              href="https://m.venmail.io/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black hover:bg-gray-800 transition-colors"
+            >
+              For Personal Use
+            </a>
+            <a
+              href="https://m.venmail.io/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-800 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              For Business
+            </a>
+          </div>
+          <a
+            href="#see-it-in-action"
+            className="inline-flex items-center text-base font-medium text-gray-600 hover:text-primary-600 transition-colors"
+          >
+            See How Venmail Helps you win
+          </a>
+        </div>
+      </section>
+
       <ReminderButton />
     </DefaultLayout>
   );

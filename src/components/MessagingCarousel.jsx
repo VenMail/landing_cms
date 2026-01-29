@@ -3,8 +3,8 @@ import { ChristmasSparkleWrapper } from '@/utils/christmasSparkle';
 
 const MessagingCarousel = () => {
   const messages = [
-    'Email that works as hard as you do.',
-    'Powerful features. Unlimited options.'
+    'Email that thinks ahead, so you don\'t have to.',
+    'One place for email, campaigns, and productivity.'
   ];
   
   const [currentIndex, setCurrentIndex] = useState(0);
