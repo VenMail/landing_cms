@@ -1,116 +1,197 @@
 import React from "react";
-import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
-import SolutionJumbotron from "@/components/PageSections/SolutionJumbotron";
 import Testimonial from "@/components/PageSections/Testimonial";
+import { BsCheck2 } from "react-icons/bs";
+import { LuUserPlus, LuMail, LuCalendar, LuTarget } from "react-icons/lu";
 
-export default function Faqs() {
+export default function Founders() {
+  const capabilities = [
+    {
+      icon: <LuMail className="w-6 h-6" />,
+      title: "AI-Powered Email",
+      description: "Write better emails faster with AI rewrites, summaries, and smart prioritization.",
+    },
+    {
+      icon: <LuTarget className="w-6 h-6" />,
+      title: "Lead Discovery",
+      description: "Find prospects that match your ideal customer profile from verified business data.",
+    },
+    {
+      icon: <LuCalendar className="w-6 h-6" />,
+      title: "Meeting Scheduling",
+      description: "Built-in booking pages eliminate the back-and-forth of scheduling calls.",
+    },
+    {
+      icon: <LuUserPlus className="w-6 h-6" />,
+      title: "Unlimited Team",
+      description: "Add your entire team at no extra cost. No per-seat pricing surprises.",
+    },
+  ];
 
-  // State to track the currently expanded FAQ
-  const [openIndex, setOpenIndex] = useState(null);
+  const benefits = [
+    "AI rewrites that match your voice",
+    "Automated follow-up sequences",
+    "Campaign analytics and tracking",
+    "Docs, Sheets, Forms included",
+    "Custom domain email",
+    "Bring Your Own Storage option",
+  ];
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
   return (
-    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"} hideFooterJumbo={true}>
-      <section className="bg-[#FEF3CB]">
-        <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
-          <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
-            <h1 className="max-w-3xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[72px] text-black">
-            Go to mail tool you need 
-            </h1>
-            <p className="max-w-lg mb-5 text-black">
-            Say goodbye to the hassle of manual prospecting and let Venmail help you focus on what matters 
+    <CustomLayout logoVariant="dark" headerColor="#111827" textColor={"white"} hideFooterJumbo={true}>
+      {/* Hero */}
+      <section className="bg-gray-900">
+        <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7 text-center md:text-left">
+              <p className="text-primary-400 font-medium mb-4">For Founders & Small Teams</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                For Founders: Your First 100 Customers
+              </h1>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                No sales team? No problem. We've tailored everything you need to find leads, 
+                run campaigns, and close deals—cut to fit how you actually work.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a
+                  href="https://m.venmail.io/register"
+                  target="_blank"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 transition-colors"
+                >
+                  Start Free Trial
+                </a>
+                <a
+                  href="/pricing"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white border border-gray-600 hover:bg-gray-800 transition-colors"
+                >
+                  View Pricing
+                </a>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <img src="/solutions/founder/section-1.png" alt="VenMail Dashboard" className="rounded-lg shadow-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Capabilities */}
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              What's in Your Kit
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Everything sewn together for founder-led sales. No complexity, no fluff.
             </p>
-            <a
-              href="#"
-              className="md:inline-flex block cursor-pointer items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 mr-0 md:mr-4"
-            >
-              Get started
-            </a>
-            <a
-              href="/pricing"
-              className="md:inline-flex cursor-pointer block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   "
-            >
-              Compare Pricing
-            </a>
           </div>
-          <div className="mt-5 lg:col-span-6 lg:flex">
-            <img src="/solutions/founder/section-1.png" alt="mockup" />
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {capabilities.map((item, idx) => (
+              <div key={idx} className="p-6 border border-gray-200 rounded-xl hover:border-primary-300 transition-colors">
+                <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-4 mx-auto max-w-screen-xl md:px-6">
-        <div className="grid md:grid-cols-12 items-center">
-          <div className="md:col-span-6">
-            <div className="max-w-md">
-              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
-                Build targeted lists of your ideal clients
+
+      {/* Features Detail */}
+      <section className="bg-gray-50 py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6">
+              <p className="text-primary-600 font-medium mb-3">Founder-Led Sales</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Close Deals Without a Sales Team
               </h2>
-              <p className="text-[#637074] text-base my-5">
-                Venmail harnesses the power of artificial intelligence to
-                streamline your workflows, save valuable time, and maximize
-                results.
+              <p className="text-lg text-gray-600 mb-8">
+                VenMail helps you write compelling outreach, find the right prospects, 
+                and automate follow-ups — so you can focus on building your product.
               </p>
+              <ul className="space-y-3 mb-8">
+                {benefits.map((benefit, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-700">
+                    <BsCheck2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
               <a
                 href="https://m.venmail.io/register"
                 target="_blank"
-                className="text-primary-500 font-bold flex items-center cursor-pointer"
+                className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700"
               >
-                Sign up for free
+                Get started free →
               </a>
             </div>
-          </div>
-          <div className="lg:mt-0 md:col-span-6 flex justify-end ">
-            <img
-              src="/partner/partner-1.png"
-              alt="mockup"
-              className="mt-10 md:mt-0"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-10 px-4 mx-auto max-w-screen-xl md:px-6">
-        <div className="grid md:grid-cols-12 items-center">
-          <div className="lg:mt-0 md:col-span-6 flex order-12 md:order-1">
-            <img
-              src="/partner/partner-2.png"
-              alt="mockup"
-              className="mt-10 md:mt-0"
-            />
-          </div>
-          <div className="md:col-span-6 flex justify-end order-1 md:order-12">
-            <div className="max-w-lg">
-              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
-                Deliver personalized outreach that works faster
-              </h2>
-              <p className="text-[#637074] text-base my-5">
-                Venmail harnesses the power of artificial intelligence to
-                streamline your workflows, save valuable time, and maximize
-                results.
-              </p>
-              <a
-                href="https://m.venmail.io/register"
-                target="_blank"
-                className="text-primary-500 font-bold flex items-center cursor-pointer"
-              >
-                Sign up for free
-              </a>
+            <div className="md:col-span-6">
+              <img src="/partner/partner-1.png" alt="AI Email Features" className="rounded-lg shadow-lg" />
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white py-12 md:py-24 px-4 mx-auto max-w-screen-xl md:px-6">
-        <SolutionJumbotron
-          subheading={"venmail for founders"}
-          title={"Founder-led sales with AI rewrites and more"}
-          text={
-            "Whether you're looking to expand your customer base, drive conversions, or build meaningful relationships, we ensure every lead is tailored to your goals. Say goodbye to guesswork and hello to results-driven prospecting!"
-          }
-        ></SolutionJumbotron>
+
+      {/* Pricing Comparison */}
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6 order-2 md:order-1">
+              <img src="/partner/partner-2.png" alt="Cost Savings" className="rounded-lg shadow-lg" />
+            </div>
+            <div className="md:col-span-6 order-1 md:order-2">
+              <p className="text-primary-600 font-medium mb-3">Simple Pricing</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why This Works for Founders
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Stop paying for Gmail Workspace, Calendly, Mailchimp, and Apollo separately. 
+                Get everything in one platform with transparent, flat pricing.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <span className="text-gray-600">Typical tool stack</span>
+                  <span className="text-gray-400 line-through">$200-500/mo</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-primary-50 rounded-lg border border-primary-200">
+                  <span className="text-gray-900 font-medium">VenMail Pro</span>
+                  <span className="text-primary-600 font-bold">From $7/mo</span>
+                </div>
+              </div>
+              <a href="/pricing" className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
+                Compare pricing plans →
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* CTA */}
+      <section className="bg-gray-900 py-16 px-4">
+        <div className="max-w-screen-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Ready to Get Started?
+          </h2>
+          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            Free plan. No credit card. Just start.
+          </p>
+          <a
+            href="https://m.venmail.io/register"
+            target="_blank"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-gray-900 bg-white hover:bg-gray-100 transition-colors rounded-lg"
+          >
+            Get Started Free
+          </a>
+        </div>
+      </section>
+
       <Testimonial />
     </CustomLayout>
   );

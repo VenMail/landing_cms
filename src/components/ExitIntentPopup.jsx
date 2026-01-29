@@ -43,6 +43,14 @@ const ExitIntentPopup = () => {
   const analyzeDomain = async () => {
     if (!domain) return;
     
+    // Clean domain input
+    let cleanDomain = domain.trim();
+    cleanDomain = cleanDomain.replace(/^https?:\/\//, '');
+    cleanDomain = cleanDomain.replace(/^www\./, '');
+    cleanDomain = cleanDomain.split('/')[0];
+    
+    if (!cleanDomain) return;
+    
     setIsAnalyzing(true);
     try {
       const response = await fetch('https://m.venmail.io/analyze-lead', {
@@ -50,7 +58,7 @@ const ExitIntentPopup = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ domain }),
+        body: JSON.stringify({ domain: cleanDomain }),
       });
 
       const data = await response.json();
@@ -58,7 +66,15 @@ const ExitIntentPopup = () => {
       setCurrentStep(2);
     } catch (error) {
       console.error('Error analyzing domain:', error);
-      // Still move to next step even if analysis fails
+      // Provide fallback data if API fails
+      setAnalysis({
+        current_mx_records: 'Standard email configuration',
+        growth_opportunity: 'Significant potential for email automation',
+        amount_to_save: '$500+/month',
+        total_est_value: '$12,000+',
+        success: false,
+        error: 'API unavailable'
+      });
       setCurrentStep(2);
     } finally {
       setIsAnalyzing(false);
@@ -82,11 +98,11 @@ const ExitIntentPopup = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fadeIn">
-      <ChristmasSparkleWrapper className="bg-white rounded-3xl max-w-lg w-full p-8 relative shadow-2xl border border-gray-100">
+    <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fadeIn">
+      <ChristmasSparkleWrapper className="bg-white dark:bg-gray-900 rounded-3xl max-w-lg w-full p-8 relative shadow-2xl border border-gray-200 dark:border-gray-700">
         <button
           onClick={closePopup}
-          className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-2xl transition-colors"
+          className="absolute top-6 right-6 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 text-2xl transition-colors"
         >
           ×
         </button>
@@ -97,9 +113,9 @@ const ExitIntentPopup = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <HiOutlineSparkles className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Before you go...</h2>
-            <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-              Get a <span className="font-semibold">free analysis</span> of how Venmail can transform your business communication
+            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">Before you go...</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">
+              Get a <span className="font-semibold text-gray-900 dark:text-white">free analysis</span> of how Venmail can transform your business communication
             </p>
             <div className="space-y-4">
               <div className="relative">
@@ -108,11 +124,11 @@ const ExitIntentPopup = () => {
                   placeholder="yourwebsite.com"
                   value={domain}
                   onChange={(e) => setDomain(e.target.value)}
-                  className="w-full px-6 py-4 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-lg transition-all"
+                  className="w-full px-6 py-4 border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-2xl focus:ring-2 focus:ring-primary-500 focus:border-transparent text-lg transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   onKeyPress={(e) => e.key === 'Enter' && analyzeDomain()}
                 />
                 <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                  <HiOutlineGlobe className="w-5 h-5 text-gray-400" />
+                  <HiOutlineGlobe className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                 </div>
               </div>
               <button
@@ -134,7 +150,7 @@ const ExitIntentPopup = () => {
               </button>
               <button
                 onClick={closePopup}
-                className="w-full text-gray-500 py-3 text-sm hover:text-gray-700 transition-colors"
+                className="w-full text-gray-500 dark:text-gray-400 py-3 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
               >
                 No thanks, I'll explore on my own
               </button>
@@ -147,36 +163,36 @@ const ExitIntentPopup = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <HiOutlineChartBar className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Your Growth Analysis</h2>
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 mb-8 text-left border border-gray-200">
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">Your Growth Analysis</h2>
+            <div className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-6 mb-8 text-left border border-gray-200 dark:border-gray-600">
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <HiOutlineMail className="w-5 h-5 text-blue-500 mr-2" />
-                    <span className="font-semibold text-sm">Current Setup</span>
+                    <span className="font-semibold text-sm text-gray-900 dark:text-white">Current Setup</span>
                   </div>
-                  <p className="text-sm text-gray-600">{analysis.current_mx_records || 'Standard email configuration'}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{analysis.current_mx_records || 'Standard email configuration'}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <HiOutlineTrendingUp className="w-5 h-5 text-green-500 mr-2" />
-                    <span className="font-semibold text-sm">Growth Opportunity</span>
+                    <span className="font-semibold text-sm text-gray-900 dark:text-white">Growth Opportunity</span>
                   </div>
-                  <p className="text-sm text-gray-600">{analysis.growth_opportunity || 'Significant potential for email automation'}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{analysis.growth_opportunity || 'Significant potential for email automation'}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <HiOutlineCurrencyDollar className="w-5 h-5 text-yellow-500 mr-2" />
-                    <span className="font-semibold text-sm">Potential Savings</span>
+                    <span className="font-semibold text-sm text-gray-900 dark:text-white">Potential Savings</span>
                   </div>
-                  <p className="text-sm text-green-600 font-bold text-lg">{analysis.amount_to_save || '$500+/month'}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400 font-bold text-lg">{analysis.amount_to_save || '$500+/month'}</p>
                 </div>
-                <div className="bg-white rounded-xl p-4 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <HiOutlineChartBar className="w-5 h-5 text-purple-500 mr-2" />
-                    <span className="font-semibold text-sm">2-Year Value</span>
+                    <span className="font-semibold text-sm text-gray-900 dark:text-white">2-Year Value</span>
                   </div>
-                  <p className="text-sm text-blue-600 font-bold text-lg">{analysis.total_est_value || '$12,000+'}</p>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 font-bold text-lg">{analysis.total_est_value || '$12,000+'}</p>
                 </div>
               </div>
             </div>
@@ -188,7 +204,7 @@ const ExitIntentPopup = () => {
             </button>
             <button
               onClick={closePopup}
-              className="w-full text-gray-500 py-3 text-sm hover:text-gray-700 transition-colors"
+              className="w-full text-gray-500 dark:text-gray-400 py-3 text-sm hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
             >
               No thanks, I'll explore on my own
             </button>
@@ -200,31 +216,31 @@ const ExitIntentPopup = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <HiOutlineUsers className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">What brings you here?</h2>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">What brings you here?</h2>
             <div className="space-y-3">
               <button
                 onClick={() => handleInterestSelect('exploring')}
-                className="w-full text-left px-6 py-4 border-2 border-gray-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all group"
+                className="w-full text-left px-6 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-2xl hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all group"
               >
-                <div className="font-semibold text-lg mb-1">Just exploring</div>
-                <div className="text-sm text-gray-500">I'm curious about the platform</div>
-                <div className="mt-2 text-purple-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Learn more</div>
+                <div className="font-semibold text-lg mb-1 text-gray-900 dark:text-white">Just exploring</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">I'm curious about the platform</div>
+                <div className="mt-2 text-purple-500 dark:text-purple-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Learn more</div>
               </button>
               <button
                 onClick={() => handleInterestSelect('interested-but-unsure')}
-                className="w-full text-left px-6 py-4 border-2 border-gray-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all group"
+                className="w-full text-left px-6 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-2xl hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all group"
               >
-                <div className="font-semibold text-lg mb-1">I'm interested but not sure how to dive in</div>
-                <div className="text-sm text-gray-500">Show me the best way to get started</div>
-                <div className="mt-2 text-purple-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Get guidance</div>
+                <div className="font-semibold text-lg mb-1 text-gray-900 dark:text-white">I'm interested but not sure how to dive in</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">Show me the best way to get started</div>
+                <div className="mt-2 text-purple-500 dark:text-purple-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Get guidance</div>
               </button>
               <button
                 onClick={() => handleInterestSelect('ready-to-grow')}
-                className="w-full text-left px-6 py-4 border-2 border-gray-200 rounded-2xl hover:border-purple-500 hover:bg-purple-50 transition-all group"
+                className="w-full text-left px-6 py-4 border-2 border-gray-200 dark:border-gray-600 rounded-2xl hover:border-purple-500 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all group"
               >
-                <div className="font-semibold text-lg mb-1">Ready to grow my business</div>
-                <div className="text-sm text-gray-500">I want to see the growth plan</div>
-                <div className="mt-2 text-purple-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Start growing</div>
+                <div className="font-semibold text-lg mb-1 text-gray-900 dark:text-white">Ready to grow my business</div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">I want to see the growth plan</div>
+                <div className="mt-2 text-purple-500 dark:text-purple-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity">→ Start growing</div>
               </button>
             </div>
           </div>
@@ -235,38 +251,38 @@ const ExitIntentPopup = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
               <HiOutlineCheckCircle className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">Your Personalized Growth Plan</h2>
-            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 mb-8 text-left border border-orange-200">
-              <h3 className="font-bold text-lg mb-4 text-orange-900">You no longer need...</h3>
+            <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">Your Personalized Growth Plan</h2>
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 mb-8 text-left border border-orange-200 dark:border-orange-800">
+              <h3 className="font-bold text-lg mb-4 text-orange-900 dark:text-orange-300">You no longer need...</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <HiOutlineCheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Separate email marketing tools</span>
+                  <span className="text-gray-700 dark:text-gray-300">Separate email marketing tools</span>
                 </div>
                 <div className="flex items-center">
                   <HiOutlineCheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Multiple calendar scheduling apps</span>
+                  <span className="text-gray-700 dark:text-gray-300">Multiple calendar scheduling apps</span>
                 </div>
                 <div className="flex items-center">
                   <HiOutlineCheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Expensive CRM systems</span>
+                  <span className="text-gray-700 dark:text-gray-300">Expensive CRM systems</span>
                 </div>
                 <div className="flex items-center">
                   <HiOutlineCheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                  <span className="text-gray-700">Complex automation workflows</span>
+                  <span className="text-gray-700 dark:text-gray-300">Complex automation workflows</span>
                 </div>
               </div>
-              <div className="mt-6 pt-6 border-t border-orange-200 bg-white rounded-xl p-4">
+              <div className="mt-6 pt-6 border-t border-orange-200 dark:border-orange-700 bg-white dark:bg-gray-800 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="font-bold text-lg text-gray-900">With Venmail</p>
+                  <p className="font-bold text-lg text-gray-900 dark:text-white">With Venmail</p>
                   <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     $23/month
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2 text-sm text-gray-600">
-                  <span className="bg-gray-100 px-2 py-1 rounded-lg">Unlimited users</span>
-                  <span className="bg-gray-100 px-2 py-1 rounded-lg">250GB storage</span>
-                  <span className="bg-gray-100 px-2 py-1 rounded-lg">All features</span>
+                <div className="flex flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
+                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">Unlimited users</span>
+                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">250GB storage</span>
+                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">All features</span>
                 </div>
               </div>
             </div>
@@ -279,9 +295,9 @@ const ExitIntentPopup = () => {
                 Start Your Free Trial
               </a>
               <a
-                href="https://m.venmail.io/schedule/30-250503-1821-642627-437"
+                href="https://venia.cloud/schedule/30-250503-1821-642627-437"
                 target="_blank"
-                className="block w-full text-gray-600 py-3 text-sm hover:text-gray-800 border-2 border-gray-300 rounded-2xl hover:border-gray-400 transition-all"
+                className="block w-full text-gray-600 dark:text-gray-400 py-3 text-sm hover:text-gray-800 dark:hover:text-gray-200 border-2 border-gray-300 dark:border-gray-600 rounded-2xl hover:border-gray-400 dark:hover:border-gray-500 transition-all"
               >
                 Help me set up
               </a>

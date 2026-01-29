@@ -1,148 +1,195 @@
 import React from "react";
-import { FaChevronDown } from "react-icons/fa";
-import { useState } from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
-import Pie from "@/components/ProgressBar";
-import SolutionJumbotron from "@/components/PageSections/SolutionJumbotron";
 import Testimonial from "@/components/PageSections/Testimonial";
+import { BsCheck2 } from "react-icons/bs";
+import { LuUsers, LuBarChart3, LuShield, LuBuilding } from "react-icons/lu";
 
-export default function Faqs() {
-  // State to track the currently expanded FAQ
-  const [openIndex, setOpenIndex] = useState(null);
-
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
-
-  const features = [
+export default function Agency() {
+  const capabilities = [
     {
-      color: "#26D07C",
-      name: "Ease of Use",
-      text: "Effortlessly generate high-quality prospects connect with the right leads and drive business growth.",
+      icon: <LuUsers className="w-6 h-6" />,
+      title: "Multi-Client Management",
+      description: "Manage all client accounts from one dashboard with separate workspaces and unified billing.",
     },
     {
-      color: "#2F7FE2",
-      name: "Quality of Support",
-      text: "Escalate your most critical questions to our VIP support team, day or night.",
+      icon: <LuBuilding className="w-6 h-6" />,
+      title: "White-Label Options",
+      description: "Custom domains and branded booking pages for a seamless client experience.",
     },
     {
-      color: "#FF5C39",
-      name: "Ease of Setup",
-      text: "Quickly import your contacts and stay connected—manage relationships efficiently and effortlessly.",
+      icon: <LuBarChart3 className="w-6 h-6" />,
+      title: "Campaign Analytics",
+      description: "Detailed reporting on open rates, clicks, and conversions to demonstrate ROI.",
+    },
+    {
+      icon: <LuShield className="w-6 h-6" />,
+      title: "Enterprise Security",
+      description: "GDPR compliant with optional Bring Your Own Storage for sensitive clients.",
     },
   ];
+
+  const benefits = [
+    "Unlimited team members included",
+    "Flat pricing that protects margins",
+    "Separate client workspaces",
+    "Shared templates and assets",
+    "Campaign automation tools",
+    "Priority support available",
+  ];
+
   return (
-    <CustomLayout logoVariant="dark" headerColor="#FEF3CB" textColor={"black"} hideFooterJumbo={true}>
-      <section className="bg-[#FEF3CB]">
-        <div className="grid max-w-screen-xl px-4 py-16 mx-auto md:gap-8 xl:gap-0 md:py-16 md:grid-cols-12">
-          <div className="mr-auto place-self-center md:col-span-6 text-center md:text-start">
-            <h1 className="max-w-3xl mb-4 text-4xl md:text-6xl font-medium tracking-tight md:leading-[72px] text-black">
-              Scale pipeline for clients
-            </h1>
-            <p className="max-w-lg mb-5 text-black">
-              Say goodbye to the hassle of manual prospecting and let Venmail
-              help you focus on what matters
-            </p>
-            <a
-              href="#"
-              className="cursor-pointer md:inline-flex block items-center justify-center px-5 py-3 text-base font-medium text-center text-white bg-primary-600 focus:ring-4 focus:ring-primary-300 mr-0 md:mr-4"
-            >
-              Get started
-            </a>
-            <a
-              href="/pricing"
-              className="cursor-pointer md:inline-flex block items-center justify-center px-5 py-3 mb-4 md:mr-3 text-base font-medium text-center text-black border border-black hover:bg-gray-100 focus:ring-4 focus:ring-gray-100   "
-            >
-              Compare Pricing
-            </a>
-          </div>
-          <div className="mt-5 lg:col-span-6 lg:flex">
-            <img src="/solutions/agencies/section-1.png" alt="mockup" />
+    <CustomLayout logoVariant="dark" headerColor="#0f172a" textColor={"white"} hideFooterJumbo={true}>
+      {/* Hero */}
+      <section className="bg-slate-900">
+        <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-7 text-center md:text-left">
+              <p className="text-blue-400 font-medium mb-4">For Agencies & Consultancies</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                For Agencies: Scale Without the Bill Shock
+              </h1>
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Manage clients, run campaigns, deliver results—all from one workspace 
+                tailored to how agencies actually work. Flat pricing, no surprises.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a
+                  href="https://m.venmail.io/register"
+                  target="_blank"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                >
+                  Start Free Trial
+                </a>
+                <a
+                  href="/pricing"
+                  className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white border border-gray-600 hover:bg-gray-800 transition-colors"
+                >
+                  View Pricing
+                </a>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <img src="/solutions/agencies/section-1.png" alt="Agency Dashboard" className="rounded-lg shadow-2xl" />
+            </div>
           </div>
         </div>
       </section>
-      <section className="bg-white ">
-        <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-            {features.map((feature) => (
-              <div>
-                <Pie percentage={97} colour={feature.color} />
-                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
-                <p className="text-gray-400 text-sm">{feature.text}</p>
+
+      {/* Capabilities */}
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Cut for Agency Workflows
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Everything sewn together for managing client campaigns. No tool juggling.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {capabilities.map((item, idx) => (
+              <div key={idx} className="p-6 border border-gray-200 rounded-xl hover:border-blue-300 transition-colors">
+                <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600 mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="bg-white py-20 px-4 mx-auto max-w-screen-xl md:px-6">
-        <div className="grid md:grid-cols-12 items-center">
-          <div className="md:col-span-6">
-            <div className="max-w-md">
-              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
-                Build targeted lists of your ideal clients
+
+      {/* Features Detail */}
+      <section className="bg-gray-50 py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6">
+              <p className="text-blue-600 font-medium mb-3">Agency Operations</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Why This Works for Agencies
               </h2>
-              <p className="text-[#637074] text-base my-5">
-                Venmail harnesses the power of artificial intelligence to
-                streamline your workflows, save valuable time, and maximize
-                results.
+              <p className="text-lg text-gray-600 mb-8">
+                VenMail gives agencies the tools to manage multiple clients efficiently 
+                while maintaining healthy margins with flat, predictable pricing.
               </p>
+              <ul className="space-y-3 mb-8">
+                {benefits.map((benefit, idx) => (
+                  <li key={idx} className="flex items-center gap-3 text-gray-700">
+                    <BsCheck2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
               <a
                 href="https://m.venmail.io/register"
                 target="_blank"
-                className="text-primary-500 font-bold flex items-center cursor-pointer"
+                className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700"
               >
-                Sign up for free
+                Get started free →
               </a>
             </div>
-          </div>
-          <div className="lg:mt-0 md:col-span-6 flex justify-end ">
-            <img
-              src="/solutions/agencies/content-image-1.png"
-              alt="mockup"
-              className="mt-10 md:mt-0"
-            />
-          </div>
-        </div>
-      </section>
-      <section className="bg-white py-10 px-4 mx-auto max-w-screen-xl md:px-6">
-        <div className="grid md:grid-cols-12 items-center">
-          <div className="lg:mt-0 md:col-span-6 flex order-12 md:order-1">
-            <img
-              src="/solutions/agencies/content-image-2.png"
-              alt="mockup"
-              className="mt-10 md:mt-0"
-            />
-          </div>
-          <div className="md:col-span-6 flex justify-end order-1 md:order-12">
-            <div className="max-w-lg">
-              <h2 className="text-4xl font-medium md:text-5xl text-black md:leading-[56px]">
-                Deliver personalized outreach that works faster
-              </h2>
-              <p className="text-[#637074] text-base my-5">
-                Venmail harnesses the power of artificial intelligence to
-                streamline your workflows, save valuable time, and maximize
-                results.
-              </p>
-              <a
-                href="https://m.venmail.io/register"
-                target="_blank"
-                className="text-primary-500 font-bold flex items-center cursor-pointer"
-              >
-                Sign up for free
-              </a>
+            <div className="md:col-span-6">
+              <img src="/solutions/agencies/content-image-1.png" alt="Client Management" className="rounded-lg shadow-lg" />
             </div>
           </div>
         </div>
       </section>
-      <section className="bg-white py-12 md:py-24 px-4 mx-auto max-w-screen-xl md:px-6">
-        <SolutionJumbotron
-          subheading={"venmail for founders"}
-          title={"Founder-led sales with AI rewrites and more"}
-          text={
-            "Whether you're looking to expand your customer base, drive conversions, or build meaningful relationships, we ensure every lead is tailored to your goals. Say goodbye to guesswork and hello to results-driven prospecting!"
-          }
-        ></SolutionJumbotron>
+
+      {/* Pricing */}
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="grid md:grid-cols-12 gap-12 items-center">
+            <div className="md:col-span-6 order-2 md:order-1">
+              <img src="/solutions/agencies/content-image-2.png" alt="Agency Pricing" className="rounded-lg shadow-lg" />
+            </div>
+            <div className="md:col-span-6 order-1 md:order-2">
+              <p className="text-blue-600 font-medium mb-3">Predictable Pricing</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Flat Pricing That Protects Margins
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                Unlike per-seat tools that eat into your margins as you grow, 
+                VenMail offers flat pricing with unlimited team members.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <span className="text-gray-600">Per-seat tools (10 users)</span>
+                  <span className="text-gray-400 line-through">$500-800/mo</span>
+                </div>
+                <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <span className="text-gray-900 font-medium">VenMail Business</span>
+                  <span className="text-blue-600 font-bold">$23.20/mo</span>
+                </div>
+              </div>
+              <a href="/pricing" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">
+                Compare pricing plans →
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* CTA */}
+      <section className="bg-slate-900 py-16 px-4">
+        <div className="max-w-screen-xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Ready to Try It?
+          </h2>
+          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            Free plan. No credit card. See if it fits.
+          </p>
+          <a
+            href="https://m.venmail.io/register"
+            target="_blank"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-900 bg-white hover:bg-gray-100 transition-colors rounded-lg"
+          >
+            Get Started Free
+          </a>
+        </div>
+      </section>
+
       <Testimonial />
     </CustomLayout>
   );

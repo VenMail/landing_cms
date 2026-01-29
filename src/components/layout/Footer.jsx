@@ -30,32 +30,20 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "VenMail vs Webmail", href: "/compare/webmail" },
       ],
     },
-    // {
-    //   title: "Solutions",
-    //   links: [
-    //     { label: "Founders", href: "/solutions/founders" },
-    //     { label: "Marketing", href: "/solutions/marketing" },
-    //     { label: "Agency", href: "/solutions/agency" },
-    //     { label: "Freelancers", href: "/solutions/freelancers" },
-    //   ],
-    // },
     {
-      title: "Resources",
+      title: "Solutions",
       links: [
-        // { label: "Contact Us", href: "/contact-us" },
-        // { label: "About", href: "/about-us" },
-        // { label: "Career", href: "/career" },
-        // { label: "Join Our Community", href: "/resources/community" },
-        { label: "Terms of Service", href: "/resources/terms-of-service" },
-        { label: "Privacy Policy", href: "/resources/privacy-policy" },
-        { label: "Partnership", href: "/resources/partner" },
-        { label: "Cookie Policy", href: "/resources/cookie-policy" },
-        { label: "Cookie & CCPA Policy", href: "/resources/cookie_ccpa-policy" },
-        { label: "AI Principles", href: "/resources/ai-principles" },
-        // {
-        //   label: "Download desktop app",
-        //   href: "/resources/download-desktop-app",
-        // },
+        { label: "Founders", href: "/solutions/founders" },
+        { label: "Marketing", href: "/solutions/marketing" },
+        { label: "Agency", href: "/solutions/agency" },
+        { label: "Freelancers", href: "/solutions/freelancers" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Privacy", href: "/resources/privacy-policy" },
+        { label: "Terms", href: "/resources/terms-of-service" },
       ],
     },
   ];
@@ -67,10 +55,10 @@ export default function Footer({ hideFooterJumbo = false }) {
           <div className="bg-primary-500 grid grid-cols-1 md:grid-cols-12 py-5 px-8 md:py-20 md:px-12 items-center gap-8 md:gap-0">
             <div className="md:col-span-6 text-center md:text-left">
               <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight md:leading-[48px] mb-3 md:mb-5">
-                Have a specific <br /> question? Let's talk
+                Questions? <br /> Let's talk
               </h2>
               <p className="text-white text-sm md:text-base leading-6 max-w-md py-5">
-                Get pricing details, technical specs, or migration help from our team.
+                Pricing, technical details, or migration help—we're here.
               </p>
               <a
                 href={CONTACT_PAGE_PATH}
@@ -120,7 +108,7 @@ export default function Footer({ hideFooterJumbo = false }) {
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="col-span-12 md:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="md:hidden block">
                 <h3 className="text-sm font-semibold mb-4 text-black">
                   Get Started
@@ -168,7 +156,9 @@ export default function Footer({ hideFooterJumbo = false }) {
               ))}
             </div>
           </div>
-          <img src="/logo-black.png" className="h-8 my-8" />
+          <div className="flex justify-center my-8">
+            <img src="/logo-black.png" className="h-8 max-w-[120px] object-contain" />
+          </div>
 
           {/* Bottom Section */}
           <div className="mt-6 pt-8 border-t border-gray-200 ">

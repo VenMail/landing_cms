@@ -84,20 +84,28 @@ const products = [
 
 const solutions = [
   {
-    name: "Agencies",
-    href: "/solutions/agency",
+    name: "Founders",
+    description: "Close deals without a sales team",
+    href: "/solutions/founders",
+    icon: UsersIcon,
   },
   {
-    name: "Founders",
-    href: "/solutions/founders",
+    name: "Agencies",
+    description: "Scale client campaigns efficiently",
+    href: "/solutions/agency",
+    icon: UsersIcon,
   },
   {
     name: "Freelancers",
+    description: "Professional tools at friendly prices",
     href: "/solutions/freelancers",
+    icon: EnvelopeIcon,
   },
   {
-    name: "Marketing",
+    name: "Marketing Teams",
+    description: "AI-powered campaign management",
     href: "/solutions/marketing",
+    icon: ChartPieIcon,
   },
 ];
 
@@ -163,18 +171,18 @@ export default function Header({
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6"
       >
-        <div className="flex lg:flex-1 items-center">
-          <a href="/" className="p-1.5 cursor-pointer">
+        <div className="flex items-center">
+          <a href="/" className="p-1.5 cursor-pointer flex-shrink-0">
             <span className="sr-only">VenMail</span>
             <img
               alt=""
               src={
                 logoVariant === "dark" ? "/logo-text.png" : "/logo-white.png"
               }
-              className="h-8 w-auto"
+              className="h-8 w-auto max-w-[140px] object-contain"
             />
           </a>
-          <div className="hidden lg:flex lg:gap-x-12 ml-10 pt-2">
+          <div className="hidden lg:flex lg:gap-x-8 ml-8 pt-2 flex-1">
             <NavMenu
               trigger={
                 <button
@@ -255,7 +263,7 @@ export default function Header({
               </div>
             </NavMenu>
 
-            {/* <NavMenu
+            <NavMenu
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -268,23 +276,28 @@ export default function Header({
                 </button>
               }
             >
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 gap-8">
                 {solutions.map((item) => (
-                  <div key={item.name}>
-                    <a
-                      href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
-                    >
-                      <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B] uppercase">
-                          {item.name}
-                        </span>
-                      </div>
-                    </a>
-                  </div>
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                  >
+                    <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
+                      <item.icon className="h-6 w-6 text-[#1C323B]" />
+                    </div>
+                    <div className="flex-auto">
+                      <span className="block font-semibold text-[#1C323B]">
+                        {item.name}
+                      </span>
+                      <p className="text-[#546E79] text-sm">
+                        {item?.description}
+                      </p>
+                    </div>
+                  </a>
                 ))}
               </div>
-            </NavMenu> */}
+            </NavMenu>
 
             <NavMenu
               trigger={
@@ -334,6 +347,13 @@ export default function Header({
                 </div>
               </div>
             </NavMenu>
+
+            <a
+              href="/solutions"
+              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600 cursor-pointer`}
+            >
+              Solutions
+            </a>
 
             <a
               href="/pricing"
@@ -417,7 +437,7 @@ export default function Header({
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
-                {/* <Disclosure as="div" className="-mx-3">
+                <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                     Solutions
                     <ChevronDownIcon
@@ -431,13 +451,19 @@ export default function Header({
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
+                        className="flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50 font-medium"
                       >
-                        {item.name}
+                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-primary-100 mr-3">
+                          <item.icon className="h-6 w-6 text-[#1C323B]" />
+                        </div>
+                        <div>
+                          <div className="font-semibold">{item.name}</div>
+                          <div className="text-xs text-gray-600">{item.description}</div>
+                        </div>
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
-                </Disclosure> */}
+                </Disclosure>
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                     Resources
@@ -459,6 +485,12 @@ export default function Header({
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
+                <a
+                  href="/solutions"
+                  className="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 cursor-pointer"
+                >
+                  Solutions
+                </a>
                 <a
                   href="/pricing"
                   className="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 cursor-pointer"
