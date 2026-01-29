@@ -65,7 +65,7 @@ export default function EmailAutomation() {
       subheading: "Email Performance Analytics",
       title: "Complete email performance visibility",
       description: "Track delivery success, open rates, read rates, and engagement patterns. Identify the best times to send and optimize your email strategy.",
-      image: "/sent-panel.png",
+      image: "/sent_metrics.png",
     },
     {
       subheading: "Automated Follow-ups",
@@ -86,16 +86,16 @@ export default function EmailAutomation() {
       image: "/seamless_track.png",
     },
     {
+      subheading: "AI-Powered Writing",
+      title: "Write better emails with AI assistance",
+      description: "AI rewrites help you craft professional emails, improve clarity, and maintain consistent communication style across all messages.",
+      image: "/quick-replies-ai.png",
+    },
+    {
       subheading: "Flexible Import Options",
       title: "Bring your entire email history",
       description: "Upload email archives in any format or connect directly to your email server. Maintain complete email continuity.",
       image: "/import-options.png",
-    },
-    {
-      subheading: "Direct Server Integration",
-      title: "Connect to any email provider",
-      description: "Seamlessly integrate with Gmail, Outlook, Exchange, or any IMAP/POP3 email server. Keep your existing email infrastructure.",
-      image: "/import-imap-pop.png",
     },
   ];
 
@@ -107,7 +107,7 @@ export default function EmailAutomation() {
         description={
           "Advanced tracking, validation, and follow-up automation that helps you send better emails and never miss important opportunities."
         }
-        image={"/product/mail.png"}
+        image={"/ai-dashboard.png"}
         button1Text={"Start Automating"}
         button2Text={"See All Features"}
       />

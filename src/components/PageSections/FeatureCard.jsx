@@ -16,11 +16,11 @@ export default function FeatureCard({
   return (
     <>
       <div
-        className={`bg-[#f9f1ef] ${
+        className={`glass-card bg-[#f9f1ef] ${
           count === 3 && index === 2
             ? "col-span-full grid grid-cols-1 md:grid-cols-2 gap-8"
             : "flex flex-col"
-        }`}
+        } feature-glow`}
       >
         <div className="p-6 sm:p-8 md:p-10 flex-1">
           <p
@@ -38,14 +38,16 @@ export default function FeatureCard({
             Signup for free
           </a>
         </div>
-        <div className="bg-[#f9f1ef] p-6 sm:p-8 md:p-10">
-          <img
-            className={`${
-              count === 3 && index === 2 ? "w-full rounded-lg shadow-sm" : "w-full rounded-lg shadow-sm"
-            }`}
-            src={image}
-            alt={title}
-          />
+        <div className="cinematic-frame bg-[#f9f1ef] p-6 sm:p-8 md:p-10">
+          <div className="cinematic-vignette rounded-lg overflow-hidden">
+            <img
+              className={`${
+                count === 3 && index === 2 ? "w-full rounded-lg shadow-sm" : "w-full rounded-lg shadow-sm"
+              }`}
+              src={image}
+              alt={title}
+            />
+          </div>
         </div>
       </div>
     </>

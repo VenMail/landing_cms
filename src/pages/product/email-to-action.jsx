@@ -65,7 +65,7 @@ export default function EmailToAction() {
       subheading: "Quick Meeting Scheduling",
       title: "Turn dates into meetings instantly",
       description: "AI recognizes dates mentioned in emails and makes them clickable. One click schedules the meeting, checks availability, and sends invitations.",
-      image: "/quick-meeting-scheduler.png",
+      image: "/date-scheduler.png",
     },
     {
       subheading: "Effortless Task Creation",
@@ -78,6 +78,12 @@ export default function EmailToAction() {
       title: "Smart labels with AI prompts",
       description: "Describe how you want emails categorized using natural language. AI learns your preferences and auto-labels incoming messages.",
       image: "/smart-labels.png",
+    },
+    {
+      subheading: "Fast Email Processing",
+      title: "Sort through 75 emails in 5 minutes",
+      description: "Power mode helps you process emails at lightning speed. Smart sorting and AI-powered organization tackle your inbox efficiently.",
+      image: "/fast_sort.png",
     },
   ];
 

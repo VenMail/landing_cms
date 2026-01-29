@@ -16,8 +16,12 @@ export default function CostComparisonSlider({ hasButton = false }) {
   const venmailCost = users <= 10 ? 0 : 7; // Minimum above 10 users is $7/mo
 
   return (
-    <div className="bg-gray-100 py-8 sm:py-24">
-      <div className="w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
+    <div className="bg-gray-100 py-8 sm:py-24 relative overflow-hidden">
+      {/* Cinematic vignette effect for pricing section */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-200/20 via-transparent to-gray-200/20 backdrop-blur-[50px]" />
+      
+      <div className="relative z-10 w-full max-w-[90%] lg:max-w-7xl mx-auto px-4">
         <h2 className="text-3xl sm:text-5xl lg:text-7xl font-semibold text-center mb-3 sm:mb-4 text-black">
           What would it cost elsewhere?
         </h2>
@@ -68,7 +72,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-4 sm:mt-8">
-            <div className="p-6 rounded-md border bg-white">
+            <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
               <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
               <div className="text-xs text-gray-600">Free for 1–10 users, then starts at $7/mo</div>
@@ -77,7 +81,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
             {providers.map((p) => {
               const total = p.perUser * users;
               return (
-                <div key={p.key} className="p-6 rounded-md border bg-white">
+                <div key={p.key} className="glass-card p-6 rounded-md border bg-white/60 backdrop-blur-sm">
                   <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">{p.name}</div>
                   <div className="text-2xl font-bold text-black mb-1">{formatCurrency(total)}/mo</div>
                   <div className="text-xs text-gray-600">Assumes minimum plan at ${p.perUser}/user</div>

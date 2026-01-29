@@ -68,6 +68,12 @@ export default function Booking() {
       image: "/personal_booking.png",
     },
     {
+      subheading: "Smart Date Detection",
+      title: "AI-powered meeting scheduling",
+      description: "Automatically detect dates mentioned in emails and convert them to schedulable events. One-click booking from any email conversation.",
+      image: "/date-scheduler.png",
+    },
+    {
       subheading: "Calendar Integration",
       title: "Import and sync with Google Calendar",
       description: "Seamlessly connect with your existing Google Calendar. All events sync automatically, preventing double bookings and maintaining your current workflow.",
@@ -77,13 +83,7 @@ export default function Booking() {
       subheading: "Meeting Management",
       title: "Streamlined meeting coordination",
       description: "Schedule meetings directly from email requests. Automatic calendar checking prevents conflicts and ensures optimal meeting times.",
-      image: "/product/calendar/feature-1.png",
-    },
-    {
-      subheading: "Smart Scheduling",
-      title: "Intelligent conflict prevention",
-      description: "Advanced scheduling logic that detects conflicts, suggests optimal times, and automatically blocks focus time to protect your productivity.",
-      image: "/product/calendar/feature-2.png",
+      image: "/quick-meeting-scheduler.png",
     },
   ];
 

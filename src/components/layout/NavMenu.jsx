@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
 
-export default function NavMenu({ trigger, children }) {
+export default function NavMenu({ trigger, children, textColor, isActive }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -21,12 +21,12 @@ export default function NavMenu({ trigger, children }) {
     <div className="relative" ref={menuRef}>
       <div 
         onClick={() => setIsOpen(!isOpen)} 
-        className={`cursor-pointer ${isOpen ? 'border-b-[1px] border-primary-600' : ''}`}
+        className={`cursor-pointer ${isOpen ? 'border-b-[1px] border-primary-600' : ''} ${isActive ? 'border-b-2 border-primary-600' : ''}`}
       >
         {trigger}
       </div>
       {isOpen && (
-        <div className="fixed left-0 right-0 z-50 bg-white shadow-lg animate-fadeIn" style={{ top: '76px' }}>
+        <div className={`fixed left-0 right-0 z-50 shadow-lg animate-fadeIn ${textColor === 'white' ? 'bg-gray-900' : 'bg-white'}`} style={{ top: '76px' }}>
           <div className="mx-auto max-w-7xl pt-8 pb-20">
             {children}
           </div>

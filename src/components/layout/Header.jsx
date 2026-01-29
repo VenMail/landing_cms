@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/router";
 import {
   Dialog,
   DialogPanel,
@@ -161,8 +162,16 @@ export default function Header({
   textColor = "black",
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const router = useRouter();
+  
   const logoIsDark = () => {
     return logoVariant === "dark";
+  };
+
+  const isActivePage = (path) => {
+    if (path === "/" && router.pathname === "/") return true;
+    if (path !== "/" && router.pathname.startsWith(path)) return true;
+    return false;
   };
 
   return (
@@ -184,6 +193,8 @@ export default function Header({
           </a>
           <div className="hidden lg:flex lg:gap-x-8 ml-8 pt-2 flex-1">
             <NavMenu
+              textColor={textColor}
+              isActive={isActivePage('/product') || isActivePage('/compare')}
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -202,18 +213,26 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                      className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                     >
-                      <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
-                        <item.icon className="h-6 w-6 text-[#1C323B]" />
+                      <div className={`flex h-16 w-16 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'}`}>
+                        <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                       </div>
                       <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B]">
+                        <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                           {item.name}
                         </span>
-                        <p className="text-[#546E79] text-sm">
+                        <p className={`text-sm ${textColor === 'white' ? 'text-gray-300' : 'text-[#546E79]'}`}>
                           {item?.description}
                         </p>
+                      </div>
+                      <div className="pulse-dot-container">
+                        {isActivePage(item.href) && (
+                          <>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                          </>
+                        )}
                       </div>
                     </a>
                   ))}
@@ -223,18 +242,26 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                      className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                     >
-                      <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
-                        <item.icon className="h-6 w-6 text-[#1C323B]" />
+                      <div className={`flex h-16 w-16 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'}`}>
+                        <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                       </div>
                       <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B]">
+                        <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                           {item.name}
                         </span>
-                        <p className="text-[#546E79] text-sm">
+                        <p className={`text-sm ${textColor === 'white' ? 'text-gray-300' : 'text-[#546E79]'}`}>
                           {item?.description}
                         </p>
+                      </div>
+                      <div className="pulse-dot-container">
+                        {isActivePage(item.href) && (
+                          <>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                          </>
+                        )}
                       </div>
                     </a>
                   ))}
@@ -244,18 +271,26 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                      className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                     >
-                      <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
-                        <item.icon className="h-6 w-6 text-[#1C323B]" />
+                      <div className={`flex h-16 w-16 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'}`}>
+                        <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                       </div>
                       <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B]">
+                        <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                           {item.name}
                         </span>
-                        <p className="text-[#546E79] text-sm">
+                        <p className={`text-sm ${textColor === 'white' ? 'text-gray-300' : 'text-[#546E79]'}`}>
                           {item?.description}
                         </p>
+                      </div>
+                      <div className="pulse-dot-container">
+                        {isActivePage(item.href) && (
+                          <>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                          </>
+                        )}
                       </div>
                     </a>
                   ))}
@@ -264,6 +299,8 @@ export default function Header({
             </NavMenu>
 
             <NavMenu
+              textColor={textColor}
+              isActive={isActivePage('/solutions')}
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -281,25 +318,34 @@ export default function Header({
                   <a
                     key={item.name}
                     href={item.href}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                    className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                   >
-                    <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
-                      <item.icon className="h-6 w-6 text-[#1C323B]" />
+                    <div className={`flex h-16 w-16 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'}`}>
+                      <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                     </div>
                     <div className="flex-auto">
-                      <span className="block font-semibold text-[#1C323B]">
+                      <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                         {item.name}
                       </span>
-                      <p className="text-[#546E79] text-sm">
+                      <p className={`text-sm ${textColor === 'white' ? 'text-gray-300' : 'text-[#546E79]'}`}>
                         {item?.description}
                       </p>
+                    </div>
+                    <div className="pulse-dot-container">
+                      {isActivePage(item.href) && (
+                        <>
+                          <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                          <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                        </>
+                      )}
                     </div>
                   </a>
                 ))}
               </div>
             </NavMenu>
-
             <NavMenu
+              textColor={textColor}
+              isActive={isActivePage('/resources')}
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -314,15 +360,23 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 cursor-pointer"
+                      className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                     >
                       {/* <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
                       </div> */}
                       <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B]">
+                        <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                           {item.name}
                         </span>
+                      </div>
+                      <div className="pulse-dot-container">
+                        {isActivePage(item.href) && (
+                          <>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                          </>
+                        )}
                       </div>
                     </a>
                   ))}
@@ -332,15 +386,23 @@ export default function Header({
                     <a
                       key={item.name}
                       href={item.href}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 cursor-pointer"
+                      className={`group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 ${textColor === 'white' ? 'hover:bg-gray-800 text-white' : 'hover:bg-gray-50'} cursor-pointer ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                     >
                       {/* <div className="flex h-16 w-16 flex-none items-center justify-center rounded-lg bg-primary-100">
                         <item.icon className="h-6 w-6 text-[#1C323B]" />
                       </div> */}
                       <div className="flex-auto">
-                        <span className="block font-semibold text-[#1C323B]">
+                        <span className={`block font-semibold ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`}>
                           {item.name}
                         </span>
+                      </div>
+                      <div className="pulse-dot-container">
+                        {isActivePage(item.href) && (
+                          <>
+                            <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                          </>
+                        )}
                       </div>
                     </a>
                   ))}
@@ -349,15 +411,8 @@ export default function Header({
             </NavMenu>
 
             <a
-              href="/solutions"
-              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600 cursor-pointer`}
-            >
-              Solutions
-            </a>
-
-            <a
               href="/pricing"
-              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600 cursor-pointer`}
+              className={`text-sm/6 font-medium text-${textColor} hover:border-b-2 hover:border-primary-600 cursor-pointer ${isActivePage('/pricing') ? 'border-b-2 border-primary-600' : ''}`}
             >
               Pricing
             </a>
@@ -427,12 +482,20 @@ export default function Header({
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50 font-medium"
+                        className={`flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 ${textColor === 'white' ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-50'} font-medium ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                       >
-                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-primary-100 mr-3">
-                          <item.icon className="h-6 w-6 text-[#1C323B]" />
+                        <div className={`flex h-12 w-12 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'} mr-3`}>
+                          <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                         </div>
-                        {item.name}
+                        <div className="flex-auto">{item.name}</div>
+                        <div className="pulse-dot-container">
+                          {isActivePage(item.href) && (
+                            <>
+                              <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                            </>
+                          )}
+                        </div>
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
@@ -451,14 +514,22 @@ export default function Header({
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50 font-medium"
+                        className={`flex items-center rounded-lg py-2 pl-6 pr-3 text-sm/7 ${textColor === 'white' ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-50'} font-medium ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                       >
-                        <div className="flex h-12 w-12 flex-none items-center justify-center rounded-lg bg-primary-100 mr-3">
-                          <item.icon className="h-6 w-6 text-[#1C323B]" />
+                        <div className={`flex h-12 w-12 flex-none items-center justify-center rounded-lg ${textColor === 'white' ? 'bg-gray-700' : 'bg-primary-100'} mr-3`}>
+                          <item.icon className={`h-6 w-6 ${textColor === 'white' ? 'text-white' : 'text-[#1C323B]'}`} />
                         </div>
-                        <div>
+                        <div className="flex-auto">
                           <div className="font-semibold">{item.name}</div>
-                          <div className="text-xs text-gray-600">{item.description}</div>
+                          <div className={`text-xs ${textColor === 'white' ? 'text-gray-300' : 'text-gray-600'}`}>{item.description}</div>
+                        </div>
+                        <div className="pulse-dot-container">
+                          {isActivePage(item.href) && (
+                            <>
+                              <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                            </>
+                          )}
                         </div>
                       </DisclosureButton>
                     ))}
@@ -478,24 +549,34 @@ export default function Header({
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 text-gray-900 hover:bg-gray-50"
+                        className={`block rounded-lg py-2 pl-6 pr-3 text-sm/7 ${textColor === 'white' ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-50'} flex items-center justify-between ${isActivePage(item.href) ? 'bg-gray-50' : ''}`}
                       >
-                        {item.name}
+                        <span>{item.name}</span>
+                        <div className="pulse-dot-container">
+                          {isActivePage(item.href) && (
+                            <>
+                              <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                              <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                            </>
+                          )}
+                        </div>
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
                 <a
-                  href="/solutions"
-                  className="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 cursor-pointer"
-                >
-                  Solutions
-                </a>
-                <a
                   href="/pricing"
-                  className="-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 cursor-pointer"
+                  className={`-mx-3 block cursor-pointer rounded-lg px-3 py-2 text-base/7 font-semibold ${textColor === 'white' ? 'text-white hover:bg-gray-800' : 'text-gray-900 hover:bg-gray-50'} cursor-pointer flex items-center justify-between ${isActivePage('/pricing') ? 'bg-gray-50' : ''}`}
                 >
-                  Pricing
+                  <span>Pricing</span>
+                  <div className="pulse-dot-container">
+                    {isActivePage('/pricing') && (
+                      <>
+                        <div className="w-2 h-2 bg-orange-500 rounded-full pulse-dot"></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full pulse-dot-hover"></div>
+                      </>
+                    )}
+                  </div>
                 </a>
               </div>
               <div className="py-6 flex flex-col">

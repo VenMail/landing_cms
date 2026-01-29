@@ -111,10 +111,34 @@ export default function Mail() {
       image: "/seamless_track.png",
     },
     {
-      subheading: "Import Options",
-      title: "Bring your existing emails",
-      description: "Upload email files or connect via IMAP/POP. Import your entire email history and continue where you left off.",
-      image: "/import-options.png",
+      subheading: "Fast Sort & Organization",
+      title: "Sort through 75 emails in 5 minutes",
+      description: "Power mode lets you process emails at lightning speed. Smart sorting and AI-powered organization help you tackle your inbox efficiently.",
+      image: "/fast_sort.png",
+    },
+    {
+      subheading: "Advanced Date Scheduling",
+      title: "Smart date detection and scheduling",
+      description: "Automatically detect dates in emails and convert them to schedulable events. Advanced AI ensures no meeting opportunity is missed.",
+      image: "/date-scheduler.png",
+    },
+    {
+      subheading: "Professional Dark Mode",
+      title: "Work comfortably in any lighting",
+      description: "Optimized dark mode interface for reduced eye strain during late-night work sessions. Professional appearance with enhanced readability.",
+      image: "/dark_mode2.png",
+    },
+    {
+      subheading: "AI-Powered Dark Mode",
+      title: "Smart dark mode with AI integration",
+      description: "Advanced dark mode that maintains AI functionality and visual clarity. Perfect for extended work sessions and low-light environments.",
+      image: "/dark_mode_ai.png",
+    },
+    {
+      subheading: "Comprehensive Sent Metrics",
+      title: "Detailed email performance analytics",
+      description: "Track delivery rates, open rates, engagement metrics, and more. Get comprehensive insights into your email communication effectiveness.",
+      image: "/sent_metrics.png",
     },
   ];
 

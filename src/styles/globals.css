@@ -36,12 +36,41 @@ body {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+.pulse-dot {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.pulse-dot-hover {
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.2s ease;
+}
+
+.pulse-dot-container:hover .pulse-dot-hover {
+  opacity: 1;
+}
+
+.pulse-dot-container:hover .pulse-dot {
+  opacity: 0;
 }
 
 .headlessui-popover-panel {
@@ -52,4 +81,58 @@ body {
 header {
   position: relative;
   z-index: 50;
+}
+
+/* Cinematic Enhancements */
+.cinematic-backdrop {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.cinematic-glow {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1), 0 0 80px rgba(0, 0, 0, 0.05);
+}
+
+.cinematic-vignette {
+  position: relative;
+  overflow: hidden;
+}
+
+.cinematic-vignette::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cinematic-vignette > * {
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cinematic-frame {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-glow {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 20px 60px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-glow:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 30px 80px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }

@@ -63,7 +63,7 @@ export default function Solutions() {
   };
 
   return (
-    <CustomLayout logoVariant="dark" headerColor="#111827" textColor={"white"} hideFooterJumbo={true}>
+    <CustomLayout logoVariant="dark" hideFooterJumbo={true}>
       {/* Hero */}
       <section className="bg-gray-900">
         <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">

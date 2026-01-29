@@ -2,7 +2,7 @@ import React from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
-import { LuUsers, LuBarChart3, LuShield, LuBuilding } from "react-icons/lu";
+import { LuUsers, LuChartBar, LuShield, LuBuilding } from "react-icons/lu";
 
 export default function Agency() {
   const capabilities = [
@@ -17,7 +17,7 @@ export default function Agency() {
       description: "Custom domains and branded booking pages for a seamless client experience.",
     },
     {
-      icon: <LuBarChart3 className="w-6 h-6" />,
+      icon: <LuChartBar className="w-6 h-6" />,
       title: "Campaign Analytics",
       description: "Detailed reporting on open rates, clicks, and conversions to demonstrate ROI.",
     },
@@ -38,7 +38,7 @@ export default function Agency() {
   ];
 
   return (
-    <CustomLayout logoVariant="dark" headerColor="#0f172a" textColor={"white"} hideFooterJumbo={true}>
+    <CustomLayout logoVariant="dark" hideFooterJumbo={true}>
       {/* Hero */}
       <section className="bg-slate-900">
         <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">

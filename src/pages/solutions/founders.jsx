@@ -38,7 +38,7 @@ export default function Founders() {
   ];
 
   return (
-    <CustomLayout logoVariant="dark" headerColor="#111827" textColor={"white"} hideFooterJumbo={true}>
+    <CustomLayout logoVariant="dark" hideFooterJumbo={true}>
       {/* Hero */}
       <section className="bg-gray-900">
         <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">
@@ -161,7 +161,7 @@ export default function Founders() {
                   <span className="text-gray-400 line-through">$200-500/mo</span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-primary-50 rounded-lg border border-primary-200">
-                  <span className="text-gray-900 font-medium">VenMail Pro</span>
+                  <span className="text-gray-900 font-medium">VenMail Startup</span>
                   <span className="text-primary-600 font-bold">From $7/mo</span>
                 </div>
               </div>

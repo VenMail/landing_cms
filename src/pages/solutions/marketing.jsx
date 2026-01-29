@@ -2,7 +2,7 @@ import React from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
-import { LuMail, LuBarChart3, LuTarget, LuSparkles } from "react-icons/lu";
+import { LuMail, LuChartBar, LuTarget, LuSparkles } from "react-icons/lu";
 
 export default function Marketing() {
   const capabilities = [
@@ -22,7 +22,7 @@ export default function Marketing() {
       description: "Find prospects that match your ideal customer profile from verified data.",
     },
     {
-      icon: <LuBarChart3 className="w-6 h-6" />,
+      icon: <LuChartBar className="w-6 h-6" />,
       title: "Campaign Analytics",
       description: "Track opens, clicks, and conversions with detailed reporting.",
     },
@@ -38,7 +38,7 @@ export default function Marketing() {
   ];
 
   return (
-    <CustomLayout logoVariant="dark" headerColor="#7c3aed" textColor={"white"} hideFooterJumbo={true}>
+    <CustomLayout logoVariant="dark" hideFooterJumbo={true}>
       {/* Hero */}
       <section className="bg-violet-700">
         <div className="max-w-screen-xl px-4 py-20 mx-auto md:py-28">
