@@ -16,6 +16,7 @@ export default function Footer({ hideFooterJumbo = false }) {
       title: "Product",
       links: [
         { label: "Venmail", href: "/product/mail" },
+        { label: "Venmail Worksuite", href: "https://venia.cloud" },
         { label: "Prospects", href: "/product/contacts" },
         { label: "Calendar", href: "/product/calendar" },
         { label: "Meetings", href: "/product/meeting" },
@@ -27,7 +28,6 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "VenMail vs Gmail", href: "/compare/gmail" },
         { label: "VenMail vs Outlook", href: "/compare/outlook" },
         { label: "VenMail vs Zoho", href: "/compare/zoho" },
-        { label: "VenMail vs Webmail", href: "/compare/webmail" },
       ],
     },
     {
@@ -40,10 +40,20 @@ export default function Footer({ hideFooterJumbo = false }) {
       ],
     },
     {
+      title: "Company",
+      links: [
+        { label: "About", href: "/about" },
+        { label: "Blog", href: "/blog" },
+        { label: "Careers", href: "/careers" },
+        { label: "Partners", href: "/partners" },
+      ],
+    },
+    {
       title: "Legal",
       links: [
         { label: "Privacy", href: "/resources/privacy-policy" },
         { label: "Terms", href: "/resources/terms-of-service" },
+        { label: "Security", href: "/security" },
       ],
     },
   ];
@@ -78,9 +88,9 @@ export default function Footer({ hideFooterJumbo = false }) {
           VenMail
         </p>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="grid grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
             {/* Company Info */}
-            <div className="col-span-12 md:col-span-6 hidden md:block">
+            <div className="hidden lg:block">
               <div>
                 <h3 className="text-sm font-semibold mb-4 text-black">
                   Get Started
@@ -104,107 +114,124 @@ export default function Footer({ hideFooterJumbo = false }) {
                       Sign In
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/pricing"
+                      className="text-sm text-black transition-colors"
+                    >
+                      Pricing
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div className="col-span-12 md:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="md:hidden block">
-                <h3 className="text-sm font-semibold mb-4 text-black">
-                  Get Started
+            <div className="lg:hidden">
+              <h3 className="text-sm font-semibold mb-4 text-black">
+                Get Started
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link
+                    href="https://m.venmail.io/register"
+                    target="_blank"
+                    className="text-sm text-black transition-colors"
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://m.venmail.io/login"
+                    target="_blank"
+                    className="text-sm text-black transition-colors"
+                  >
+                    Sign In
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/pricing"
+                    className="text-sm text-black transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Footer Sections */}
+            {footerSections.map((section) => (
+              <div key={section.title}>
+                <h3 className="text-sm font-semibold text-black mb-4">
+                  {section.title}
                 </h3>
                 <ul className="space-y-3">
-                  <li>
-                    <Link
-                      href="https://m.venmail.io/register"
-                      target="_blank"
-                      className="text-sm text-black transition-colors"
-                    >
-                      Sign Up
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://m.venmail.io/login"
-                      target="_blank"
-                      className="text-sm text-black transition-colors"
-                    >
-                      Sign In
-                    </Link>
-                  </li>
+                  {section.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-black transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
-              {/* Footer Sections */}
-              {footerSections.map((section) => (
-                <div key={section.title}>
-                  <h3 className="text-sm font-semibold text-black mb-4">
-                    {section.title}
-                  </h3>
-                  <ul className="space-y-3">
-                    {section.links.map((link) => (
-                      <li key={link.href}>
-                        <Link
-                          href={link.href}
-                          className="text-sm text-black  transition-colors"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
           <div className="flex justify-center my-8">
             <img src="/logo-black.png" className="h-8 max-w-[120px] object-contain" />
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-6 pt-8 border-t border-gray-200 ">
-            <div className="flex flex-col md:flex-row justify-start md:justify-between md:items-center">
-              <div className="flex flex-wrap mb-4 md:mb-0">
+          <div className="mt-6 pt-8 border-t border-gray-200">
+            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+              <div className="flex flex-wrap gap-4">
                 <a
                   href="/resources/terms-of-service"
-                  className="text-black text-sm mr-4 mb-4 cursor-pointer"
+                  className="text-black text-sm hover:text-gray-600 transition-colors"
                 >
                   Terms of Service
                 </a>
                 <a
                   href="/resources/privacy-policy"
-                  className="text-black text-sm mr-4 mb-4 cursor-pointer"
+                  className="text-black text-sm hover:text-gray-600 transition-colors"
                 >
                   Privacy Policy
                 </a>
-                <a href="#" className="text-black text-sm cursor-pointer">
+                <span className="text-black text-sm">
                   © {currentYear} VenMail LLC.
-                </a>
+                </span>
               </div>
-              {/* <p className="text-sm text-gray-600 ">
-                © {currentYear} Venmail Management Inc.
-              </p> */}
-              <div className="flex flex-row space-x-6 mb-4 md:mb-0">
+              
+              <div className="flex flex-row space-x-4">
                 <a
                   href="https://medium.com/@venmail"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
+                  className="bg-primary-100 text-black h-10 w-10 flex items-center justify-center rounded-full hover:bg-primary-200 transition-colors"
+                  aria-label="Medium"
                 >
                   <FaMedium />
                 </a>
                 <a
                   href="https://www.linkedin.com/company/venmail"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
+                  className="bg-primary-100 text-black h-10 w-10 flex items-center justify-center rounded-full hover:bg-primary-200 transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedinIn />
                 </a>
                 <a
                   href="https://x.com/venmailhq"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
+                  className="bg-primary-100 text-black h-10 w-10 flex items-center justify-center rounded-full hover:bg-primary-200 transition-colors"
+                  aria-label="Twitter X"
                 >
                   <BsTwitterX />
                 </a>
                 <a
                   href="https://www.youtube.com/@venmail"
-                  className="bg-primary-100 text-black h-8 w-8 md:h-12 md:w-12 flex items-center justify-center cursor-pointer"
+                  className="bg-primary-100 text-black h-10 w-10 flex items-center justify-center rounded-full hover:bg-primary-200 transition-colors"
+                  aria-label="YouTube"
                 >
                   <FaYoutube />
                 </a>

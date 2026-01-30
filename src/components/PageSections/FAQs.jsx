@@ -28,6 +28,10 @@ function FAQs() {
       question: "How does your AI actually help?",
       answer: "It works in three ways: Reads emails and extracts action items automatically, composes emails/campaigns/newsletters, suggests responses based on your writing style, and provides smart date highlights for easy scheduling in one click. For enterprise plan users, you get instant access to a suite of tools to find the right customers for your business"
     },
+    {
+      question: "Is Venmail open source?",
+      answer: "Yes! Our worksuite (Alternative to Google Drive, Documents, Spreadsheets, Forms, Slides: <a href='https://venia.cloud' target='_blank' rel='noopener noreferrer' className='text-blue-600 hover:text-blue-800 underline'>https://venia.cloud</a>) is proudly open source under the MIT license. Many Venmail packages are open source - you can explore them at <a href='https://github.com/VenMail' target='_blank' rel='noopener noreferrer' className='text-blue-600 hover:text-blue-800 underline'>https://github.com/VenMail</a>. We actively participate in and contribute to the open source community, believing in transparent, collaborative development."
+    },
   ];
 
   // State to track the currently expanded FAQ
@@ -61,9 +65,10 @@ function FAQs() {
                 </span>
               </button>
               {openIndex === index && (
-                <p className="mt-2 text-sm text-gray-600">
-                  {faq.answer}
-                </p>
+                <p 
+                  className="mt-2 text-sm text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}
+                />
               )}
             </div>
           ))}
