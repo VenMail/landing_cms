@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChristmasSparkleWrapper } from '@/utils/christmasSparkle';
 import { HiOutlineSparkles, HiOutlineTrendingUp, HiOutlineCurrencyDollar, HiOutlineChartBar, HiOutlineCheckCircle, HiOutlineCalendar, HiOutlineMail, HiOutlineUsers, HiOutlineGlobe } from 'react-icons/hi';
+import { useCurrency } from '@/contexts/CurrencyContext';
 
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +12,7 @@ const ExitIntentPopup = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
   const timeoutRef = useRef(null);
+  const { formatPrice, isLoading } = useCurrency();
 
   useEffect(() => {
     const handleMouseLeave = (e) => {
@@ -70,8 +72,8 @@ const ExitIntentPopup = () => {
       setAnalysis({
         current_mx_records: 'Standard email configuration',
         growth_opportunity: 'Significant potential for email automation',
-        amount_to_save: '$500+/month',
-        total_est_value: '$12,000+',
+        amount_to_save: isLoading ? '$500+/month' : `${formatPrice(500)}+/month`,
+        total_est_value: isLoading ? '$12,000+' : `${formatPrice(12000)}+`,
         success: false,
         error: 'API unavailable'
       });
@@ -185,14 +187,14 @@ const ExitIntentPopup = () => {
                     <HiOutlineCurrencyDollar className="w-5 h-5 text-yellow-500 mr-2" />
                     <span className="font-semibold text-sm text-gray-900 dark:text-white">Potential Savings</span>
                   </div>
-                  <p className="text-sm text-green-600 dark:text-green-400 font-bold text-lg">{analysis.amount_to_save || '$500+/month'}</p>
+                  <p className="text-sm text-green-600 dark:text-green-400 font-bold text-lg">{analysis.amount_to_save || (isLoading ? '$500+/month' : `${formatPrice(500)}+/month`)}</p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
                   <div className="flex items-center mb-2">
                     <HiOutlineChartBar className="w-5 h-5 text-purple-500 mr-2" />
                     <span className="font-semibold text-sm text-gray-900 dark:text-white">2-Year Value</span>
                   </div>
-                  <p className="text-sm text-blue-600 dark:text-blue-400 font-bold text-lg">{analysis.total_est_value || '$12,000+'}</p>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 font-bold text-lg">{analysis.total_est_value || (isLoading ? '$12,000+' : `${formatPrice(12000)}+`)}</p>
                 </div>
               </div>
             </div>

@@ -6,8 +6,11 @@ import { useState } from "react";
 import { BsCheck2 } from "react-icons/bs";
 import { GoCheck } from "react-icons/go";
 import { VscChromeClose } from "react-icons/vsc";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const PricingTable = () => {
+  const { formatPrice, isLoading } = useCurrency();
+  
   const plans = [
     {
       name: "FREE",
@@ -19,10 +22,10 @@ const PricingTable = () => {
       features: {
         "Users Included": "Up to 10 users",
         "Storage Included": "5GB shared",
-        "Bring Your Own Storage": "$20/mo add-on",
+        "Bring Your Own Storage": `${isLoading ? '$20' : formatPrice(20)}/mo add-on`,
         "Prospect Discovery": "no",
         "Campaigns & Bulk Email": "Basic broadcasts",
-        "Campaign/Newsletter Add-on": "$35/mo add-on",
+        "Campaign/Newsletter Add-on": `${isLoading ? '$35' : formatPrice(35)}/mo add-on`,
         "Automated Follow-ups": "Manual",
         "AI Email Rewrites": "10 / user / day",
         "AI Summaries": "Included",
@@ -46,10 +49,10 @@ const PricingTable = () => {
       features: {
         "Users Included": "Unlimited users",
         "Storage Included": "60GB shared",
-        "Bring Your Own Storage": "$20/mo add-on",
+        "Bring Your Own Storage": `${isLoading ? '$20' : formatPrice(20)}/mo add-on`,
         "Prospect Discovery": "250 credits / mo",
         "Campaigns & Bulk Email": "Add-on",
-        "Campaign/Newsletter Add-on": "$35/mo add-on",
+        "Campaign/Newsletter Add-on": `${isLoading ? '$35' : formatPrice(35)}/mo add-on`,
         "Automated Follow-ups": "yes",
         "AI Email Rewrites": "20 / user / day",
         "AI Summaries": "Included",
@@ -74,7 +77,7 @@ const PricingTable = () => {
       features: {
         "Users Included": "Unlimited users",
         "Storage Included": "250GB shared",
-        "Bring Your Own Storage": "$20/mo add-on",
+        "Bring Your Own Storage": `${isLoading ? '$20' : formatPrice(20)}/mo add-on`,
         "Prospect Discovery": "1,000 credits / mo",
         "Campaigns & Bulk Email": "Unlimited + templates",
         "Campaign/Newsletter Add-on": "Included",
@@ -175,7 +178,13 @@ const PricingTable = () => {
                   <div className="text-sm font-semibold uppercase tracking-wide text-gray-900">
                     {plan.name}
                   </div>
-                  <div className="text-lg font-semibold text-gray-900">{plan.price}</div>
+                  <div className="text-lg font-semibold text-gray-900">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(plan.name === 'FREE' ? 0 : plan.name === 'STARTUP' ? 7 : plan.name === 'BUSINESS' ? 23.2 : 100)
+                    )}
+                  </div>
                   {plan.caption && (
                     <div className="text-xs text-gray-500">
                       {plan.caption}
@@ -245,7 +254,7 @@ const PricingTable = () => {
         </tbody>
       </table>
       <p className="text-xs text-gray-500 mt-4 max-w-3xl">
-        *Unlimited prospect discovery on Enterprise is subject to fair-use policies. Bring Your Own Storage is available as a $20/mo add-on for all paid plans; Campaign/Newsletter automation add-on available for $35/mo when not included.
+        *Unlimited prospect discovery on Enterprise is subject to fair-use policies. Bring Your Own Storage is available as a {isLoading ? '$20' : formatPrice(20)}/mo add-on for all paid plans; Campaign/Newsletter automation add-on available for {isLoading ? '$35' : formatPrice(35)}/mo when not included.
       </p>
     </div>
   );
@@ -254,6 +263,7 @@ const PricingTable = () => {
 export const PricingSlider = ({ pricingPlans, hasButton }) => {
   const [storageGB, setStorageGB] = useState(60);
   const MAX_STORAGE = 1500; // GB
+  const { formatPrice, isLoading } = useCurrency();
 
   const getPlan = (gb) => {
     if (gb <= 5) return "Free";
@@ -337,7 +347,13 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
               >
                 <div className="py-2 sm:py-4">
                   <div className="text-black font-semibold uppercase text-sm sm:text-base">{plan.name}</div>
-                  <div className="text-xl sm:text-2xl font-bold mt-2 text-black">${plan.monthly}/mo</div>
+                  <div className="text-xl sm:text-2xl font-bold mt-2 text-black">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-8 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(plan.monthly)
+                    )}/mo
+                  </div>
                   <div className="text-xs sm:text-sm text-gray-600 mt-1">
                     {plan.description2}
                   </div>
@@ -364,7 +380,11 @@ export const PricingSlider = ({ pricingPlans, hasButton }) => {
   );
 };
 
-export const pricingPlans = [
+function pricing() {
+  const [pricingPeriod, setPricingPeriod] = useState("monthly");
+  const { formatPrice, isLoading } = useCurrency();
+  
+  const pricingPlans = [
     {
       name: "Free",
       id: "free",
@@ -396,7 +416,7 @@ export const pricingPlans = [
         "60GB shared storage",
         "Prospect discovery (250 credits/mo)",
         "Bulk email & automated follow-ups (add-on)",
-        "Bring Your Own Storage add-on ($20/mo)",
+        `Bring Your Own Storage add-on (${formatPrice(20)}/mo)`,
       ],
       buttonText: "Choose Startup",
       buttonLink: "https://m.venmail.io/register",
@@ -441,9 +461,6 @@ export const pricingPlans = [
       buttonLink: "/contact-us",
     },
   ];
-
-function pricing() {
-  const [pricingPeriod, setPricingPeriod] = useState("monthly");
   
 
   function classNames(...classes) {
@@ -488,10 +505,13 @@ function pricing() {
                     </h3>
                     <p className="mt-4 flex items-baseline gap-x-2">
                       <span className="text-5xl font-medium tracking-tight text-gray-900">
-                        $
-                        {pricingPeriod === "monthly"
-                          ? tier.monthly
-                          : tier.yearly}
+                        {isLoading ? (
+                          <span className="inline-block w-20 h-12 bg-gray-200 animate-pulse rounded"></span>
+                        ) : (
+                          formatPrice(pricingPeriod === "monthly"
+                            ? tier.monthly
+                            : tier.yearly)
+                        )}
                       </span>
                       <span
                         className={classNames(

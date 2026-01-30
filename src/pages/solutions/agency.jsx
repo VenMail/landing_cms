@@ -3,8 +3,10 @@ import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
 import { LuUsers, LuChartBar, LuShield, LuBuilding } from "react-icons/lu";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 export default function Agency() {
+  const { formatPrice, isLoading } = useCurrency();
   const capabilities = [
     {
       icon: <LuUsers className="w-6 h-6" />,
@@ -156,11 +158,23 @@ export default function Agency() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <span className="text-gray-600">Per-seat tools (10 users)</span>
-                  <span className="text-gray-400 line-through">$500-800/mo</span>
+                  <span className="text-gray-400 line-through">
+                    {isLoading ? (
+                      <span className="inline-block w-20 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(650) // Average of $500-800
+                    )}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-blue-50 rounded-lg border border-blue-200">
                   <span className="text-gray-900 font-medium">VenMail Business</span>
-                  <span className="text-blue-600 font-bold">$23.20/mo</span>
+                  <span className="text-blue-600 font-bold">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(23.2)
+                    )}
+                  </span>
                 </div>
               </div>
               <a href="/pricing" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-700">

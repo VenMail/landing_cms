@@ -12,8 +12,8 @@ const BUSINESS_NICHES = [
   {
     icon: LuRocket,
     title: "Fast Growing",
-    headline: "One dashboard for emails, campaigns, and contacts",
-    description: "Unified dashboard, campaign management, contact management, one bill.",
+    headline: "One dashboard for mail, campaigns, meetings, and contacts",
+    description: "Unified dashboard for mail, campaigns, meetings, and contact management — one bill.",
     bestFor: ["Agencies", "Consultancies", "Schools", "HR teams"],
     gradient: "from-purple-50 to-pink-100"
   },
@@ -74,7 +74,7 @@ export default function BusinessesSection() {
             const imageUrl = i === 0 
               ? "/stock-images/data-center-servers.jpg" // Data center for privacy
               : i === 1 
-              ? "/stock-images/business-team-collaboration.jpg" // Team collaboration
+              ? "/stock-images/fast-growing-team.jpg" // Team collaboration
               : "/stock-images/modern-office-workspace.jpg"; // Modern office for budget
             
             return (

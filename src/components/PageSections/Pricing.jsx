@@ -1,10 +1,12 @@
 import React from "react";
 import { BsCheck2 } from "react-icons/bs";
 import { CONTACT_PAGE_PATH } from "@/config/contact";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const SIGNUP_URL = "https://m.venmail.io/register";
 
 export default function Pricing() {
+  const { formatPrice, isLoading } = useCurrency();
   const pricingPlans = [
     {
       id: "free",
@@ -33,10 +35,10 @@ export default function Pricing() {
       buttonLink: SIGNUP_URL,
       external: true,
       features: [
-        "60GB shared storage (BYOS add-on $20/mo)",
+        `60GB shared storage (BYOS add-on ${formatPrice(20)}/mo)`,
         "250 prospect discovery credits / month",
         "AI rewrites (20/day) & automated follow-ups",
-        "Campaign & newsletter add-on ($35/mo)",
+        `Campaign & newsletter add-on (${formatPrice(35)}/mo)`,
         "Priority email support",
       ],
     },
@@ -116,7 +118,11 @@ export default function Pricing() {
                       "text-5xl font-semibold tracking-tight"
                     )}
                   >
-                    ${tier.monthly}
+                    {isLoading ? (
+                      <span className="inline-block w-20 h-12 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(tier.monthly)
+                    )}
                   </span>
                   <span
                     className={classNames(

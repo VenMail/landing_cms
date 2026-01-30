@@ -11,7 +11,7 @@ export default function MobileAppsSection() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://apps.apple.com/us/search?term=venmail"
+              href="https://apps.apple.com/us/app/venmail/id6755040289"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"

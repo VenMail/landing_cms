@@ -232,7 +232,7 @@ export default function Home() {
             </div>
             <div className="mt-6 flex items-center gap-3 justify-center text-sm text-gray-500">
               <span>Also on</span>
-              <a href="https://apps.apple.com/us/search?term=venmail" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">App Store</a>
+              <a href="https://apps.apple.com/us/app/venmail/id6755040289" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">App Store</a>
               <span aria-hidden>·</span>
               <a href="https://play.google.com/store/apps/details?id=io.venmail.app" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">Google Play</a>
             </div>

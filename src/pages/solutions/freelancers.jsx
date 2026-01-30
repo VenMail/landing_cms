@@ -2,9 +2,11 @@ import React from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
-import { LuMail, LuCalendar, LuFileText, LuClock } from "react-icons/lu";
+import { LuUser, LuMail, LuCalendar, LuTarget } from "react-icons/lu";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 export default function Freelancers() {
+  const { formatPrice, isLoading } = useCurrency();
   const capabilities = [
     {
       icon: <LuMail className="w-6 h-6" />,
@@ -250,11 +252,23 @@ export default function Freelancers() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center justify-between p-4 bg-emerald-50 rounded-lg border border-emerald-200">
                   <span className="text-gray-900 font-medium">Free Plan</span>
-                  <span className="text-emerald-600 font-bold">$0/mo</span>
+                  <span className="text-emerald-600 font-bold">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(0)
+                    )}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <span className="text-gray-600">Pro Plan</span>
-                  <span className="text-gray-900 font-medium">From $7/mo</span>
+                  <span className="text-gray-900 font-medium">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      `From ${formatPrice(7)}`
+                    )}
+                  </span>
                 </div>
               </div>
               <a href="/pricing" className="inline-flex items-center text-emerald-600 font-medium hover:text-emerald-700">

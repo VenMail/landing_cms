@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 const providers = [
   { key: "google", name: "Google Workspace (min)", perUser: 6 },
@@ -6,14 +7,15 @@ const providers = [
   { key: "zoho", name: "Zoho Workplace (min)", perUser: 3 },
 ];
 
-function formatCurrency(n) {
-  return `$${n.toFixed(2)}`;
-}
-
 export default function CostComparisonSlider({ hasButton = false }) {
   const [users, setUsers] = useState(10);
+  const { formatPrice, isLoading } = useCurrency();
 
   const venmailCost = users <= 10 ? 0 : 7; // Minimum above 10 users is $7/mo
+
+  function formatCurrency(n) {
+    return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
+  }
 
   return (
     <div className="bg-gray-100 py-8 sm:py-24 relative overflow-hidden">
@@ -75,7 +77,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
               <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
-              <div className="text-xs text-gray-600">Free for 1–10 users, then starts at $7/mo</div>
+              <div className="text-xs text-gray-600">Free for 1–10 users, then starts at {formatCurrency(7)}/mo</div>
             </div>
 
             {providers.map((p) => {
@@ -84,7 +86,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
                 <div key={p.key} className="glass-card p-6 rounded-md border bg-white/60 backdrop-blur-sm">
                   <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">{p.name}</div>
                   <div className="text-2xl font-bold text-black mb-1">{formatCurrency(total)}/mo</div>
-                  <div className="text-xs text-gray-600">Assumes minimum plan at ${p.perUser}/user</div>
+                  <div className="text-xs text-gray-600">Assumes minimum plan at {formatCurrency(p.perUser)}/user</div>
                 </div>
               );
             })}

@@ -3,8 +3,10 @@ import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
 import { LuUserPlus, LuMail, LuCalendar, LuTarget } from "react-icons/lu";
+import { useCurrency } from "@/contexts/CurrencyContext";
 
 export default function Founders() {
+  const { formatPrice, isLoading } = useCurrency();
   const capabilities = [
     {
       icon: <LuMail className="w-6 h-6" />,
@@ -158,11 +160,23 @@ export default function Founders() {
               <div className="space-y-4 mb-8">
                 <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <span className="text-gray-600">Typical tool stack</span>
-                  <span className="text-gray-400 line-through">$200-500/mo</span>
+                  <span className="text-gray-400 line-through">
+                    {isLoading ? (
+                      <span className="inline-block w-20 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      formatPrice(350) // Average of $200-500
+                    )}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between p-4 bg-primary-50 rounded-lg border border-primary-200">
                   <span className="text-gray-900 font-medium">VenMail Startup</span>
-                  <span className="text-primary-600 font-bold">From $7/mo</span>
+                  <span className="text-primary-600 font-bold">
+                    {isLoading ? (
+                      <span className="inline-block w-16 h-6 bg-gray-200 animate-pulse rounded"></span>
+                    ) : (
+                      `From ${formatPrice(7)}`
+                    )}
+                  </span>
                 </div>
               </div>
               <a href="/pricing" className="inline-flex items-center text-primary-600 font-medium hover:text-primary-700">
