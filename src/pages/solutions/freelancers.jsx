@@ -2,7 +2,7 @@ import React from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
 import Testimonial from "@/components/PageSections/Testimonial";
 import { BsCheck2 } from "react-icons/bs";
-import { LuUser, LuMail, LuCalendar, LuTarget } from "react-icons/lu";
+import { LuMail, LuCalendar, LuFileText, LuClock } from "react-icons/lu";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
 export default function Freelancers() {

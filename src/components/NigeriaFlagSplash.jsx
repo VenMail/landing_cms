@@ -108,7 +108,7 @@ const NigeriaFlagSplash = () => {
         </div>
       </div>
       <div className="naija-text mt-2 text-green-600 font-bold text-sm animate-pulse">
-        Naija go better
+        We rep Naija
       </div>
       
       <style jsx>{`

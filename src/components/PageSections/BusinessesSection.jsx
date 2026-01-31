@@ -7,7 +7,7 @@ const BUSINESS_NICHES = [
     headline: "Your data, your servers, your control",
     description: "Self-hosted solutions, BYOS (Bring Your Own Storage), GDPR/HIPAA ready.",
     bestFor: ["Hospitals", "Law firms", "Healthcare", "Finance"],
-    gradient: "from-blue-50 to-indigo-100"
+    gradient: "from-blue-50 via-blue-100/50 to-indigo-50"
   },
   {
     icon: LuRocket,
@@ -15,7 +15,7 @@ const BUSINESS_NICHES = [
     headline: "One dashboard for mail, campaigns, meetings, and contacts",
     description: "Unified dashboard for mail, campaigns, meetings, and contact management — one bill.",
     bestFor: ["Agencies", "Consultancies", "Schools", "HR teams"],
-    gradient: "from-purple-50 to-pink-100"
+    gradient: "from-purple-50 via-purple-100/50 to-pink-50"
   },
   {
     icon: LuDollarSign,
@@ -23,7 +23,7 @@ const BUSINESS_NICHES = [
     headline: "Everything you need, one simple price",
     description: "Replace multiple tools, flat pricing, unlimited users.",
     bestFor: ["Startups", "SMEs", "Nonprofits"],
-    gradient: "from-green-50 to-emerald-100"
+    gradient: "from-green-50 via-green-100/50 to-emerald-50"
   }
 ];
 
@@ -40,16 +40,54 @@ const CORE_FEATURES = [
 ];
 
 function BadgePills({ labels }) {
+  const getBadgeColor = (label) => {
+    const colorMap = {
+      "Hospitals": "bg-blue-100 text-blue-800 border-blue-200",
+      "Law firms": "bg-indigo-100 text-indigo-800 border-indigo-200", 
+      "Healthcare": "bg-cyan-100 text-cyan-800 border-cyan-200",
+      "Finance": "bg-emerald-100 text-emerald-800 border-emerald-200",
+      "Agencies": "bg-purple-100 text-purple-800 border-purple-200",
+      "Consultancies": "bg-violet-100 text-violet-800 border-violet-200",
+      "Schools": "bg-amber-100 text-amber-800 border-amber-200",
+      "HR teams": "bg-rose-100 text-rose-800 border-rose-200",
+      "Startups": "bg-orange-100 text-orange-800 border-orange-200",
+      "SMEs": "bg-teal-100 text-teal-800 border-teal-200",
+      "Nonprofits": "bg-green-100 text-green-800 border-green-200"
+    };
+    return colorMap[label] || "bg-gray-100 text-gray-800 border-gray-200";
+  };
+
+  const getBadgeLink = (label) => {
+    const linkMap = {
+      "Hospitals": "/solutions/healthcare",
+      "Law firms": "/solutions/legal",
+      "Healthcare": "/solutions/healthcare",
+      "Finance": "/solutions/finance",
+      "Agencies": "/solutions/agency",
+      "Consultancies": "/solutions/agency",
+      "Schools": "/solutions/education",
+      "HR teams": "/solutions/hr",
+      "Startups": "/solutions/founders",
+      "SMEs": "/solutions/founders",
+      "Nonprofits": "/solutions/nonprofit"
+    };
+    return linkMap[label] || "/solutions";
+  };
+
   return (
     <div className="flex flex-wrap gap-2">
-      {labels.map((label) => (
-        <span
-          key={label}
-          className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white/80 text-gray-700 border border-gray-200 backdrop-blur-sm"
-        >
-          {label}
-        </span>
-      ))}
+      {labels.map((label) => {
+        const link = getBadgeLink(label);
+        return (
+          <a
+            key={label}
+            href={link}
+            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border backdrop-blur-sm transition-all duration-200 hover:scale-105 hover:shadow-md cursor-pointer underline-offset-2 hover:underline decoration-2 ${getBadgeColor(label)}`}
+          >
+            {label}
+          </a>
+        );
+      })}
     </div>
   );
 }
@@ -80,26 +118,29 @@ export default function BusinessesSection() {
             return (
               <div
                 key={i}
-                className={`glass-card bg-gradient-to-br ${niche.gradient} p-8 rounded-2xl border border-gray-200 feature-glow`}
+                className={`glass-card bg-gradient-to-br ${niche.gradient} p-8 rounded-2xl border border-gray-200/50 feature-glow hover:shadow-2xl hover:border-gray-300/70 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden`}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                    <Icon className="w-6 h-6 text-gray-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-white to-gray-50 rounded-xl flex items-center justify-center shadow-sm border border-gray-100/50">
+                      <Icon className="w-6 h-6 text-gray-700" />
+                    </div>
+                    <span className="text-sm font-semibold text-gray-600 uppercase tracking-wide">{niche.title}</span>
                   </div>
-                  <span className="text-sm font-semibold text-gray-600 uppercase tracking-wide">{niche.title}</span>
-                </div>
-                <div className="cinematic-frame rounded-lg overflow-hidden mb-6">
-                  <img 
-                    src={imageUrl}
-                    alt={`${niche.title} business solution`}
-                    className="rounded-lg w-full h-48 object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{niche.headline}</h3>
-                <p className="text-gray-700 mb-6 text-lg">{niche.description}</p>
-                <div>
-                  <span className="text-sm font-medium text-gray-600 block mb-2">Best for</span>
-                  <BadgePills labels={niche.bestFor} />
+                  <div className="cinematic-frame rounded-lg overflow-hidden mb-6">
+                    <img 
+                      src={imageUrl}
+                      alt={`${niche.title} business solution`}
+                      className="rounded-lg w-full h-48 object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{niche.headline}</h3>
+                  <p className="text-gray-700 mb-6 text-lg">{niche.description}</p>
+                  <div>
+                    <span className="text-sm font-medium text-gray-600 block mb-2">Best for</span>
+                    <BadgePills labels={niche.bestFor} />
+                  </div>
                 </div>
               </div>
             );
