@@ -15,6 +15,8 @@ const PricingTable = () => {
     {
       name: "FREE",
       price: "$0/mo",
+      originalPrice: null,
+      discount: null,
       caption: "Up to 10 users · 5GB shared storage",
       button: "Get Started",
       href: "https://m.venmail.io/register",
@@ -30,6 +32,9 @@ const PricingTable = () => {
         "AI Email Rewrites": "10 / user / day",
         "AI Summaries": "Included",
         "Mail Analytics": "Core reporting",
+        "AI Meeting Minutes": "30 min / meeting",
+        "AI Meeting Transcription": "no",
+        "AI Meeting Summary": "no",
         "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
@@ -42,6 +47,8 @@ const PricingTable = () => {
     {
       name: "STARTUP",
       price: "$7/mo",
+      originalPrice: "$49",
+      discount: "86% OFF",
       caption: "Unlimited users · 60GB shared storage",
       button: "Choose Startup",
       href: "https://m.venmail.io/register",
@@ -57,6 +64,9 @@ const PricingTable = () => {
         "AI Email Rewrites": "20 / user / day",
         "AI Summaries": "Included",
         "Mail Analytics": "Advanced analytics",
+        "AI Meeting Minutes": "2 hours / meeting",
+        "AI Meeting Transcription": "yes",
+        "AI Meeting Summary": "yes",
         "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
@@ -69,6 +79,8 @@ const PricingTable = () => {
     {
       name: "BUSINESS",
       price: "$23.2/mo",
+      originalPrice: "$99",
+      discount: "77% OFF",
       caption: "Unlimited users · 250GB shared storage",
       button: "Choose Business",
       href: "https://m.venmail.io/register",
@@ -85,6 +97,9 @@ const PricingTable = () => {
         "AI Email Rewrites": "50 / user / day",
         "AI Summaries": "Included",
         "Mail Analytics": "Advanced + deliverability",
+        "AI Meeting Minutes": "4 hours / meeting",
+        "AI Meeting Transcription": "yes",
+        "AI Meeting Summary": "yes",
         "SDR Agent": "no",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
@@ -97,6 +112,8 @@ const PricingTable = () => {
     {
       name: "ENTERPRISE",
       price: "$100/mo",
+      originalPrice: "$299",
+      discount: "67% OFF",
       caption: "Unlimited users · 1.5TB shared storage",
       button: "Talk to Sales",
       href: "/contact-us",
@@ -112,6 +129,9 @@ const PricingTable = () => {
         "AI Email Rewrites": "100 / user / day",
         "AI Summaries": "Included",
         "Mail Analytics": "Advanced + custom reporting",
+        "AI Meeting Minutes": "24 hours / meeting",
+        "AI Meeting Transcription": "yes",
+        "AI Meeting Summary": "yes",
         "SDR Agent": "yes",
         "Multi-factor authentication": "yes",
         "Email encryption": "yes",
@@ -147,6 +167,9 @@ const PricingTable = () => {
       "AI Email Rewrites",
       "AI Summaries",
       "Mail Analytics",
+      "AI Meeting Minutes",
+      "AI Meeting Transcription",
+      "AI Meeting Summary",
       "SDR Agent",
     ],
     SECURITY: [
@@ -390,6 +413,8 @@ function pricing() {
       id: "free",
       monthly: 0,
       yearly: 0,
+      originalPrice: null,
+      discount: null,
       description1: "Launch your workspace with core email automation.",
       description2: "Up to 10 users · 5GB shared storage",
       featured: false,
@@ -408,6 +433,8 @@ function pricing() {
       id: "startup",
       monthly: 7,
       yearly: 84,
+      originalPrice: 49,
+      discount: "86% OFF",
       description1: "Unlock growth with unlimited users and automations.",
       description2: "Unlimited users · 60GB shared storage",
       featured: false,
@@ -415,7 +442,8 @@ function pricing() {
         "Unlimited users on a flat price",
         "60GB shared storage",
         "Prospect discovery (250 credits/mo)",
-        "Bulk email & automated follow-ups (add-on)",
+        "AI meeting transcription & summaries",
+        "2-hour meeting recording limit",
         `Bring Your Own Storage add-on (${formatPrice(20)}/mo)`,
       ],
       buttonText: "Choose Startup",
@@ -426,6 +454,8 @@ function pricing() {
       id: "business",
       monthly: 23.2,
       yearly: 278.4,
+      originalPrice: 99,
+      discount: "77% OFF",
       description1: "Advanced engagement, analytics, and deliverability.",
       description2: "Unlimited users · 250GB shared storage",
       featured: true,
@@ -433,6 +463,8 @@ function pricing() {
         "Unlimited users",
         "250GB shared storage",
         "Campaign & newsletter add-on included",
+        "AI meeting transcription & summaries",
+        "4-hour meeting recording limit",
         "Advanced deliverability analytics",
         "Automated sequences & follow-ups",
         "Priority email support (2-hour SLA)",
@@ -445,6 +477,8 @@ function pricing() {
       id: "enterprise",
       monthly: 100,
       yearly: 1200,
+      originalPrice: 299,
+      discount: "67% OFF",
       description1: "Custom security, governance, and onboarding.",
       description2: "Unlimited users · 1.5TB shared storage",
       featured: false,
@@ -452,6 +486,8 @@ function pricing() {
         "Unlimited users",
         "1.5TB shared storage",
         "Bring your own storage included",
+        "AI meeting transcription & summaries",
+        "24-hour meeting recording limit",
         "Custom compliance & security controls",
         "Unlimited prospect discovery*",
         "Campaign & newsletter add-on included",
@@ -522,6 +558,20 @@ function pricing() {
                         /{pricingPeriod === "monthly" ? "month" : "year"}
                       </span>
                     </p>
+                    {tier.discount && (
+                      <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        {tier.discount}
+                      </div>
+                    )}
+                    {tier.originalPrice && (
+                      <div className="mt-1 text-sm text-gray-400 line-through">
+                        {isLoading ? (
+                          <span className="inline-block w-12 h-4 bg-gray-200 animate-pulse rounded"></span>
+                        ) : (
+                          formatPrice(tier.originalPrice)
+                        )}/mo
+                      </div>
+                    )}
                     <p className="text-black mt-6 text-base/7">
                       {tier.description1}
                     </p>
@@ -559,9 +609,6 @@ function pricing() {
                       ))}
                     </ul>
                   </div>
-                  <p className="absolute bottom-[35px] text-black text-medium text-sm">
-                    Show price comparison
-                  </p>
                 </div>
               </div>
             ))}

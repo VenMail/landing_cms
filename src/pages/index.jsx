@@ -172,10 +172,49 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Email that works for you
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              AI-powered email, campaigns, and productivity — all in one place. Not stitches, use like a champ.
-            </p>
-            <p className="text-lg font-medium text-gray-700 mb-6">Who are you?</p>
+                <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                  AI-powered email, campaigns, meetings and documents
+                </p>
+            <div className="relative inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full shadow-sm mb-8">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">JD</span>
+                </div>
+                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">SK</span>
+                </div>
+                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-white text-xs font-bold">AM</span>
+                </div>
+                <div className="w-8 h-8 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-gray-600 text-xs font-bold">+5k</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="relative">
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="font-semibold text-gray-900">Join <span className="text-2xl font-bold text-green-600">5,500+</span> who've discovered Venmail</span>
+              </div>
+              <div className="hidden md:flex items-center gap-4 ml-2 text-sm text-gray-600">
+                <div className="flex items-center gap-1">
+                  <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <span>5.3M emails sent</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>$50K+ USD saved</span>
+                </div>
+              </div>
+            </div>
+            <p className="text-lg font-medium text-gray-700 mb-6">Which are you?</p>
             <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
               <a
                 href="#for-me"
@@ -187,7 +226,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">For Me</h3>
-                <p className="text-sm text-gray-600">Personal email with AI superpowers</p>
+                <p className="text-sm text-gray-600">Simple smart personal email with booking link, drive and meetings</p>
               </a>
               <a
                 href="#for-business"
@@ -199,7 +238,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">For Business</h3>
-                <p className="text-sm text-gray-600">Team email, campaigns & contacts</p>
+                <p className="text-sm text-gray-600">Collaborative inbox, campaigns, CRM integrations and more</p>
               </a>
               <a
                 href="#for-developers"
@@ -211,7 +250,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-1">For Developers</h3>
-                <p className="text-sm text-gray-600">Email API & webhooks</p>
+                <p className="text-sm text-gray-600">Program the entire email experience whether receiving or sending</p>
               </a>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -249,8 +288,6 @@ export default function Home() {
           </div>
         </div>
       </ChristmasSparkleWrapper>
-
-      <IndividualUsersSection />
       <BusinessesSection />
       <DevelopersSection />
       <MobileAppsSection />
@@ -258,8 +295,8 @@ export default function Home() {
       {/* See it in Action */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">See it in action</h2>
-          <p className="text-gray-600">AI rewrite, prospects, scheduling, summaries, and more — from one inbox.</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Better now than later</h2>
+          <p className="text-gray-600">Simple modern features to transform and amplify your email powers.</p>
         </div>
         <TabComponent />
       </section>
@@ -271,7 +308,7 @@ export default function Home() {
       <section className="bg-gray-50 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Still not sure? Start free and see for yourself
+            Ready to give yourself a treat?
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
             <a
@@ -280,22 +317,23 @@ export default function Home() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black hover:bg-gray-800 transition-colors"
             >
-              For Personal Use
+              Yes!
             </a>
             <a
-              href="https://m.venmail.io/register"
+              href="/pricing"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-800 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
             >
-              For Business
+              More coffee please
             </a>
           </div>
+          <p className="text-center text-sm text-gray-600 mb-4">⚡ Join 5,500+ users who've already made the switch</p>
           <a
             href="#see-it-in-action"
             className="inline-flex items-center text-base font-medium text-gray-600 hover:text-primary-600 transition-colors"
           >
-            See How Venmail Helps you win
+            It takes less than 2 minutes to sign up
           </a>
         </div>
       </section>

@@ -53,7 +53,7 @@ export default function Footer({ hideFooterJumbo = false }) {
       links: [
         { label: "Privacy", href: "/resources/privacy-policy" },
         { label: "Terms", href: "/resources/terms-of-service" },
-        { label: "Security", href: "/security" },
+        { label: "Security Whitepaper", href: "/security-whitepaper" },
       ],
     },
   ];
