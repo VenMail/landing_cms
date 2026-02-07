@@ -15,7 +15,7 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "Prospects", href: "/product/contacts" },
         { label: "Calendar", href: "/product/calendar" },
         { label: "Meetings", href: "/product/meeting" },
-        { label: "Pricing", href: "/pricing" },
+        { label: "Email Automation", href: "/email-automation" },
       ],
     },
     {
@@ -42,6 +42,7 @@ export default function Footer({ hideFooterJumbo = false }) {
       title: "Company",
       links: [
         { label: "About", href: "/about-us" },
+        { label: "Why Venmail", href: "/why-venmail" },
         { label: "Blog", href: "/blog" },
         { label: "Careers", href: "/career" },
         { label: "Partners", href: "/resources/partner" },
