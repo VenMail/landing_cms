@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Shield, Lock, Mail, Database, Key, Eye, AlertTriangle, CheckCircle, Server, Cloud, Cpu, HardDrive, Globe, Users, FileText, Zap, ArrowLeft, Home } from 'lucide-react';
+import { Shield, Lock, Mail, Database, Key, Eye, AlertTriangle, CheckCircle, Server, Cloud, Cpu, HardDrive, Globe, Users, FileText, Zap, ArrowLeft, Home, Menu, X } from 'lucide-react';
 
 export default function SecurityWhitepaper() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <>
       <Head>
@@ -271,7 +273,9 @@ export default function SecurityWhitepaper() {
               <div className="flex items-center gap-4">
                 <img src="/logo-white.png" alt="VenMail" className="h-8 w-auto" />
               </div>
-              <div className="flex items-center gap-4">
+              
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-4">
                 <Link 
                   href="/" 
                   className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
@@ -288,51 +292,92 @@ export default function SecurityWhitepaper() {
                   <span>Print PDF</span>
                 </button>
               </div>
+
+              {/* Mobile menu button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="flex items-center justify-center p-2 text-slate-300 hover:text-white transition-colors"
+                >
+                  {mobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
+                </button>
+              </div>
             </div>
+
+            {/* Mobile Navigation */}
+            {mobileMenuOpen && (
+              <div className="md:hidden mt-4 pt-4 border-t border-slate-700">
+                <div className="flex flex-col space-y-3">
+                  <Link 
+                    href="/" 
+                    className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors py-2"
+                    target="_blank"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Home className="w-4 h-4" />
+                    <span>Back to Homepage</span>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      window.print();
+                      setMobileMenuOpen(false);
+                    }}
+                    className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors w-full justify-center"
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>Print PDF</span>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         {/* Hero Section */}
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-orange-600/20"></div>
-          <div className="relative container mx-auto px-6 py-24">
+          <div className="relative container mx-auto px-6 py-12 md:py-24">
             <div className="text-center max-w-4xl mx-auto">
               <div className="flex justify-center mb-6">
                 <div className="p-4 bg-primary-500/20 rounded-full border border-primary-400/30">
                   <Shield className="w-12 h-12 text-primary-400" />
                 </div>
               </div>
-              <h1 className="text-5xl font-bold text-white mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
                 Security Whitepaper
               </h1>
-              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed px-4">
                 A comprehensive overview of VenMail's security architecture, infrastructure, and our commitment to protecting your communications
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 px-4">
                 <div className="flex items-center gap-2 text-slate-400">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span>15+ Years Cybersecurity Experience</span>
+                  <span className="text-sm md:text-base">15+ Years Cybersecurity Experience</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span>Enterprise-Grade Encryption</span>
+                  <span className="text-sm md:text-base">Enterprise-Grade Encryption</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-400">
                   <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span>Zero-Trust Architecture</span>
+                  <span className="text-sm md:text-base">Zero-Trust Architecture</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="container mx-auto px-6 py-16 space-y-24">
+        <div className="container mx-auto px-4 md:px-6 py-8 md:py-16 space-y-16 md:space-y-24">
           {/* Executive Summary */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <FileText className="w-8 h-8 text-blue-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <FileText className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
               Executive Summary
             </h2>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
               <p className="text-slate-300 leading-relaxed mb-4">
                 VenMail represents the culmination of over 15 years of cybersecurity expertise, combining battle-tested infrastructure with cutting-edge security innovations. Our core email processing backend uses a hybrid system with KumoMTA as our primary MTA, built on Rust for superior performance and reliability, with Postal as our failover system. We've engineered a comprehensive security ecosystem that addresses modern email threats while maintaining exceptional performance and reliability.
               </p>
@@ -344,18 +389,18 @@ export default function SecurityWhitepaper() {
 
           {/* Core Infrastructure */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Server className="w-8 h-8 text-primary-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <Server className="w-6 h-6 md:w-8 md:h-8 text-primary-400" />
               Core Infrastructure Architecture
             </h2>
             
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-slate-700">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-orange-500/20 rounded-lg">
-                    <Zap className="w-6 h-6 text-orange-400" />
+                    <Zap className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">KumoMTA Primary System</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-white">KumoMTA Primary System</h3>
                 </div>
                 <p className="text-slate-300 mb-4">
                   Our primary email delivery backend is KumoMTA, a modern high-performance MTA built in Rust:
@@ -380,12 +425,12 @@ export default function SecurityWhitepaper() {
                 </ul>
               </div>
 
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-slate-700">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-2 bg-blue-500/20 rounded-lg">
-                    <Mail className="w-6 h-6 text-blue-400" />
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-white">Postal Failover System</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-white">Postal Failover System</h3>
                 </div>
                 <p className="text-slate-300 mb-4">
                   Postal serves as our robust failover system, ensuring maximum reliability:
@@ -414,33 +459,33 @@ export default function SecurityWhitepaper() {
 
           {/* Antispam Infrastructure */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <AlertTriangle className="w-8 h-8 text-yellow-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <AlertTriangle className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
               Advanced Antispam Infrastructure
             </h2>
             
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary-400 mb-2">99.9%</div>
-                  <p className="text-slate-300">Spam Detection Accuracy</p>
+                  <div className="text-3xl md:text-4xl font-bold text-primary-400 mb-2">99.9%</div>
+                  <p className="text-sm md:text-base text-slate-300">Spam Detection Accuracy</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-400 mb-2">&lt;100ms</div>
-                  <p className="text-slate-300">Average Processing Time</p>
+                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">&lt;100ms</div>
+                  <p className="text-sm md:text-base text-slate-300">Average Processing Time</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-orange-400 mb-2">24/7</div>
-                  <p className="text-slate-300">Real-time Monitoring</p>
+                  <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">24/7</div>
+                  <p className="text-sm md:text-base text-slate-300">Real-time Monitoring</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-4">Multi-Layered Protection</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-lg font-medium text-primary-300 mb-2">Content Analysis</h4>
+                      <h4 className="text-base md:text-lg font-medium text-primary-300 mb-2">Content Analysis</h4>
                       <ul className="space-y-1 text-slate-300 text-sm">
                         <li>• Natural language processing</li>
                         <li>• Pattern recognition</li>
@@ -449,7 +494,7 @@ export default function SecurityWhitepaper() {
                       </ul>
                     </div>
                     <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-lg font-medium text-orange-300 mb-2">Reputation Systems</h4>
+                      <h4 className="text-base md:text-lg font-medium text-orange-300 mb-2">Reputation Systems</h4>
                       <ul className="space-y-1 text-slate-300 text-sm">
                         <li>• Sender reputation scoring</li>
                         <li>• Domain reputation tracking</li>
@@ -465,17 +510,17 @@ export default function SecurityWhitepaper() {
                   <p className="text-slate-300 mb-4">
                     Our ML models are trained on billions of email samples and continuously updated with new threat patterns:
                   </p>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-lg font-medium text-green-300 mb-2">Neural Networks</h4>
+                      <h4 className="text-base md:text-lg font-medium text-green-300 mb-2">Neural Networks</h4>
                       <p className="text-slate-300 text-sm">Deep learning for complex pattern detection</p>
                     </div>
                     <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-lg font-medium text-yellow-300 mb-2">Random Forests</h4>
+                      <h4 className="text-base md:text-lg font-medium text-yellow-300 mb-2">Random Forests</h4>
                       <p className="text-slate-300 text-sm">Ensemble learning for classification accuracy</p>
                     </div>
                     <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-lg font-medium text-red-300 mb-2">Support Vector Machines</h4>
+                      <h4 className="text-base md:text-lg font-medium text-red-300 mb-2">Support Vector Machines</h4>
                       <p className="text-slate-300 text-sm">Optimal boundary detection for spam vs ham</p>
                     </div>
                   </div>
@@ -486,17 +531,17 @@ export default function SecurityWhitepaper() {
 
           {/* Reputation Monitoring */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Eye className="w-8 h-8 text-cyan-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <Eye className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" />
               Reputation Monitoring & Protection
             </h2>
             
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
               <p className="text-slate-300 mb-6">
                 Our sophisticated reputation monitoring system provides comprehensive protection against sender reputation damage and ensures optimal deliverability rates.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-4">Real-time Monitoring</h3>
                   <ul className="space-y-3 text-slate-300">
@@ -550,22 +595,22 @@ export default function SecurityWhitepaper() {
 
           {/* Storage & Encryption */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Lock className="w-8 h-8 text-green-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <Lock className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
               Storage Flexibility & Encryption
             </h2>
             
             <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
                 <h3 className="text-xl font-semibold text-white mb-6">Custom Storage Adapters</h3>
                 <p className="text-slate-300 mb-6">
                   VenMail provides unparalleled flexibility with pluggable storage adapters, allowing organizations to integrate with their preferred storage solutions while maintaining security and compliance.
                 </p>
                 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-slate-900/50 rounded-lg p-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                  <div className="bg-slate-900/50 rounded-lg p-4 md:p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <Cloud className="w-6 h-6 text-primary-400" />
+                      <Cloud className="w-5 h-5 md:w-6 md:h-6 text-primary-400" />
                       <h4 className="text-lg font-medium text-white">Cloud Storage</h4>
                     </div>
                     <ul className="space-y-2 text-slate-300 text-sm">
@@ -577,9 +622,9 @@ export default function SecurityWhitepaper() {
                     </ul>
                   </div>
                   
-                  <div className="bg-slate-900/50 rounded-lg p-6">
+                  <div className="bg-slate-900/50 rounded-lg p-4 md:p-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <HardDrive className="w-6 h-6 text-green-400" />
+                      <HardDrive className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
                       <h4 className="text-lg font-medium text-white">On-Premises Storage</h4>
                     </div>
                     <ul className="space-y-2 text-slate-300 text-sm">
@@ -593,25 +638,25 @@ export default function SecurityWhitepaper() {
                 </div>
               </div>
 
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
                 <h3 className="text-xl font-semibold text-white mb-6">Encryption at Rest</h3>
                 <p className="text-slate-300 mb-6">
                   All email data is encrypted using industry-standard encryption algorithms, with support for customer-managed encryption keys.
                 </p>
                 
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Key className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
+                    <Key className="w-6 h-6 md:w-8 md:h-8 text-yellow-400 mx-auto mb-2" />
                     <h4 className="text-lg font-medium text-white mb-2">AES-256</h4>
                     <p className="text-slate-300 text-sm">Military-grade encryption for all stored data</p>
                   </div>
                   <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Cpu className="w-8 h-8 text-blue-400 mx-auto mb-2" />
+                    <Cpu className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
                     <h4 className="text-lg font-medium text-white mb-2">Hardware Security Modules</h4>
                     <p className="text-slate-300 text-sm">Support for HSM integration and key management</p>
                   </div>
                   <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Database className="w-8 h-8 text-green-400 mx-auto mb-2" />
+                    <Database className="w-6 h-6 md:w-8 md:h-8 text-green-400 mx-auto mb-2" />
                     <h4 className="text-lg font-medium text-white mb-2">Key Rotation</h4>
                     <p className="text-slate-300 text-sm">Automated key rotation and versioning</p>
                   </div>
@@ -622,19 +667,19 @@ export default function SecurityWhitepaper() {
 
           {/* Advanced Features */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Zap className="w-8 h-8 text-orange-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <Zap className="w-6 h-6 md:w-8 md:h-8 text-orange-400" />
               Advanced Security Features
             </h2>
             
             <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
                 <h3 className="text-xl font-semibold text-white mb-6">Password-Protected Emails</h3>
                 <p className="text-slate-300 mb-6">
                   Send sensitive information with confidence using our password-protected email feature that includes self-destruct capabilities.
                 </p>
                 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                   <div>
                     <h4 className="text-lg font-medium text-primary-300 mb-4">Security Features</h4>
                     <ul className="space-y-2 text-slate-300">
@@ -677,17 +722,17 @@ export default function SecurityWhitepaper() {
 
           {/* Our Expertise */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Users className="w-8 h-8 text-primary-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <Users className="w-6 h-6 md:w-8 md:h-8 text-primary-400" />
               15+ Years of Cybersecurity Excellence
             </h2>
             
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
               <p className="text-slate-300 mb-6">
                 VenMail is built by cybersecurity veterans with extensive experience in antivirus development, antifraud systems, and enterprise security solutions.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-4">Antivirus Expertise</h3>
                   <ul className="space-y-3 text-slate-300">
@@ -741,13 +786,13 @@ export default function SecurityWhitepaper() {
 
           {/* Compliance & Certifications */}
           <section className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <FileText className="w-8 h-8 text-green-400" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <FileText className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
               Compliance & Certifications
             </h2>
             
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-8 border border-slate-700">
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div>
                   <h3 className="text-xl font-semibold text-white mb-4">Current Compliance</h3>
                   <ul className="space-y-3 text-slate-300">
@@ -801,27 +846,27 @@ export default function SecurityWhitepaper() {
 
           {/* Conclusion */}
           <section className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-primary-500/20 to-orange-600/20 rounded-xl p-8 border border-primary-500/30">
-              <h2 className="text-3xl font-bold text-white mb-6 text-center">Conclusion</h2>
-              <p className="text-slate-300 leading-relaxed text-center mb-6">
+            <div className="bg-gradient-to-r from-primary-500/20 to-orange-600/20 rounded-xl p-4 md:p-8 border border-primary-500/30">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">Conclusion</h2>
+              <p className="text-slate-300 leading-relaxed text-center mb-6 px-4">
                 VenMail represents the pinnacle of secure email communication, combining decades of cybersecurity expertise with cutting-edge technology. Our commitment to security, privacy, and reliability ensures that your communications remain protected in an increasingly complex threat landscape.
               </p>
               <div className="text-center">
-                <p className="text-xl text-primary-300 font-semibold mb-4">
+                <p className="text-lg md:text-xl text-primary-300 font-semibold mb-4">
                   Security isn't just a feature—it's our foundation.
                 </p>
-                <div className="flex justify-center gap-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
                   <div className="flex items-center gap-2 text-slate-400">
                     <Shield className="w-5 h-5 text-green-400" />
-                    <span>Enterprise-Grade Security</span>
+                    <span className="text-sm md:text-base">Enterprise-Grade Security</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-400">
                     <Lock className="w-5 h-5 text-primary-400" />
-                    <span>End-to-End Encryption</span>
+                    <span className="text-sm md:text-base">End-to-End Encryption</span>
                   </div>
                   <div className="flex items-center gap-2 text-slate-400">
                     <Users className="w-5 h-5 text-primary-400" />
-                    <span>15+ Years Expertise</span>
+                    <span className="text-sm md:text-base">15+ Years Expertise</span>
                   </div>
                 </div>
               </div>
