@@ -1,0 +1,100 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sdrGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7043"/>
+      <stop offset="100%" style="stop-color:#E64A19"/>
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF7EC"/>
+      <stop offset="100%" style="stop-color:#FFF3E0"/>
+    </linearGradient>
+    <linearGradient id="inputGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- Network Nodes -->
+  <circle cx="150" cy="120" r="20" fill="white" stroke="url(#sdrGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="450" cy="120" r="20" fill="white" stroke="url(#sdrGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="300" cy="200" r="30" fill="white" stroke="url(#sdrGradient)" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="200" cy="300" r="18" fill="white" stroke="url(#sdrGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="400" cy="300" r="18" fill="white" stroke="url(#sdrGradient)" stroke-width="2" filter="url(#shadow)"/>
+  
+  <!-- Connection Lines with improved styling -->
+  <line x1="150" y1="120" x2="300" y2="200" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.6"/>
+  <line x1="450" y1="120" x2="300" y2="200" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.6"/>
+  <line x1="300" y1="200" x2="200" y2="300" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.6"/>
+  <line x1="300" y1="200" x2="400" y2="300" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.6"/>
+  <line x1="200" y1="300" x2="400" y2="300" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Center AI Engine with improved design -->
+  <circle cx="300" cy="200" r="20" fill="url(#sdrGradient)"/>
+  <circle cx="300" cy="200" r="15" fill="white"/>
+  <path d="M295 200L300 205L305 195" stroke="url(#sdrGradient)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="300" cy="190" r="2" fill="url(#sdrGradient)"/>
+  <circle cx="290" cy="200" r="2" fill="url(#sdrGradient)"/>
+  <circle cx="310" cy="200" r="2" fill="url(#sdrGradient)"/>
+  
+  <!-- Prospect Icons with better design -->
+  <circle cx="150" cy="120" r="8" fill="url(#sdrGradient)"/>
+  <path d="M145 120L150 125L155 115" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <circle cx="450" cy="120" r="8" fill="url(#sdrGradient)"/>
+  <path d="M445 120L450 125L455 115" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <circle cx="200" cy="300" r="7" fill="url(#sdrGradient)"/>
+  <circle cx="400" cy="300" r="7" fill="url(#sdrGradient)"/>
+  
+  <!-- Enhanced Animated Pulse Effect -->
+  <circle cx="300" cy="200" r="30" fill="none" stroke="url(#sdrGradient)" stroke-width="2" opacity="0.5">
+    <animate attributeName="r" values="30;40;30" dur="2.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Data Flow Arrows with animation -->
+  <g>
+    <path d="M250 150L270 170" stroke="url(#sdrGradient)" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.8">
+      <animate attributeName="opacity" values="0;0.8;0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M350 150L330 170" stroke="url(#sdrGradient)" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.8">
+      <animate attributeName="opacity" values="0;0.8;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Arrow Marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="url(#sdrGradient)"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="300" y="370" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="24" font-weight="bold">AI Sales Engine</text>
+  
+  <!-- Stats with improved positioning -->
+  <text x="150" y="150" text-anchor="middle" fill="#92400E" font-family="Arial" font-size="12" font-weight="600">List Sources</text>
+  <text x="450" y="150" text-anchor="middle" fill="#92400E" font-family="Arial" font-size="12" font-weight="600">Prospects</text>
+  <text x="300" y="250" text-anchor="middle" fill="#92400E" font-family="Arial" font-size="13" font-weight="bold">AI Engine</text>
+  
+  <!-- Output indicators -->
+  <g transform="translate(200, 330)">
+    <circle cx="0" cy="0" r="3" fill="#92400E">
+      <animate attributeName="r" values="3;5;3" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="10" y="4" fill="#92400E" font-family="Arial" font-size="10">Results</text>
+  </g>
+  
+  <g transform="translate(370, 330)">
+    <circle cx="0" cy="0" r="3" fill="#92400E">
+      <animate attributeName="r" values="3;5;3" dur="1.5s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="10" y="4" fill="#92400E" font-family="Arial" font-size="10">Analytics</text>
+  </g>
+</svg>

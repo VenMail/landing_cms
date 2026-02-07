@@ -107,10 +107,7 @@ const NigeriaFlagSplash = () => {
           </div>
         </div>
       </div>
-      <div className="naija-text mt-2 text-green-600 font-bold text-sm animate-pulse">
-        We rep Naija
-      </div>
-      
+            
       <style jsx>{`
         .nigeria-flag-splash {
           animation: fadeIn 0.8s ease-out;
@@ -202,10 +199,6 @@ const NigeriaFlagSplash = () => {
           .nigeria-flag {
             width: 60px;
             height: 30px;
-          }
-          
-          .naija-text {
-            font-size: 0.75rem;
           }
         }
       `}</style>

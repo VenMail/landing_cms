@@ -1,0 +1,71 @@
+<svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7043"/>
+      <stop offset="100%" style="stop-color:#E64A19"/>
+    </linearGradient>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF7EC"/>
+      <stop offset="100%" style="stop-color:#FFF3E0"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="400" fill="url(#bgGradient)"/>
+  
+  <!-- Central AI Brain -->
+  <circle cx="300" cy="200" r="60" fill="white" stroke="url(#aiGradient)" stroke-width="3" filter="url(#shadow)"/>
+  <circle cx="300" cy="200" r="50" fill="url(#aiGradient)" opacity="0.2"/>
+  
+  <!-- Brain Pattern -->
+  <path d="M280 180Q290 170 300 180Q310 170 320 180" stroke="url(#aiGradient)" stroke-width="2" fill="none"/>
+  <path d="M280 200Q290 190 300 200Q310 190 320 200" stroke="url(#aiGradient)" stroke-width="2" fill="none"/>
+  <path d="M280 220Q290 210 300 220Q310 210 320 220" stroke="url(#aiGradient)" stroke-width="2" fill="none"/>
+  
+  <!-- Workflow Nodes -->
+  <circle cx="150" cy="120" r="25" fill="white" stroke="url(#aiGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <text x="150" y="125" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="12" font-weight="bold">Email</text>
+  
+  <circle cx="450" cy="120" r="25" fill="white" stroke="url(#aiGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="125" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="12" font-weight="bold">Docs</text>
+  
+  <circle cx="150" cy="280" r="25" fill="white" stroke="url(#aiGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <text x="150" y="285" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="12" font-weight="bold">Pay</text>
+  
+  <circle cx="450" cy="280" r="25" fill="white" stroke="url(#aiGradient)" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="285" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="12" font-weight="bold">Leads</text>
+  
+  <!-- Connection Lines -->
+  <line x1="175" y1="120" x2="260" y2="180" stroke="url(#aiGradient)" stroke-width="2" opacity="0.5"/>
+  <line x1="425" y1="120" x2="340" y2="180" stroke="url(#aiGradient)" stroke-width="2" opacity="0.5"/>
+  <line x1="175" y1="280" x2="260" y2="220" stroke="url(#aiGradient)" stroke-width="2" opacity="0.5"/>
+  <line x1="425" y1="280" x2="340" y2="220" stroke="url(#aiGradient)" stroke-width="2" opacity="0.5"/>
+  
+  <!-- Animated Pulse Effect -->
+  <circle cx="300" cy="200" r="60" fill="none" stroke="url(#aiGradient)" stroke-width="2" opacity="0.5">
+    <animate attributeName="r" values="60;80;60" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Data Flow Particles -->
+  <circle cx="200" cy="150" r="3" fill="url(#aiGradient)">
+    <animate attributeName="cx" values="200;300;400" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="150;200;150" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="400" cy="250" r="3" fill="url(#aiGradient)">
+    <animate attributeName="cx" values="400;300;200" dur="2s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="250;200;250" dur="2s" begin="1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0;1" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Title -->
+  <text x="300" y="370" text-anchor="middle" fill="#E64A19" font-family="Arial" font-size="24" font-weight="bold">AI Workflows</text>
+  
+  <!-- Subtitle -->
+  <text x="300" y="345" text-anchor="middle" fill="#FF7043" font-family="Arial" font-size="14">Intelligent Automation at Scale</text>
+</svg>

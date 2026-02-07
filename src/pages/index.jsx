@@ -5,6 +5,9 @@ import IndividualUsersSection from "@/components/PageSections/IndividualUsersSec
 import BusinessesSection from "@/components/PageSections/BusinessesSection";
 import DevelopersSection from "@/components/PageSections/DevelopersSection";
 import MobileAppsSection from "@/components/PageSections/MobileAppsSection";
+import AIWorkflowShowcase from "@/components/PageSections/AIWorkflowShowcase";
+import ProductShowcase from "@/components/PageSections/ProductShowcase";
+import CountUpStats from "@/components/PageSections/CountUpStats";
 import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
 
 const TabComponent = () => {
@@ -30,10 +33,25 @@ const TabComponent = () => {
       description: "Book meetings effortlessly, straight from your inbox.",
       image: "/home/section-4c.png",
     },
-    summary: {
-      title: "Instant Email Summary",
-      description: "Get the gist of long emails in seconds with AI summaries.",
-      image: "/home/section-4d.png",
+    // summary: {
+    //   title: "Instant Email Summary",
+    //   description: "Get the gist of long emails in seconds with AI summaries.",
+    //   image: "/home/section-4d.png",
+    // },
+    document_intelligence: {
+      title: "Document Intelligence",
+      description: "AI reads and understands PDFs, Word docs, and spreadsheets automatically.",
+      image: "/home/section-document-intelligence.svg",
+    },
+    sdr_ai: {
+      title: "AI Sales Agent", 
+      description: "AI discovers prospects, analyzes companies, and automates outreach at scale.",
+      image: "/home/section-sdr-ai.svg",
+    },
+    payment_automation: {
+      title: "Payment Automation",
+      description: "Automatic payment processing, receipt generation, and webhook integration.",
+      image: "/home/section-payment-automation.svg",
     },
     // analytics: {
     //   title: "Sent Mail Analytics",
@@ -123,11 +141,21 @@ const TabComponent = () => {
             <div className="cinematic-frame bg-white p-6 sm:p-8 rounded-lg border border-gray-100 shadow-sm">
               <div className="cinematic-vignette rounded-lg overflow-hidden">
                 {tabContent[activeTab].content || (
-                  <img
-                    src={tabContent[activeTab].image}
-                    alt={`${activeTab} Dashboard`}
-                    className="rounded-lg w-full h-auto transition-all duration-300"
-                  />
+                  tabContent[activeTab].image.endsWith('.svg') ? (
+                    <div className="flex items-center justify-center p-0">
+                      <img
+                        src={tabContent[activeTab].image}
+                        alt={`${activeTab} Feature`}
+                        className="rounded-lg w-full h-auto transition-all duration-300"
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={tabContent[activeTab].image}
+                      alt={`${activeTab} Dashboard`}
+                      className="rounded-lg w-full h-auto transition-all duration-300"
+                    />
+                  )
                 )}
               </div>
             </div>
@@ -149,11 +177,23 @@ const TabComponent = () => {
         <div className="hidden md:block col-span-9">
           <div className="cinematic-frame bg-[#f9f1ef] p-6 sm:p-8 md:p-10 rounded-lg">
             <div className="cinematic-vignette rounded-lg overflow-hidden">
-              <img
-                src={tabContent[activeTab].image}
-                alt={`${tabContent[activeTab].title} Dashboard`}
-                className="rounded-lg shadow-sm w-full h-auto transition-all duration-300"
-              />
+              {tabContent[activeTab].content || (
+                tabContent[activeTab].image.endsWith('.svg') ? (
+                  <div className="flex items-center justify-center p-0">
+                    <img
+                      src={tabContent[activeTab].image}
+                      alt={`${activeTab} Feature`}
+                      className="rounded-lg w-full h-auto transition-all duration-300"
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src={tabContent[activeTab].image}
+                    alt={`${activeTab} Dashboard`}
+                    className="rounded-lg w-full h-auto transition-all duration-300"
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
@@ -170,10 +210,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Email that works for you
+              One platform. One subscription.
             </h1>
                 <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                  AI-powered email, campaigns, meetings and documents
+                  Fully integrated email, meetings, documents, and automation
                 </p>
             <div className="relative inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full shadow-sm mb-8">
               <div className="flex -space-x-2">
@@ -204,16 +244,18 @@ export default function Home() {
                   <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  <span>5.3M emails sent</span>
+                  <span>5.3M emails processed</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span>$50K+ USD saved</span>
+                  <span>$50K+ saved</span>
                 </div>
-              </div>
+                              </div>
             </div>
+            
+            {/* Integration Icons */}
             <p className="text-lg font-medium text-gray-700 mb-6">Which are you?</p>
             <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
               <a
@@ -269,28 +311,59 @@ export default function Home() {
                 See How Venmail Helps you win
               </a>
             </div>
-            <div className="mt-6 flex items-center gap-3 justify-center text-sm text-gray-500">
+            <div className="mt-6 flex flex-wrap items-center gap-3 justify-center text-sm text-gray-500">
               <span>Also on</span>
-              <a href="https://apps.apple.com/us/app/venmail/id6755040289" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">App Store</a>
-              <span aria-hidden>·</span>
-              <a href="https://play.google.com/store/apps/details?id=io.venmail.app" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline font-medium">Google Play</a>
+              <a
+                href="https://apps.apple.com/us/app/venmail/id6755040289"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-white shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden"
+              >
+                <img
+                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                  alt="Download on the App Store"
+                  className="h-10 w-auto"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=io.venmail.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-white shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden"
+              >
+                <img
+                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                  alt="Get it on Google Play"
+                  className="h-10 w-auto"
+                  loading="lazy"
+                />
+              </a>
             </div>
           </div>
           <div className="relative max-w-4xl mx-auto">
             <div className="absolute -inset-4 bg-primary-100 rounded-2xl transform rotate-1 cinematic-glow" />
             <div className="relative cinematic-vignette rounded-xl">
               <img
-                src="/stock-images/business-team-collaboration.jpg"
-                alt="Professional business team collaborating in modern office"
+                src="/screenshot-full.webp"
+                alt="Venmail inbox interface with AI-powered email management"
                 className="rounded-xl shadow-xl w-full h-auto"
               />
             </div>
           </div>
         </div>
       </ChristmasSparkleWrapper>
+      
+      {/* Product Showcase */}
+      <ProductShowcase />
+      
+      {/* CountUp Stats Section */}
+      <CountUpStats />
+      
       <BusinessesSection />
       <DevelopersSection />
       <MobileAppsSection />
+      <AIWorkflowShowcase />
 
       {/* See it in Action */}
       <section className="bg-white">
@@ -333,7 +406,7 @@ export default function Home() {
             href="#see-it-in-action"
             className="inline-flex items-center text-base font-medium text-gray-600 hover:text-primary-600 transition-colors"
           >
-            It takes less than 2 minutes to sign up
+            It takes less than 5 minutes to sign up
           </a>
         </div>
       </section>

@@ -14,9 +14,7 @@ export default function CompactFeatureCard({
       <div className="glass-card bg-[#f9f1ef] flex flex-col feature-glow">
         <div className="p-8 sm:p-10 md:p-12 flex-1">
           <p
-            className={`uppercase text-base font-medium mb-6 ${
-              index === 0 ? "text-primary-700" : "text-black"
-            }`}
+            className={`uppercase text-base font-medium mb-6 text-black`}
           >
             {subheading}
           </p>

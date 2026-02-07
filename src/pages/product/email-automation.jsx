@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useRef } from "react";
 import ProductHero from "@/components/PageSections/ProductHero";
-import CompactFeatureCard from "@/components/PageSections/CompactFeatureCard";
+import FeatureCard from "@/components/PageSections/FeatureCard";
 import ProductLayout from "@/components/layout/ProductLayout";
 import { 
   EyeIcon, 
@@ -21,42 +21,42 @@ export default function EmailAutomation() {
         <EyeIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Advanced Email Tracking",
-      text: "Track opens, reads, clicks, and engagement patterns. Get detailed analytics on email performance without privacy concerns.",
+      text: "Comprehensive engagement analytics tracking opens, reads, clicks, and response patterns. Privacy-first approach provides actionable insights without compromising deliverability.",
     },
     {
       icon: (
         <ShieldCheckIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Email Content Validation",
-      text: "Automatically detect duplicate content, grammar issues, broken links, and formatting problems before sending.",
+      text: "Advanced content validation system detects duplicate content, grammar issues, broken links, and formatting problems before sending to protect your sender reputation.",
     },
     {
       icon: (
         <ArrowPathIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Smart Follow-up System",
-      text: "AI identifies emails needing follow-ups. Automatically generates contextual follow-up content and tracks response patterns.",
+      text: "Intelligent follow-up automation identifies non-responsive communications and generates contextual follow-up content based on conversation history and engagement patterns.",
     },
     {
       icon: (
         <ChartBarIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Performance Dashboard",
-      text: "Monitor delivery rates, engagement metrics, and response times. Optimize your email strategy with actionable insights.",
+      text: "Executive dashboard with real-time delivery metrics, engagement analytics, and response time optimization. Data-driven insights for strategic communication planning.",
     },
     {
       icon: (
         <DocumentArrowUpIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Universal Email Import",
-      text: "Import from any email service. Support for .zip, .eml, .mbox files and direct IMAP/POP connections.",
+      text: "Universal email import supporting all major formats (.zip, .eml, .mbox) and direct IMAP/POP connections for seamless migration from any email provider.",
     },
     {
       icon: (
         <ServerIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />
       ),
       title: "Enterprise Integration",
-      text: "Connect with existing email infrastructure. Supports IMAP, POP3, Exchange, and custom email servers.",
+      text: "Enterprise-grade integration with existing email infrastructure including IMAP, POP3, Exchange, and custom email servers with secure authentication protocols.",
     },
   ];
 
@@ -103,11 +103,11 @@ export default function EmailAutomation() {
     <ProductLayout>
       <ProductHero
         subheading={<CogIcon className="h-8 w-8 md:h-12 md:w-12 text-primary-600" />}
-        title={"Email automation that actually works"}
+        title={"Professional Email Automation Suite"}
         description={
-          "Advanced tracking, validation, and follow-up automation that helps you send better emails and never miss important opportunities."
+          "Enterprise-grade email automation with advanced tracking, intelligent content validation, and contextual follow-up generation. Never miss critical business opportunities again."
         }
-        image={"/ai-dashboard.png"}
+        image={"/home/section-auto-followups.svg"}
         button1Text={"Start Automating"}
         button2Text={"See All Features"}
       />
@@ -116,18 +116,18 @@ export default function EmailAutomation() {
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div className="max-w-screen-md mb-8 lg:mb-16 mx-auto text-center">
             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-              Powerful email automation features
+              Professional Email Management
             </h2>
             <p className="text-gray-500 sm:text-xl">
-              Everything you need to send professional emails, track engagement, and automate follow-ups
+              Advanced automation capabilities for professional communication and engagement tracking
             </p>
           </div>
-          <div className="space-y-12 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+          <div className="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
             {features.map((feature, index) => (
               <div key={index}>
-                <div className="mb-6">{feature.icon}</div>
-                <h3 className="mb-4 text-xl font-semibold text-black">{feature.title}</h3>
-                <p className="text-gray-400 leading-[26px]">
+                <div className="mb-4">{feature.icon}</div>
+                <h3 className="mb-2 text-xl text-black">{feature.title}</h3>
+                <p className="text-gray-600">
                   {feature.text}
                 </p>
               </div>
@@ -135,20 +135,11 @@ export default function EmailAutomation() {
           </div>
         </div>
       </section>
-
-      <section className="bg-gray-50">
+      <section className="bg-white">
         <div className="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
-          <div className="max-w-screen-md mb-8 lg:mb-16 mx-auto text-center">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">
-              See it in action
-            </h2>
-            <p className="text-gray-500 sm:text-xl">
-              Real screenshots of our email automation features working behind the scenes
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {boxes.map((box, index) => (
-              <CompactFeatureCard
+              <FeatureCard
                 key={index}
                 index={index}
                 subheading={box.subheading}
@@ -163,4 +154,4 @@ export default function EmailAutomation() {
       </section>
     </ProductLayout>
   );
-} 
+}

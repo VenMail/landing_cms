@@ -27,7 +27,7 @@ export default function WhyVenmailSection() {
             Why?
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            We built Venmail so you get professional email, marketing, and productivity in one place — without lock-in or export anxiety.
+            We built Venmail because privacy and productivity should remain affordable to the common man.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">

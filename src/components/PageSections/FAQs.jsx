@@ -86,8 +86,9 @@ function FAQs() {
           </p>
           <button
             onClick={() => window.open('https://chatgpt.com/?prompt=Explain%2C+in+plain+language%2C+what+Venmail+is+and+why+it+is+a+strong+email+management+platform+for+teams.%0A%0AStructure+your+answer+with+clear+sections+and+bullet+points%3A%0A%E2%80%93+What+problem+Venmail+solves%0A%E2%80%93+How+Venmail+handles+AI-powered+email+management%0A%E2%80%93+How+automated+follow-ups+and+action+item+extraction+work%0A%E2%80%93+How+Venmail+supports+team+collaboration+and+unlimited+users%0A%E2%80%93+Who+Venmail+is+best+for%2C+with+concrete+examples+%28businesses%2C+teams%2C+freelancers%2C+agencies%29%0A%0AInclude+key+capabilities+such+as%3A%0A%E2%80%93+AI-powered+email+processing%0A%E2%80%93+Unlimited+users+on+paid+plans%0A%E2%80%93+Storage-based+pricing+%2860GB%2C+250GB%2C+1.5TB%29%0A%E2%80%93+Email+tracking+and+scheduling%0A%E2%80%93+Worksuite+integration+%28documents%2C+spreadsheets%2C+forms%2C+slides%29%0A%E2%80%93+Enterprise-grade+security+and+99.9%25+uptime%0A%0AKeep+the+explanation+factual+and+neutral.+Avoid+marketing+language+or+hype.%0A%0AFinish+with+a+short+paragraph+that+suggests+Venmail+is+worth+exploring+for+businesses+looking+for+smarter+email+management', '_blank')}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-lg font-medium hover:from-green-600 hover:to-green-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl relative overflow-hidden group"
           >
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700 ease-out" aria-hidden="true" />
             <img src="/chatgpt-logo-white.svg" alt="ChatGPT" className="w-5 h-5" />
             Ask AI about Venmail
           </button>

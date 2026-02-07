@@ -70,45 +70,7 @@ export default function DevelopersSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-green-100/20 via-transparent to-emerald-100/20 backdrop-blur-[100px]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.1)_0%,transparent_50%)]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Email infrastructure that scales with your code
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Send via API or SMTP. Get webhooks for delivery, opens, reads, and bounces. Zero tolerance for spam.
-          </p>
-          <div className="flex flex-wrap gap-2 justify-center">
-            {BEST_FOR.map((label) => (
-              <span
-                key={label}
-                className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-white text-green-700 border border-green-200 shadow-sm"
-              >
-                Best for {label}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* API Features Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {API_FEATURES.map((feature, i) => {
-            const Icon = feature.icon;
-            return (
-              <div key={i} className="glass-card p-8 rounded-2xl border border-gray-100 feature-glow relative overflow-hidden">
-                {/* Subtle animated gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 via-transparent to-emerald-50/50 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-                <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 text-lg mb-4">{feature.description}</p>
-                <code className="block bg-gray-900 text-green-400 px-3 py-2 rounded-lg text-sm font-mono">
-                  {feature.code}
-                </code>
-              </div>
-            );
-          })}
-        </div>
+        
 
         {/* Hero Image */}
           <div className="relative max-w-4xl mx-auto mb-16">

@@ -65,8 +65,8 @@ const products = [
   },
   {
     name: "Email Automation",
-    description: "Advanced tracking, validation, and follow-ups",
-    href: "/product/email-automation",
+    description: "AI-powered document processing and payment automation",
+    href: "/email-automation",
     icon: CogIcon,
   },
   {

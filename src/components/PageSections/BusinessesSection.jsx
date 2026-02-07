@@ -147,18 +147,6 @@ export default function BusinessesSection() {
           })}
         </div>
 
-        {/* Hero Image */}
-        <div className="relative max-w-4xl mx-auto mb-16">
-          <div className="absolute -inset-4 bg-blue-100 rounded-2xl transform rotate-1 cinematic-glow" />
-          <div className="relative cinematic-vignette rounded-xl">
-            <img
-              src="/campaign_composer.png"
-              alt="Venmail campaign composer and business collaboration tools"
-              className="rounded-xl shadow-xl w-full h-auto"
-            />
-          </div>
-        </div>
-
         {/* Core Features */}
         <div className="bg-white p-8 md:p-12 rounded-2xl border border-gray-200 shadow-lg mb-12">
           <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">What you get</h3>
