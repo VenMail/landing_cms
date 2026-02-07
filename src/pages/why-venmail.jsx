@@ -8,7 +8,7 @@ export default function WhyVenmail() {
         <title>Why We Built VenMail — Our Story and Mission</title>
         <meta name="description" content="The real story behind VenMail - why we started, what problems we're solving, and our commitment to affordable, private email." />
         <meta property="og:title" content="Why We Built VenMail" />
-        <meta property="og:description" content="The genuine story of why we created VenMail." />
+        <meta property="og:description" content="The reason we built VenMail." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="/why-venmail" />
       </Head>
