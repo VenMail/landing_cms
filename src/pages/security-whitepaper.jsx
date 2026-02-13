@@ -379,7 +379,7 @@ export default function SecurityWhitepaper() {
             </h2>
             <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
               <p className="text-slate-300 leading-relaxed mb-4">
-                VenMail represents the culmination of over 15 years of cybersecurity expertise, combining battle-tested infrastructure with cutting-edge security innovations. Our core email processing backend uses a hybrid system with KumoMTA as our primary MTA, built on Rust for superior performance and reliability, with Postal as our failover system. We've engineered a comprehensive security ecosystem that addresses modern email threats while maintaining exceptional performance and reliability.
+                VenMail represents the culmination of over 15 years of cybersecurity expertise, combining battle-tested infrastructure with cutting-edge security innovations. When it come to email security is 50% of the job, inbox deliverability is 40% and the rest is performance. Our current core email processing backend uses a hybrid system using AWS as our primary MTA and Postal as our failover system. We've engineered a comprehensive suite of security tools that addresses several aspects of the email lifecycle with near realtime performance and reliability.
               </p>
               <p className="text-slate-300 leading-relaxed">
                 Our architecture leverages advanced encryption, sophisticated reputation monitoring, and flexible storage options to provide organizations with a secure, scalable email solution that adapts to their specific security requirements and compliance needs.
@@ -400,23 +400,23 @@ export default function SecurityWhitepaper() {
                   <div className="p-2 bg-orange-500/20 rounded-lg">
                     <Zap className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white">KumoMTA Primary System</h3>
+                  <h3 className="text-lg md:text-xl font-semibold text-white">SES Primary System</h3>
                 </div>
                 <p className="text-slate-300 mb-4">
-                  Our primary email delivery backend is KumoMTA, a modern high-performance MTA built in Rust:
+                  Our primary email delivery backend is AWS:
                 </p>
                 <ul className="space-y-2 text-slate-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Built on Rust for memory safety and performance</span>
+                    <span>15+ years of battle tested infrastructure</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>10x higher throughput than traditional MTAs</span>
+                    <span>Reliable performance and bounce tracking</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Advanced traffic shaping and IP rotation</span>
+                    <span>Good IP Reputation</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />

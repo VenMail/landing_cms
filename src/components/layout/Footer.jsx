@@ -62,6 +62,7 @@ export default function Footer({ hideFooterJumbo = false }) {
         { label: "Privacy", href: "/resources/privacy-policy" },
         { label: "Terms", href: "/resources/terms-of-service" },
         { label: "Data Processing", href: "/resources/dpa" },
+        { label: "Security", href: "/security-whitepaper" },
       ],
     },
   ];

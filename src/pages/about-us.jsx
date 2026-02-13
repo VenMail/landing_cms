@@ -1,10 +1,4 @@
-import Image from "next/image";
 import { useState, useRef } from "react";
-import { RxEnvelopeClosed } from "react-icons/rx";
-import { GoCalendar } from "react-icons/go";
-import { GoDeviceCameraVideo } from "react-icons/go";
-import { LuUserPlus } from "react-icons/lu";
-import CompareSlider from "@/components/PageSections/CompareSlider";
 import CustomLayout from "@/components/layout/CustomLayout";
 
 export default function AboutUs() {
