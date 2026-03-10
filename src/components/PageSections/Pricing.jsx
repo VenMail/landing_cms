@@ -13,7 +13,7 @@ export default function Pricing() {
       name: "Free",
       monthly: 0,
       description1: "Start with essential productivity tools.",
-      description2: "Up to 10 users · 5GB shared storage",
+      description2: "Up to 3 users · 5GB shared storage",
       buttonText: "Get started free",
       buttonLink: SIGNUP_URL,
       external: true,

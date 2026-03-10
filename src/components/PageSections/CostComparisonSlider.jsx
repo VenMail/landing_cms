@@ -8,10 +8,10 @@ const providers = [
 ];
 
 export default function CostComparisonSlider({ hasButton = false }) {
-  const [users, setUsers] = useState(10);
+  const [users, setUsers] = useState(3);
   const { formatPrice, isLoading } = useCurrency();
 
-  const venmailCost = users <= 10 ? 0 : 7; // Minimum above 10 users is $7/mo
+  const venmailCost = users <= 3 ? 0 : 7; // Minimum above 3 users is $7/mo
 
   function formatCurrency(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -77,7 +77,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
               <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
-              <div className="text-xs text-gray-600">Free for 1–10 users, then starts at {formatCurrency(7)}/mo</div>
+              <div className="text-xs text-gray-600">Free for 1–3 users, then starts at {formatCurrency(7)}/mo</div>
             </div>
 
             {providers.map((p) => {
