@@ -48,7 +48,7 @@ const AIWorkflowShowcase = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-5 text-sm font-medium text-gray-600">
             Built into the infrastructure — not bolted on
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
             Powerful features included
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">

@@ -101,7 +101,7 @@ export default function WorkflowSection() {
                       {section.subtitle}
                     </span>
                   )}
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
                     {section.title}
                   </h2>
                   <p className="text-lg text-gray-600 leading-relaxed">

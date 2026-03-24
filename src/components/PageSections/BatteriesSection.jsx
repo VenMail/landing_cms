@@ -446,8 +446,6 @@ export default function BatteriesSection() {
       style={{
         background: "#ffffff",
         padding: "96px 24px 80px",
-        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-        WebkitFontSmoothing: "antialiased",
         overflow: "hidden",
       }}
     >

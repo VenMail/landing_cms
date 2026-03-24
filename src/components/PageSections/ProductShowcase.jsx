@@ -93,7 +93,7 @@ const ProductShowcase = () => {
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             BYOS-native • 99.9% uptime
           </div>
-          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
             Step up your <span className="line-through">game</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">stack</span> with.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Premium Experience.</span>
           </h2>

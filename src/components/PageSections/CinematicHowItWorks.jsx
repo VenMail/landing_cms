@@ -751,9 +751,6 @@ export default function CinematicHowItWorks() {
       <section
         style={{
           background: "#0a0a0a",
-          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
-          WebkitFontSmoothing: "antialiased",
-          MozOsxFontSmoothing: "grayscale",
         }}
       >
         {/* Section intro */}

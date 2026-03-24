@@ -445,7 +445,7 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 text-sm font-medium text-white/70">
             Free base tier · No per-seat fees · BYOS storage
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
             Stop renting your email infrastructure.
           </h2>
           <a

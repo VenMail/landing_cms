@@ -93,7 +93,7 @@ export default function CountUpStats() {
             </div>
             
             <div className="space-y-2">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900">
                 Bring your data closer
               </h2>
               <div className="text-3xl md:text-5xl font-bold text-orange-600">

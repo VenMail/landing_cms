@@ -102,7 +102,7 @@ export default function BusinessesSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-100 border border-orange-200 rounded-full mb-6 text-sm font-medium text-orange-800">
             Built for organisations that care about costs and data
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
             Who VenMail is built for
           </h2>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
