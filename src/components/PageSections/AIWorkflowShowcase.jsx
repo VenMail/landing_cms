@@ -45,11 +45,14 @@ const AIWorkflowShowcase = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-5 text-sm font-medium text-gray-600">
+            Built into the infrastructure — not bolted on
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Advanced AI Workflows
+            Powerful features included
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Enterprise-level automation that processes documents, handles payments, and generates leads intelligently.
+            Document intelligence, sales automation, and payment workflows come standard — running on your infrastructure, not a third-party layer.
           </p>
         </div>
         
@@ -89,10 +92,10 @@ const AIWorkflowShowcase = () => {
         {/* CTA Section */}
         <div className="text-center mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Transform Your Email Workflows
+            Own your stack. Keep every feature.
           </h3>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Join thousands of businesses using AI to automate their workflows and generate leads.
+            All of this runs on your infrastructure — your storage, your domain, your data.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a

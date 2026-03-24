@@ -4,28 +4,28 @@ import { useInView } from 'react-intersection-observer';
 
 const stats = [
   {
-    value: 10,
-    suffix: 'x',
-    label: 'operational efficiency',
-    description: 'Streamlined workflows and automation'
-  },
-  {
-    value: 42,
+    value: 100,
     suffix: '%',
-    label: 'more productive',
-    description: 'Teams accomplish more with fewer tools'
-  },
-  {
-    value: 90,
-    suffix: '%',
-    label: 'cost savings',
-    description: 'Reduce software expenses significantly'
+    label: 'data ownership',
+    description: 'VenMail never touches your email data — BYOS by design'
   },
   {
     value: 0,
     suffix: '$',
-    label: 'per-seat pricing',
-    description: 'Unlimited users on every plan'
+    label: 'per-seat fees',
+    description: 'Cost scales with storage, not headcount. Ever.'
+  },
+  {
+    value: 90,
+    suffix: '%',
+    label: 'cost reduction',
+    description: 'vs Google Workspace or Microsoft 365 at scale'
+  },
+  {
+    value: 99,
+    suffix: '.9%',
+    label: 'uptime SLA',
+    description: 'Enterprise-grade reliability on your own infrastructure'
   }
 ];
 
@@ -94,27 +94,27 @@ export default function CountUpStats() {
             
             <div className="space-y-2">
               <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
-                Say goodbye to
+                Bring your data closer
               </h2>
               <div className="text-3xl md:text-5xl font-bold text-orange-600">
-                per-seat pricing
+                Switch to Venmail.
               </div>
             </div>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Cut software bloat while keeping teams fast, clear, and connected.
+              Communication is foundational business infrastructure. Why let tool sprawl become a bottleneck?
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Unlimited users on every plan</span>
+                <span className="text-gray-700 font-medium">Your storage — S3, Azure, Google Cloud, or self-hosted</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Replace multiple subscriptions with one platform</span>
+                <span className="text-gray-700 font-medium">Unlimited users — pricing scales with storage, not headcount</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Pay for storage, not people</span>
+                <span className="text-gray-700 font-medium">Data localisation laws? Met natively — no custom builds needed</span>
               </div>
             </div>
             <a
@@ -123,7 +123,7 @@ export default function CountUpStats() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium text-white bg-black hover:bg-gray-800 transition-colors"
             >
-              Unlock your savings
+              Get Started with Venmail
             </a>
           </div>
 

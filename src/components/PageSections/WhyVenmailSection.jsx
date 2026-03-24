@@ -4,27 +4,27 @@ import { LuMail, LuLayers, LuShield, LuTrendingUp, LuUsers, LuDollarSign } from 
 
 const PILLARS = [
   {
-    icon: LuMail,
-    title: "Email for domains is getting pricier",
-    body: "Gmail and Microsoft keep raising the bar. Venmail gives you professional email for your domain without the big-brand tax.",
-    stat: "$7/mo",
-    statLabel: "vs $30+/mo",
+    icon: LuShield,
+    title: "Who controls your email data when policy changes overnight?",
+    body: "If your provider controls storage, they also control access boundaries. BYOS (Bring Your Own Storage) lets you keep email data in your own S3, Azure, or self-hosted environment while VenMail runs the infrastructure layer.",
+    stat: "100%",
+    statLabel: "data ownership",
     color: "from-blue-500 to-cyan-500"
   },
   {
     icon: LuLayers,
-    title: "Growing teams need more marketing in email",
-    body: "Automatic follow-ups, read/open tracking, and campaigns from the same inbox shouldn't require 2–3 separate tools. We built that into one place.",
-    stat: "3 tools",
-    statLabel: "in 1 platform",
-    color: "from-purple-500 to-pink-500"
+    title: "Localisation laws demand data stays in-country.",
+    body: "Nigeria NDPR, EU GDPR, India DPDP, Saudi NCA — all require data to remain within sovereign borders. BYOS makes VenMail natively compliant without custom builds or expensive legal workarounds.",
+    stat: "BYOS",
+    statLabel: "sovereign-native",
+    color: "from-orange-500 to-red-500"
   },
   {
-    icon: LuShield,
-    title: "A productivity-first email UI you actually own",
-    body: "Skiff showed what a privacy-first, productivity-focused email could be; it was acquired. We're taking it further: store mail on your own devices or cloud (S3/FTP-compatible) so you never have to \"export\" your data in the first place.",
-    stat: "100%",
-    statLabel: "data ownership",
+    icon: LuMail,
+    title: "Should communication costs scale with users or with actual usage?",
+    body: "As teams grow, predictable pricing matters. VenMail scales costs by storage and usage, not seat count. The free base tier is structurally enabled by BYOS, not a short-term promotion.",
+    stat: "$0",
+    statLabel: "per-seat fee",
     color: "from-green-500 to-emerald-500"
   },
 ];
@@ -94,18 +94,18 @@ export default function WhyVenmailSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full mb-6">
             <LuTrendingUp className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-medium text-orange-800">Why VenMail Wins</span>
+            <span className="text-sm font-medium text-orange-800">Critical Questions for Email Strategy</span>
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            We built Venmail because
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-600">
-              privacy and productivity should remain affordable
+            Ask better questions about
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+              control, compliance, and cost
             </span>
           </h2>
-          
+
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Stop paying per-seat. Start owning your data. Get enterprise-grade email without the enterprise price tag.
+            Modern teams may choose managed services or rented infrastructure based on context. VenMail is built for teams that need ownership-level control, compliance certainty, and cost predictability on storage they control.
           </p>
         </div>
 
@@ -128,31 +128,31 @@ export default function WhyVenmailSection() {
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <LuDollarSign className="w-5 h-5 text-green-600" />
-                <span className="text-3xl font-bold text-gray-900">70%</span>
+                <LuShield className="w-5 h-5 text-blue-600" />
+                <span className="text-3xl font-bold text-gray-900">100%</span>
               </div>
-              <p className="text-sm text-gray-600">Cost savings vs competitors</p>
+              <p className="text-sm text-gray-600">Data ownership — VenMail never touches it</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <LuUsers className="w-5 h-5 text-blue-600" />
+                <LuDollarSign className="w-5 h-5 text-green-600" />
+                <span className="text-3xl font-bold text-gray-900">$0</span>
+              </div>
+              <p className="text-sm text-gray-600">Per-seat fees. Now and structurally.</p>
+            </div>
+            <div>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <LuUsers className="w-5 h-5 text-purple-600" />
                 <span className="text-3xl font-bold text-gray-900">∞</span>
               </div>
               <p className="text-sm text-gray-600">Users on every plan</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
-                <LuShield className="w-5 h-5 text-purple-600" />
-                <span className="text-3xl font-bold text-gray-900">100%</span>
-              </div>
-              <p className="text-sm text-gray-600">Data ownership</p>
-            </div>
-            <div>
-              <div className="flex items-center justify-center gap-2 mb-2">
                 <LuMail className="w-5 h-5 text-orange-600" />
-                <span className="text-3xl font-bold text-gray-900">99.9%</span>
+                <span className="text-3xl font-bold text-gray-900">5+</span>
               </div>
-              <p className="text-sm text-gray-600">Uptime guarantee</p>
+              <p className="text-sm text-gray-600">Storage providers supported (BYOS)</p>
             </div>
           </div>
         </div>

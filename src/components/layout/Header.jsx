@@ -29,6 +29,7 @@ import {
   CogIcon,
   ShareIcon,
   SparklesIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
@@ -62,6 +63,12 @@ const products = [
     description: "View and manage potential contacts",
     href: "/product/contacts",
     icon: UsersIcon,
+  },
+  {
+    name: "Venmail Agent",
+    description: "Browser extension for contact intelligence and reputation scoring",
+    href: "/venmail-agent",
+    icon: ShieldCheckIcon,
   },
   {
     name: "Email Automation",

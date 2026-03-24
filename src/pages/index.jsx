@@ -8,6 +8,7 @@ import MobileAppsSection from "@/components/PageSections/MobileAppsSection";
 import AIWorkflowShowcase from "@/components/PageSections/AIWorkflowShowcase";
 import ProductShowcase from "@/components/PageSections/ProductShowcase";
 import CountUpStats from "@/components/PageSections/CountUpStats";
+import CinematicHowItWorks from "@/components/PageSections/CinematicHowItWorks";
 import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
 
 const TabComponent = () => {
@@ -202,6 +203,50 @@ const TabComponent = () => {
   );
 };
 
+const HERO_HEADLINES = [
+  "Email is Infrastructure",
+  "Context is King",
+  "Compliance is Safety",
+];
+
+const TypewriterHeroHeadline = () => {
+  const [lineIndex, setLineIndex] = useState(0);
+  const [typedChars, setTypedChars] = useState(0);
+
+  const currentLine = HERO_HEADLINES[lineIndex];
+  const fullText = currentLine;
+
+  useEffect(() => {
+    if (typedChars < fullText.length) {
+      const typingTimer = setTimeout(() => {
+        setTypedChars((prev) => prev + 1);
+      }, 50);
+      return () => clearTimeout(typingTimer);
+    }
+
+    const holdTimer = setTimeout(() => {
+      setLineIndex((prev) => (prev + 1) % HERO_HEADLINES.length);
+      setTypedChars(0);
+    }, 2200);
+
+    return () => clearTimeout(holdTimer);
+  }, [typedChars, fullText.length]);
+
+  const typedText = fullText.slice(0, typedChars);
+
+  return (
+    <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 min-h-[7rem] md:min-h-[10rem]">
+      <span className="block">
+        {typedText}
+        <span className="ml-1 inline-block h-[1em] w-[2px] bg-gray-400 align-middle animate-pulse" />
+      </span>
+      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+        Own Yours
+      </span>
+    </h1>
+  );
+};
+
 export default function Home() {
   return (
     <DefaultLayout>
@@ -209,11 +254,13 @@ export default function Home() {
       <ChristmasSparkleWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              One platform. One subscription.
-            </h1>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-6 text-sm font-medium text-gray-600">
+              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+              Own your business data
+            </div>
+            <TypewriterHeroHeadline />
                 <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                  Fully integrated email, meetings, documents, and automation
+                  Bring your own storage. No per-seat fees. Full data sovereignty.
                 </p>
             <div className="relative inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full shadow-sm mb-8">
               <div className="flex -space-x-2">
@@ -237,14 +284,14 @@ export default function Home() {
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <span className="font-semibold text-gray-900">Join <span className="text-xl font-bold text-green-600">5,500+</span> who've discovered Venmail</span>
+                <span className="font-semibold text-gray-900">Join <span className="text-xl font-bold text-green-600">7,100+</span> who've discovered Venmail</span>
               </div>
               <div className="hidden md:flex items-center gap-4 ml-2 text-sm text-gray-600">
                 <div className="flex items-center gap-1">
                   <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  <span>5.3M emails processed</span>
+                  <span>5.6M emails processed</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -255,44 +302,69 @@ export default function Home() {
                               </div>
             </div>
             
-            {/* Integration Icons */}
-            <p className="text-lg font-medium text-gray-700 mb-6">Which are you?</p>
-            <div className="grid md:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
-              <a
-                href="#for-me"
-                className="group p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-primary-500 hover:bg-primary-50 transition-all text-center"
-              >
-                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-primary-200">
-                  <svg className="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-1">For Me</h3>
-                <p className="text-sm text-gray-600">Simple smart personal email with booking link, drive and meetings</p>
-              </a>
+            {/* Audience Segments */}
+            <p className="text-lg font-medium text-gray-700 mb-6">Built for organisations that value sovereignty</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 max-w-4xl mx-auto mb-8">
               <a
                 href="#for-business"
-                className="group p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all text-center"
+                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all text-center"
               >
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-200">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-orange-200">
+                  <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">For Business</h3>
-                <p className="text-sm text-gray-600">Collaborative inbox, campaigns, CRM integrations and more</p>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">Businesses</h3>
+                <p className="text-xs text-gray-500">Own your data, cut costs</p>
               </a>
               <a
-                href="#for-developers"
-                className="group p-6 bg-white border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-center"
+                href="#for-business"
+                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all text-center"
               >
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-green-200">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-200">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                   </svg>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">For Developers</h3>
-                <p className="text-sm text-gray-600">Program the entire email experience whether receiving or sending</p>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">Hosting Cos</h3>
+                <p className="text-xs text-gray-500">White-label &amp; resell</p>
+              </a>
+              <a
+                href="#for-business"
+                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-amber-500 hover:bg-amber-50 transition-all text-center"
+              >
+                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-amber-200">
+                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">Schools</h3>
+                <p className="text-xs text-gray-500">Sovereign student data</p>
+              </a>
+              <a
+                href="#for-business"
+                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-center"
+              >
+                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-indigo-200">
+                  <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">Legal</h3>
+                <p className="text-xs text-gray-500">Privileged comms, your servers</p>
+              </a>
+              <a
+                href="#for-business"
+                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-center"
+              >
+                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200">
+                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 10h.01M12 10h.01M15 10h.01" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 text-sm mb-1">Governments</h3>
+                <p className="text-xs text-gray-500">In-country, sovereign</p>
               </a>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -302,13 +374,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-primary-300"
               >
-                Get Started Free
-              </a>
-              <a
-                href="#see-it-in-action"
-                className="inline-flex items-center text-lg font-medium text-gray-700 hover:text-primary-600 transition-colors"
-              >
-                See How Venmail Helps you win
+                Sign Up Today
               </a>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-3 justify-center text-sm text-gray-500">
@@ -361,53 +427,51 @@ export default function Home() {
       <CountUpStats />
       
       <BusinessesSection />
+      <CinematicHowItWorks />
       <DevelopersSection />
       <MobileAppsSection />
       <AIWorkflowShowcase />
-
-      {/* See it in Action */}
-      <section className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">Better now than later</h2>
-          <p className="text-gray-600">Simple modern features to transform and amplify your email powers.</p>
-        </div>
-        <TabComponent />
-      </section>
 
       {/* Pricing Comparison */}
       <CostComparisonSlider hasButton={true} />
 
       {/* Footer CTA */}
-      <section className="bg-gray-50 py-16 lg:py-20">
+      <section className="bg-gray-900 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-            Ready to give yourself a treat?
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-6 text-sm font-medium text-white/70">
+            Free base tier · No per-seat fees · BYOS storage
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Stop renting your email infrastructure.
           </h2>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-4">
+          <a
+            href="#for-business"
+            className="inline-flex items-center text-base md:text-lg font-medium text-white/90 hover:text-white transition-colors mb-6"
+          >
+            See how your business runs better
+          </a>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto mb-8">
+            Deploy Venmail on your own storage. Your data never leaves your control. No per-seat tax as you grow.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <a
               href="https://m.venmail.io/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-black hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-black bg-white hover:bg-gray-100 transition-colors"
             >
-              Yes!
+              Get Started Free
             </a>
             <a
               href="/pricing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-gray-800 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white border border-white/30 hover:bg-white/10 transition-colors"
             >
-              More coffee please
+              View Pricing
             </a>
           </div>
-          <p className="text-center text-sm text-gray-600 mb-4">⚡ Join 5,500+ users who've already made the switch</p>
-          <a
-            href="#see-it-in-action"
-            className="inline-flex items-center text-base font-medium text-gray-600 hover:text-primary-600 transition-colors"
-          >
-            It takes less than 5 minutes to sign up
-          </a>
+          <p className="text-sm text-white/50">Join 5,500+ organisations already running on Venmail infrastructure</p>
         </div>
       </section>
     </DefaultLayout>
