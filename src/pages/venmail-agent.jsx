@@ -81,13 +81,13 @@ const VenmailAgentPage = () => {
       subheading: "Search History",
       title: "Persistent query management",
       description: "Automatically save and manage all search queries with export functionality. Review, filter, and export contact intelligence data.",
-      image: "/home/section-search-history.svg",
+      image: "/venmail-agent/full-dashboard%20(Custom).png",
     },
     {
       subheading: "Real-time Results",
       title: "Live contact discovery",
       description: "Watch as the extension scours multiple data sources in real-time, aggregating contact information and reputation signals instantly.",
-      image: "/home/section-real-time.svg",
+      image: "/venmail-agent/full-dashboard%20(Custom)%20(1).png",
     },
   ];
 
@@ -132,7 +132,7 @@ const VenmailAgentPage = () => {
         description={
           "Transform your browser into a powerful contact intelligence platform. Instantly verify emails, analyze reputation, and extract contact information from across the web with enterprise-grade accuracy."
         }
-        image={"/venmail-agent/hero-dashboard.svg"}
+        image={"/venmail-agent-full.png"}
         button1Text={"Install Extension"}
         button2Text={"View Documentation"}
       />
