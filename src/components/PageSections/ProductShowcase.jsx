@@ -91,11 +91,11 @@ const ProductShowcase = () => {
         <div className="text-center mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full bg-white/5 border border-white/10 text-white/70">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            Sovereign infrastructure • BYOS-native • 99.9% uptime
+            BYOS-native • 99.9% uptime
           </div>
           <h2 className="text-3xl md:text-4xl font-semibold text-white">
-            The business stack.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Everything included.</span>
+            Step up your <span className="line-through">game</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">stack</span> with.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Premium Experience.</span>
           </h2>
           <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-8">
             Choose the model that fits your stage: managed convenience, rented capacity, or infrastructure-level control with BYOS.

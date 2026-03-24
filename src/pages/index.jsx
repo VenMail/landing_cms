@@ -7,6 +7,7 @@ import DevelopersSection from "@/components/PageSections/DevelopersSection";
 import MobileAppsSection from "@/components/PageSections/MobileAppsSection";
 import AIWorkflowShowcase from "@/components/PageSections/AIWorkflowShowcase";
 import ProductShowcase from "@/components/PageSections/ProductShowcase";
+import BatteriesSection from "@/components/PageSections/BatteriesSection";
 import CountUpStats from "@/components/PageSections/CountUpStats";
 import CinematicHowItWorks from "@/components/PageSections/CinematicHowItWorks";
 import { ChristmasSparkleWrapper } from "@/utils/christmasSparkle";
@@ -420,9 +421,12 @@ export default function Home() {
         </div>
       </ChristmasSparkleWrapper>
       
-      {/* Product Showcase */}
+      {/* Product Showcase — dark infrastructure cards */}
       <ProductShowcase />
-      
+
+      {/* Batteries — hub-and-spoke animation showing built-in tools */}
+      <BatteriesSection />
+
       {/* CountUp Stats Section */}
       <CountUpStats />
       
