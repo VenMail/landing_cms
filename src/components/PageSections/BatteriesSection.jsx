@@ -190,6 +190,10 @@ const HUB_STYLE = `
   90%  { opacity: 1; }
   100% { offset-distance: 100%; opacity: 0; }
 }
+@keyframes bat-bot-pulse {
+  0%, 100% { opacity: 0.12; }
+  50%       { opacity: 0.28; }
+}
 `;
 
 function HubViz({ visible }) {
@@ -296,6 +300,27 @@ function HubViz({ visible }) {
               }}
             />
           ))}
+
+          {/* Bot traveling the outer orbit — single group, one animateMotion */}
+          {visible && (
+            <g style={{ filter: "drop-shadow(0 0 5px rgba(255,92,57,0.55))" }}>
+              <animateMotion
+                dur="18s"
+                repeatCount="indefinite"
+                path={`M ${CX} ${CY - R} A ${R} ${R} 0 0 1 ${CX} ${CY + R} A ${R} ${R} 0 0 1 ${CX} ${CY - R}`}
+              />
+              {/* Glow halo */}
+              <circle cx="0" cy="0" r="14" fill="#FF5C39" style={{ animation: "bat-bot-pulse 2s ease-in-out infinite" }} />
+              {/* Head */}
+              <rect x="-9" y="-8" width="18" height="14" rx="3.5" fill="white" stroke="#FF5C39" strokeWidth="1.5" />
+              {/* Eyes */}
+              <circle cx="-3.2" cy="-1.5" r="2" fill="#FF5C39" />
+              <circle cx="3.2" cy="-1.5" r="2" fill="#FF5C39" />
+              {/* Antenna */}
+              <line x1="0" y1="-8" x2="0" y2="-13" stroke="#FF5C39" strokeWidth="1.5" strokeLinecap="round" />
+              <circle cx="0" cy="-15" r="2" fill="#FF5C39" />
+            </g>
+          )}
         </svg>
 
         {/* ── Tool nodes (HTML over SVG) ─────────────────────────────── */}
@@ -373,28 +398,6 @@ function HubViz({ visible }) {
             textAlign: "center",
           }}
         >
-          {/* Spinning dashed ring */}
-          {visible && (
-            <svg
-              width="116" height="116"
-              style={{
-                position: "absolute",
-                top: "50%", left: "50%",
-                transform: "translate(-50%, -50%)",
-                animation: "bat-spin-slow 14s linear infinite",
-                pointerEvents: "none",
-              }}
-            >
-              <circle
-                cx="58" cy="58" r="52"
-                fill="none"
-                stroke="#FF5C39"
-                strokeWidth="1"
-                strokeDasharray="6 8"
-                opacity="0.4"
-              />
-            </svg>
-          )}
           {/* Hub card */}
           <div
             style={{

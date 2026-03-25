@@ -475,7 +475,7 @@ export default function Home() {
               View Pricing
             </a>
           </div>
-          <p className="text-sm text-white/50">Join 5,500+ organisations already running on Venmail infrastructure</p>
+          <p className="text-sm text-white/50">Join 7,100+ users already using Venmail</p>
         </div>
       </section>
     </DefaultLayout>

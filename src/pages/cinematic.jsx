@@ -81,7 +81,7 @@ const CinematicHero = () => {
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-white/80 text-sm font-medium">Join 5,500+ teams who've reclaimed their email</span>
+            <span className="text-white/80 text-sm font-medium">Join 7,100+ users who've reclaimed their email</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
@@ -433,7 +433,7 @@ export default function CinematicHome() {
             </a>
           </div>
           <div className="mt-8 text-gray-400">
-            ⚡ 5,500+ users have already made the switch
+            ⚡ 7,100+ users have already made the switch
           </div>
         </div>
       </section>
