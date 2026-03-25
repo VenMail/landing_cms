@@ -455,7 +455,7 @@ export default function Home() {
             See how your business runs better
           </a>
           <p className="text-lg text-white/70 max-w-2xl mx-auto mb-8">
-            Deploy Venmail on your own storage. Your data never leaves your control. No per-seat tax as you grow.
+            Deploy Venmail on your own storage. Your email data stays under your control in the storage you manage. No per-seat tax as you grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <a

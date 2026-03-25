@@ -5,7 +5,7 @@ const BUSINESS_NICHES = [
     icon: LuShield,
     title: "Sovereign & Compliant",
     headline: "Data stays in-country — guaranteed",
-    description: "BYOS makes Venmail natively compliant with GDPR, NDPR, DPDP, and NCA without custom builds. Your data never touches our servers.",
+    description: "BYOS keeps your email data in your own storage. Venmail may temporarily process or cache data to run the service and deliver messages, without requiring you to host email in our systems.",
     bestFor: ["Governments", "Law firms", "Healthcare", "Finance"],
     gradient: "from-blue-50 via-blue-100/50 to-indigo-50"
   },
@@ -29,7 +29,7 @@ const BUSINESS_NICHES = [
 
 const CORE_FEATURES = [
   "Bring Your Own Storage — S3, Azure, Google Cloud, or self-hosted",
-  "Full data sovereignty — Venmail never accesses your email data",
+  "Full data sovereignty — your email data stays in your storage; Venmail accesses it only as needed to run the service",
   "Custom domains with SPF, DKIM, DMARC configured in minutes",
   "Unlimited users — no per-seat pricing, ever",
   "White-label ready — resellers brand it as their own product",

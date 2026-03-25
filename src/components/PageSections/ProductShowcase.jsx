@@ -27,7 +27,7 @@ const ProductShowcase = () => {
         </svg>
       ),
       title: "Data Sovereignty",
-      description: "GDPR, NDPR, DPDP, NCA — natively compliant because data never leaves your storage"
+      description: "GDPR, NDPR, DPDP, NCA — natively compliant because your data stays in the storage you control"
     },
     {
       icon: (

@@ -131,7 +131,7 @@ export default function WhyVenmailSection() {
                 <LuShield className="w-5 h-5 text-blue-600" />
                 <span className="text-3xl font-bold text-gray-900">100%</span>
               </div>
-              <p className="text-sm text-gray-600">Data ownership — VenMail never touches it</p>
+              <p className="text-sm text-gray-600">Data ownership — your email data stays in your storage (VenMail may temporarily process/cache it)</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">

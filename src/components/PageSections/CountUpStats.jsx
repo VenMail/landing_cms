@@ -7,7 +7,7 @@ const stats = [
     value: 100,
     suffix: '%',
     label: 'data ownership',
-    description: 'VenMail never touches your email data — BYOS by design'
+    description: 'Your email data stays in your storage — BYOS by design (VenMail may temporarily process or cache it)'
   },
   {
     value: 0,

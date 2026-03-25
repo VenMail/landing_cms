@@ -366,7 +366,7 @@ const VenmailSolutionSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Your Servers, Your Compliance</h3>
             <p className="text-gray-600 mb-4">
-              BYOS (Bring Your Own Storage) means your patient/client data never leaves your infrastructure. 
+              BYOS (Bring Your Own Storage) keeps your patient/client data in your infrastructure. VenMail may temporarily process or cache data to run workflows and deliver messages.
               HIPAA & GDPR compliant by design.
             </p>
             <div className="text-blue-600 font-semibold">Zero data exfiltration risk →</div>

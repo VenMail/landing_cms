@@ -438,8 +438,8 @@ export default function WhyVenmail() {
 
               <p style={{ marginBottom: "22px" }}>
                 And you should own your data outright. Venmail runs on your own storage — S3,
-                Azure Blob, or self-hosted. Your emails never pass through our servers. They
-                live where you put them. When you leave, they come with you.
+                Azure Blob, or self-hosted. Your emails live where you manage them; any
+                required processing may involve transient data access (including temporary caching) to deliver the Venmail experience.
               </p>
 
               <Divider />
