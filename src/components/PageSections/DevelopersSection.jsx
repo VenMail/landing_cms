@@ -8,7 +8,7 @@ const API_FEATURES = [
     icon: LuSend,
     title: "Send Email",
     description: "Via REST API or SMTP",
-    code: "POST /v1/send"
+    code: "POST /api/v1/send/message"
   },
   {
     icon: LuWebhook,
@@ -20,32 +20,39 @@ const API_FEATURES = [
     icon: LuCode,
     title: "Developer-First",
     description: "Clean docs, SDKs, no lock-in",
-    code: "npm install @venmail/api"
+    code: "npm install @venmail/vsm"
   }
 ];
 
 const CODE_EXAMPLES = [
   {
     language: "curl",
-    code: `curl -X POST https://api.venmail.io/v1/send \\
-  -H "Authorization: Bearer vm_live_..." \\
+    code: `curl -X POST https://m.venmail.io/api/v1/send/message \\
+  -H "X-Server-API-Key: vm_live_..." \\
   -H "Content-Type: application/json" \\
   -d '{
-    "to": "user@example.com",
+    "to": ["user@example.com"],
+    "from": "hello@yourdomain.com",
     "subject": "Welcome to Venmail!",
-    "html": "<p>Thanks for joining us!</p>"
+    "html_body": "<p>Thanks for joining us!</p>"
   }'`
   },
   {
     language: "javascript",
-    code: `import Venmail from '@venmail/api';
+    code: `import { vvs } from '@venmail/vsm';
 
-const client = new Venmail('vm_live_...');
-
-await client.send({
-  to: 'user@example.com',
-  subject: 'Welcome to Venmail!',
-  html: '<p>Thanks for joining us!</p>'
+const res = await fetch('https://m.venmail.io/api/v1/send/message', {
+  method: 'POST',
+  headers: {
+    'X-Server-API-Key': 'vm_live_...',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    to: ['user@example.com'],
+    from: 'hello@yourdomain.com',
+    subject: 'Welcome to Venmail!',
+    html_body: '<p>Thanks for joining us!</p>',
+  }),
 });`
   },
   {
@@ -145,7 +152,7 @@ export default function DevelopersSection() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="https://github.com/VenMail"
+                  href="https://docs.venmail.io"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-black hover:bg-gray-800 transition-colors"

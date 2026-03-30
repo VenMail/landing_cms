@@ -52,8 +52,10 @@ export default function Footer({ hideFooterJumbo = false }) {
       title: "Resources",
       links: [
         { label: "Help Center", href: "/resources/help" },
+        { label: "API Docs", href: "https://docs.venmail.io" },
         { label: "Deliverability", href: "/solutions/deliverability" },
         { label: "Integrations", href: "/integrations" },
+        { label: "GitHub", href: "https://github.com/VenMail" },
       ],
     },
     {

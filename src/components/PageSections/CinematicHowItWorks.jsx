@@ -508,7 +508,7 @@ function CinematicVideo() {
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style={{ opacity: 0.4 }}>
                 <path d="M5 1a4 4 0 100 8A4 4 0 005 1zM5 3a2 2 0 110 4A2 2 0 015 3z" fill="white" />
               </svg>
-              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.02em" }}>app.venmail.io</span>
+              <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.35)", letterSpacing: "0.02em" }}>m.venmail.io</span>
             </div>
           </div>
 

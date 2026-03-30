@@ -131,6 +131,10 @@ const resources = [
   //   href: "/career",
   // },
   {
+    name: "API Documentation",
+    href: "https://docs.venmail.io",
+  },
+  {
     name: "Terms of Service",
     href: "/resources/terms-of-service",
   },
