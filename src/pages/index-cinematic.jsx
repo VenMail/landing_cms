@@ -82,7 +82,7 @@ const CinematicHero = () => {
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-white/80 text-sm font-medium">Join 7,100+ users who've reclaimed their email</span>
+            <span className="text-white/80 text-sm font-medium">Trusted by thousands of organizations</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
@@ -108,7 +108,7 @@ const CinematicHero = () => {
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-purple-500/25"
             >
-              <span className="relative z-10">Start Your Revolution</span>
+              <span className="relative z-10">Get Started Free</span>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
             </a>
             
@@ -116,7 +116,7 @@ const CinematicHero = () => {
               href="#the-problem"
               className="inline-flex items-center text-lg font-medium text-white/80 hover:text-white transition-colors group"
             >
-              <span>Discover the mission</span>
+              <span>Learn More</span>
               <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
@@ -177,11 +177,11 @@ const TheProblemSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            The Email Crisis Is Real
+            Modern Email Challenges
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional email has become something only established companies can afford. 
-            That's backwards. Every creator, every startup deserves proper email infrastructure.
+            Professional email should scale with your business, not your headcount.
+            Every organization deserves enterprise-grade email at predictable costs.
           </p>
         </div>
         
@@ -189,19 +189,19 @@ const TheProblemSection = () => {
           <div className="stat-item text-center p-8 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl border border-red-100">
             <div className="text-5xl font-bold text-red-600 mb-4">$25+</div>
             <div className="text-lg font-semibold text-gray-900 mb-2">Per User Per Month</div>
-            <div className="text-gray-600">The industry standard that's killing small teams</div>
+            <div className="text-gray-600">The industry standard for per-seat pricing</div>
           </div>
           
           <div className="stat-item text-center p-8 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl border border-orange-100">
-            <div className="text-5xl font-bold text-orange-600 mb-4">73%</div>
-            <div className="text-lg font-semibold text-gray-900 mb-2">Ration Email</div>
-            <div className="text-gray-600">Companies limit professional emails to save costs</div>
+            <div className="text-5xl font-bold text-orange-600 mb-4">Limited</div>
+            <div className="text-lg font-semibold text-gray-900 mb-2">Email Access</div>
+            <div className="text-gray-600">Many companies limit email accounts to control costs</div>
           </div>
           
           <div className="stat-item text-center p-8 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl border border-purple-100">
             <div className="text-5xl font-bold text-purple-600 mb-4">∞</div>
             <div className="text-lg font-semibold text-gray-900 mb-2">Fragmentation</div>
-            <div className="text-gray-600">Important conversations lost across personal accounts</div>
+            <div className="text-gray-600">Communication fragmentation across personal accounts</div>
           </div>
         </div>
         
@@ -246,7 +246,7 @@ const TheSolutionSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Control Matters More Than Features
+            Control and Compliance Matter
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We built VenMail around three simple principles that change everything
@@ -260,12 +260,12 @@ const TheSolutionSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Your Data, Your Choice</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Your Data, Your Infrastructure</h3>
             <p className="text-gray-600 mb-4">
               Your email lives where you want it to live. AWS S3, Google Cloud, even your own server. 
               Not trapped in someone else's system.
             </p>
-            <div className="text-purple-600 font-semibold">No exporting worries →</div>
+            <div className="text-purple-600 font-semibold">No vendor lock-in →</div>
           </div>
           
           <div className="solution-card group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-blue-100">
@@ -274,12 +274,12 @@ const TheSolutionSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Storage-Based Pricing</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Storage-Based Pricing Model</h3>
             <p className="text-gray-600 mb-4">
               Pay for what you use, not how many people work for you. 
               A 5-person team and 50-person team pay about the same for same storage.
             </p>
-            <div className="text-blue-600 font-semibold">Fair and predictable →</div>
+            <div className="text-blue-600 font-semibold">Predictable costs →</div>
           </div>
           
           <div className="solution-card group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-green-100">
@@ -288,12 +288,12 @@ const TheSolutionSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">What You Actually Need</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Essential Business Features</h3>
             <p className="text-gray-600 mb-4">
               Follow-ups, tracking, campaigns, document handling. 
               Things that help you communicate better and grow your business.
             </p>
-            <div className="text-green-600 font-semibold">No feature bloat →</div>
+            <div className="text-green-600 font-semibold">Focused functionality →</div>
           </div>
         </div>
       </div>
@@ -324,28 +324,28 @@ const TheMissionSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={contentRef} className="text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-8">
-            This Is Bigger Than Email
+            Beyond Email Infrastructure
           </h2>
           
           <div className="max-w-4xl mx-auto text-xl md:text-2xl text-gray-300 leading-relaxed mb-16">
             <p className="mb-8">
-              We're part of a larger shift. People need privacy-respecting products; 
-              tools that feel clean and cohesive, not fragmented.
+              Organizations need privacy-respecting infrastructure;
+              tools that are cohesive, not fragmented.
             </p>
             <p className="mb-8">
-              We're not trying to be the biggest email provider. 
-              But rather, one that understands that email is fundamental infrastructure, not a luxury service.
+              We focus on control and compliance.
+              We understand that email is fundamental infrastructure, not a luxury service.
             </p>
             <p className="text-2xl md:text-3xl font-light text-purple-300 italic">
-              "Technology should serve humanity, not the other way around."
+              "Technology should serve business needs."
             </p>
           </div>
           
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-6">Join the Mission</h3>
+            <h3 className="text-2xl font-bold mb-6">Get Started</h3>
             <p className="text-gray-300 mb-8">
-              Help us build email that respects users and their budgets. 
-              Not as customers, but as fellow travelers who believe in this vision.
+              Email infrastructure that respects budgets and control.
+              As partners in building better email infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

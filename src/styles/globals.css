@@ -3,21 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #FAFAFA;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, Helvetica, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer utilities {
@@ -83,56 +78,32 @@ header {
   z-index: 50;
 }
 
-/* Cinematic Enhancements */
-.cinematic-backdrop {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+/* Premium card styles */
+.premium-card {
+  background: white;
+  border: 1px solid #f3f4f6;
+  transition: all 0.2s ease;
 }
 
-.cinematic-glow {
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1), 0 0 80px rgba(0, 0, 0, 0.05);
+.premium-card:hover {
+  border-color: #e5e7eb;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
-.cinematic-vignette {
-  position: relative;
-  overflow: hidden;
+/* Section spacing standard */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
 }
 
-.cinematic-vignette::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
-  pointer-events: none;
-  z-index: 1;
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
 }
 
-.cinematic-vignette > * {
-  position: relative;
-  z-index: 2;
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cinematic-frame {
-  position: relative;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.feature-glow {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 20px 60px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.feature-glow:hover {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 30px 80px rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+/* Deep dark for premium sections */
+.bg-deep-dark {
+  background-color: #020617;
 }

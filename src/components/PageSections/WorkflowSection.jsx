@@ -5,34 +5,34 @@ import { useEffect, useRef, useState } from "react";
 const sections = [
   {
     id: "unified",
-    title: "All-in-One Communication Suite",
+    title: "Integrated Communication Suite",
     subtitle: "INTEGRATED WORKFLOW",
     description:
-      "VenMail combines email, scheduling, and lead generation in one powerful platform. No more switching between multiple tools - manage your entire communication workflow from a single, unified interface.",
+      "VenMail combines email, scheduling, and lead generation in one platform. Manage communication workflows from a unified interface.",
     icon: "/icons/unified.svg"
   },
   {
     id: "ai",
-    title: "AI-Powered Email Assistant",
+    title: "AI-Assisted Email",
     subtitle: "WORKFLOW 1: EMAIL MANAGEMENT",
     description:
-      "Our AI helps you write better emails, summarize long threads, and detect spam. Spend less time in your inbox and more time on what matters most.",
+      "AI assists with email drafting, thread summaries, and spam detection.",
     icon: "/icons/ai.svg"
   },
   {
     id: "scheduling",
-    title: "Seamless Meeting Scheduling",
+    title: "Meeting Scheduling",
     subtitle: "WORKFLOW 2: CALENDAR INTEGRATION",
     description:
-      "Share your booking page and let clients schedule meetings directly. Syncs with your calendar and automatically adds meetings to your schedule.",
+      "Share your booking page for direct client scheduling. Calendar sync included.",
     icon: "/icons/calendar.svg"
   },
   {
     id: "leads",
-    title: "Smart Lead Generation",
+    title: "Lead Management",
     subtitle: "WORKFLOW 3: LEAD MANAGEMENT",
     description:
-      "Find and connect with your ideal customers. Our tools help you generate, track, and convert leads without leaving your inbox.",
+      "Find, track, and convert leads from your inbox.",
     icon: "/icons/leads.svg"
   },
 ];
@@ -113,7 +113,7 @@ export default function WorkflowSection() {
                       target="_blank"
                       className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
                     >
-                      Get Started for Free
+                      Get Started
                     </a>
                   )}
                 </div>

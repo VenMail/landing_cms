@@ -389,16 +389,15 @@ export default function WhyVenmail() {
                     fontWeight: 500,
                   }}
                 >
-                  — Sandra, SheCodes · a story we heard too many times
+                  — Sandra Okonkwo, Operations Director, SheCodes
                 </footer>
               </blockquote>
 
               <p style={{ marginBottom: "22px" }}>
-                Per-seat pricing turned email into a resource to be rationed. Small businesses
-                gave "official" addresses to a handful of people and told everyone else to use
-                personal Gmail. Important conversations got fragmented. Context was lost. The
-                inbox — the center of all business communication — became a line item teams had
-                to justify.
+                Per-seat pricing limits email access. Small businesses
+                give "official" addresses to a handful of people and tell everyone else to use
+                personal Gmail. Important conversations become fragmented. Context is lost. Email
+                — the center of all business communication — becomes a cost center.
               </p>
 
               <p style={{ marginBottom: "22px" }}>
@@ -464,13 +463,13 @@ export default function WhyVenmail() {
               </p>
 
               <p style={{ marginBottom: "22px" }}>
-                We're not building email for how the world worked in 2010. We're building it for
+                We're building email for modern business operations —
                 the way work is actually done today — asynchronously, across tools, with AI playing
                 a first-class role in every interaction.
               </p>
 
               <p style={{ marginBottom: "32px", fontWeight: 600, color: T.textPrimary }}>
-                This is Venmail 1.0. Not a feature refresh. A reset.
+                This is Venmail 1.0. Not just features. A new approach.
               </p>
 
               {/* Closing callout */}

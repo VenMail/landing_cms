@@ -4,42 +4,27 @@ const config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/remotion/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'sans-serif'],
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(-10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        sparkle: {
-          '0%, 100%': { 
-            opacity: '0',
-            transform: 'scale(0) rotate(0deg)',
-          },
-          '50%': { 
-            opacity: '1',
-            transform: 'scale(1) rotate(180deg)',
-          },
-        },
-        twinkle: {
-          '0%, 100%': { opacity: '0.3' },
-          '50%': { opacity: '1' },
-        },
-        glow: {
-          '0%, 100%': { 
-            boxShadow: '0 0 5px rgba(255, 215, 0, 0.3)',
-          },
-          '50%': { 
-            boxShadow: '0 0 20px rgba(255, 215, 0, 0.6)',
-          },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
         fadeIn: 'fadeIn 0.2s ease-out',
-        sparkle: 'sparkle 2s ease-in-out infinite',
-        twinkle: 'twinkle 1.5s ease-in-out infinite',
-        glow: 'glow 2s ease-in-out infinite',
+        fadeInUp: 'fadeInUp 0.6s ease-out',
       },
       colors: {
         background: "var(--background)",

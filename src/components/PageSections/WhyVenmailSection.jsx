@@ -5,26 +5,26 @@ import { LuMail, LuLayers, LuShield, LuTrendingUp, LuUsers, LuDollarSign } from 
 const PILLARS = [
   {
     icon: LuShield,
-    title: "Who controls your email data when policy changes overnight?",
-    body: "If your provider controls storage, they also control access boundaries. BYOS (Bring Your Own Storage) lets you keep email data in your own S3, Azure, or self-hosted environment while VenMail runs the infrastructure layer.",
+    title: "Who controls your email data?",
+    body: "Provider-controlled storage limits data control. BYOS (Bring Your Own Storage) lets you keep email data in your own S3, Azure, or self-hosted environment while VenMail runs the infrastructure layer.",
     stat: "100%",
-    statLabel: "data ownership",
+    statLabel: "data control",
     color: "from-blue-500 to-cyan-500"
   },
   {
     icon: LuLayers,
-    title: "Localisation laws demand data stays in-country.",
-    body: "Nigeria NDPR, EU GDPR, India DPDP, Saudi NCA — all require data to remain within sovereign borders. BYOS makes VenMail natively compliant without custom builds or expensive legal workarounds.",
+    title: "Data sovereignty requirements",
+    body: "NDPR, GDPR, DPDP, NCA compliance requires data to remain within borders. BYOS enables native compliance without custom infrastructure.",
     stat: "BYOS",
-    statLabel: "sovereign-native",
+    statLabel: "compliance-ready",
     color: "from-orange-500 to-red-500"
   },
   {
     icon: LuMail,
-    title: "Should communication costs scale with users or with actual usage?",
-    body: "As teams grow, predictable pricing matters. VenMail scales costs by storage and usage, not seat count. The free base tier is structurally enabled by BYOS, not a short-term promotion.",
+    title: "Should communication costs scale with users or usage?",
+    body: "Predictable pricing matters for growing teams. VenMail scales costs by storage and usage. Storage-based pricing enables predictable costs.",
     stat: "$0",
-    statLabel: "per-seat fee",
+    statLabel: "per-user fees",
     color: "from-green-500 to-emerald-500"
   },
 ];
@@ -94,18 +94,18 @@ export default function WhyVenmailSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-orange-100 to-red-100 border border-orange-200 rounded-full mb-6">
             <LuTrendingUp className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-medium text-orange-800">Critical Questions for Email Strategy</span>
+            <span className="text-sm font-medium text-orange-800">Key Considerations for Email Infrastructure</span>
           </div>
           
           <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Ask better questions about
+            Consider
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
               control, compliance, and cost
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Modern teams may choose managed services or rented infrastructure based on context. VenMail is built for teams that need ownership-level control, compliance certainty, and cost predictability on storage they control.
+            Key considerations for email infrastructure. Modern teams may choose managed services or rented infrastructure based on context. VenMail is built for teams that need ownership-level control, compliance certainty, and cost predictability on storage they control.
           </p>
         </div>
 

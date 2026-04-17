@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@remotion/player": "^4.0.447",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
     "gsap": "^3.12.5",
@@ -21,7 +22,8 @@
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "react-intersection-observer": "^10.0.2"
+    "react-intersection-observer": "^10.0.2",
+    "remotion": "^4.0.447"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

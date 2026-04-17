@@ -119,7 +119,7 @@ export default function DevelopersSection() {
         <div className="glass-card p-8 md:p-12 rounded-2xl border border-gray-100 shadow-lg mb-12 relative overflow-hidden">
           {/* Subtle background pattern */}
           <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/30" />
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Built for developers</h3>
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Developer Tools</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "RESTful API design",
@@ -145,10 +145,10 @@ export default function DevelopersSection() {
           <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-1 rounded-2xl inline-block">
             <div className="bg-white p-8 md:p-12 rounded-2xl">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Start building with Venmail API
+                Start with Venmail API
               </h3>
               <p className="text-lg text-gray-600 mb-8">
-                Get your API key in seconds and start sending emails immediately
+                Get your API key and start sending emails
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
@@ -163,7 +163,7 @@ export default function DevelopersSection() {
                   href="#see-it-in-action"
                   className="inline-flex items-center gap-2 text-lg font-medium text-gray-700 hover:text-green-600 transition-colors"
                 >
-                  See How Venmail Helps you win
+                  View Integration Examples
                   <LuZap className="w-5 h-5" />
                 </a>
               </div>

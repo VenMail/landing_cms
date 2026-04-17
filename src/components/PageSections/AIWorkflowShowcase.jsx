@@ -46,13 +46,13 @@ const AIWorkflowShowcase = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-5 text-sm font-medium text-gray-600">
-            Built into the infrastructure — not bolted on
+            Integrated into the infrastructure
           </div>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-            Powerful features included
+            Included Features
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Document intelligence, sales automation, and payment workflows come standard — running on your infrastructure, not a third-party layer.
+            Document intelligence, sales automation, and payment workflows included
           </p>
         </div>
         
@@ -92,17 +92,17 @@ const AIWorkflowShowcase = () => {
         {/* CTA Section */}
         <div className="text-center mt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            Own your stack. Keep every feature.
+            Own your infrastructure. Keep every feature
           </h3>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            All of this runs on your infrastructure — your storage, your domain, your data.
+            All features run on your infrastructure
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="/email-automation"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 rounded-lg shadow-lg"
             >
-              Explore Workflows
+              View Workflows
             </a>
             <a
               href="https://m.venmail.io/register"

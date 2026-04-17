@@ -47,8 +47,6 @@ const PricingTable = () => {
     {
       name: "STARTUP",
       price: "$7/mo",
-      originalPrice: "$49",
-      discount: "86% OFF",
       caption: "Unlimited users · 60GB shared storage",
       button: "Choose Startup",
       href: "https://m.venmail.io/register",
@@ -79,8 +77,6 @@ const PricingTable = () => {
     {
       name: "BUSINESS",
       price: "$23.2/mo",
-      originalPrice: "$99",
-      discount: "77% OFF",
       caption: "Unlimited users · 250GB shared storage",
       button: "Choose Business",
       href: "https://m.venmail.io/register",
@@ -112,8 +108,6 @@ const PricingTable = () => {
     {
       name: "ENTERPRISE",
       price: "$100/mo",
-      originalPrice: "$299",
-      discount: "67% OFF",
       caption: "Unlimited users · 1.5TB shared storage",
       button: "Talk to Sales",
       href: "/contact-us",
@@ -122,7 +116,7 @@ const PricingTable = () => {
         "Users Included": "Unlimited users",
         "Storage Included": "1.5TB shared",
         "Bring Your Own Storage": "Included",
-        "Prospect Discovery": "Unlimited*",
+        "Prospect Discovery": "Unlimited",
         "Campaigns & Bulk Email": "Unlimited + SLA",
         "Campaign/Newsletter Add-on": "Included",
         "Automated Follow-ups": "yes",
@@ -277,7 +271,7 @@ const PricingTable = () => {
         </tbody>
       </table>
       <p className="text-xs text-gray-500 mt-4 max-w-3xl">
-        *Unlimited prospect discovery on Enterprise is subject to fair-use policies. Bring Your Own Storage is available as a {isLoading ? '$20' : formatPrice(20)}/mo add-on for all paid plans; Campaign/Newsletter automation add-on available for {isLoading ? '$35' : formatPrice(35)}/mo when not included.
+        Bring Your Own Storage is available as a {isLoading ? '$20' : formatPrice(20)}/mo add-on for all paid plans; Campaign/Newsletter automation add-on available for {isLoading ? '$35' : formatPrice(35)}/mo when not included.
       </p>
     </div>
   );
@@ -433,8 +427,6 @@ function pricing() {
       id: "startup",
       monthly: 7,
       yearly: 84,
-      originalPrice: 49,
-      discount: "86% OFF",
       description1: "Unlock growth with unlimited users and automations.",
       description2: "Unlimited users · 60GB shared storage",
       featured: false,
@@ -454,8 +446,6 @@ function pricing() {
       id: "business",
       monthly: 23.2,
       yearly: 278.4,
-      originalPrice: 99,
-      discount: "77% OFF",
       description1: "Advanced engagement, analytics, and deliverability.",
       description2: "Unlimited users · 250GB shared storage",
       featured: true,
@@ -477,8 +467,6 @@ function pricing() {
       id: "enterprise",
       monthly: 100,
       yearly: 1200,
-      originalPrice: 299,
-      discount: "67% OFF",
       description1: "Custom security, governance, and onboarding.",
       description2: "Unlimited users · 1.5TB shared storage",
       featured: false,
@@ -489,7 +477,7 @@ function pricing() {
         "AI meeting transcription & summaries",
         "24-hour meeting recording limit",
         "Custom compliance & security controls",
-        "Unlimited prospect discovery*",
+        "Unlimited prospect discovery",
         "Campaign & newsletter add-on included",
         "Dedicated account manager + 24/7 support",
       ],
@@ -509,11 +497,11 @@ function pricing() {
           <div className="text-center md:pb-24 pb-12">
             <p className="uppercase text-sm text-black tracking-[0.3em]">pricing</p>
             <p className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-              Don't let price constrain growth.
+              Pricing that scales with your business.
               <br className="hidden sm:block" />
             </p>
             <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
-              Choose storage and features that fit your team. No per-seat pricing.
+              Choose storage and features. No per-user pricing.
             </p>
             <PricingToggle setPricingPeriod={setPricingPeriod} />
           </div>
@@ -522,7 +510,7 @@ function pricing() {
               <div key={tier.id} className="h-full relative">
                 {tier.featured && (
                   <div className="w-full bg-[#FEEDB2] border border-b-0 text-[#6A5A25] flex h-12 items-center justify-center uppercase text-center relative md:absolute top-0 md:-top-12">
-                    most popular
+                    Recommended
                   </div>
                 )}
                 <div
@@ -558,20 +546,6 @@ function pricing() {
                         /{pricingPeriod === "monthly" ? "month" : "year"}
                       </span>
                     </p>
-                    {tier.discount && (
-                      <div className="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        {tier.discount}
-                      </div>
-                    )}
-                    {tier.originalPrice && (
-                      <div className="mt-1 text-sm text-gray-400 line-through">
-                        {isLoading ? (
-                          <span className="inline-block w-12 h-4 bg-gray-200 animate-pulse rounded"></span>
-                        ) : (
-                          formatPrice(tier.originalPrice)
-                        )}/mo
-                      </div>
-                    )}
                     <p className="text-black mt-6 text-base/7">
                       {tier.description1}
                     </p>
@@ -619,7 +593,7 @@ function pricing() {
 
         <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-16">
           <p className="mt-5 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
-          Compare all features plans 
+          Compare all plans
           </p>
           <PricingTable />
         </div>
