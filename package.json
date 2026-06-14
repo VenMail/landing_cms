@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src scripts --max-warnings=0",
+    "test:landing-positioning": "node scripts/verify-landing-positioning.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

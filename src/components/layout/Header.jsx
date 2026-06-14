@@ -41,22 +41,46 @@ import Link from "next/link";
 
 const products = [
   {
+    name: "AI CRM",
+    description: "Remember every visitor, contact, and customer journey",
+    href: "/ai-crm",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "AI SDR",
+    description: "Research prospects and automate contextual outreach",
+    href: "/ai-sdr",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "AI Live Chat",
+    description: "Guide visitors with contextual answers and questions",
+    href: "/ai-live-chat",
+    icon: SparklesIcon,
+  },
+  {
     name: "Mail",
-    description: "Send Professional to emails to anyone instantly",
+    description: "Send professional email from your own domain",
     href: "/product/mail",
     icon: EnvelopeIcon,
   },
   {
-    name: "Calendar",
-    description: "Manage and categories your events in one place",
-    href: "/product/calendar",
-    icon: CalendarIcon,
+    name: "Visitor Memory",
+    description: "Track interests, visits, source links, and intent",
+    href: "/visitor-memory",
+    icon: ChartPieIcon,
   },
   {
-    name: "Meetings",
-    description: "Schedule your meetings automatically",
-    href: "/product/meeting",
-    icon: VideoCameraIcon,
+    name: "Journey Automation",
+    description: "Connect campaigns, documents, payments, and follow-ups",
+    href: "/customer-journey-automation",
+    icon: CogIcon,
+  },
+  {
+    name: "Referral Engine",
+    description: "Turn retained customers into tracked advocates",
+    href: "/referral-automation",
+    icon: ShareIcon,
   },
   {
     name: "Contacts",
@@ -88,9 +112,33 @@ const products = [
     href: "/product/booking",
     icon: ShareIcon,
   },
+  {
+    name: "Calendar",
+    description: "Manage and categorize your events in one place",
+    href: "/product/calendar",
+    icon: CalendarIcon,
+  },
+  {
+    name: "Meetings",
+    description: "Schedule meetings automatically",
+    href: "/product/meeting",
+    icon: VideoCameraIcon,
+  },
 ];
 
 const solutions = [
+  {
+    name: "Ecommerce CRM",
+    description: "Capture product intent, recover interest, and grow referrals",
+    href: "/ecommerce-crm",
+    icon: ChartPieIcon,
+  },
+  {
+    name: "Customer Journey",
+    description: "Automate every step from first visit to repeat customer",
+    href: "/customer-journey-automation",
+    icon: SquaresPlusIcon,
+  },
   {
     name: "Founders",
     description: "Close deals without a sales team",
@@ -201,7 +249,7 @@ export default function Header({
           <div className="hidden lg:flex lg:gap-x-8 ml-8 pt-2 flex-1">
             <NavMenu
               textColor={textColor}
-              isActive={isActivePage('/product') || isActivePage('/compare')}
+              isActive={isActivePage('/product') || isActivePage('/compare') || products.some((item) => isActivePage(item.href))}
               trigger={
                 <button
                   className={`flex items-center gap-x-1 text-sm/6 font-medium text-${textColor}`}
@@ -274,7 +322,7 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {products.slice(5, 7).map((item) => (
+                  {products.slice(5).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
