@@ -204,222 +204,281 @@ const TabComponent = () => {
   );
 };
 
-const HERO_HEADLINES = [
-  "Email is Infrastructure",
-  "Context is King",
-  "Compliance is Safety",
+const JOURNEY_STEPS = [
+  {
+    label: "First impression",
+    title: "Ads, referrals, email intros",
+    text: "Every campaign link can carry context so VenMail knows why a visitor arrived before they become a known contact.",
+  },
+  {
+    label: "First visit",
+    title: "Personalized landing moments",
+    text: "Show the right greeting, summary, offer, or question based on source, segment, product interest, and prior visits.",
+  },
+  {
+    label: "Conversation",
+    title: "AI Concierge",
+    text: "Answer questions, qualify intent, capture contact details, and hand off warm leads through chat, voice, or email.",
+  },
+  {
+    label: "Memory",
+    title: "Visitor Memory",
+    text: "Build a living profile from pages visited, questions asked, products viewed, emails opened, and referral activity.",
+  },
+  {
+    label: "Next action",
+    title: "SDR + campaigns",
+    text: "Trigger the right follow-up sequence across email, sales outreach, booking, CRM notes, and team alerts.",
+  },
+  {
+    label: "Growth loop",
+    title: "Referral Engine",
+    text: "Turn happy customers into evangelists with education, referral links, rewards, and retention journeys.",
+  },
 ];
 
-const TypewriterHeroHeadline = () => {
-  const [lineIndex, setLineIndex] = useState(0);
-  const [typedChars, setTypedChars] = useState(0);
+const CUSTOMER_JOURNEY_MODULES = [
+  {
+    title: "Visitor Memory",
+    text: "Recognize anonymous and known visitors by source, behavior, return visits, product interest, and conversation history.",
+    accent: "border-teal-500",
+  },
+  {
+    title: "AI Concierge",
+    text: "Guide buyers on any page with contextual answers, dynamic questions, summaries, and voice-ready support.",
+    accent: "border-orange-500",
+  },
+  {
+    title: "Contact Intelligence",
+    text: "Enrich emails, verify deliverability, score reputation, and prepare records for CRM or sales workflows.",
+    accent: "border-blue-500",
+  },
+  {
+    title: "AI SDR",
+    text: "Research companies, find ICP-fit prospects, generate pain-point-aware outreach, and schedule follow-ups.",
+    accent: "border-amber-500",
+  },
+  {
+    title: "Campaign Automation",
+    text: "Run email sequences, newsletters, segmented campaigns, behavioral nudges, and reactivation flows.",
+    accent: "border-rose-500",
+  },
+  {
+    title: "Referral Engine",
+    text: "Create trackable referral links, educate customers, and reward advocacy across each customer journey.",
+    accent: "border-emerald-500",
+  },
+];
 
-  const currentLine = HERO_HEADLINES[lineIndex];
-  const fullText = currentLine;
+const ECOMMERCE_SIGNALS = [
+  "Product pages viewed",
+  "Buying timeframe",
+  "Cart or quote intent",
+  "Repeat visit patterns",
+  "Referral source",
+  "Next product to stock",
+];
 
-  useEffect(() => {
-    if (typedChars < fullText.length) {
-      const typingTimer = setTimeout(() => {
-        setTypedChars((prev) => prev + 1);
-      }, 50);
-      return () => clearTimeout(typingTimer);
-    }
-
-    const holdTimer = setTimeout(() => {
-      setLineIndex((prev) => (prev + 1) % HERO_HEADLINES.length);
-      setTypedChars(0);
-    }, 2200);
-
-    return () => clearTimeout(holdTimer);
-  }, [typedChars, fullText.length]);
-
-  const typedText = fullText.slice(0, typedChars);
-
+function JourneyHero() {
   return (
-    <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 min-h-[7rem] md:min-h-[10rem]">
-      <span className="block">
-        {typedText}
-        <span className="ml-1 inline-block h-[1em] w-[2px] bg-gray-400 align-middle animate-pulse" />
-      </span>
-      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
-        Own Yours
-      </span>
-    </h1>
+    <section className="relative min-h-[86vh] overflow-hidden bg-slate-950 text-white">
+      <img
+        src="/screenshot-full.webp"
+        alt="VenMail customer workspace with email, automation, and customer context"
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/88 to-slate-900/46" />
+      <div className="relative mx-auto flex min-h-[86vh] max-w-7xl flex-col justify-center px-4 py-20 sm:px-6 lg:px-8">
+        <div className="max-w-4xl">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-orange-400" />
+            AI Customer Journey CRM
+          </div>
+          <h1 className="mb-6 max-w-5xl text-4xl font-bold leading-[1.05] md:text-7xl">
+            Turn every visitor into a remembered customer journey.
+          </h1>
+          <p className="mb-8 max-w-3xl text-lg leading-8 text-white/78 md:text-2xl md:leading-9">
+            VenMail connects visitor memory, AI chat, contact intelligence, SDR automation, email campaigns, and referrals so your team knows who to help, what they care about, and the best next action.
+          </p>
+          <div className="mb-10 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="https://m.venmail.io/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center bg-white px-7 py-4 text-base font-semibold text-slate-950 transition hover:bg-orange-100"
+            >
+              Audit my customer journey
+            </a>
+            <a
+              href="#journey-map"
+              className="inline-flex items-center justify-center border border-white/30 px-7 py-4 text-base font-semibold text-white transition hover:border-white hover:bg-white/10"
+            >
+              See VenMail in action
+            </a>
+          </div>
+          <dl className="grid max-w-3xl grid-cols-1 gap-3 text-sm text-white/72 sm:grid-cols-3">
+            <div className="border-l border-orange-400 pl-4">
+              <dt className="font-semibold text-white">Recognize</dt>
+              <dd>Every visit, referral, and return signal</dd>
+            </div>
+            <div className="border-l border-teal-400 pl-4">
+              <dt className="font-semibold text-white">Respond</dt>
+              <dd>AI chat, email, SDR, and booking</dd>
+            </div>
+            <div className="border-l border-blue-400 pl-4">
+              <dt className="font-semibold text-white">Retain</dt>
+              <dd>Campaigns, referrals, and customer memory</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
   );
-};
+}
+
+function CustomerJourneyMap() {
+  return (
+    <section id="journey-map" className="bg-white py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 max-w-3xl">
+          <p className="mb-3 text-sm font-semibold uppercase text-orange-600">The customer journey operating system</p>
+          <h2 className="mb-5 text-3xl font-bold leading-tight text-gray-950 md:text-5xl">
+            From first impression to retained customer, VenMail keeps the context alive.
+          </h2>
+          <p className="text-lg leading-8 text-gray-600">
+            The landing page should sell the whole loop: acquisition, recognition, conversation, qualification, follow-up, retention, and referrals.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {JOURNEY_STEPS.map((step, index) => (
+            <div key={step.title} className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+              <div className="mb-5 flex items-center justify-between">
+                <span className="text-xs font-semibold uppercase text-gray-500">{step.label}</span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-950 text-sm font-semibold text-white">
+                  {index + 1}
+                </span>
+              </div>
+              <h3 className="mb-3 text-xl font-bold text-gray-950">{step.title}</h3>
+              <p className="leading-7 text-gray-600">{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CustomerJourneyModules() {
+  return (
+    <section className="bg-gray-50 py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="mb-3 text-sm font-semibold uppercase text-teal-700">One journey, connected modules</p>
+            <h2 className="text-3xl font-bold leading-tight text-gray-950 md:text-5xl">
+              Not just email. The memory layer for sales, marketing, support, and referrals.
+            </h2>
+          </div>
+          <p className="text-lg leading-8 text-gray-600 lg:col-span-5">
+            Email remains the infrastructure, but the market-facing promise is stronger: VenMail helps businesses understand customers and automate the right action across channels.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {CUSTOMER_JOURNEY_MODULES.map((module) => (
+            <article key={module.title} className={`rounded-lg border-t-4 ${module.accent} bg-white p-6 shadow-sm`}>
+              <h3 className="mb-3 text-xl font-bold text-gray-950">{module.title}</h3>
+              <p className="leading-7 text-gray-600">{module.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EcommerceGrowthSection() {
+  return (
+    <section className="bg-[#101820] py-16 text-white lg:py-20">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:items-center lg:px-8">
+        <div className="lg:col-span-5">
+          <p className="mb-3 text-sm font-semibold uppercase text-orange-300">Ecommerce growth wedge</p>
+          <h2 className="mb-5 text-3xl font-bold leading-tight md:text-5xl">
+            Help stores sell what customers want now and stock what they will want next.
+          </h2>
+          <p className="mb-8 text-lg leading-8 text-white/72">
+            For ecommerce, VenMail should be positioned as a revenue system: capture intent, ask smart questions, recover interest, trigger campaigns, and learn which products deserve inventory.
+          </p>
+          <a
+            href="/ecommerce-crm"
+            className="inline-flex items-center justify-center bg-orange-500 px-7 py-4 text-base font-semibold text-white transition hover:bg-orange-600"
+          >
+            Explore ecommerce CRM
+          </a>
+        </div>
+        <div className="lg:col-span-7">
+          <div className="grid gap-3 sm:grid-cols-2">
+            {ECOMMERCE_SIGNALS.map((signal) => (
+              <div key={signal} className="rounded-lg border border-white/12 bg-white/10 p-5">
+                <span className="text-sm font-semibold text-orange-200">Signal captured</span>
+                <p className="mt-2 text-lg font-semibold text-white">{signal}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-5 rounded-lg border border-teal-300/30 bg-teal-300/10 p-6">
+            <p className="text-sm font-semibold uppercase text-teal-200">Next best action</p>
+            <p className="mt-2 text-xl font-semibold text-white">
+              Send the right campaign, ask the right question, suggest the right product, or alert the team before the customer disappears.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function JourneyAuditCTA() {
+  return (
+    <section className="bg-white py-16 lg:py-20">
+      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+        <p className="mb-3 text-sm font-semibold uppercase text-orange-600">Lead magnet</p>
+        <h2 className="mb-5 text-3xl font-bold leading-tight text-gray-950 md:text-5xl">
+          Start with a customer journey audit, not a generic signup.
+        </h2>
+        <p className="mx-auto mb-8 max-w-3xl text-lg leading-8 text-gray-600">
+          The strongest landing-page conversion path is a short diagnostic that asks the visitor what they sell, where leads come from, how they follow up, and what retention problem they need solved.
+        </p>
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="https://m.venmail.io/register"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-slate-950 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800"
+          >
+            Build my journey audit
+          </a>
+          <a
+            href="/customer-journey-automation"
+            className="inline-flex items-center justify-center border border-gray-300 px-8 py-4 text-base font-semibold text-gray-900 transition hover:border-gray-900"
+          >
+            View the journey model
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
     <DefaultLayout>
-      {/* Hero: Clear Value Proposition */}
       <ChristmasSparkleWrapper className="bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border border-gray-200 rounded-full mb-6 text-sm font-medium text-gray-600">
-              <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-              Own your business data
-            </div>
-            <TypewriterHeroHeadline />
-                <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                  Bring your own storage. No per-seat fees. Full data sovereignty.
-                </p>
-            <div className="relative inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-full shadow-sm mb-8">
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">JD</span>
-                </div>
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">SK</span>
-                </div>
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-500 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">AM</span>
-                </div>
-                <div className="w-8 h-8 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-gray-600 text-xs font-bold">+5k</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="relative">
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span className="font-semibold text-gray-900">Join <span className="text-xl font-bold text-green-600">7,100+</span> who've discovered Venmail</span>
-              </div>
-              <div className="hidden md:flex items-center gap-4 ml-2 text-sm text-gray-600">
-                <div className="flex items-center gap-1">
-                  <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  <span>5.6M emails processed</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>$50K+ saved</span>
-                </div>
-                              </div>
-            </div>
-            
-            {/* Audience Segments */}
-            <p className="text-lg font-medium text-gray-700 mb-6">Built for organisations that value sovereignty</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3 max-w-4xl mx-auto mb-8">
-              <a
-                href="#for-business"
-                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all text-center"
-              >
-                <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-orange-200">
-                  <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 text-sm mb-1">Businesses</h3>
-                <p className="text-xs text-gray-500">Own your data, cut costs</p>
-              </a>
-              <a
-                href="#for-business"
-                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all text-center"
-              >
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-blue-200">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 text-sm mb-1">Hosting Cos</h3>
-                <p className="text-xs text-gray-500">White-label &amp; resell</p>
-              </a>
-              <a
-                href="#for-business"
-                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-amber-500 hover:bg-amber-50 transition-all text-center"
-              >
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-amber-200">
-                  <svg className="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 text-sm mb-1">Schools</h3>
-                <p className="text-xs text-gray-500">Sovereign student data</p>
-              </a>
-              <a
-                href="#for-business"
-                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-indigo-500 hover:bg-indigo-50 transition-all text-center"
-              >
-                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-indigo-200">
-                  <svg className="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 text-sm mb-1">Legal</h3>
-                <p className="text-xs text-gray-500">Privileged comms, your servers</p>
-              </a>
-              <a
-                href="#for-business"
-                className="group p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 transition-all text-center"
-              >
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-green-200">
-                  <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 10h.01M12 10h.01M15 10h.01" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 text-sm mb-1">Governments</h3>
-                <p className="text-xs text-gray-500">In-country, sovereign</p>
-              </a>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href="https://m.venmail.io/register"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium text-white bg-black hover:bg-gray-800 focus:ring-4 focus:ring-primary-300"
-              >
-                Sign Up Today
-              </a>
-            </div>
-            <div className="mt-6 flex flex-wrap items-center gap-3 justify-center text-sm text-gray-500">
-              <span>Also on</span>
-              <a
-                href="https://apps.apple.com/us/app/venmail/id6755040289"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-white shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden"
-              >
-                <img
-                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                  alt="Download on the App Store"
-                  className="h-10 w-auto"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=io.venmail.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full bg-white shadow-sm hover:shadow-md transition border border-gray-200 overflow-hidden"
-              >
-                <img
-                  src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-                  alt="Get it on Google Play"
-                  className="h-10 w-auto"
-                  loading="lazy"
-                />
-              </a>
-            </div>
-          </div>
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute -inset-4 bg-primary-100 rounded-2xl transform rotate-1 cinematic-glow" />
-            <div className="relative cinematic-vignette rounded-xl">
-              <img
-                src="/screenshot-full.webp"
-                alt="Venmail inbox interface with AI-powered email management"
-                className="rounded-xl shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-        </div>
+        <JourneyHero />
       </ChristmasSparkleWrapper>
+      <CustomerJourneyMap />
+      <CustomerJourneyModules />
+      <EcommerceGrowthSection />
       
       {/* Product Showcase — dark infrastructure cards */}
       <ProductShowcase />
@@ -438,6 +497,8 @@ export default function Home() {
 
       {/* Pricing Comparison */}
       <CostComparisonSlider hasButton={true} />
+
+      <JourneyAuditCTA />
 
       {/* Footer CTA */}
       <section className="bg-gray-900 py-16 lg:py-20">

@@ -33,13 +33,13 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#ea580c" />
         
         {/* SEO Meta */}
-        <meta name="description" content="AI-powered email management platform for efficient communication" />
-        <meta name="keywords" content="venmail, email, gmail, mailbox, AI email, business email" />
+        <meta name="description" content="VenMail is an AI customer journey CRM that connects visitor memory, AI chat, SDR automation, email campaigns, contact intelligence, and referrals." />
+        <meta name="keywords" content="venmail, AI customer journey CRM, AI CRM, AI SDR, visitor memory, customer journey automation, ecommerce CRM, email automation, referral automation" />
         
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="VenMail - AI-Powered Email Management" />
-        <meta property="og:description" content="AI-powered email management platform for efficient communication" />
+        <meta property="og:title" content="VenMail - AI Customer Journey CRM" />
+        <meta property="og:description" content="Remember every visitor, understand every journey, and automate the next best action across website, chat, email, SDR, and referrals." />
         <meta property="og:site_name" content="VenMail" />
         <meta property="og:url" content="https://venmail.io" />
         <meta property="og:image" content="/android-chrome-512x512.png" />
@@ -59,7 +59,8 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
               "name": "VenMail",
-              "applicationCategory": "BusinessApplication",
+              "applicationCategory": "CustomerRelationshipManagementApplication",
+              "description": "AI customer journey CRM for visitor memory, AI chat, SDR automation, email campaigns, contact intelligence, and referral automation.",
               "operatingSystem": "Web",
               "offers": {
                 "@type": "Offer",
