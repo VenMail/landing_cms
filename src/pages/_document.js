@@ -16,9 +16,6 @@ export default function Document() {
         {/* Manifest */}
         <link rel="manifest" href="/app-manifest.json" />
         
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://venmail.io" />
-        
         {/* Application Meta */}
         <meta name="application-name" content="VenMail" />
         <meta name="apple-mobile-web-app-title" content="VenMail" />
