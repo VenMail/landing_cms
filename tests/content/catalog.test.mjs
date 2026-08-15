@@ -57,6 +57,19 @@ test("published articles meet the editorial contract", () => {
   }
 });
 
+test("editorial briefs are actionable rather than keyword shells", () => {
+  const briefs = getAllOpportunities().filter((item) => item.status === "brief");
+  for (const brief of briefs) {
+    assert.ok(brief.outline.length >= 5, `${brief.slug} needs a usable outline`);
+    assert.ok(brief.questions.length >= 3, `${brief.slug} needs reader questions`);
+    assert.ok(brief.originalValue.length >= 2, `${brief.slug} needs original artifacts`);
+    assert.ok(brief.researchTasks.length >= 3, `${brief.slug} needs primary research tasks`);
+    assert.ok(brief.evidenceSourceIds.length >= 2, `${brief.slug} needs primary sources`);
+    assert.ok(brief.alternatives.length >= 2, `${brief.slug} needs honest alternatives`);
+    assert.ok(brief.nonFit.length >= 40, `${brief.slug} needs a non-fit case`);
+  }
+});
+
 test("launch articles include the practical evidence promised by their titles", () => {
   const requiredCoverage = {
     "cloudflare-email-hosting-vs-email-routing": ["decision table", "MX", "SPF", "DKIM", "DMARC"],

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 function SourceLinks({ sourceIds = [], sourcesById }) {
   if (!sourceIds.length) return null;
   return (

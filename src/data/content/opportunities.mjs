@@ -144,12 +144,85 @@ const clusters = [
 ];
 
 const defaultMetrics = Object.freeze({ volume: null, cpc: null, difficulty: null });
+const clusterGuidance = {
+  "Cloudflare email infrastructure": {
+    alternatives: ["Cloudflare Email Routing", "Google Workspace", "Microsoft 365", "hosted mailbox providers"],
+    nonFit: "Do not position Venmail as necessary when the reader only needs free inbound forwarding; Cloudflare Email Routing can be the simpler answer.",
+    originalValue: ["DNS record map with ownership and rollback columns", "Forwarding-versus-mailbox decision table"],
+    outline: ["Separate DNS, forwarding and mailbox hosting", "Inventory inbound and outbound identities", "Map MX, SPF, DKIM and DMARC", "Compare delegated authorization methods", "Test and roll back safely"],
+    researchTasks: ["Verify current Cloudflare Email Routing limits in official docs", "Build a disposable-zone DNS example", "Capture passing and failing authentication headers"],
+  },
+  "Provider migration operations": {
+    alternatives: ["provider-native migration tools", "IMAP copy services", "specialist migration consultants"],
+    nonFit: "Recommend a suite specialist when the project includes drives, chat, retention holds or identity migration beyond mail, contacts and calendars.",
+    originalValue: ["Minute-by-minute cutover and delta-sync runbook", "Rollback decision sheet with stop conditions"],
+    outline: ["Establish domain and administrator control", "Inventory mailboxes and hidden routing", "Stage accounts and initial data copy", "Cut over DNS with both systems live", "Reconcile, support users and close rollback"],
+    researchTasks: ["Run a pilot mailbox copy and record exceptions", "Verify source-specific export and app-password requirements", "Test cached-DNS behavior and final delta synchronization"],
+  },
+  "Mailbox and web-host migrations": {
+    alternatives: ["cPanel transfer tools", "IMAP migration utilities", "provider-managed migration"],
+    nonFit: "Do not promise IMAP as a complete migration when contacts, calendars, local POP archives or server-side rules are material to the reader.",
+    originalValue: ["Mailbox/routing inventory worksheet", "Import exception log and reconciliation method"],
+    outline: ["Inventory data and non-mail objects", "Classify users, aliases and shared addresses", "Pilot data transfer", "Execute DNS and client cutover", "Reconcile counts and retain rollback"],
+    researchTasks: ["Test source authentication with a pilot account", "Document contacts/calendar export formats", "Compare pre- and post-copy folder/message totals"],
+  },
+  "Provider alternatives": {
+    alternatives: ["Google Workspace", "Microsoft 365", "Zoho Mail", "Fastmail", "Proton Mail"],
+    nonFit: "State clearly when an integrated office suite, privacy-first encryption or a mature personal-mail experience is more important than Venmail's migration model.",
+    originalValue: ["Equal-dimension provider decision matrix", "Date-stamped cost model with explicit assumptions"],
+    outline: ["Define the reader and required jobs", "Remove options that fail non-negotiables", "Compare each provider on identical dimensions", "Pilot administrator and user workflows", "Calculate migration and operating cost"],
+    researchTasks: ["Recheck official plan pages on publication day", "Pilot one normal user and one administrator workflow", "Document a concrete non-fit case for every shortlisted provider"],
+  },
+  "Amazon SES and developer infrastructure": {
+    alternatives: ["Amazon SES", "SendGrid", "Mailgun", "Postmark", "managed business email"],
+    nonFit: "Keep direct Amazon SES when the customer wants raw AWS infrastructure and already owns IAM, event processing, quota, reputation and incident operations.",
+    originalValue: ["Least-privilege credential and region checklist", "Sandbox-to-production acceptance test"],
+    outline: ["Classify mailbox versus infrastructure needs", "Explain API and SMTP credential boundaries", "Verify identity, region and sandbox state", "Connect and test the intended path", "Define events, fallback and credential rotation"],
+    researchTasks: ["Verify current AWS SES requirements in official documentation", "Run a region-mismatch and sandbox failure test", "Confirm the exact Venmail feature path before making a routing claim"],
+  },
+  "Transactional email alternatives": {
+    alternatives: ["Mailgun", "Amazon SES", "SendGrid", "Postmark", "Venmail"],
+    nonFit: "Do not recommend a mailbox-first product for a pure high-volume API workload unless its exact sending, event and suppression capabilities meet the application contract.",
+    originalValue: ["Provider matrix using one application contract", "Template/webhook/suppression migration map"],
+    outline: ["Define message streams and delivery contract", "Compare APIs and SMTP on equal criteria", "Account for logs, events and support", "Pilot authentication and callbacks", "Migrate gradually with rollback"],
+    researchTasks: ["Verify official plan limits without freezing volatile prices", "Exercise one send and one bounce callback per provider", "Inventory every template, webhook and suppression dependency"],
+  },
+  "Deliverability and authentication": {
+    alternatives: ["deliverability platform", "independent consultant", "specialist agency", "in-house email operator"],
+    nonFit: "Venmail should not be presented as a guaranteed inbox-placement service; reputation, consent, content and recipient decisions require broader evidence and expertise.",
+    originalValue: ["Layered deliverability diagnostic tree", "Evidence packet a specialist can act on"],
+    outline: ["Define the observed failure precisely", "Separate generation, acceptance and placement", "Validate SPF, DKIM and DMARC alignment", "Inspect reputation, consent and engagement", "Choose platform, specialist, agency or in-house ownership"],
+    researchTasks: ["Collect representative headers and enhanced bounce codes", "Compare seed-test limits with production telemetry", "Document one controlled remediation experiment and rollback"],
+  },
+  "WordPress and commerce reliability": {
+    alternatives: ["authenticated host SMTP", "transactional email API", "managed mailbox provider", "commerce-native sending"],
+    nonFit: "Use a dedicated transactional provider when the workload is application-only, high volume or requires event-level observability beyond a normal business mailbox.",
+    originalValue: ["Form-to-recipient failure isolation map", "Logged reproduction and production acceptance checklist"],
+    outline: ["Preserve the business event independently", "Trace the WordPress mail call and queue", "Test authenticated transport", "Validate sender-domain alignment", "Inspect receiver evidence and prevent recurrence"],
+    researchTasks: ["Reproduce with scoped mail and application logs", "Test cron/queue behavior separately from SMTP", "Capture a delivered header and a provider rejection"],
+  },
+  "Automation and parsing": {
+    alternatives: ["Zapier Email Parser", "Make", "custom inbound webhook", "human-in-the-loop extraction"],
+    nonFit: "Keep a human review step when message layouts are variable, errors are costly or the automation cannot preserve an auditable copy of the original email.",
+    originalValue: ["Inbound-message architecture and trust-boundary diagram", "Retry, idempotency and exception-handling table"],
+    outline: ["Define the event owner and trust boundary", "Parse and validate structured fields", "Design idempotency, retries and dead-letter handling", "Protect attachments and personal data", "Measure exceptions and add human review"],
+    researchTasks: ["Build three deliberately different sample messages", "Test duplicate delivery and parser failure", "Record latency, exception rate and recovery evidence"],
+  },
+  "Agencies and white-label email": {
+    alternatives: ["white-label campaign platform", "Google Workspace reseller", "Microsoft 365 partner", "managed hosting reseller"],
+    nonFit: "Choose a specialist campaign or office-suite partner program when its automation, compliance or collaboration depth is the client's main requirement.",
+    originalValue: ["Agency/client responsibility and tenancy matrix", "Two-client onboarding, incident and exit pilot"],
+    outline: ["Define tenant and domain ownership", "Evaluate branding and administrator delegation", "Assign deliverability, security and support duties", "Model storage, usage and billing", "Test migration, incident response and client exit"],
+    researchTasks: ["Pilot two unlike client tenants", "Attempt cross-tenant access and administrator recovery", "Complete a client data/DNS export before signing off"],
+  },
+};
 let numericId = 0;
 
 function makeOpportunity(group, topic) {
   numericId += 1;
   const [slug, title, primaryKeyword, problem] = topic;
   const metric = measured[slug];
+  const guidance = clusterGuidance[group.cluster];
   const status = publishedSlugs.has(slug) ? "published" : "brief";
   const migrationIntent = /migrat|switch|move|cutover/i.test(`${slug} ${title}`);
   const developerIntent = /ses|mailgun|sendgrid|webhook|api|wordpress|deliverability/i.test(slug);
@@ -178,12 +251,13 @@ function makeOpportunity(group, topic) {
     metaTitle: `${title} | Venmail`,
     metaDescription: `${problem} Practical guidance, trade-offs and a usable checklist from Venmail.`,
     evidenceSourceIds: group.sources,
-    alternatives: group.sources.slice(0, 3).map((sourceId) => sourceId.split("-")[0].replace(/^aws$/, "Amazon SES")),
+    alternatives: guidance.alternatives,
     venmailFit: "Venmail fits teams that want custom-domain mail, guided setup and one place to administer migration and delivery choices.",
-    nonFit: "Choose a specialist office suite or infrastructure-only provider when its collaboration, compliance or raw API model is the primary requirement.",
-    originalValue: ["Operational decision framework", "Reusable implementation checklist"],
-    outline: ["Define the decision", "Inventory requirements", "Compare options consistently", "Execute safely", "Verify and roll back"],
-    questions: [`What does ${primaryKeyword} include?`, "What can fail during implementation?", "When is Venmail not the right choice?"],
+    nonFit: guidance.nonFit,
+    originalValue: guidance.originalValue,
+    outline: guidance.outline,
+    questions: [`What does ${primaryKeyword} include for this reader?`, `Which evidence separates a successful ${primaryKeyword} project from a superficial setup?`, `When should the reader choose ${guidance.alternatives[0]} instead of Venmail?`],
+    researchTasks: guidance.researchTasks,
     cta,
     internalLinks: ["/pricing", "/blog"],
     author: "Venmail Editorial Team",
