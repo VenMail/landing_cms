@@ -24,6 +24,23 @@ test("only completed work is publicly addressable", () => {
   assert.equal(getArticleBySlug("migrate-zoho-mail-to-new-provider"), null);
 });
 
+test("measured opportunities retain production research values", () => {
+  const expected = {
+    "email-deliverability-services": [1, 590, 89.76, 15],
+    "amazon-ses-alternatives": [4, 110, 23.68, 0],
+    "free-mailgun-alternatives": [4, 20, 56.35, 0],
+    "white-label-email-marketing-platforms": [9, 170, 36.6, 3],
+    "email-to-webhook-architecture": [6, 70, 21.58, 0],
+    "wordpress-not-sending-email": [8, 110, 1.54, 0],
+  };
+
+  for (const [slug, [sourceId, volume, cpc, difficulty]] of Object.entries(expected)) {
+    const item = getAllOpportunities().find((candidate) => candidate.slug === slug);
+    assert.equal(item.serverOpportunityId, sourceId);
+    assert.deepEqual(item.metrics, { volume, cpc, difficulty });
+  }
+});
+
 test("published articles meet the editorial contract", () => {
   for (const article of getPublishedArticles()) {
     assert.ok(article.author);
