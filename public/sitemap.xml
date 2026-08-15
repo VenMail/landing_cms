@@ -1,50 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://venmail.io/</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://venmail.io/android-chrome-512x512.png</image:loc>
-      <image:title>Venmail Logo</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://venmail.io/about-us</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/contact-us</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/integrations</loc>
   </url>
   <url>
     <loc>https://venmail.io/pricing</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://venmail.io/resources/partner</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://venmail.io/solutions</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/why-venmail</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/mail</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/calendar</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/contacts</loc>
   </url>
   <url>
     <loc>https://venmail.io/resources/faqs</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://venmail.io/about</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://venmail.io/resources/help</loc>
   </url>
   <url>
-    <loc>https://venmail.io/contact</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://venmail.io/resources/partner</loc>
   </url>
   <url>
-    <loc>https://m.venmail.io</loc>
-    <lastmod>2024-04-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <loc>https://venmail.io/blog/cloudflare-email-hosting-vs-email-routing</loc>
+    <lastmod>2026-08-15</lastmod>
   </url>
-</urlset> 
+  <url>
+    <loc>https://venmail.io/blog/switch-email-provider-keep-same-address</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/migrate-cpanel-email-to-new-host</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/google-workspace-alternatives-email-only</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/amazon-ses-alternatives</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/use-venmail-with-your-amazon-ses-account</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/free-mailgun-alternatives</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/email-deliverability-services</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/wordpress-not-sending-email</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://venmail.io/blog/white-label-email-marketing-platforms</loc>
+    <lastmod>2026-08-15</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Venmail Migration &amp; Infrastructure Guides</title>
+    <link>https://venmail.io/blog</link>
+    <description>Source-backed guides for business email migration, infrastructure and deliverability.</description>
+    <language>en</language>
+    <item>
+      <title>Cloudflare Email Routing vs email hosting: what businesses actually need</title>
+      <link>https://venmail.io/blog/cloudflare-email-hosting-vs-email-routing</link>
+      <guid isPermaLink="true">https://venmail.io/blog/cloudflare-email-hosting-vs-email-routing</guid>
+      <description>Choose forwarding or a real mailbox without confusing DNS management with email hosting.</description>
+      <category>Cloudflare &amp; DNS</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to switch email provider and keep the same address</title>
+      <link>https://venmail.io/blog/switch-email-provider-keep-same-address</link>
+      <guid isPermaLink="true">https://venmail.io/blog/switch-email-provider-keep-same-address</guid>
+      <description>Move mailboxes, DNS and devices without changing the address customers know.</description>
+      <category>Email migration</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Move cPanel email to a new host without losing mail</title>
+      <link>https://venmail.io/blog/migrate-cpanel-email-to-new-host</link>
+      <guid isPermaLink="true">https://venmail.io/blog/migrate-cpanel-email-to-new-host</guid>
+      <description>Inventory web-host mailboxes, copy by IMAP and cut over with a tested rollback.</description>
+      <category>Email migration</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google Workspace alternatives for teams that mainly need email</title>
+      <link>https://venmail.io/blog/google-workspace-alternatives-email-only</link>
+      <guid isPermaLink="true">https://venmail.io/blog/google-workspace-alternatives-email-only</guid>
+      <description>Compare mailbox-first providers without paying for an office suite you may not use.</description>
+      <category>Comparisons</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Amazon SES alternatives: when infrastructure is not enough</title>
+      <link>https://venmail.io/blog/amazon-ses-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/amazon-ses-alternatives</guid>
+      <description>Compare sending infrastructure, developer experience, mailboxes and managed operations.</description>
+      <category>Developer email</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to use Venmail with your own Amazon SES account</title>
+      <link>https://venmail.io/blog/use-venmail-with-your-amazon-ses-account</link>
+      <guid isPermaLink="true">https://venmail.io/blog/use-venmail-with-your-amazon-ses-account</guid>
+      <description>Connect a dedicated AWS identity and validate the integration without sharing root credentials.</description>
+      <category>Developer email</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Free Mailgun alternatives: compare the real operating cost</title>
+      <link>https://venmail.io/blog/free-mailgun-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-mailgun-alternatives</guid>
+      <description>Compare SES, SendGrid, Postmark and Venmail by workload rather than headline price.</description>
+      <category>Developer email</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email deliverability services: platform, specialist or agency?</title>
+      <link>https://venmail.io/blog/email-deliverability-services</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-deliverability-services</guid>
+      <description>Diagnose the failure first, then hire the right kind of help.</description>
+      <category>Deliverability</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WordPress not sending email: a diagnostic runbook</title>
+      <link>https://venmail.io/blog/wordpress-not-sending-email</link>
+      <guid isPermaLink="true">https://venmail.io/blog/wordpress-not-sending-email</guid>
+      <description>Trace generation, queueing, transport, authentication and delivery in order.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>White-label email platforms: an agency evaluation framework</title>
+      <link>https://venmail.io/blog/white-label-email-marketing-platforms</link>
+      <guid isPermaLink="true">https://venmail.io/blog/white-label-email-marketing-platforms</guid>
+      <description>Evaluate tenancy, branding, deliverability responsibility and client handoff.</description>
+      <category>Agencies</category>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>

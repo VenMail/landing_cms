@@ -1,14 +1,16 @@
-# Allow all crawlers
 User-agent: *
 Allow: /
-
-# Sitemap location
-Sitemap: https://venmail.io/sitemap.xml
-
-# Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /api/
 
-# Crawl-delay for all bots
-Crawl-delay: 10 
+# Allow discovery in ChatGPT search. OAI-SearchBot is independent from GPTBot.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Venmail currently opts out of model-training crawl while keeping search discovery open.
+User-agent: GPTBot
+Disallow: /
+
+Sitemap: https://venmail.io/sitemap.xml
+# RSS: https://venmail.io/rss.xml
