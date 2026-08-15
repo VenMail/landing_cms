@@ -57,6 +57,26 @@ test("published articles meet the editorial contract", () => {
   }
 });
 
+test("launch articles include the practical evidence promised by their titles", () => {
+  const requiredCoverage = {
+    "cloudflare-email-hosting-vs-email-routing": ["decision table", "MX", "SPF", "DKIM", "DMARC"],
+    "switch-email-provider-keep-same-address": ["preflight", "cutover", "rollback", "post-cutover"],
+    "migrate-cpanel-email-to-new-host": ["inventory", "IMAP", "DNS cutover", "device", "rollback"],
+    "google-workspace-alternatives-email-only": ["Google Workspace", "Microsoft 365", "Zoho", "Fastmail", "Proton", "Venmail"],
+    "amazon-ses-alternatives": ["Amazon SES", "SendGrid", "Mailgun", "Postmark", "Venmail"],
+    "use-venmail-with-your-amazon-ses-account": ["IAM", "region", "sandbox", "identity", "DKIM", "MAIL FROM", "test"],
+    "free-mailgun-alternatives": ["Mailgun", "Amazon SES", "SendGrid", "Postmark", "Venmail"],
+    "email-deliverability-services": ["platform", "consultant", "agency", "in-house"],
+    "wordpress-not-sending-email": ["host mail", "SMTP plugin", "DNS authentication", "form", "queue", "logging"],
+    "white-label-email-marketing-platforms": ["tenancy", "branding", "deliverability", "storage", "billing", "migration", "administration"],
+  };
+
+  for (const [slug, phrases] of Object.entries(requiredCoverage)) {
+    const articleText = JSON.stringify(getArticleBySlug(slug).body).toLowerCase();
+    for (const phrase of phrases) assert.ok(articleText.includes(phrase.toLowerCase()), `${slug} is missing ${phrase}`);
+  }
+});
+
 test("the validator accepts the completed catalog", () => {
   assert.deepEqual(validateCatalog(), []);
 });
