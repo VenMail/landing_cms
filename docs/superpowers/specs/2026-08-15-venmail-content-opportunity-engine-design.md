@@ -2,7 +2,36 @@
 
 **Date:** 2026-08-15
 
-**Status:** Approved direction; written specification pending final user review
+**Status:** Approved; expanded publication standard approved 2026-08-16
+
+## 2026-08-16 Publication Expansion
+
+All 50 researched opportunities will be complete, publicly accessible articles. The earlier split of ten published articles and forty internal briefs is retired.
+
+### Beginner-first editorial format
+
+Every article must help a non-specialist understand the issue before introducing implementation detail. It will contain:
+
+- a direct plain-English answer near the beginning;
+- a relatable situation tied to the reader's role and pain point;
+- short steps, a checklist, or a simple comparison table that can be acted on;
+- an honest explanation of when another provider or approach is a better fit;
+- primary-source links and a single relevant Venmail next step;
+- enough original detail to solve the promised problem without becoming a glossary of technical terms.
+
+The primary audiences are small-business owners, founders, operations staff, technical/email administrators, developers, e-commerce operators, and agencies. Country context will be assigned by topic using the production opportunity research: United States, United Kingdom, Canada, Australia, Germany, the Netherlands, India, Brazil, Nigeria, and other West African markets where relevant. Country names will not be inserted decoratively; regional notes must address a real consideration such as local support, payment and budget sensitivity, data location, administrator availability, connectivity, or common hosting arrangements.
+
+### Authorship and dates
+
+Visible bylines must use only `Claire from Venmail` or `Ada from Venmail`, distributed across the catalog. Dates must not appear on cards, article headers, or other visible page copy. `datePublished` and `dateModified` remain in Article JSON-LD, feeds, sitemaps, and machine-readable metadata.
+
+### Public routes and progressive discovery
+
+The blog index will render all 50 articles in server-generated HTML and allow topic filtering without creating thin pages. All 50 slugs will have static article routes, canonical metadata, primary-source disclosures, related articles, and intent-matched calls to action. The sitemap and RSS feed will contain all 50 public routes.
+
+### Expanded validation gate
+
+The build must fail unless there are exactly 50 published articles and zero brief-only records. Each article must have a body, named beginner audience, pain points, target-country context, at least two primary sources, a direct answer, a practical sequence or checklist, an honest non-fit case, and a valid CTA. Tests will also enforce the two permitted author names, absence of visible date rendering, unique slugs and metadata, low body similarity, feed parity, and a plain-language heuristic that flags unnecessarily complex copy.
 
 **Primary repository:** `C:\Users\Son\cowork\landing_cms`
 
