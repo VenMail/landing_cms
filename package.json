@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack --port 3001",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:content": "node --test tests/content/catalog.test.mjs",
+    "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
