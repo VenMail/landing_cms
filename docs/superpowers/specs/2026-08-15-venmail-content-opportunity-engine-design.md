@@ -41,7 +41,7 @@ The build must fail unless there are exactly 50 published articles and zero brie
 
 Build a research-backed content system that turns Venmail's measured market opportunities into genuinely useful articles capable of earning traditional search traffic, citations in AI-assisted search, and qualified migration or infrastructure leads.
 
-The first release will contain exactly 50 content opportunities organized into ten topic clusters. Ten opportunities will be implemented as complete launch articles. The other forty will be detailed editorial briefs with enough evidence, structure, and differentiation for a knowledgeable writer to produce a complete article without repeating keyword research.
+The release contains exactly 50 complete articles organized into ten topic clusters. Every topic must pass the same sourcing, usefulness, beginner-readability, and public-route quality gates.
 
 The content must position Venmail beside established email providers and infrastructure products without pretending that Venmail is the best fit for every reader. It will explain when products such as Google Workspace, Microsoft 365, Zoho Mail, Fastmail, Proton Mail, Amazon SES, SendGrid, Mailgun, Postmark, Cloudflare Email Routing, and traditional cPanel email are better choices, then show the situations where Venmail is a credible alternative.
 
@@ -88,7 +88,7 @@ The campaign research adds high-intent themes that are not represented in the se
 Create a single structured content catalog in `src/data/contentOpportunities.js`. Every record will contain:
 
 - stable numeric identifier and URL-safe slug
-- status: `published`, `review`, or `brief`
+- status: `published` or `review`
 - cluster and category
 - primary keyword and secondary long-tail terms
 - server opportunity ID when the topic originates from the measured dataset
@@ -103,7 +103,7 @@ Create a single structured content catalog in `src/data/contentOpportunities.js`
 - CTA type and destination
 - internal-link targets
 - author, reviewer, publish date, and substantial-update date
-- complete article body for published records
+- complete article body for every public record
 
 This catalog is the source of truth for the blog index, article routes, metadata, sitemap generation, internal linking, and quality validation.
 
@@ -192,7 +192,7 @@ The catalog will contain five records in each of ten clusters, for 50 total:
    - Pooled storage and multi-tenant administration
    - Managed migration services for client domains
 
-The ten complete launch articles will be:
+The initial ten article bodies retained and simplified in the expanded release are:
 
 1. Cloudflare email hosting versus Email Routing
 2. Switching email providers without changing an address
@@ -257,7 +257,7 @@ A content validator will fail the build when a published article lacks any of th
 - valid canonical URL and JSON-LD
 - sufficient unique body content compared with other catalog entries
 
-Brief records may appear in an internal editorial report but will not generate public thin-content URLs.
+No keyword-only or brief-only record may generate a public route. All 50 records must contain complete bodies before release.
 
 ## Venmail and Customer-Owned Amazon SES Positioning
 
@@ -268,7 +268,7 @@ The public message will distinguish two paths:
 
 Articles will explain that SES API credentials and SES SMTP credentials are different, that sending identities must be verified, that sandbox accounts are restricted, and that credentials should come from a least-privilege IAM principal rather than an AWS root account.
 
-The current application exposes per-organization Amazon SES provider configuration and a connection test. Before a published article promises that every outbound path uses the customer's SES account, the implementation plan must verify campaign sending, normal mailbox sending, configuration-set behavior, bounce/complaint handling, credential encryption, regional routing, and fallback behavior. Claims that do not pass this verification remain in editorial briefs rather than published copy.
+The current application exposes per-organization Amazon SES provider configuration and a connection test. Before an article promises that every outbound path uses the customer's SES account, the implementation must verify campaign sending, normal mailbox sending, configuration-set behavior, bounce/complaint handling, credential encryption, regional routing, and fallback behavior. Unverified broad-routing claims must be omitted from public copy.
 
 ## Lead Capture and Measurement
 
@@ -286,17 +286,17 @@ Events will distinguish article view, comparison interaction, CTA click, migrati
 
 - Unit-test catalog validation and slug uniqueness.
 - Build all published static article routes successfully with `npm run build`.
-- Verify that brief-only records do not produce public routes.
+- Verify that all 50 records contain complete bodies and produce public routes.
 - Validate canonical tags and JSON-LD for every generated article.
 - Verify sitemap, RSS, robots directives, and internal links.
-- Run duplicate-content similarity checks across the ten launch articles.
+- Run duplicate-content similarity checks across all 50 articles.
 - Check all external source links and all Venmail CTA targets.
 - Test keyboard navigation and mobile rendering for the blog index and article pages.
 - Confirm that the production opportunity snapshot produces exactly 50 catalog records and that measured fields retain their server values.
 
 ## Out of Scope for This Content Release
 
-- Publishing all forty briefs as automatically generated articles
+- Automatically publishing incomplete keyword shells or provider-name substitutions
 - Inventing search volume, CPC, or difficulty for newly researched phrases
 - Changing production SMTP routing or storing new AWS credentials
 - Automatically submitting URLs to external webmaster tools without a separate deployment and authorization step
