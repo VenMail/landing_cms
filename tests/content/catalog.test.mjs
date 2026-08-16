@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 
 import {
   getAllOpportunities,
@@ -11,8 +12,8 @@ import { validateCatalog } from "../../src/data/content/validate.mjs";
 test("catalog exposes exactly 50 useful opportunities", () => {
   const all = getAllOpportunities();
   assert.equal(all.length, 50);
-  assert.equal(getPublishedArticles().length, 10);
-  assert.equal(all.filter((item) => item.status === "brief").length, 40);
+  assert.equal(getPublishedArticles().length, 50);
+  assert.equal(all.filter((item) => item.status === "brief").length, 0);
   assert.equal(new Set(all.map((item) => item.slug)).size, 50);
 });
 
@@ -21,7 +22,7 @@ test("only completed work is publicly addressable", () => {
     getArticleBySlug("cloudflare-email-hosting-vs-email-routing")?.status,
     "published",
   );
-  assert.equal(getArticleBySlug("migrate-zoho-mail-to-new-provider"), null);
+  assert.equal(getArticleBySlug("migrate-zoho-mail-to-new-provider")?.status, "published");
 });
 
 test("measured opportunities retain production research values", () => {
@@ -41,14 +42,19 @@ test("measured opportunities retain production research values", () => {
   }
 });
 
-test("published articles meet the editorial contract", () => {
+test("all articles meet the beginner-first editorial contract", () => {
+  const approvedAuthors = new Set(["Claire from Venmail", "Ada from Venmail"]);
   for (const article of getPublishedArticles()) {
-    assert.ok(article.author);
+    assert.ok(approvedAuthors.has(article.author), `${article.slug} has an unapproved author`);
     assert.ok(article.reviewer);
     assert.ok(article.sources.length >= 2);
     assert.ok(article.nonFit);
+    assert.ok(article.plainAnswer.length >= 80, `${article.slug} needs a direct answer`);
+    assert.ok(article.painPoints.length >= 3, `${article.slug} needs specific pain points`);
+    assert.ok(article.targetCountries.length >= 2, `${article.slug} needs country context`);
+    assert.ok(article.regionalConsiderations.length >= 1, `${article.slug} needs a real regional consideration`);
     assert.ok(article.originalValue.length >= 2);
-    assert.ok(article.body.length >= 5);
+    assert.ok(article.body.length >= 6, `${article.slug} needs a complete body`);
     assert.ok(article.cta?.label && article.cta?.href);
     assert.match(article.canonicalUrl, /^https:\/\/venmail\.io\/blog\/[a-z0-9-]+$/);
     assert.match(article.publishedAt, /^\d{4}-\d{2}-\d{2}$/);
@@ -57,17 +63,27 @@ test("published articles meet the editorial contract", () => {
   }
 });
 
-test("editorial briefs are actionable rather than keyword shells", () => {
-  const briefs = getAllOpportunities().filter((item) => item.status === "brief");
-  for (const brief of briefs) {
-    assert.ok(brief.outline.length >= 5, `${brief.slug} needs a usable outline`);
-    assert.ok(brief.questions.length >= 3, `${brief.slug} needs reader questions`);
-    assert.ok(brief.originalValue.length >= 2, `${brief.slug} needs original artifacts`);
-    assert.ok(brief.researchTasks.length >= 3, `${brief.slug} needs primary research tasks`);
-    assert.ok(brief.evidenceSourceIds.length >= 2, `${brief.slug} needs primary sources`);
-    assert.ok(brief.alternatives.length >= 2, `${brief.slug} needs honest alternatives`);
-    assert.ok(brief.nonFit.length >= 40, `${brief.slug} needs a non-fit case`);
+test("every article is actionable rather than a keyword shell", () => {
+  for (const article of getAllOpportunities()) {
+    assert.ok(article.outline.length >= 5, `${article.slug} needs a usable outline`);
+    assert.ok(article.questions.length >= 3, `${article.slug} needs reader questions`);
+    assert.ok(article.originalValue.length >= 2, `${article.slug} needs original artifacts`);
+    assert.ok(article.researchTasks.length >= 3, `${article.slug} needs primary research tasks`);
+    assert.ok(article.evidenceSourceIds.length >= 2, `${article.slug} needs primary sources`);
+    assert.ok(article.alternatives.length >= 2, `${article.slug} needs honest alternatives`);
+    assert.ok(article.nonFit.length >= 40, `${article.slug} needs a non-fit case`);
   }
+});
+
+test("dates stay in metadata but are not rendered visibly", async () => {
+  const card = await readFile(new URL("../../src/components/blog/ArticleCard.jsx", import.meta.url), "utf8");
+  const page = await readFile(new URL("../../src/components/blog/ArticlePage.jsx", import.meta.url), "utf8");
+  assert.ok(!card.includes("article.updatedAt"));
+  assert.ok(!card.includes("article.publishedAt"));
+  assert.ok(!page.includes("formatDate"));
+  assert.ok(!page.includes("<time"));
+  assert.ok(page.includes("datePublished: article.publishedAt"));
+  assert.ok(page.includes("dateModified: article.updatedAt"));
 });
 
 test("launch articles include the practical evidence promised by their titles", () => {
