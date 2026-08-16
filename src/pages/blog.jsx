@@ -32,7 +32,7 @@ export default function Blog({ articles }) {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-        <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><h2 className="text-3xl font-bold text-slate-950">Published guides</h2><p className="mt-2 text-slate-600">Ten complete guides; forty more researched briefs remain behind the editorial gate.</p></div><label className="text-sm font-semibold text-slate-700">Topic<span className="sr-only"> filter</span><select value={cluster} onChange={(event) => setCluster(event.target.value)} className="ml-3 rounded-lg border border-slate-300 bg-white px-3 py-2 font-normal">{clusters.map((item) => <option key={item}>{item}</option>)}</select></label></div>
+        <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><h2 className="text-3xl font-bold text-slate-950">Published guides</h2><p className="mt-2 text-slate-600">Fifty practical guides for choosing, moving and fixing business email.</p></div><label className="text-sm font-semibold text-slate-700">Topic<span className="sr-only"> filter</span><select value={cluster} onChange={(event) => setCluster(event.target.value)} className="ml-3 rounded-lg border border-slate-300 bg-white px-3 py-2 font-normal">{clusters.map((item) => <option key={item}>{item}</option>)}</select></label></div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{visible.map((article) => <ArticleCard key={article.slug} article={article} />)}</div>
       </section>
     </DefaultLayout>

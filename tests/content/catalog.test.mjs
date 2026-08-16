@@ -82,8 +82,15 @@ test("dates stay in metadata but are not rendered visibly", async () => {
   assert.ok(!card.includes("article.publishedAt"));
   assert.ok(!page.includes("formatDate"));
   assert.ok(!page.includes("<time"));
+  assert.ok(!page.includes("source.accessedAt"));
   assert.ok(page.includes("datePublished: article.publishedAt"));
   assert.ok(page.includes("dateModified: article.updatedAt"));
+});
+
+test("content validation reports the live fifty-article catalog", async () => {
+  const script = await readFile(new URL("../../scripts/validate-content.mjs", import.meta.url), "utf8");
+  assert.ok(script.includes("50 published articles, 0 briefs"));
+  assert.ok(!script.includes("10 published articles, 40 briefs"));
 });
 
 test("launch articles include the practical evidence promised by their titles", () => {

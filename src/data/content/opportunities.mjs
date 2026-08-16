@@ -1,16 +1,3 @@
-const publishedSlugs = new Set([
-  "cloudflare-email-hosting-vs-email-routing",
-  "switch-email-provider-keep-same-address",
-  "migrate-cpanel-email-to-new-host",
-  "google-workspace-alternatives-email-only",
-  "amazon-ses-alternatives",
-  "use-venmail-with-your-amazon-ses-account",
-  "free-mailgun-alternatives",
-  "email-deliverability-services",
-  "wordpress-not-sending-email",
-  "white-label-email-marketing-platforms",
-]);
-
 const measured = {
   "email-deliverability-services": { serverOpportunityId: 1, volume: 590, cpc: 89.76, difficulty: 15 },
   "amazon-ses-alternatives": { serverOpportunityId: 4, volume: 110, cpc: 23.68, difficulty: 0 },

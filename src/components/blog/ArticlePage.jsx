@@ -4,10 +4,6 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 import ArticleCard from "./ArticleCard";
 import ContentBlocks from "./ContentBlocks";
 
-function formatDate(value) {
-  return new Intl.DateTimeFormat("en", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
-}
-
 export default function ArticlePage({ article, related }) {
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -53,7 +49,7 @@ export default function ArticlePage({ article, related }) {
             <h1 className="max-w-4xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-slate-950 md:text-6xl">{article.title}</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">{article.excerpt}</p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
-              <span>By {article.author}</span><span>Reviewed by {article.reviewer}</span><time dateTime={article.updatedAt}>Updated {formatDate(article.updatedAt)}</time>
+              <span>By {article.author}</span><span>Reviewed by {article.reviewer}</span>
             </div>
           </div>
         </header>
@@ -82,7 +78,7 @@ export default function ArticlePage({ article, related }) {
         <section className="mx-auto max-w-4xl px-4 pb-20 sm:px-6">
           <h2 className="text-2xl font-bold text-slate-950">Sources and review method</h2>
           <p className="mt-3 leading-7 text-slate-600">Venmail publishes this guide and may be one of the products discussed. We compare providers on consistent dimensions, link to primary documentation and state non-fit cases. Product limits and pricing should be rechecked before purchase.</p>
-          <ol className="mt-5 space-y-3 text-sm text-slate-600">{article.sources.map((source) => <li key={source.id}><a className="font-semibold text-primary-700 underline underline-offset-2" href={source.url} target="_blank" rel="noreferrer">{source.publisher}: {source.title}</a> <span>(accessed {source.accessedAt})</span></li>)}</ol>
+          <ol className="mt-5 space-y-3 text-sm text-slate-600">{article.sources.map((source) => <li key={source.id}><a className="font-semibold text-primary-700 underline underline-offset-2" href={source.url} target="_blank" rel="noreferrer">{source.publisher}: {source.title}</a></li>)}</ol>
         </section>
       </article>
     </DefaultLayout>
