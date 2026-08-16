@@ -216,6 +216,69 @@ const clusterGuidance = {
     researchTasks: ["Pilot two unlike client tenants", "Attempt cross-tenant access and administrator recovery", "Complete a client data/DNS export before signing off"],
   },
 };
+
+const readerProfiles = {
+  "Cloudflare email infrastructure": {
+    audience: "Small-business owners and the person responsible for company email",
+    targetCountries: ["Nigeria", "United Kingdom", "United States", "Canada", "India"],
+    painPoints: ["The domain is on Cloudflare but email is hosted elsewhere", "DNS records feel risky to change", "The business needs replies and stored mail, not forwarding alone"],
+    regionalConsiderations: ["Many growing businesses use a separate domain registrar, DNS provider and mailbox service, so ownership must be confirmed before a change"],
+  },
+  "Provider migration operations": {
+    audience: "Business owners, operations staff and administrators changing email providers",
+    targetCountries: ["United Kingdom", "United States", "Canada", "Australia", "Nigeria"],
+    painPoints: ["Customers must keep using the same address", "New messages cannot be lost during the move", "Users need a simple changeover plan"],
+    regionalConsiderations: ["Schedule support around the team's working hours and keep both providers active long enough for slower DNS caches and remote users"],
+  },
+  "Mailbox and web-host migrations": {
+    audience: "Small firms moving email away from a website host or older mailbox service",
+    targetCountries: ["Nigeria", "India", "Brazil", "United Kingdom", "United States"],
+    painPoints: ["Email is tied to the old web-hosting account", "Contacts and calendars may not move with IMAP", "Old devices and website forms still use previous settings"],
+    regionalConsiderations: ["Budget hosting commonly bundles websites and email, so the migration must separate the two services without interrupting either one"],
+  },
+  "Provider alternatives": {
+    audience: "Founders and small teams comparing business-email subscriptions",
+    targetCountries: ["United States", "United Kingdom", "Canada", "Australia", "Nigeria", "India"],
+    painPoints: ["The team may be paying for office tools it rarely uses", "Per-user pricing rises as the team grows", "Migration effort makes comparisons difficult"],
+    regionalConsiderations: ["Compare local payment options, taxes, support hours and data-location needs alongside the advertised monthly price"],
+  },
+  "Amazon SES and developer infrastructure": {
+    audience: "Founders and developers who send application email or want to use their own Amazon SES account",
+    targetCountries: ["United States", "Germany", "Netherlands", "India", "Brazil", "Nigeria"],
+    painPoints: ["SES is powerful but does not provide a normal team mailbox", "Credentials and regions are easy to confuse", "The team must decide who owns bounces and reputation"],
+    regionalConsiderations: ["Choose an AWS region and support arrangement that fits the organization's technical team, compliance needs and working hours"],
+  },
+  "Transactional email alternatives": {
+    audience: "Product teams choosing how applications send receipts, alerts and password resets",
+    targetCountries: ["United States", "United Kingdom", "Germany", "India", "Brazil"],
+    painPoints: ["Provider pricing is hard to compare fairly", "Templates and webhooks make switching difficult", "A failed transactional message can block a customer"],
+    regionalConsiderations: ["Measure total operating cost in the team's local currency and include engineering time, support and tax rather than message price alone"],
+  },
+  "Deliverability and authentication": {
+    audience: "Business owners and email administrators investigating bounces or missing messages",
+    targetCountries: ["United States", "United Kingdom", "Canada", "Australia", "Nigeria", "India"],
+    painPoints: ["Messages are accepted but do not reach the inbox", "Technical reports use unfamiliar terms", "The team does not know whether to hire a tool, consultant or agency"],
+    regionalConsiderations: ["Use evidence from the actual recipient providers and sending regions instead of assuming one test inbox represents every market"],
+  },
+  "WordPress and commerce reliability": {
+    audience: "Website owners, store operators and agencies responsible for customer notifications",
+    targetCountries: ["United States", "United Kingdom", "Nigeria", "India", "Brazil", "Australia"],
+    painPoints: ["Forms say sent but no message arrives", "Orders and password resets depend on email", "Several plugins and hosts may each control part of delivery"],
+    regionalConsiderations: ["Keep a copy of leads and orders outside email where intermittent hosting, cron or connectivity problems could otherwise hide a customer request"],
+  },
+  "Automation and parsing": {
+    audience: "Operations teams and no-code builders turning incoming email into structured work",
+    targetCountries: ["United States", "United Kingdom", "Canada", "India", "Nigeria"],
+    painPoints: ["Email layouts change without warning", "Duplicate messages create duplicate tasks", "Sensitive attachments need controlled handling"],
+    regionalConsiderations: ["Design for slower connections and manual review so a temporary outage does not silently discard a customer request"],
+  },
+  "Agencies and white-label email": {
+    audience: "Agencies and service providers managing email for several client domains",
+    targetCountries: ["United States", "United Kingdom", "Nigeria", "India", "Australia", "Canada"],
+    painPoints: ["Client domains and credentials must stay under clear ownership", "Each new customer repeats the same setup work", "Support, billing and deliverability responsibility can become unclear"],
+    regionalConsiderations: ["Set support hours, billing currency, client approval and administrator handoff expectations before managing domains across countries"],
+  },
+};
 let numericId = 0;
 
 function makeOpportunity(group, topic) {
@@ -223,7 +286,8 @@ function makeOpportunity(group, topic) {
   const [slug, title, primaryKeyword, problem] = topic;
   const metric = measured[slug];
   const guidance = clusterGuidance[group.cluster];
-  const status = publishedSlugs.has(slug) ? "published" : "brief";
+  const readerProfile = readerProfiles[group.cluster];
+  const status = "published";
   const migrationIntent = /migrat|switch|move|cutover/i.test(`${slug} ${title}`);
   const developerIntent = /ses|mailgun|sendgrid|webhook|api|wordpress|deliverability/i.test(slug);
   const cta = migrationIntent
@@ -244,8 +308,12 @@ function makeOpportunity(group, topic) {
     metrics: metric ? { volume: metric.volume, cpc: metric.cpc, difficulty: metric.difficulty } : defaultMetrics,
     intent: migrationIntent ? "migration" : developerIntent ? "technical evaluation" : "commercial comparison",
     funnelStage: migrationIntent ? "decision" : "consideration",
-    reader: developerIntent ? "Technical owner or email administrator" : "Business owner or operations lead",
+    reader: readerProfile.audience,
     problem,
+    plainAnswer: `${problem} The safest starting point is to understand who controls the domain, what people need from email each day, and which parts must keep working while the change is made.`,
+    painPoints: readerProfile.painPoints,
+    targetCountries: readerProfile.targetCountries,
+    regionalConsiderations: readerProfile.regionalConsiderations,
     title,
     excerpt: problem,
     metaTitle: `${title} | Venmail`,
@@ -260,7 +328,7 @@ function makeOpportunity(group, topic) {
     researchTasks: guidance.researchTasks,
     cta,
     internalLinks: ["/pricing", "/blog"],
-    author: "Venmail Editorial Team",
+    author: numericId % 2 === 0 ? "Ada from Venmail" : "Claire from Venmail",
     reviewer: "Venmail Email Operations",
     publishedAt: "2026-08-15",
     updatedAt: "2026-08-15",
