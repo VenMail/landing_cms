@@ -87,6 +87,12 @@ test("dates stay in metadata but are not rendered visibly", async () => {
   assert.ok(page.includes("dateModified: article.updatedAt"));
 });
 
+test("article headers do not display reviewer attribution", async () => {
+  const page = await readFile(new URL("../../src/components/blog/ArticlePage.jsx", import.meta.url), "utf8");
+  assert.ok(!page.includes("Reviewed by"));
+  assert.ok(!page.includes("article.reviewer"));
+});
+
 test("content validation reports the live fifty-article catalog", async () => {
   const script = await readFile(new URL("../../scripts/validate-content.mjs", import.meta.url), "utf8");
   assert.ok(script.includes("50 published articles, 0 briefs"));

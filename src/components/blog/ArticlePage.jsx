@@ -49,7 +49,7 @@ export default function ArticlePage({ article, related }) {
             <h1 className="max-w-4xl text-4xl font-black leading-[1.08] tracking-[-0.035em] text-slate-950 md:text-6xl">{article.title}</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">{article.excerpt}</p>
             <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-500">
-              <span>By {article.author}</span><span>Reviewed by {article.reviewer}</span>
+              <span>By {article.author}</span>
             </div>
           </div>
         </header>
