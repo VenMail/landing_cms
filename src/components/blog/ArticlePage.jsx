@@ -3,6 +3,7 @@ import Link from "next/link";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import ArticleCard from "./ArticleCard";
 import ContentBlocks from "./ContentBlocks";
+import { trackConversion } from "@/utils/trackConversion";
 
 export default function ArticlePage({ article, related }) {
   const articleJsonLd = {
@@ -57,6 +58,7 @@ export default function ArticlePage({ article, related }) {
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:py-20">
           <div className="min-w-0"><ContentBlocks blocks={article.body} sources={article.sources} /></div>
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+            {article.cta.href.startsWith('/tools/') && <div className="rounded-2xl border border-primary-200 bg-orange-50 p-5"><h2 className="font-bold text-slate-950">Try the free tool</h2><p className="mt-2 text-sm leading-6 text-slate-600">{article.cta.description}</p><Link href={article.cta.href} onClick={() => trackConversion('article_tool_clicked', { article_slug: article.slug, cta_location: 'sidebar', tool_id: 'email_header_analyzer' })} className="mt-3 block font-semibold text-primary-700 underline">{article.cta.label}</Link></div>}
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <h2 className="font-bold text-slate-950">Who this is for</h2><p className="mt-2 text-sm leading-6 text-slate-600">{article.reader}</p>
             </div>
@@ -67,7 +69,7 @@ export default function ArticlePage({ article, related }) {
         </div>
 
         <section className="bg-slate-950 py-14 text-white">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6"><h2 className="text-3xl font-bold">Ready for the next practical step?</h2><p className="mx-auto mt-3 max-w-2xl text-slate-300">Explore Venmail for your email workflow. Check the free features, account limits and integrations that fit your next step.</p><a href={article.cta.href} className="mt-7 inline-flex rounded-xl bg-primary-600 px-6 py-3 font-bold text-white hover:bg-primary-700">{article.cta.label}</a></div>
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6"><h2 className="text-3xl font-bold">Ready for the next practical step?</h2><p className="mx-auto mt-3 max-w-2xl text-slate-300">{article.cta.description || 'Explore Venmail for your email workflow. Check the free features, account limits and integrations that fit your next step.'}</p><Link href={article.cta.href} onClick={() => trackConversion(article.cta.href.startsWith('/tools/') ? 'article_tool_clicked' : 'article_cta_clicked', { article_slug: article.slug, cta_location: 'footer', ...(article.cta.href.startsWith('/tools/') ? { tool_id: 'email_header_analyzer' } : {}) })} className="mt-7 inline-flex rounded-xl bg-primary-600 px-6 py-3 font-bold text-white hover:bg-primary-700">{article.cta.label}</Link></div>
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">

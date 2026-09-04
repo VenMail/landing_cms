@@ -51,6 +51,7 @@ export default function Footer({ hideFooterJumbo = false }) {
     {
       title: "Resources",
       links: [
+        { label: "Free Header Analyzer", href: "/tools/email-header-analyzer" },
         { label: "Help Center", href: "/resources/help" },
         { label: "API Docs", href: "https://docs.venmail.io" },
         { label: "Deliverability", href: "/solutions/deliverability" },

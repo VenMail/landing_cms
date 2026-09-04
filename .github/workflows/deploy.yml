@@ -45,6 +45,9 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci --prefer-offline --no-audit
 
+      - name: Test content and tools
+        run: npm run test:content && npm run test:tools
+
       - name: Build
         run: |
           # Use all available CPU cores for faster compilation
@@ -57,11 +60,8 @@ jobs:
             exit 1
           fi
 
-      - name: Create SPA fallback 404.html
-        run: |
-          if [ -f "out/index.html" ]; then
-            cp out/index.html out/404.html
-          fi
+      - name: Verify exported error page
+        run: test -f out/404.html
 
       # Parallel steps for faster execution
       - name: Install AWS CLI and Create Wrangler Config (Parallel)

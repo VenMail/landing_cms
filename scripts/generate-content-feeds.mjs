@@ -6,6 +6,7 @@ import { getPublishedArticles } from "../src/data/content/catalog.mjs";
 
 const siteUrl = "https://venmail.io";
 const staticRoutes = [
+  "/tools/email-header-analyzer",
   "/", "/about-us", "/blog", "/contact-us", "/integrations", "/pricing", "/solutions",
   "/why-venmail", "/product/mail", "/product/calendar", "/product/contacts",
   "/resources/faqs", "/resources/help", "/resources/partner",

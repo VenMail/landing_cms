@@ -1,8 +1,4 @@
-// Cloudflare Worker to serve static Next.js export from R2 with friendly routing
-// - Trailing slash => /index.html
-// - No extension => .html
-// - Assets served as-is
-// - 404 fallback to /404.html then /index.html
+// Serve the static export with canonical page URLs and genuine HTTP errors.
 
 const MIME = new Map(Object.entries({
   html: 'text/html; charset=utf-8',
@@ -26,23 +22,17 @@ const MIME = new Map(Object.entries({
   eot: 'application/vnd.ms-fontobject',
 }));
 
-function toKey(pathname) {
-  try {
-    // Normalize: remove leading slash for R2 keys and collapse multiple slashes
-    let p = pathname.startsWith('/') ? pathname.slice(1) : pathname;
-    p = p.replace(/\/+/, '/');
-    // Root
-    if (p === '') return 'index.html';
-    // Directory -> index.html
-    if (p.endsWith('/')) return p + 'index.html';
-    // No file extension -> .html
-    const last = p.split('/').pop() || '';
-    if (!last.includes('.')) return p + '.html';
-    // Asset or file with extension
-    return p;
-  } catch (_) {
-    return pathname || '/index.html';
-  }
+function canonicalPath(pathname) {
+  let path = pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '') || '/';
+  if (path === '/index.html') return '/';
+  if (path.endsWith('.html')) path = path.slice(0, -5);
+  return path;
+}
+
+function toKey(path) {
+  if (path === '/') return 'index.html';
+  const key = path.slice(1);
+  return key.split('/').pop().includes('.') ? key : `${key}.html`;
 }
 
 function contentType(key) {
@@ -52,33 +42,33 @@ function contentType(key) {
 
 const worker = {
   async fetch(req, env) {
+    if (!['GET', 'HEAD'].includes(req.method)) return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
     const url = new URL(req.url);
-    let requestedKey = toKey(url.pathname);
+    const canonical = canonicalPath(url.pathname);
+    const requestedKey = toKey(canonical);
     let servedKey = requestedKey;
-
     let obj = await env.BUCKET.get(requestedKey);
-    if (!obj) {
-      // Try 404 then index as SPA shell
+    const status = !obj || requestedKey === '404.html' ? 404 : 200;
+    if (status === 200 && canonical !== url.pathname) {
+      url.pathname = canonical;
+      return new Response(null, { status: 301, headers: { Location: url.href, 'cache-control': 'no-cache' } });
+    }
+    if (status === 404) {
       servedKey = '404.html';
       obj = await env.BUCKET.get(servedKey);
-      if (!obj) {
-        servedKey = 'index.html';
-        obj = await env.BUCKET.get(servedKey);
-      }
     }
-
-    if (!obj) return new Response('Not found', { status: 404 });
+    if (!obj) return new Response(req.method === 'HEAD' ? null : 'Not found', { status: 404, headers: { 'cache-control': 'no-cache' } });
 
     const ct = contentType(servedKey);
-    const headers = new Headers(obj.httpMetadata || {});
+    const headers = new Headers();
+    if (obj.writeHttpMetadata) obj.writeHttpMetadata(headers);
     headers.set('content-type', ct);
     headers.set('x-served-key', servedKey);
     headers.set('x-requested-key', requestedKey);
-    // Cache: HTML no-cache, assets long-lived
-    if (/\.html$/i.test(servedKey)) headers.set('cache-control', 'no-cache');
-    else headers.set('cache-control', 'public, max-age=31536000, immutable');
-
-    return new Response(obj.body, { status: 200, headers });
+    headers.set('cache-control', servedKey.startsWith('_next/static/') ? 'public, max-age=31536000, immutable' : 'no-cache');
+    headers.set('x-content-type-options', 'nosniff');
+    if (status === 404) headers.set('x-robots-tag', 'noindex');
+    return new Response(req.method === 'HEAD' ? null : obj.body, { status, headers });
   },
 };
 

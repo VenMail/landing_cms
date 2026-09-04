@@ -1,4 +1,5 @@
 const entries = [
+  ["authentication-results-rfc", "RFC Editor", "RFC 8601: Authentication-Results and trust boundaries", "https://www.rfc-editor.org/rfc/rfc8601.html"],
   ["venmail-plans", "Venmail", "Current plans and free workspace features", "https://venmail.io/pricing"],
   ["venmail-api", "Venmail", "API quickstart and account-specific sending setup", "https://docs.venmail.io/quickstart/"],
   ["gmail-senders", "Google", "Email sender guidelines", "https://support.google.com/mail/answer/81126"],

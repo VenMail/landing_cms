@@ -1,0 +1,14 @@
+# Free email diagnostics implementation plan
+
+**Goal:** Turn the published deliverability guides into an acquisition path with a useful free tool, correct crawl behavior, and measurable actions; research a WordPress distribution product.
+
+**Architecture:** Keep the static Next.js export and existing R2 deployment. Parse headers entirely in the browser with no storage, uploads or external lookups. Treat Authentication-Results as unverified observations, show each receiver separately, and never infer inbox placement. Share only fixed aggregate event names with the existing GA4 integration.
+
+**Tech stack:** Next.js pages, React, plain JavaScript modules, Node test runner, Cloudflare Worker.
+
+- [x] Routing: add regression cases in `tests/tools/worker.test.mjs`; run `node --test tests/tools/worker.test.mjs` and observe the trailing slash, 404 and feed-cache failures. Change `worker.js` to redirect known page aliases, retain query strings, return true 404s, handle HEAD, and cache only fingerprinted Next assets immutably. Remove the homepage-as-404 workflow step and add a CI test gate.
+- [x] Parser: add `tests/tools/email-headers.test.mjs` for folded headers, multiple receivers, comments/quoted fake statuses, body exclusion, missing or malformed data, size limit and private report output. Run it before creating `src/utils/emailHeaders.mjs`. Implement a bounded parser and sample fixture; run again until passing.
+- [x] Tool: create `src/pages/tools/email-header-analyzer.jsx` with labeled input, sample/reset actions, per-receiver results, clear limitations, source links, canonical metadata and WebApplication schema. Parse on click, announce errors/results, and offer a report containing only allowlisted status labels and counts. Add an optional anonymous-usage checkbox (off by default) for tool events.
+- [x] Acquisition: enrich three guides with distinct worked troubleshooting examples in `src/data/content/utility/diagnosticImprovements.mjs`; connect their CTA to the tool in `catalog.mjs` and `ArticlePage.jsx`. Add the tool to Footer and the generated sitemap. Instrument article-to-tool and tool-to-Venmail clicks without treating clicks as registrations.
+- [x] Measurement and WordPress: write `docs/visibility-and-wordpress-2026-09-04.md` with event definitions, baseline limitations, a weekly scorecard and researched plugin ranking/MVP. No traffic or ranking claims without account evidence. WordPress submission requires a completed tested plugin; this sprint produces the product brief, not a directory listing.
+- [ ] Verification: run all content and tool tests, `npm run build`, inspect mobile/desktop tool UI and sample/error/reset/report interactions. Obtain independent code review, fix material findings, then push through the existing CI deployment. Verify live 200/301/404, cache policies, sitemap inclusion and tool output. Preserve unrelated main-checkout work.
