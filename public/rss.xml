@@ -1,10 +1,450 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Venmail Migration &amp; Infrastructure Guides</title>
+    <title>Venmail Email &amp; Free Tool Guides</title>
     <link>https://venmail.io/blog</link>
-    <description>Source-backed guides for business email migration, infrastructure and deliverability.</description>
+    <description>Practical guides for business email, free tools, marketing, developer workflows and migration.</description>
     <language>en</language>
+    <item>
+      <title>Amazon SES alternatives: when infrastructure is not enough</title>
+      <link>https://venmail.io/blog/amazon-ses-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/amazon-ses-alternatives</guid>
+      <description>Compare sending infrastructure, developer experience, mailboxes and managed operations.</description>
+      <category>Developer email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Free SendGrid alternatives for early-stage products</title>
+      <link>https://venmail.io/blog/free-sendgrid-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-sendgrid-alternatives</guid>
+      <description>Compare usable free entry points without ignoring limits and operational work.</description>
+      <category>Developer email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Free Mailgun alternatives: compare the real operating cost</title>
+      <link>https://venmail.io/blog/free-mailgun-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-mailgun-alternatives</guid>
+      <description>Compare SES, SendGrid, Postmark and Venmail by workload rather than headline price.</description>
+      <category>Developer email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SendGrid vs Mailgun vs Postmark vs Amazon SES</title>
+      <link>https://venmail.io/blog/sendgrid-vs-mailgun-vs-postmark-vs-ses</link>
+      <guid isPermaLink="true">https://venmail.io/blog/sendgrid-vs-mailgun-vs-postmark-vs-ses</guid>
+      <description>Use a common decision matrix for transactional sending.</description>
+      <category>Developer email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Transactional email provider migration checklist</title>
+      <link>https://venmail.io/blog/transactional-email-provider-migration</link>
+      <guid isPermaLink="true">https://venmail.io/blog/transactional-email-provider-migration</guid>
+      <description>Move templates, events, suppression lists and DNS without losing observability.</description>
+      <category>Developer email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email deliverability services: platform, specialist or agency?</title>
+      <link>https://venmail.io/blog/email-deliverability-services</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-deliverability-services</guid>
+      <description>Diagnose the failure first, then hire the right kind of help.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>When to hire an email deliverability specialist</title>
+      <link>https://venmail.io/blog/hire-email-deliverability-specialist</link>
+      <guid isPermaLink="true">https://venmail.io/blog/hire-email-deliverability-specialist</guid>
+      <description>Know which evidence and access a credible specialist should request.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Inbox placement testing without misleading scores</title>
+      <link>https://venmail.io/blog/inbox-placement-testing</link>
+      <guid isPermaLink="true">https://venmail.io/blog/inbox-placement-testing</guid>
+      <description>Interpret seed tests as diagnostic samples, not guaranteed delivery forecasts.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SPF, DKIM and DMARC alignment after an email migration</title>
+      <link>https://venmail.io/blog/spf-dkim-dmarc-after-migration</link>
+      <guid isPermaLink="true">https://venmail.io/blog/spf-dkim-dmarc-after-migration</guid>
+      <description>Validate every visible From path after a provider switch.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Diagnose email authentication failures and bounce codes</title>
+      <link>https://venmail.io/blog/email-authentication-bounce-codes</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-authentication-bounce-codes</guid>
+      <description>Map SMTP evidence to identity, policy, reputation or recipient problems.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WordPress not sending email: a diagnostic runbook</title>
+      <link>https://venmail.io/blog/wordpress-not-sending-email</link>
+      <guid isPermaLink="true">https://venmail.io/blog/wordpress-not-sending-email</guid>
+      <description>Trace generation, queueing, transport, authentication and delivery in order.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Contact Form 7 not sending email: test each handoff</title>
+      <link>https://venmail.io/blog/contact-form-7-not-sending-email</link>
+      <guid isPermaLink="true">https://venmail.io/blog/contact-form-7-not-sending-email</guid>
+      <description>Separate form submission success from message delivery.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>WooCommerce transactional emails not sending</title>
+      <link>https://venmail.io/blog/woocommerce-email-not-sending</link>
+      <guid isPermaLink="true">https://venmail.io/blog/woocommerce-email-not-sending</guid>
+      <description>Inspect order events, templates, queues, SMTP and recipient evidence.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why WordPress emails go to spam and how to investigate</title>
+      <link>https://venmail.io/blog/wordpress-emails-going-to-spam</link>
+      <guid isPermaLink="true">https://venmail.io/blog/wordpress-emails-going-to-spam</guid>
+      <description>Align identities and inspect content, reputation and engagement evidence.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Shopify and WooCommerce lifecycle email infrastructure</title>
+      <link>https://venmail.io/blog/shopify-woocommerce-email-infrastructure</link>
+      <guid isPermaLink="true">https://venmail.io/blog/shopify-woocommerce-email-infrastructure</guid>
+      <description>Separate receipts, support mail and marketing streams.</description>
+      <category>Troubleshooting</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email-to-webhook architecture: reliable inbound automation</title>
+      <link>https://venmail.io/blog/email-to-webhook-architecture</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-to-webhook-architecture</guid>
+      <description>Design parsing, authentication, retries and idempotency before automating.</description>
+      <category>Email automation</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Zapier Email Parser alternatives for production workflows</title>
+      <link>https://venmail.io/blog/zapier-email-parser-alternatives</link>
+      <guid isPermaLink="true">https://venmail.io/blog/zapier-email-parser-alternatives</guid>
+      <description>Compare rules, code, APIs and human review for variable messages.</description>
+      <category>Email automation</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Extract structured email data into a spreadsheet safely</title>
+      <link>https://venmail.io/blog/extract-email-data-to-spreadsheet</link>
+      <guid isPermaLink="true">https://venmail.io/blog/extract-email-data-to-spreadsheet</guid>
+      <description>Validate fields and preserve the original message for audit.</description>
+      <category>Email automation</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Turn inbound email into tasks without losing context</title>
+      <link>https://venmail.io/blog/turn-inbound-email-into-tasks</link>
+      <guid isPermaLink="true">https://venmail.io/blog/turn-inbound-email-into-tasks</guid>
+      <description>Design ownership, deduplication and reply handling.</description>
+      <category>Email automation</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Webhook-to-email vs email-to-webhook patterns</title>
+      <link>https://venmail.io/blog/webhook-to-email-vs-email-to-webhook</link>
+      <guid isPermaLink="true">https://venmail.io/blog/webhook-to-email-vs-email-to-webhook</guid>
+      <description>Choose direction based on the system that owns the event.</description>
+      <category>Email automation</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>White-label email platforms: an agency evaluation framework</title>
+      <link>https://venmail.io/blog/white-label-email-marketing-platforms</link>
+      <guid isPermaLink="true">https://venmail.io/blog/white-label-email-marketing-platforms</guid>
+      <description>Evaluate tenancy, branding, deliverability responsibility and client handoff.</description>
+      <category>Agencies</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email infrastructure for agencies managing many domains</title>
+      <link>https://venmail.io/blog/email-infrastructure-for-agencies</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-infrastructure-for-agencies</guid>
+      <description>Standardize onboarding while preserving client ownership.</description>
+      <category>Agencies</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Shareable setup links for technical and email administrators</title>
+      <link>https://venmail.io/blog/shareable-email-administrator-setup-links</link>
+      <guid isPermaLink="true">https://venmail.io/blog/shareable-email-administrator-setup-links</guid>
+      <description>Delegate DNS authorization without circulating reusable credentials.</description>
+      <category>Agencies</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A free email deliverability audit you can do this afternoon</title>
+      <link>https://venmail.io/blog/free-email-deliverability-audit</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-email-deliverability-audit</guid>
+      <description>Find where an email goes missing with a test message, its headers and a simple evidence sheet.</description>
+      <category>Deliverability</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Warm up a new email domain without buying a warm-up tool</title>
+      <link>https://venmail.io/blog/warm-up-new-email-domain-without-paid-tools</link>
+      <guid isPermaLink="true">https://venmail.io/blog/warm-up-new-email-domain-without-paid-tools</guid>
+      <description>Start with expected messages and increase sending only when the evidence supports it.</description>
+      <category>Warm-up &amp; inbox testing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email warm-up myths: what to measure instead of a score</title>
+      <link>https://venmail.io/blog/email-warmup-myths-and-real-signals</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-warmup-myths-and-real-signals</guid>
+      <description>Replace a reassuring warm-up score with evidence about real messages and real recipients.</description>
+      <category>Warm-up &amp; inbox testing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Run a small inbox placement test with a free results sheet</title>
+      <link>https://venmail.io/blog/free-inbox-placement-test-sheet</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-inbox-placement-test-sheet</guid>
+      <description>Compare the same message across inboxes you control and record exactly what the test can tell you.</description>
+      <category>Warm-up &amp; inbox testing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Restart a quiet newsletter without surprising your subscribers</title>
+      <link>https://venmail.io/blog/restart-email-newsletter-after-long-break</link>
+      <guid isPermaLink="true">https://venmail.io/blog/restart-email-newsletter-after-long-break</guid>
+      <description>Use a careful list review and a clear restart message after a long gap in sending.</description>
+      <category>Warm-up &amp; inbox testing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Send your first small-business newsletter with free tools</title>
+      <link>https://venmail.io/blog/first-small-business-newsletter-free</link>
+      <guid isPermaLink="true">https://venmail.io/blog/first-small-business-newsletter-free</guid>
+      <description>Write one useful email, prepare a small subscribed audience and check it before sending.</description>
+      <category>Small-business marketing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A four-week email calendar for a small business</title>
+      <link>https://venmail.io/blog/four-week-small-business-email-calendar</link>
+      <guid isPermaLink="true">https://venmail.io/blog/four-week-small-business-email-calendar</guid>
+      <description>Plan four useful messages without turning every email into a sales pitch.</description>
+      <category>Small-business marketing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Clean a newsletter CSV before importing it into Venmail</title>
+      <link>https://venmail.io/blog/clean-newsletter-csv-before-import</link>
+      <guid isPermaLink="true">https://venmail.io/blog/clean-newsletter-csv-before-import</guid>
+      <description>Remove avoidable import mistakes while preserving subscription and unsubscribe records.</description>
+      <category>Small-business marketing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Write a newsletter people can read on a phone</title>
+      <link>https://venmail.io/blog/write-newsletter-people-can-read-on-phone</link>
+      <guid isPermaLink="true">https://venmail.io/blog/write-newsletter-people-can-read-on-phone</guid>
+      <description>Use a text-first layout, clear links and a quick phone check before sending.</description>
+      <category>Small-business marketing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Measure newsletter results without a paid analytics dashboard</title>
+      <link>https://venmail.io/blog/measure-newsletter-results-without-paid-analytics</link>
+      <guid isPermaLink="true">https://venmail.io/blog/measure-newsletter-results-without-paid-analytics</guid>
+      <description>Track a clear outcome, a useful denominator and customer replies in a small spreadsheet.</description>
+      <category>Small-business marketing</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Email verification and email authentication: which problem are you solving?</title>
+      <link>https://venmail.io/blog/email-verification-vs-email-authentication</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-verification-vs-email-authentication</guid>
+      <description>Separate address checks, account verification, sender authentication and SMTP login errors.</description>
+      <category>Signup &amp; verification</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Write a signup verification email people understand</title>
+      <link>https://venmail.io/blog/signup-verification-email-template</link>
+      <guid isPermaLink="true">https://venmail.io/blog/signup-verification-email-template</guid>
+      <description>Give new users one clear action and explain what happens when the link no longer works.</description>
+      <category>Signup &amp; verification</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Verification email not arriving? Follow this five-step check</title>
+      <link>https://venmail.io/blog/verification-email-not-arriving-debug</link>
+      <guid isPermaLink="true">https://venmail.io/blog/verification-email-not-arriving-debug</guid>
+      <description>Find whether signup failed before sending, at the provider or after the receiving server accepted the message.</description>
+      <category>Signup &amp; verification</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Test password-reset emails with a free local mailbox</title>
+      <link>https://venmail.io/blog/password-reset-email-free-test-plan</link>
+      <guid isPermaLink="true">https://venmail.io/blog/password-reset-email-free-test-plan</guid>
+      <description>Check reset content, expiry and failure states before real users depend on the flow.</description>
+      <category>Signup &amp; verification</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Design a resend-verification button that helps users</title>
+      <link>https://venmail.io/blog/resend-verification-email-cooldown</link>
+      <guid isPermaLink="true">https://venmail.io/blog/resend-verification-email-cooldown</guid>
+      <description>Explain delivery delays, prevent repeated sends and give users a clear recovery path.</description>
+      <category>Signup &amp; verification</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Three abandoned-cart email examples for a small store</title>
+      <link>https://venmail.io/blog/abandoned-cart-email-examples-small-store</link>
+      <guid isPermaLink="true">https://venmail.io/blog/abandoned-cart-email-examples-small-store</guid>
+      <description>Write helpful reminders around real checkout problems, with a clear stop rule after purchase.</description>
+      <category>Store email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A simple post-purchase email plan for a small store</title>
+      <link>https://venmail.io/blog/post-purchase-email-plan-small-store</link>
+      <guid isPermaLink="true">https://venmail.io/blog/post-purchase-email-plan-small-store</guid>
+      <description>Separate order facts, product help and optional marketing so customers get the right message.</description>
+      <category>Store email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Improve a WooCommerce order email without buying a template plugin</title>
+      <link>https://venmail.io/blog/woocommerce-order-email-template-checklist</link>
+      <guid isPermaLink="true">https://venmail.io/blog/woocommerce-order-email-template-checklist</guid>
+      <description>Use the built-in email settings and a real test order to make receipts clearer.</description>
+      <category>Store email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Connect WordPress to SMTP with a free plugin</title>
+      <link>https://venmail.io/blog/wordpress-smtp-setup-free-plugin</link>
+      <guid isPermaLink="true">https://venmail.io/blog/wordpress-smtp-setup-free-plugin</guid>
+      <description>Use FluentSMTP and your authorized sending credentials to test WordPress email step by step.</description>
+      <category>WordPress email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>A ten-minute WordPress email check after an update</title>
+      <link>https://venmail.io/blog/wordpress-email-test-after-plugin-update</link>
+      <guid isPermaLink="true">https://venmail.io/blog/wordpress-email-test-after-plugin-update</guid>
+      <description>Catch broken forms, resets and order notifications before customers report them.</description>
+      <category>WordPress email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Start a client newsletter service with free tools</title>
+      <link>https://venmail.io/blog/start-client-newsletter-service-free-tools</link>
+      <guid isPermaLink="true">https://venmail.io/blog/start-client-newsletter-service-free-tools</guid>
+      <description>Build a clear service around planning, writing and review before paying for a reseller platform.</description>
+      <category>Agency email services</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>White-label email: what free software does and does not cover</title>
+      <link>https://venmail.io/blog/white-label-email-free-software-cost-checklist</link>
+      <guid isPermaLink="true">https://venmail.io/blog/white-label-email-free-software-cost-checklist</guid>
+      <description>Compare branding, account separation and operating costs before promising clients a platform.</description>
+      <category>Agency email services</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Send email from a React contact form: the safe pattern</title>
+      <link>https://venmail.io/blog/react-contact-form-email-safe-pattern</link>
+      <guid isPermaLink="true">https://venmail.io/blog/react-contact-form-email-safe-pattern</guid>
+      <description>Keep the form in React and put validation, abuse controls and Venmail credentials on the server.</description>
+      <category>React &amp; Next.js email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Send your first Venmail test email from Node.js</title>
+      <link>https://venmail.io/blog/node-send-first-venmail-test-email</link>
+      <guid isPermaLink="true">https://venmail.io/blog/node-send-first-venmail-test-email</guid>
+      <description>Use a small server-side script to verify credentials and a sender before connecting a React app.</description>
+      <category>React &amp; Next.js email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Build a React Email template for Venmail</title>
+      <link>https://venmail.io/blog/react-email-template-with-venmail</link>
+      <guid isPermaLink="true">https://venmail.io/blog/react-email-template-with-venmail</guid>
+      <description>Render a reusable component to HTML and plain text, then hand it to your server-side sender.</description>
+      <category>React &amp; Next.js email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Test React email locally with Mailpit before sending live</title>
+      <link>https://venmail.io/blog/test-react-email-locally-mailpit</link>
+      <guid isPermaLink="true">https://venmail.io/blog/test-react-email-locally-mailpit</guid>
+      <description>Capture development messages for free and inspect the content without emailing customers.</description>
+      <category>React &amp; Next.js email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Handle email API failures without sending duplicate messages</title>
+      <link>https://venmail.io/blog/email-api-retries-without-duplicate-messages</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-api-retries-without-duplicate-messages</guid>
+      <description>Track each intended email and distinguish a rejected request from an uncertain timeout.</description>
+      <category>React &amp; Next.js email</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Build a useful business contact research sheet for free</title>
+      <link>https://venmail.io/blog/free-business-contact-research-sheet</link>
+      <guid isPermaLink="true">https://venmail.io/blog/free-business-contact-research-sheet</guid>
+      <description>Record relevance and sources before collecting addresses or sending an introduction.</description>
+      <category>Contact research</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Audit email addresses on your own website with free tools</title>
+      <link>https://venmail.io/blog/extract-emails-from-own-website-audit</link>
+      <guid isPermaLink="true">https://venmail.io/blog/extract-emails-from-own-website-audit</guid>
+      <description>Find outdated contact links and route visitors to a monitored mailbox.</description>
+      <category>Contact research</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Deduplicate business contacts with OpenRefine</title>
+      <link>https://venmail.io/blog/deduplicate-business-contacts-openrefine</link>
+      <guid isPermaLink="true">https://venmail.io/blog/deduplicate-business-contacts-openrefine</guid>
+      <description>Clean a research file without losing source notes, opt-outs or distinct people at the same company.</description>
+      <category>Contact research</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Check email-finder results before trusting them</title>
+      <link>https://venmail.io/blog/email-finder-results-quality-check</link>
+      <guid isPermaLink="true">https://venmail.io/blog/email-finder-results-quality-check</guid>
+      <description>Understand what found, valid and verified actually mean in a contact research report.</description>
+      <category>Contact research</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Turn good research into a useful business introduction</title>
+      <link>https://venmail.io/blog/business-introduction-email-research-template</link>
+      <guid isPermaLink="true">https://venmail.io/blog/business-introduction-email-research-template</guid>
+      <description>Write a short, relevant message when a business has a suitable reason to hear from you.</description>
+      <category>Contact research</category>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Cloudflare Email Routing vs email hosting: what businesses actually need</title>
       <link>https://venmail.io/blog/cloudflare-email-hosting-vs-email-routing</link>
@@ -166,14 +606,6 @@
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Amazon SES alternatives: when infrastructure is not enough</title>
-      <link>https://venmail.io/blog/amazon-ses-alternatives</link>
-      <guid isPermaLink="true">https://venmail.io/blog/amazon-ses-alternatives</guid>
-      <description>Compare sending infrastructure, developer experience, mailboxes and managed operations.</description>
-      <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>How to use Venmail with your own Amazon SES account</title>
       <link>https://venmail.io/blog/use-venmail-with-your-amazon-ses-account</link>
       <guid isPermaLink="true">https://venmail.io/blog/use-venmail-with-your-amazon-ses-account</guid>
@@ -206,187 +638,11 @@
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>
-      <title>Free SendGrid alternatives for early-stage products</title>
-      <link>https://venmail.io/blog/free-sendgrid-alternatives</link>
-      <guid isPermaLink="true">https://venmail.io/blog/free-sendgrid-alternatives</guid>
-      <description>Compare usable free entry points without ignoring limits and operational work.</description>
-      <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Free Mailgun alternatives: compare the real operating cost</title>
-      <link>https://venmail.io/blog/free-mailgun-alternatives</link>
-      <guid isPermaLink="true">https://venmail.io/blog/free-mailgun-alternatives</guid>
-      <description>Compare SES, SendGrid, Postmark and Venmail by workload rather than headline price.</description>
-      <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SendGrid vs Mailgun vs Postmark vs Amazon SES</title>
-      <link>https://venmail.io/blog/sendgrid-vs-mailgun-vs-postmark-vs-ses</link>
-      <guid isPermaLink="true">https://venmail.io/blog/sendgrid-vs-mailgun-vs-postmark-vs-ses</guid>
-      <description>Use a common decision matrix for transactional sending.</description>
-      <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Transactional email provider migration checklist</title>
-      <link>https://venmail.io/blog/transactional-email-provider-migration</link>
-      <guid isPermaLink="true">https://venmail.io/blog/transactional-email-provider-migration</guid>
-      <description>Move templates, events, suppression lists and DNS without losing observability.</description>
-      <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
       <title>When an email API is better than a business mailbox</title>
       <link>https://venmail.io/blog/email-api-vs-business-mailbox</link>
       <guid isPermaLink="true">https://venmail.io/blog/email-api-vs-business-mailbox</guid>
       <description>Separate application-generated messages from human correspondence.</description>
       <category>Developer email</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Email deliverability services: platform, specialist or agency?</title>
-      <link>https://venmail.io/blog/email-deliverability-services</link>
-      <guid isPermaLink="true">https://venmail.io/blog/email-deliverability-services</guid>
-      <description>Diagnose the failure first, then hire the right kind of help.</description>
-      <category>Deliverability</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>When to hire an email deliverability specialist</title>
-      <link>https://venmail.io/blog/hire-email-deliverability-specialist</link>
-      <guid isPermaLink="true">https://venmail.io/blog/hire-email-deliverability-specialist</guid>
-      <description>Know which evidence and access a credible specialist should request.</description>
-      <category>Deliverability</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Inbox placement testing without misleading scores</title>
-      <link>https://venmail.io/blog/inbox-placement-testing</link>
-      <guid isPermaLink="true">https://venmail.io/blog/inbox-placement-testing</guid>
-      <description>Interpret seed tests as diagnostic samples, not guaranteed delivery forecasts.</description>
-      <category>Deliverability</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>SPF, DKIM and DMARC alignment after an email migration</title>
-      <link>https://venmail.io/blog/spf-dkim-dmarc-after-migration</link>
-      <guid isPermaLink="true">https://venmail.io/blog/spf-dkim-dmarc-after-migration</guid>
-      <description>Validate every visible From path after a provider switch.</description>
-      <category>Deliverability</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Diagnose email authentication failures and bounce codes</title>
-      <link>https://venmail.io/blog/email-authentication-bounce-codes</link>
-      <guid isPermaLink="true">https://venmail.io/blog/email-authentication-bounce-codes</guid>
-      <description>Map SMTP evidence to identity, policy, reputation or recipient problems.</description>
-      <category>Deliverability</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WordPress not sending email: a diagnostic runbook</title>
-      <link>https://venmail.io/blog/wordpress-not-sending-email</link>
-      <guid isPermaLink="true">https://venmail.io/blog/wordpress-not-sending-email</guid>
-      <description>Trace generation, queueing, transport, authentication and delivery in order.</description>
-      <category>Troubleshooting</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Contact Form 7 not sending email: test each handoff</title>
-      <link>https://venmail.io/blog/contact-form-7-not-sending-email</link>
-      <guid isPermaLink="true">https://venmail.io/blog/contact-form-7-not-sending-email</guid>
-      <description>Separate form submission success from message delivery.</description>
-      <category>Troubleshooting</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>WooCommerce transactional emails not sending</title>
-      <link>https://venmail.io/blog/woocommerce-email-not-sending</link>
-      <guid isPermaLink="true">https://venmail.io/blog/woocommerce-email-not-sending</guid>
-      <description>Inspect order events, templates, queues, SMTP and recipient evidence.</description>
-      <category>Troubleshooting</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Why WordPress emails go to spam and how to investigate</title>
-      <link>https://venmail.io/blog/wordpress-emails-going-to-spam</link>
-      <guid isPermaLink="true">https://venmail.io/blog/wordpress-emails-going-to-spam</guid>
-      <description>Align identities and inspect content, reputation and engagement evidence.</description>
-      <category>Troubleshooting</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Shopify and WooCommerce lifecycle email infrastructure</title>
-      <link>https://venmail.io/blog/shopify-woocommerce-email-infrastructure</link>
-      <guid isPermaLink="true">https://venmail.io/blog/shopify-woocommerce-email-infrastructure</guid>
-      <description>Separate receipts, support mail and marketing streams.</description>
-      <category>Troubleshooting</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Email-to-webhook architecture: reliable inbound automation</title>
-      <link>https://venmail.io/blog/email-to-webhook-architecture</link>
-      <guid isPermaLink="true">https://venmail.io/blog/email-to-webhook-architecture</guid>
-      <description>Design parsing, authentication, retries and idempotency before automating.</description>
-      <category>Email automation</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Zapier Email Parser alternatives for production workflows</title>
-      <link>https://venmail.io/blog/zapier-email-parser-alternatives</link>
-      <guid isPermaLink="true">https://venmail.io/blog/zapier-email-parser-alternatives</guid>
-      <description>Compare rules, code, APIs and human review for variable messages.</description>
-      <category>Email automation</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Extract structured email data into a spreadsheet safely</title>
-      <link>https://venmail.io/blog/extract-email-data-to-spreadsheet</link>
-      <guid isPermaLink="true">https://venmail.io/blog/extract-email-data-to-spreadsheet</guid>
-      <description>Validate fields and preserve the original message for audit.</description>
-      <category>Email automation</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Turn inbound email into tasks without losing context</title>
-      <link>https://venmail.io/blog/turn-inbound-email-into-tasks</link>
-      <guid isPermaLink="true">https://venmail.io/blog/turn-inbound-email-into-tasks</guid>
-      <description>Design ownership, deduplication and reply handling.</description>
-      <category>Email automation</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Webhook-to-email vs email-to-webhook patterns</title>
-      <link>https://venmail.io/blog/webhook-to-email-vs-email-to-webhook</link>
-      <guid isPermaLink="true">https://venmail.io/blog/webhook-to-email-vs-email-to-webhook</guid>
-      <description>Choose direction based on the system that owns the event.</description>
-      <category>Email automation</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>White-label email platforms: an agency evaluation framework</title>
-      <link>https://venmail.io/blog/white-label-email-marketing-platforms</link>
-      <guid isPermaLink="true">https://venmail.io/blog/white-label-email-marketing-platforms</guid>
-      <description>Evaluate tenancy, branding, deliverability responsibility and client handoff.</description>
-      <category>Agencies</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Email infrastructure for agencies managing many domains</title>
-      <link>https://venmail.io/blog/email-infrastructure-for-agencies</link>
-      <guid isPermaLink="true">https://venmail.io/blog/email-infrastructure-for-agencies</guid>
-      <description>Standardize onboarding while preserving client ownership.</description>
-      <category>Agencies</category>
-      <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
-    </item>
-    <item>
-      <title>Shareable setup links for technical and email administrators</title>
-      <link>https://venmail.io/blog/shareable-email-administrator-setup-links</link>
-      <guid isPermaLink="true">https://venmail.io/blog/shareable-email-administrator-setup-links</guid>
-      <description>Delegate DNS authorization without circulating reusable credentials.</description>
-      <category>Agencies</category>
       <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
     </item>
     <item>

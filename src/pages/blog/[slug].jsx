@@ -14,7 +14,7 @@ export function getStaticProps({ params }) {
   const article = getArticleBySlug(params.slug);
   const candidates = getPublishedArticles().filter((item) => item.slug !== article.slug);
   const related = candidates
-    .sort((left, right) => Number(right.cluster === article.cluster) - Number(left.cluster === article.cluster))
+    .sort((left, right) => Number(right.topicLabels.some(topic => article.topicLabels.includes(topic))) - Number(left.topicLabels.some(topic => article.topicLabels.includes(topic))))
     .slice(0, 2);
   return { props: { article, related } };
 }

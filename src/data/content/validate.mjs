@@ -1,4 +1,6 @@
 import { getAllOpportunities, getPublishedArticles } from "./catalog.mjs";
+import { seedTopics } from "./seedCoverage.mjs";
+import { sourcesById } from "./sources.mjs";
 
 const required = [
   "id", "slug", "status", "cluster", "category", "primaryKeyword", "intent",
@@ -24,9 +26,12 @@ export function validateCatalog(catalog = getAllOpportunities()) {
   const published = catalog.filter((item) => item.status === "published");
   const briefs = catalog.filter((item) => item.status === "brief");
 
-  if (catalog.length !== 50) errors.push(`Expected 50 opportunities; found ${catalog.length}.`);
-  if (published.length !== 50) errors.push(`Expected 50 published articles; found ${published.length}.`);
+  if (published.length === 0) errors.push("Expected published articles.");
   if (briefs.length !== 0) errors.push(`Expected no briefs; found ${briefs.length}.`);
+  for (const topic of seedTopics) {
+    const count = published.filter(item => item.seedOpportunityIds?.includes(topic.id)).length;
+    if (count < 5 || count > 10) errors.push(`${topic.name}: expected 5–10 published guides; found ${count}.`);
+  }
 
   for (const field of ["slug", "title", "metaTitle", "metaDescription"]) {
     const values = catalog.map((item) => item[field]).filter(Boolean);
@@ -48,6 +53,11 @@ export function validateCatalog(catalog = getAllOpportunities()) {
   }
 
   for (const item of published) {
+    for (const id of item.evidenceSourceIds ?? []) if (!sourcesById[id]) errors.push(`${item.slug}: unknown source ${id}.`);
+    for (const block of item.body ?? []) {
+      for (const id of block.sourceIds ?? []) if (!item.evidenceSourceIds.includes(id)) errors.push(`${item.slug}: unresolved inline source ${id}.`);
+      if (!["heading", "paragraph", "callout", "list", "steps", "checklist", "table", "code"].includes(block.type)) errors.push(`${item.slug}: unsupported block ${block.type}.`);
+    }
     if ((item.sources ?? []).length < 2) errors.push(`${item.slug}: needs two resolvable sources.`);
     if (!Array.isArray(item.alternatives) || item.alternatives.length < 1) errors.push(`${item.slug}: needs honest alternatives.`);
     if (!Array.isArray(item.originalValue) || item.originalValue.length < 2) errors.push(`${item.slug}: needs two original-value elements.`);

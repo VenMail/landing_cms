@@ -1,0 +1,41 @@
+// IDs and names come from mailer_web/database/seeders/data/opportunities.json.
+// Editorial coverage is separate from measured keyword attribution.
+export const seedTopics = Object.freeze([
+  [1, "Email Deliverability Platform / Services", "Deliverability"],
+  [2, "Email Warm-Up / Inbox Placement", "Warm-up & inbox testing"],
+  [3, "SMB Email Marketing Software", "Small-business marketing"],
+  [4, "SendGrid / Mailgun / Amazon SES Alternatives", "Email API alternatives"],
+  [5, "Email Authentication / Verification", "Signup & verification"],
+  [6, "Email-to-Webhook / Email Parser", "Email parsing & automation"],
+  [7, "E-commerce Lifecycle Email (Shopify / WooCommerce)", "Store email"],
+  [8, "WordPress Email Not-Sending Fix", "WordPress email"],
+  [9, "SaaS / White-Label Email Marketing", "Agency email services"],
+  [10, "React / Next.js Email SDK", "React & Next.js email"],
+  [11, "Email Extractor / DomainLeadsJob v2", "Contact research"],
+].map(([id, name, label]) => Object.freeze({ id, name, label })));
+
+export const existingSeedCoverage = Object.freeze({
+  "email-deliverability-services": [1],
+  "hire-email-deliverability-specialist": [1],
+  "spf-dkim-dmarc-after-migration": [1],
+  "email-authentication-bounce-codes": [1],
+  "inbox-placement-testing": [2],
+  "amazon-ses-alternatives": [4],
+  "free-sendgrid-alternatives": [4],
+  "free-mailgun-alternatives": [4],
+  "sendgrid-vs-mailgun-vs-postmark-vs-ses": [4],
+  "transactional-email-provider-migration": [4],
+  "email-to-webhook-architecture": [6],
+  "zapier-email-parser-alternatives": [6],
+  "extract-email-data-to-spreadsheet": [6],
+  "turn-inbound-email-into-tasks": [6],
+  "webhook-to-email-vs-email-to-webhook": [6],
+  "woocommerce-email-not-sending": [7],
+  "shopify-woocommerce-email-infrastructure": [7],
+  "wordpress-not-sending-email": [8],
+  "contact-form-7-not-sending-email": [8],
+  "wordpress-emails-going-to-spam": [8],
+  "white-label-email-marketing-platforms": [9],
+  "email-infrastructure-for-agencies": [9],
+  "shareable-email-administrator-setup-links": [9],
+});

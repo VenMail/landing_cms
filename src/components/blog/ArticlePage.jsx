@@ -55,7 +55,7 @@ export default function ArticlePage({ article, related }) {
         </header>
 
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:py-20">
-          <div><ContentBlocks blocks={article.body} sources={article.sources} /></div>
+          <div className="min-w-0"><ContentBlocks blocks={article.body} sources={article.sources} /></div>
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
               <h2 className="font-bold text-slate-950">Who this is for</h2><p className="mt-2 text-sm leading-6 text-slate-600">{article.reader}</p>
@@ -67,7 +67,7 @@ export default function ArticlePage({ article, related }) {
         </div>
 
         <section className="bg-slate-950 py-14 text-white">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6"><h2 className="text-3xl font-bold">Ready for the next practical step?</h2><p className="mx-auto mt-3 max-w-2xl text-slate-300">Use Venmail when its mailbox, migration and administration model fits—and keep your domain under your control.</p><a href={article.cta.href} className="mt-7 inline-flex rounded-xl bg-primary-600 px-6 py-3 font-bold text-white hover:bg-primary-700">{article.cta.label}</a></div>
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6"><h2 className="text-3xl font-bold">Ready for the next practical step?</h2><p className="mx-auto mt-3 max-w-2xl text-slate-300">Explore Venmail for your email workflow. Check the free features, account limits and integrations that fit your next step.</p><a href={article.cta.href} className="mt-7 inline-flex rounded-xl bg-primary-600 px-6 py-3 font-bold text-white hover:bg-primary-700">{article.cta.label}</a></div>
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">

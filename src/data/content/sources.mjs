@@ -1,3 +1,4 @@
+import { utilitySources } from "./utility/sources.mjs";
 const accessedAt = "2026-08-15";
 
 const entries = [
@@ -27,8 +28,8 @@ const entries = [
   ["dmarc-org", "DMARC.org", "DMARC overview", "https://dmarc.org/overview/", "standards-guidance"],
 ];
 
-export const sources = Object.freeze(entries.map(([id, publisher, title, url, kind]) => Object.freeze({
+export const sources = Object.freeze([...entries.map(([id, publisher, title, url, kind]) => Object.freeze({
   id, publisher, title, url, accessedAt, kind,
-})));
+})), ...utilitySources]);
 
 export const sourcesById = Object.freeze(Object.fromEntries(sources.map((source) => [source.id, source])));

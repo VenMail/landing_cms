@@ -32,7 +32,7 @@ export function buildSitemap(articles) {
 export function buildRss(articles) {
   const ordered = [...articles].sort((left, right) => right.updatedAt.localeCompare(left.updatedAt));
   const items = ordered.map((article) => `    <item>\n      <title>${escapeXml(article.title)}</title>\n      <link>${escapeXml(article.canonicalUrl)}</link>\n      <guid isPermaLink="true">${escapeXml(article.canonicalUrl)}</guid>\n      <description>${escapeXml(article.excerpt)}</description>\n      <category>${escapeXml(article.category)}</category>\n      <pubDate>${new Date(`${article.updatedAt}T00:00:00Z`).toUTCString()}</pubDate>\n    </item>`);
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>Venmail Migration &amp; Infrastructure Guides</title>\n    <link>${siteUrl}/blog</link>\n    <description>Source-backed guides for business email migration, infrastructure and deliverability.</description>\n    <language>en</language>\n${items.join("\n")}\n  </channel>\n</rss>\n`;
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n    <title>Venmail Email &amp; Free Tool Guides</title>\n    <link>${siteUrl}/blog</link>\n    <description>Practical guides for business email, free tools, marketing, developer workflows and migration.</description>\n    <language>en</language>\n${items.join("\n")}\n  </channel>\n</rss>\n`;
 }
 
 async function writeFeeds() {

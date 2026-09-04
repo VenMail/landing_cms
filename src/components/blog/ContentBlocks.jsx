@@ -25,6 +25,9 @@ export default function ContentBlocks({ blocks, sources }) {
     <div className="space-y-8 text-[1.0625rem] leading-8 text-slate-700">
       {blocks.map((block, index) => {
         const key = `${block.type}-${block.id ?? index}`;
+        if (block.type === "code") {
+          return <section key={key} className="min-w-0" aria-label={block.title}><h2 className="mb-4 text-xl font-bold text-slate-950">{block.title}</h2><pre className="max-w-full overflow-x-auto rounded-2xl bg-slate-950 p-5 text-sm leading-6 text-slate-100"><code>{block.text}</code></pre></section>;
+        }
         if (block.type === "heading") {
           const Heading = block.level === 3 ? "h3" : "h2";
           return <Heading key={key} id={block.id} className="scroll-mt-28 pt-4 text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{block.text}</Heading>;

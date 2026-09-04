@@ -9,12 +9,12 @@ import {
 } from "../../src/data/content/catalog.mjs";
 import { validateCatalog } from "../../src/data/content/validate.mjs";
 
-test("catalog exposes exactly 50 useful opportunities", () => {
+test("catalog exposes 82 useful article records", () => {
   const all = getAllOpportunities();
-  assert.equal(all.length, 50);
-  assert.equal(getPublishedArticles().length, 50);
+  assert.equal(all.length, 82);
+  assert.equal(getPublishedArticles().length, 82);
   assert.equal(all.filter((item) => item.status === "brief").length, 0);
-  assert.equal(new Set(all.map((item) => item.slug)).size, 50);
+  assert.equal(new Set(all.map((item) => item.slug)).size, 82);
 });
 
 test("only completed work is publicly addressable", () => {
@@ -93,9 +93,9 @@ test("article headers do not display reviewer attribution", async () => {
   assert.ok(!page.includes("article.reviewer"));
 });
 
-test("content validation reports the live fifty-article catalog", async () => {
+test("content validation reports dynamic catalog counts", async () => {
   const script = await readFile(new URL("../../scripts/validate-content.mjs", import.meta.url), "utf8");
-  assert.ok(script.includes("50 published articles, 0 briefs"));
+  assert.ok(script.includes("getPublishedArticles().length"));
   assert.ok(!script.includes("10 published articles, 40 briefs"));
 });
 

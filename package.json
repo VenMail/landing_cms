@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:content": "node --test tests/content/catalog.test.mjs tests/content/feeds.test.mjs",
+    "test:content": "node --test tests/content/*.test.mjs",
     "validate:content": "node scripts/validate-content.mjs",
     "generate:feeds": "node scripts/generate-content-feeds.mjs"
   },

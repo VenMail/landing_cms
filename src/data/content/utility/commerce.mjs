@@ -1,0 +1,98 @@
+import { guide, p, steps, table, check, example, apiCost, freeMail } from "./shared.mjs";
+
+export default [
+guide(7, "abandoned-cart-email-examples-small-store", "Three abandoned-cart email examples for a small store", "Write helpful reminders around real checkout problems, with a clear stop rule after purchase.", "Shopify and WooCommerce merchants improving their cart reminders", ["shopify-messaging", "woocommerce-email", "mjml"], "Use your store's native automation when it already handles cart state and eligibility; a manual broadcast is not a cart-recovery engine.", [
+  p("A helpful cart reminder makes it easy to continue shopping or ask a question. It should not invent urgency or send after someone has already purchased. Before writing copy, confirm that your store can identify an eligible abandoned checkout and stop reminders when its state changes."),
+  example("reminder", "Subject: Still considering your desk lamp? Your selected lamp is waiting in your saved checkout. Review your order when you are ready. If you have a question about the size or delivery, reply and we will help."),
+  example("answer a common concern", "Subject: A note about delivery for your lamp. Standard delivery normally takes the time shown at checkout. You can review the current estimate before paying. Reply if you need help choosing a delivery option."),
+  example("close the loop", "Subject: Need help finishing your order? This is our last reminder about this saved checkout. If the lamp is not right for you, no action is needed. If something went wrong, reply and tell us what happened."),
+  p("These are editable examples, not a recommendation to send three reminders to every visitor. Start with one message where the store's rules and the customer's preferences permit it. Add another only if it has a distinct useful purpose."),
+  steps("Connect the copy to the store", [
+    ["Check the trigger and eligibility", "Review the checkout event, recipient preferences and recovery rules in your commerce system. Keep Shopify's supported checkout automation in charge unless you have built and tested a separate integration."],
+    ["Use a valid recovery destination", "Generate the link through the store's supported mechanism. Test it with a synthetic cart. Do not put another customer's checkout or personal details into a reusable template."],
+    ["Stop on purchase or opt-out", "Check current cart and order state immediately before sending. A queued reminder can become obsolete. Make suppression and duplicate prevention part of the workflow, not a manual hope."],
+    ["Route questions to a person", "Use a monitored Venmail address for customer replies where your store supports that reply configuration. If you want Venmail to send reminders, verify the integration and account access separately."],
+  ]),
+  p("Drafting and reviewing these messages is free. MJML can help a developer create the layout. Hosting, store apps and live sending may have costs, and a Venmail Free workspace does not imply a native Shopify abandoned-cart connector."),
+  check("Before activation", ["One eligible cart receives one intended message", "A completed purchase cancels pending reminders", "Recovery links belong to the right customer", "Replies reach support", "No invented discount or deadline"]),
+]),
+guide(7, "post-purchase-email-plan-small-store", "A simple post-purchase email plan for a small store", "Separate order facts, product help and optional marketing so customers get the right message.", "Merchants planning their first customer follow-up emails", ["woocommerce-email", "shopify-messaging"], "Keep transactional notifications in the commerce platform when it is the reliable source of order and shipping state.", [
+  p("After a purchase, customers need accurate facts first: what they bought, what happens next and how to get help. Plan helpful follow-up around the product rather than adding a sales offer to every notification. The order system should remain the source of truth."),
+  table("A practical sequence for a coffee shop", ["Message", "Trigger", "Useful content"], [
+    ["Receipt", "Order confirmed", "Items, total and support route"],
+    ["Shipping update", "Actual dispatch event", "Tracking link and delivery information"],
+    ["Care or usage note", "Appropriate time after delivery", "Storage and brewing tips relevant to the purchase"],
+    ["Optional newsletter", "Separate subscription", "New guides or offers the customer requested"],
+  ]),
+  p("The timing of a brewing guide is different from that of a shipping notice. Do not send a message saying your coffee has arrived just because a timer expired. Use confirmed events where the wording depends on delivery or order status."),
+  steps("Build the plan", [
+    ["Inventory existing notifications", "List what Shopify or WooCommerce already sends. Place a test order and read every message. Remove overlap in your proposed plan before adding another tool."],
+    ["Write a support-first template", "Tell the customer what to do if something is wrong. Use a working reply address or a clear support link. Keep promotional claims out of essential receipt and account messages."],
+    ["Choose the correct sending owner", "Let the store send order-triggered mail through its supported route. Use Venmail for staff replies and suitable subscribed broadcasts. A custom lifecycle integration requires event handling, current-state checks and authorized sending access."],
+    ["Test exceptions", "Try a canceled order, a refund and a delayed shipment in a test environment. A good plan stops an inappropriate follow-up and does not describe a refunded purchase as still on its way."],
+  ]),
+  example("a product-help note", "Subject: Getting started with your pour-over. Rinse the filter, start with the ratio printed on your bag and adjust one variable at a time. If the cup tastes too sharp or too bitter, reply with your setup and we can help. Keep the instructions available on a public help page too."),
+  p("You can write the plan in a free spreadsheet and use Venmail's core mailbox workflow to handle questions. Start with that useful service before buying a complex journey builder. Check plan access before automating events or campaigns."),
+  check("The plan is ready when", ["Every message has an owner and trigger", "Order facts come from the store", "Marketing preferences are separate", "Cancel and refund cases are tested", "Support replies have an owner"]),
+]),
+guide(7, "woocommerce-order-email-template-checklist", "Improve a WooCommerce order email without buying a template plugin", "Use the built-in email settings and a real test order to make receipts clearer.", "WooCommerce store owners who want readable order notifications", ["woocommerce-email", "fluent-smtp", "mailpit"], "Use a developer and a child-theme workflow for structural template changes; editing plugin files directly makes updates fragile.", [
+  p("Before buying an email customizer, check whether WooCommerce's built-in settings can solve the problem. A recognizable sender, an accurate subject and a clear support route often matter more than decorative layout changes. Test with an order, not only a preview."),
+  steps("Review the customer experience", [
+    ["Check the relevant email settings", "Open WooCommerce's email settings and review the enabled customer notifications. Confirm the sender identity and the subject for the order state you are testing. Available controls vary with your installed version."],
+    ["Make the wording concrete", "Say whether an order is received, processing or completed according to the actual event. Avoid promising dispatch in a message that only confirms payment. Put the support route where the customer can find it."],
+    ["Keep the receipt complete", "Review item names, quantities, totals, currency, addresses and links in a synthetic order. A beautifully styled receipt with an incorrect total is worse than a plain accurate one. Test long product names and non-English characters."],
+    ["Verify the sending route", "If delivery is the problem, inspect mail generation and transport before changing the template. A free SMTP plugin such as FluentSMTP can connect an authorized SMTP service. Use the exact Venmail connection values issued for your account, not guessed hostnames or ports."],
+    ["Read it on a phone", "Place a test order, inspect the message on a small screen and reply. Confirm that the reply reaches the support mailbox. Test cancellations and refunds separately from a normal order."],
+  ]),
+  table("Receipt review sheet", ["Area", "Pass condition"], [
+    ["Identity", "Store name and From address are recognizable"],
+    ["Order facts", "Currency, totals and items match the order"],
+    ["Next step", "The customer knows whether to wait or act"],
+    ["Support", "A reply or support link reaches the team"],
+    ["Layout", "Critical facts remain readable on a phone"],
+  ]),
+  p("A developer can use free Mailpit for staging messages without contacting customers. Keep staging payment and mail settings isolated from production. For custom PHP templates, follow the version-specific WooCommerce guidance and preserve an upgrade path."),
+  apiCost(),
+  check("Finish with evidence", ["A real test order produced the email", "The order state matches the wording", "Support replies work", "Refund behavior is checked", "The change survives your normal update process"]),
+]),
+guide(8, "wordpress-smtp-setup-free-plugin", "Connect WordPress to SMTP with a free plugin", "Use FluentSMTP and your authorized sending credentials to test WordPress email step by step.", "WordPress owners whose host mail is unreliable", ["fluent-smtp", "fluent-smtp-github", "wordpress-email"], "Ask your host or developer for help when outbound SMTP is blocked or your site's mail flow is customized beyond a standard plugin setup.", [
+  p("A free SMTP plugin can give WordPress a clear sending route. The plugin connects the site to an email service; it does not provide free unlimited delivery by itself. Gather the connection details for your Venmail account before changing WordPress settings."),
+  p("You need administrator access to the site and a sender authorized by the email service. If several people manage the website, agree who owns the change. Keep the existing configuration available so you can restore it if the test fails."),
+  steps("Set up and test the connection", [
+    ["Check existing mail plugins", "Find out whether another plugin already controls wp_mail. Configure one deliberate sending route. Two plugins competing for the same mail function can make troubleshooting confusing."],
+    ["Install the official plugin", "Use FluentSMTP from the WordPress plugin directory linked below. Choose its generic SMTP connection for a compatible service. Keep WordPress and the plugin updated through your normal maintenance process."],
+    ["Copy the issued connection values", "Enter the SMTP host, port, encryption mode, username and password supplied for your Venmail account. Do not substitute an API key for an SMTP password unless the account documentation explicitly requires it. Store credentials in the approved site configuration."],
+    ["Set the sender deliberately", "Use an authorized From address on your business domain. For a contact form, put the visitor's validated address in Reply-To where supported. Do not impersonate the visitor's domain in From."],
+    ["Test the actual workflows", "Send the plugin's test email to your own mailbox, then submit a real test form and request a test-account password reset. Check received mail and errors. A successful plugin test does not prove every form is configured correctly."],
+  ]),
+  table("When a test fails", ["Symptom", "Next check"], [
+    ["Connection timeout", "Host firewall, port and reachability"],
+    ["Authentication rejected", "Issued SMTP credentials and encryption mode"],
+    ["Sender rejected", "Authorized From address and domain verification"],
+    ["Plugin test works, form does not", "Form settings and whether it creates mail"],
+  ]),
+  p("FluentSMTP is free and its source is available on GitHub. Venmail can be the configured sending service when your account supports SMTP. The website hosting bill and any sending charges remain separate from the plugin."),
+  apiCost(),
+  check("Keep the setup record", ["One mail route is active", "Credentials are not in public code", "The sender is authorized", "A form and reset were tested", "Failure logs have an owner"]),
+]),
+guide(8, "wordpress-email-test-after-plugin-update", "A ten-minute WordPress email check after an update", "Catch broken forms, resets and order notifications before customers report them.", "WordPress owners and agencies maintaining small business sites", ["wordpress-site-health", "fluent-smtp", "mailpit"], "Use automated staging checks and a maintenance specialist when the site has complex checkout or high-volume transactional requirements.", [
+  p("After a plugin or theme update, test the actions that people rely on. A site can load normally while a form or reset email has stopped working. Keep a short repeatable check so email is part of maintenance rather than an afterthought."),
+  p("Use test accounts and clearly labelled submissions. Do not trigger password resets for customers or place real orders just to check the mail path. If you have staging, test there first with a local mail catcher, then run a small controlled check on the live site."),
+  steps("Run the same check each time", [
+    ["Record what changed", "Save the plugin or theme names, versions and update time. Note who can roll back through your normal backup process. This gives you a useful comparison if the email behavior changes."],
+    ["Submit a contact request", "Use a unique marker in the form, confirm that the submission is saved where expected and find the email in your Venmail support mailbox. Reply to check that Reply-To sends to the test visitor address."],
+    ["Request a test reset", "Use a dedicated test account. Confirm that the message arrives and the link opens the intended site. Do not paste a live reset link into the maintenance report."],
+    ["Check commerce if applicable", "Use your approved test-order process and inspect the expected customer notification. Do not mark an actual customer order complete for testing. Verify that no duplicate receipt was generated."],
+    ["Review errors and close", "Look at the mail plugin's recent failures and the site's health information. If something failed, record the first broken step. Retest only after a deliberate fix or rollback."],
+  ]),
+  table("Reusable maintenance log", ["Check", "Expected result", "Record"], [
+    ["Contact form", "Saved submission and one email", "Safe submission ID"],
+    ["Password reset", "Test account receives usable reset", "Pass/fail without token"],
+    ["Test order", "Correct notification, no duplicate", "Test order ID"],
+    ["Reply handling", "Reply reaches intended recipient", "Mailbox checked"],
+  ]),
+  p("The log can be a free spreadsheet. FluentSMTP provides a free transport and logging option, and Mailpit is useful for local SMTP capture. Use Venmail to receive and answer the business messages, with account access checked separately for any SMTP integration."),
+  p("A ten-minute check is a target for a small site, not a guarantee. If a failure appears, pause the maintenance sign-off until you understand it. A recorded failure is more useful than a green checkbox based only on the homepage loading."),
+  check("Maintenance sign-off", ["Changes and versions recorded", "Real form path tested", "Test-account reset checked", "Relevant order notification checked", "No credentials or reset tokens in the log"]),
+]),
+];

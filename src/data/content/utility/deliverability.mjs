@@ -1,0 +1,95 @@
+import { guide, p, h, steps, table, check, example, freeMail } from "./shared.mjs";
+
+export default [
+guide(1, "free-email-deliverability-audit", "A free email deliverability audit you can do this afternoon", "Find where an email goes missing with a test message, its headers and a simple evidence sheet.", "Small business owners investigating missing customer email", ["gmail-senders", "checkdmarc"], "Bring in a specialist when several recipient networks reject correctly authenticated mail and you need reputation investigation.", [
+  p("Before paying for a deliverability report, follow one message from your business to an inbox you control. You need the sending time, the recipient, any error and the received headers. This small audit can distinguish a setup error from a problem that needs deeper help."),
+  p("Imagine a customer says a quote never arrived. Sending it repeatedly only adds noise. Ask whether their address is correct, look for a bounce, and send a clearly labelled test to your own second mailbox. Never ask a customer for their mailbox password."),
+  steps("Trace the message", [
+    ["Write down one test", "In Venmail, send a short message to an address you control at a different provider. Use a unique subject such as Delivery check 04 September. Record the time and sender. Avoid attachments for this first test."],
+    ["Find the first missing handoff", "Check Sent and any failure notice. If the message is absent from Sent, investigate submission first. If it bounced, copy the status code and explanation. If it arrived in spam, save the original headers before moving it."],
+    ["Read the authentication results", "Look for Authentication-Results added by the receiving provider. SPF checks the authorized sending path; DKIM checks a signature; DMARC checks alignment with the visible From domain. A pass is useful evidence, not a promise of inbox placement."],
+    ["Check public records", "A technical teammate can use the free checkdmarc project linked below to inspect SPF and DMARC. Compare its findings with the exact records provided for your Venmail domain. Do not replace your DNS with a guessed example."],
+    ["Change one thing and repeat", "Correct a confirmed mismatch, send a new uniquely named test and compare results. If authentication already passes, look at the recipient explanation and message history instead of changing DNS at random."],
+  ]),
+  table("Copy this audit sheet", ["Evidence", "Example entry", "Next action"], [
+    ["Sent time", "14:10 UTC, quote-test-04", "Find the same message in both mailboxes"],
+    ["Receiver result", "Spam folder; DKIM pass; DMARC fail", "Check the signing domain against From"],
+    ["Change", "Corrected the authorized sender", "Retest and save the new headers"],
+  ]),
+  p("Keep an untouched copy of the original result. The contrast between two tests is often more useful to support than a screenshot of a green score. Remove customer addresses and message bodies before sharing the evidence outside your team."),
+  freeMail(),
+  check("You have a useful result when", ["One message can be traced end to end", "You know whether the failure was submission, rejection or filtering", "DNS findings are tied to your actual domain", "The retest records what changed"]),
+]),
+guide(2, "warm-up-new-email-domain-without-paid-tools", "Warm up a new email domain without buying a warm-up tool", "Start with expected messages and increase sending only when the evidence supports it.", "Founders starting legitimate email from a new business domain", ["gmail-senders", "checkdmarc"], "A ramp-up cannot repair an unwanted mailing list or guarantee that a recipient provider will accept a campaign.", [
+  p("A useful warm-up is a careful introduction of real mail that people expect. It is not a fixed number of days or a network of fake conversations. Start by making your domain recognizable, authenticating it and learning from a small amount of genuine traffic."),
+  p("For a new design studio, the first messages might be requested quotes and project updates. Those are better starting points than a thousand cold introductions. Your aim is to discover problems while the number of affected people is small."),
+  steps("Build a gradual sending routine", [
+    ["Set up your identity", "Add your business domain in Venmail and complete the verification shown for the account. Use a From name customers recognize and a working reply address. Send to a mailbox you control and inspect the received message."],
+    ["Choose people who expect the message", "Begin with customers who requested a reply or subscribers who recently opted in. Keep the evidence of that request. Do not import every address from an old spreadsheet just to create volume."],
+    ["Use a steady, modest workload", "Spread normal business correspondence through your working day. Do not buy traffic to reach an arbitrary daily target. The right pace depends on your account allowance, domain history and recipient feedback."],
+    ["Review before expanding", "Record attempts, hard bounces, complaints where available and customer replies. Pause growth if problems appear. Remove invalid addresses and investigate a sudden change before sending to a larger group."],
+  ]),
+  table("A decision log, not a promised schedule", ["Checkpoint", "Evidence", "Decision"], [
+    ["First real messages", "Expected replies arrive; no unexplained failure", "Continue at the same pace"],
+    ["New recipient group", "Several invalid addresses appear", "Stop adding recipients; repair the source"],
+    ["More normal demand", "Stable results and sufficient allowance", "Increase cautiously and review again"],
+  ]),
+  p("Keep quotes and account messages separate from newsletter experiments in your planning. If the newsletter causes a problem, you need to know which audience and message changed. A free spreadsheet is enough for this log; an automated dashboard is optional."),
+  p("checkdmarc is a free way for a technical helper to check public DNS records. It does not create reputation or simulate customers. Venmail handles your actual correspondence; the review habit is what makes the ramp-up useful.", "checkdmarc"),
+  freeMail(),
+  check("Before sending to more people", ["Authentication has been checked", "Recipients expect the message", "Invalid addresses have been removed", "Someone monitors replies and failures", "The next batch fits the account allowance"]),
+]),
+guide(2, "email-warmup-myths-and-real-signals", "Email warm-up myths: what to measure instead of a score", "Replace a reassuring warm-up score with evidence about real messages and real recipients.", "Teams deciding whether a warm-up subscription will solve their problem", ["gmail-senders", "venmail-api"], "Use a qualified deliverability operator when you need receiver-specific remediation; a simple scorecard cannot provide that investigation.", [
+  p("A high warm-up score does not tell you whether a customer received today's invoice. Before buying a service, ask what its score measures and whether the sample resembles your real audience. You can make a more useful first assessment with evidence you already have."),
+  p("There are several different outcomes: your application created a message, the sending service accepted it, the receiving server accepted it, and the person found it useful. Treating all four as delivered hides the place where a problem starts."),
+  table("Replace the claim with a question", ["Claim", "Better question", "Evidence you can collect"], [
+    ["Your domain is warm", "Which normal messages succeeded?", "Message IDs and recipient feedback"],
+    ["Ninety-nine percent inbox rate", "Which inboxes and what sample size?", "Named test providers and folder results"],
+    ["More opens means better reputation", "Did people complete the intended action?", "Replies, bookings or confirmed account actions"],
+    ["A new domain fixes everything", "What caused the original problem?", "A change log and bounce explanations"],
+  ]),
+  steps("Make a weekly evidence review", [
+    ["Pick one stream", "Choose customer replies, a subscribed newsletter or application alerts. Keep the audience and purpose clear. Mixing all traffic into one number makes a small but important failure hard to see."],
+    ["Count attempts and outcomes", "Use Venmail's available reporting and your application records. Write down the number attempted as well as failures. One bounce among five messages needs a different investigation from one among fifty thousand."],
+    ["Add a human check", "Ask a colleague who owns a test mailbox whether the message arrived and where. A test is a sample, so label it as one. Do not manufacture replies or ask recipients to conceal unwanted mail."],
+    ["Choose one next action", "Fix a broken reply address, remove an invalid recipient, or investigate an authentication error. Write down why that action follows from the evidence. Keep the previous result for comparison."],
+  ]),
+  example("a more useful weekly note", "We sent 24 requested quotes. Two addresses were mistyped, 18 customers replied, and four have not replied yet. We corrected the two addresses after confirming them with the customers. The four silent customers are not automatically delivery failures."),
+  p("This review is free to run in a document or spreadsheet. Venmail gives you a place to send and answer the real messages. If you later buy monitoring, choose it because it answers a question this basic record cannot answer."),
+  check("Keep the review honest", ["Counts include a denominator", "Test mail is separate from real traffic", "Unknown outcomes stay unknown", "No score is described as an inbox guarantee"]),
+]),
+guide(2, "free-inbox-placement-test-sheet", "Run a small inbox placement test with a free results sheet", "Compare the same message across inboxes you control and record exactly what the test can tell you.", "Small teams checking a new sender or a changed email template", ["gmail-senders", "venmail-api"], "Use a representative monitoring service when a handful of test mailboxes cannot reflect your audience or volume.", [
+  p("You can learn from a small inbox test without buying a seed-list service. Send the same realistic message to a few mailboxes your team controls, then record the result. The test is a diagnostic sample; it is not a forecast of every customer's inbox."),
+  p("Choose a message you actually use: a booking confirmation, a quote or a newsletter. A blank email saying test proves little about a designed campaign with images and links. Use synthetic customer details so the test does not expose a real order."),
+  steps("Run one controlled comparison", [
+    ["Choose your sample", "Use existing test accounts at recipient providers that matter to your customers. If most customers use Microsoft 365, do not test only a personal Gmail address. Note forwarding rules and filters that could change the result."],
+    ["Send through the real route", "Use the intended Venmail sender and the same template path you plan to use in production. Send separately to each test account. Record the time and subject so you do not confuse a new test with an earlier one."],
+    ["Inspect before interacting", "Record inbox, spam, another folder or not found before opening, moving or replying. Save authentication results and any bounce explanation. If the mailbox has a rule for your sender, record that too."],
+    ["Retest one change", "Change one suspected cause, such as a broken link or sender mismatch. Repeat with a new subject marker. If you change the domain, template and audience together, you cannot tell which change mattered."],
+  ]),
+  table("Use one row per recipient and test", ["Field", "Sample value"], [
+    ["Test and sender", "Booking-v2; bookings@example.com"],
+    ["Recipient provider", "Team-controlled Outlook mailbox"],
+    ["Result before interaction", "Junk folder, received at 10:04 UTC"],
+    ["Authentication", "Record actual SPF, DKIM and DMARC results"],
+    ["Changed since last test", "Updated the reply address only"],
+  ]),
+  p("If a message is not found, check whether the sender received a delay or rejection before classifying it as spam. If all samples pass, keep monitoring real customer reports. A small test can find a visible failure; it cannot prove that no other failure exists."),
+  freeMail(),
+  check("Save these with the sheet", ["Template version and sender", "Ownership of the test mailboxes", "Unedited result before moving mail", "Known mailbox rules", "A clear statement of the sample's limits"]),
+]),
+guide(2, "restart-email-newsletter-after-long-break", "Restart a quiet newsletter without surprising your subscribers", "Use a careful list review and a clear restart message after a long gap in sending.", "Businesses returning to a permission-based newsletter after months away", ["gmail-senders", "openrefine"], "Do not restart a list when you cannot establish what people subscribed to; rebuild an opt-in audience instead.", [
+  p("When a newsletter has been silent for months, the first job is to restore context. People may have forgotten the brand, changed jobs or stopped wanting updates. A restart should make the subscription recognizable and make leaving easy."),
+  p("Start with your records, not the Send button. Separate recent subscribers, older subscribers with a clear subscription history, unsubscribed contacts and addresses with no reliable source. Never add the last two groups just because they are available."),
+  steps("Prepare a considerate restart", [
+    ["Review the source", "For each contact, find the signup date and what they asked to receive. If those details are missing, leave the address out of the restart. Preserve previous opt-outs even if you changed software."],
+    ["Clean an exported copy", "Use a spreadsheet or the free OpenRefine project to identify duplicate rows and empty addresses. Review proposed merges before applying them. Cleaning a row does not establish that the person wants marketing."],
+    ["Write a context-first email", "Explain the gap briefly, say what will arrive next and provide an obvious unsubscribe route. Use the same recognizable brand and a monitored reply address. Avoid pretending the conversation never stopped."],
+    ["Start with a justified group", "Send first to recent, clearly subscribed readers within your Venmail allowance. Review replies and failures before including older eligible contacts. Stop if the response shows that your expectation of interest was wrong."],
+  ]),
+  example("restart note", "Subject: A quick update from Willow Studio. You signed up for our workshop notes. We paused while moving studios, and will now send one practical note each month. This month's note is a checklist for choosing a print size. If it is no longer useful, you can unsubscribe below. Replies come directly to our team."),
+  p("A useful next issue matters more than a long apology. Prepare it before sending the restart so you can keep the frequency you promised. If you cannot maintain monthly updates, promise occasional updates instead and explain what will trigger them."),
+  freeMail(),
+  check("Before restarting", ["The audience has a documented subscription history", "Previous opt-outs are excluded", "The restart explains future frequency", "Unsubscribe works in a test", "A person reads replies"]),
+]),
+];
