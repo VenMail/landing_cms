@@ -31,12 +31,12 @@ export default function ArticlePage({ article, related }) {
     <DefaultLayout>
       <Head>
         <title>{article.metaTitle}</title>
-        <meta name="description" content={article.metaDescription} />
-        <link rel="canonical" href={article.canonicalUrl} />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={article.title} />
-        <meta property="og:description" content={article.metaDescription} />
-        <meta property="og:url" content={article.canonicalUrl} />
+        <meta name="description" key="description" content={article.metaDescription} />
+        <link rel="canonical" key="canonical" href={article.canonicalUrl} />
+        <meta property="og:type" key="og:type" content="article" />
+        <meta property="og:title" key="og:title" content={article.title} />
+        <meta property="og:description" key="og:description" content={article.metaDescription} />
+        <meta property="og:url" key="og:url" content={article.canonicalUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />

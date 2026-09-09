@@ -63,6 +63,9 @@ jobs:
       - name: Verify exported error page
         run: test -f out/404.html
 
+      - name: Verify landing metadata and signup offers
+        run: node scripts/verify-landing-export.mjs
+
       # Parallel steps for faster execution
       - name: Install AWS CLI and Create Wrangler Config (Parallel)
         run: |

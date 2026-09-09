@@ -6,17 +6,17 @@ export default function SovereigntyClip() {
   const frame = useCurrentFrame();
 
   // Scene 1: Shared inbox (0-90 frames)
-  const inboxOpacity = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp" });
+  const inboxOpacity = interpolate(frame, [0, 15], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const inboxFadeOut = interpolate(frame, [80, 100], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
 
   // Scene 2: Data flow (90-180 frames)
-  const flowOpacity = interpolate(frame, [90, 110], [0, 1], { extrapolateRight: "clamp" });
+  const flowOpacity = interpolate(frame, [90, 110], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const flowFadeOut = interpolate(frame, [170, 190], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
-  const arrowProgress = interpolate(frame, [110, 160], [0, 1], { extrapolateRight: "clamp" });
+  const arrowProgress = interpolate(frame, [110, 160], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // Scene 3: Lock (180-240 frames)
-  const lockOpacity = interpolate(frame, [180, 200], [0, 1], { extrapolateRight: "clamp" });
-  const lockScale = interpolate(frame, [180, 210], [0.5, 1], { extrapolateRight: "clamp" });
+  const lockOpacity = interpolate(frame, [180, 200], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const lockScale = interpolate(frame, [180, 210], [0.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ background: "#020617", fontFamily: "Inter, system-ui, sans-serif" }}>
@@ -25,7 +25,7 @@ export default function SovereigntyClip() {
         <div style={{ background: "#111", borderRadius: 8, padding: 16, width: 400, border: "1px solid #333" }}>
           <div style={{ fontSize: 13, color: "#9ca3af", marginBottom: 12 }}>Shared Inbox — Legal Team</div>
           {["Alice → NDA Review", "Bob → Client Contract", "Carol → Compliance Audit"].map((item, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #222", opacity: interpolate(frame, [15 + i * 10, 30 + i * 10], [0, 1], { extrapolateRight: "clamp" }) }}>
+            <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid #222", opacity: interpolate(frame, [15 + i * 10, 30 + i * 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
               <span style={{ color: "#e5e7eb", fontSize: 13 }}>{item}</span>
               <span style={{ color: "#22c55e", fontSize: 11, fontWeight: 600 }}>Assigned</span>
             </div>
@@ -38,7 +38,7 @@ export default function SovereigntyClip() {
         {/* Emails */}
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           {[1, 2, 3].map((_, i) => (
-            <div key={i} style={{ width: 40, height: 30, background: "#3b82f6", borderRadius: 4, opacity: interpolate(frame, [100 + i * 8, 115 + i * 8], [0, 0.8], { extrapolateRight: "clamp" }), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>
+            <div key={i} style={{ width: 40, height: 30, background: "#3b82f6", borderRadius: 4, opacity: interpolate(frame, [100 + i * 8, 115 + i * 8], [0, 0.8], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>
               📧
             </div>
           ))}
@@ -61,10 +61,10 @@ export default function SovereigntyClip() {
       <div style={{ position: "absolute", inset: 0, opacity: lockOpacity, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
         <div style={{ transform: `scale(${lockScale})`, fontSize: 48, marginBottom: 16 }}>🔒</div>
         <div style={{ fontSize: 28, fontWeight: 800, color: "#fff", letterSpacing: "-0.02em" }}>
-          100% Data Ownership
+          Choose Your Storage
         </div>
         <div style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", marginTop: 8 }}>
-          Your infrastructure. Your jurisdiction. Your control.
+          Storage location and service processing are separate.
         </div>
       </div>
     </AbsoluteFill>

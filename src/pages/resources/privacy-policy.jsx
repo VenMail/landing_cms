@@ -3,11 +3,11 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 
 const data = {
   policyVersion: "1.0",
-  lastUpdated: "2025-02-26",
+  lastUpdated: "2026-09-09",
   sections: [
     {
       id: "",
-      title: "Last Updated: February 26, 2025",
+      title: "Last Updated: September 9, 2026",
       content: [
         {
           type: "paragraph",
@@ -38,6 +38,7 @@ const data = {
           type: "subsection",
           title: "2.2 Sensitive Data",
           items: [
+            "Email content and attachments",
             "Calendar events",
             "Meeting recordings",
             "Contact lists",
@@ -81,7 +82,7 @@ const data = {
         {
           type: "list",
           items: [
-            "Service providers (e.g., cloud storage, analytics tools) to enhance service performance",
+            "Service providers for hosting, delivery, analytics, and AI processing. Email analysis can send message content and extracted attachment text to Groq, a third-party AI provider.",
             "Legal authorities if required by law",
             "Third-party integrations you enable (e.g., Google Calendar, Zoom)",
           ],
@@ -94,14 +95,14 @@ const data = {
       content: [
         {
           type: "paragraph",
-          text: "We implement industry-standard measures to protect your data, including:",
+          text: "Storage location, connection security, and content processing are different parts of the service:",
         },
         {
           type: "list",
           items: [
-            "End-to-End Encryption: Emails, calendars, and meetings are encrypted.",
-            "Data Protection: AES-256 encryption, SOC-2 compliance.",
-            "Secure Storage: Data is stored on AWS/GCP/Azure cloud services.",
+            "The web application uses HTTPS. Venmail processes email content on its servers to provide mailbox and AI features; this is not a blanket end-to-end encrypted or zero-access service.",
+            "Managed storage region and customer-provided storage settings govern storage placement. They do not by themselves confine application or third-party AI processing to that location.",
+            "Ask our team for the current deployment controls, subprocessors, and contractual requirements before using the service for regulated or sensitive workloads.",
           ],
         },
       ],
@@ -120,7 +121,7 @@ const data = {
             "Access your data",
             "Request data deletion",
             "Export your data",
-            "Opt-out of AI processing",
+            "Request information about AI processing and the controls available for your account",
             "Manage cookie preferences (see Cookie Policy)",
           ],
         },

@@ -157,11 +157,11 @@ export default function Integrations() {
     <DefaultLayout>
       <Head>
         <title>VenMail Integrations — Connect with Your Favorite Tools</title>
-        <meta name="description" content="Integrate VenMail with Gmail, Zapier, Salesforce, HubSpot, and thousands of other apps via webhooks. Automate your email workflows." />
-        <meta property="og:title" content="VenMail Integrations" />
-        <meta property="og:description" content="Connect VenMail with your favorite tools and automate your email workflows." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/integrations" />
+        <meta name="description" key="description" content="Integrate VenMail with Gmail, Zapier, Salesforce, HubSpot, and thousands of other apps via webhooks. Automate your email workflows." />
+        <meta property="og:title" key="og:title" content="VenMail Integrations" />
+        <meta property="og:description" key="og:description" content="Connect VenMail with your favorite tools and automate your email workflows." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/integrations" />
       </Head>
 
       <section className="bg-white py-12 md:py-20">
@@ -263,7 +263,7 @@ export default function Integrations() {
                 target="_blank"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-black hover:bg-gray-800 transition-colors"
               >
-                Start Free
+                Explore plans
               </a>
               <a
                 href="/pricing"

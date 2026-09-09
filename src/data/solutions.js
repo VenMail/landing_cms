@@ -30,7 +30,7 @@ export const solutions = {
         icon: "shield",
         title: "Enterprise Security",
         description:
-          "GDPR compliant with optional Bring Your Own Storage for sensitive clients.",
+          "Optional customer-provided storage; review processing requirements for sensitive clients.",
       },
     ],
     featureSectionTitle: "Why This Works for Agencies",
@@ -95,12 +95,12 @@ export const solutions = {
       "Automated follow-up sequences",
       "Meeting scheduling from inbox",
       "Campaign analytics and tracking",
-      "Free tier to get started",
+      "Paid plans for business domains",
     ],
     pricingImage: "/solutions/founders/content-image-2.png",
-    pricingTitle: "Start Free, Scale When Ready",
+    pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
-      "Begin with the free tier and upgrade only when you need more features. No per-seat fees means your costs stay predictable.",
+      "Business domain email requires a paid plan. Choose storage and hosting region with no per-seat fees.",
     perSeatComparison: 360,
   },
   marketing: {
@@ -156,7 +156,7 @@ export const solutions = {
     category: "For Healthcare Organizations",
     headline: "Patient Data Stays In Your Hands",
     description:
-      "HIPAA-aware email infrastructure where patient communication data stays in your storage, under your jurisdiction.",
+      "Review mailbox storage, access controls, and service processing requirements before using email for patient communications.",
     heroImage: "/solutions/healthcare/section-1.png",
     accentColor: "cyan",
     capabilities: [
@@ -168,7 +168,7 @@ export const solutions = {
       {
         icon: "lock",
         title: "Compliance Ready",
-        description: "Built to support HIPAA, GDPR, and local data protection requirements.",
+        description: "Discuss the controls and contractual requirements for your healthcare deployment.",
       },
       {
         icon: "users",
@@ -178,7 +178,7 @@ export const solutions = {
       {
         icon: "mail",
         title: "Secure Communication",
-        description: "End-to-end encrypted email with audit trails for compliance.",
+        description: "Server-processed email with storage options; review the access and audit requirements for your workflow.",
       },
     ],
     featureSectionTitle: "Why Healthcare Trusts Venmail",
@@ -259,7 +259,7 @@ export const solutions = {
       {
         icon: "shield",
         title: "Regulatory Compliance",
-        description: "Built to support GDPR, PCI-DSS awareness, and financial data regulations.",
+        description: "Review your financial data requirements and the controls available for your deployment.",
       },
       {
         icon: "lock",
@@ -335,7 +335,7 @@ export const solutions = {
       "Bring Your Own Storage",
       "Custom domain with full DNS",
       "Student data sovereignty",
-      "Free tier available",
+      "Personal accounts use venia.cloud",
     ],
     pricingImage: "/solutions/education/content-image-2.png",
     pricingTitle: "Email for Every Student Without Breaking the Budget",
@@ -426,7 +426,7 @@ export const solutions = {
       "Nonprofits shouldn't have to choose between giving staff email and funding programs. Venmail makes that choice unnecessary.",
     featureImage: "/solutions/nonprofit/content-image-1.png",
     benefits: [
-      "Free tier available",
+      "Personal accounts use venia.cloud",
       "Unlimited staff and volunteer accounts",
       "Donor communication campaigns",
       "Template library included",
@@ -499,7 +499,7 @@ export const solutions = {
       {
         icon: "mail",
         title: "AI Email Assistant",
-        description: "Write better client emails with AI-powered composition and rewrites.",
+        description: "Keep client communication organized with templates and follow-ups.",
       },
       {
         icon: "users",
@@ -522,7 +522,7 @@ export const solutions = {
       "Freelancers need professional email, scheduling, and client management — but shouldn't pay for enterprise features they don't use.",
     featureImage: "/solutions/freelancers/content-image-1.png",
     benefits: [
-      "Free tier to get started",
+      "Paid plans for business domains",
       "Custom domain support",
       "AI email composition",
       "Booking links included",
@@ -530,9 +530,9 @@ export const solutions = {
       "Template library",
     ],
     pricingImage: "/solutions/freelancers/content-image-2.png",
-    pricingTitle: "Start Free. Upgrade When You're Ready.",
+    pricingTitle: "Plans for Your Workspace",
     pricingDescription:
-      "Venmail's free tier gives you everything you need to start. Upgrade only when your business demands it.",
+      "Use a free venia.cloud personal account, or choose a paid plan for your business domain.",
     perSeatComparison: 200,
   },
 };

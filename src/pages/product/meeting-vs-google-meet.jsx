@@ -76,7 +76,7 @@ export default function MeetingVsGoogleMeet() {
           "See why teams choose VenMail for smarter, more productive meetings with AI-powered features."
         }
         image={"/product/meetings.png"}
-        button1Text={"Start Free Trial"}
+        button1Text={"Explore plans"}
         button2Text={"View Pricing"}
       />
 
@@ -253,7 +253,7 @@ export default function MeetingVsGoogleMeet() {
             Ready to upgrade your meetings?
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Join thousands of professionals who've switched to VenMail for smarter meetings
+            Explore Venmail tools for meeting scheduling and summaries
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -261,7 +261,7 @@ export default function MeetingVsGoogleMeet() {
               target="_blank"
               className="px-8 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors"
             >
-              Start Free Trial
+              Explore plans
             </a>
             <a
               href="/product/meeting"

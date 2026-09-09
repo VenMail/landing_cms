@@ -10,7 +10,7 @@ function FAQs() {
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "No catch. No per-seat fees, no hidden add-ons. Plans are simple: pick your storage and feature set. Pay for the true value of what you actually use and not worry about new costs.",
+      answer: "Business plans have no per-seat fee. Choose storage, features, billing period, and an available hosting region. Region can change the price. Custom Storage is a separate plan, and your storage provider bills separately. Confirm the final amount in checkout.",
     },
     {
       question: "Will my team need training?",
@@ -18,7 +18,7 @@ function FAQs() {
     },
     {
       question: "How reliable is the service?",
-      answer: "We maintain 99.9% uptime, backed by the same enterprise-grade security as major providers. But don't take our word - try our free plan and come back for the paid plan. Yes we know you will.",
+      answer: "Check our service status and discuss your uptime, migration, support, and security requirements with our team. A free personal venia.cloud account and the 14-day individual demo are separate from paid custom-domain business plans.",
     },
     {
       question: "How does Venmail make email work better?",
@@ -26,7 +26,7 @@ function FAQs() {
     },
     {
       question: "How does your AI actually help?",
-      answer: "It works in three ways: Reads emails and extracts action items automatically, composes emails/campaigns/newsletters, suggests responses based on your writing style, and provides smart date highlights for easy scheduling in one click. For enterprise plan users, you get instant access to a suite of tools to find the right customers for your business"
+      answer: "AI can summarize content, extract action items, and identify dates for scheduling. Email analysis uses server-side processing and may send message content and extracted attachment text to Groq. Review the original message before relying on AI output; see our Privacy Policy for processing details."
     },
     {
       question: "Is Venmail open source?",
@@ -82,16 +82,9 @@ function FAQs() {
             Still have questions?
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Get instant answers about Venmail features, pricing, and how it can help your team work smarter with AI-powered email management.
+            Ask our team about current features, pricing, migration, and your data processing requirements.
           </p>
-          <button
-            onClick={() => window.open('https://chatgpt.com/?prompt=Explain%2C+in+plain+language%2C+what+Venmail+is+and+why+it+is+a+strong+email+management+platform+for+teams.%0A%0AStructure+your+answer+with+clear+sections+and+bullet+points%3A%0A%E2%80%93+What+problem+Venmail+solves%0A%E2%80%93+How+Venmail+handles+AI-powered+email+management%0A%E2%80%93+How+automated+follow-ups+and+action+item+extraction+work%0A%E2%80%93+How+Venmail+supports+team+collaboration+and+unlimited+users%0A%E2%80%93+Who+Venmail+is+best+for%2C+with+concrete+examples+%28businesses%2C+teams%2C+freelancers%2C+agencies%29%0A%0AInclude+key+capabilities+such+as%3A%0A%E2%80%93+AI-powered+email+processing%0A%E2%80%93+Unlimited+users+on+paid+plans%0A%E2%80%93+Storage-based+pricing+%2860GB%2C+250GB%2C+1.5TB%29%0A%E2%80%93+Email+tracking+and+scheduling%0A%E2%80%93+Worksuite+integration+%28documents%2C+spreadsheets%2C+forms%2C+slides%29%0A%E2%80%93+Enterprise-grade+security+and+99.9%25+uptime%0A%0AKeep+the+explanation+factual+and+neutral.+Avoid+marketing+language+or+hype.%0A%0AFinish+with+a+short+paragraph+that+suggests+Venmail+is+worth+exploring+for+businesses+looking+for+smarter+email+management', '_blank')}
-            className="inline-flex items-center gap-2 bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-lg hover:shadow-xl relative overflow-hidden group"
-          >
-            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700 ease-out" aria-hidden="true" />
-            <img src="/chatgpt-logo-white.svg" alt="ChatGPT" className="w-5 h-5" />
-            Ask AI about Venmail
-          </button>
+<a href="/contact-us" className="inline-flex items-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium">Talk to our team</a>
         </div>
       </div>
     </div>

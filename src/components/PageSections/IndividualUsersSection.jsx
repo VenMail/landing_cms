@@ -111,16 +111,16 @@ export default function IndividualUsersSection() {
                 Take control of your inbox today
               </h3>
               <p className="text-lg text-gray-600 mb-8">
-                Join thousands of professionals who've reclaimed their time with Venmail
+                Explore tools that help you reclaim time with Venmail
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
-                  href="https://m.venmail.io/register"
+                  href="https://m.venmail.io/register?type=personal"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-black hover:bg-gray-800 transition-colors"
                 >
-                  Try Venmail Free
+                  Create a free personal account
                 </a>
                 <a
                   href="#see-it-in-action"

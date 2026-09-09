@@ -2,126 +2,72 @@ import React from "react";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 
 const data = {
-	principlesVersion: "1.0",
-	lastUpdated: "2025-02-26",
-	sections: [
-		{
-			id: "",
-			title: "Last Updated: February 26, 2025",
-			content: [
-				{
-					type: "paragraph",
-					text: "Venmail LLC (\"Venmail,\" \"we,\" \"our,\" or \"us\") integrates artificial intelligence (AI) into our email, calendar, meetings, and contact management services to enhance user experience and efficiency. These AI Principles outline our commitment to ethical AI usage, transparency, privacy, and user control.",
-				},
-			],
-		},
-		{
-			id: "1.",
-			title: "Transparency",
-			content: [
-				{
-					type: "list",
-					items: [
-						"We clearly disclose when AI is used within our services, including email categorization, calendar scheduling, and meeting summaries.",
-						"Users are informed when AI-generated content is presented and can opt-out of AI-driven suggestions where applicable.",
-						"We provide accessible documentation on how AI-powered features work.",
-					],
-				},
-			],
-		},
-		{
-			id: "2.",
-			title: "Privacy & Security",
-			content: [
-				{
-					type: "list",
-					items: [
-						"AI processing is designed to respect user privacy by minimizing data retention and ensuring data protection.",
-						"Personal data used for AI-driven features is encrypted and processed securely, aligning with our Privacy Policy.",
-						"AI does not store or misuse personally identifiable information beyond what is necessary for functionality.",
-					],
-				},
-			],
-		},
-		{
-			id: "3.",
-			title: "Bias & Fairness",
-			content: [
-				{
-					type: "list",
-					items: [
-						"We actively audit AI models to prevent biases in recommendations, meeting scheduling, and auto-replies.",
-						"AI-driven decisions are regularly reviewed to ensure fairness across all users, regardless of demographics or usage patterns.",
-						"We prioritize responsible AI development by continuously refining our models to eliminate potential discrimination.",
-					],
-				},
-			],
-		},
-		{
-			id: "4.",
-			title: "Accountability",
-			content: [
-				{
-					type: "list",
-					items: [
-						"Users can report AI errors or unintended behavior through our feedback mechanism.",
-						"We maintain a human-in-the-loop approach for critical AI-driven actions to ensure human oversight.",
-						"If AI-generated decisions lead to incorrect results, we provide a clear process for users to correct them.",
-					],
-				},
-			],
-		},
-		{
-			id: "5.",
-			title: "Human Control & Opt-Out Options",
-			content: [
-				{
-					type: "list",
-					items: [
-						"Users retain control over AI-assisted features and can opt-out of automated decision-making where applicable.",
-						"AI-driven suggestions require user confirmation before execution, ensuring informed decision-making.",
-						"We provide customizable AI settings so users can tailor their experience based on their preferences.",
-					],
-				},
-			],
-		},
-		{
-			id: "6.",
-			title: "Continuous Improvement",
-			content: [
-				{
-					type: "list",
-					items: [
-						"We continuously update our AI models based on user feedback and evolving ethical AI standards.",
-						"AI-driven processes are regularly tested to enhance accuracy, relevance, and user trust.",
-						"We collaborate with AI ethics experts and industry leaders to align with global best practices.",
-					],
-				},
-			],
-		},
-		{
-			id: "7.",
-			title: "Contact Us",
-			content: [
-				{
-					type: "paragraph",
-					text: "If you have any questions or concerns regarding our AI Principles, please contact us at:",
-				},
-				{
-					type: "paragraph",
-					text: "Venmail LLC",
-				},
-				{
-					type: "paragraph",
-					text: "Email: hello@venmail.io",
-				},
-				{
-					type: "paragraph",
-					text: "By using Venmail's AI-powered features, you acknowledge and agree to these AI Principles.",
-				},
-			],
-		},
-	],
+  "principlesVersion": "1.1",
+  "lastUpdated": "2026-09-09",
+  "sections": [
+    {
+      "id": "",
+      "title": "Last Updated: September 9, 2026",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "These principles explain how to evaluate and use Venmail AI features, including their processing boundaries and limitations."
+        }
+      ]
+    },
+    {
+      "id": "1.",
+      "title": "How processing works",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Venmail performs email analysis on its servers. Message content and extracted attachment text can be sent to Groq, a third-party AI provider, for analysis.",
+            "AI features include summaries and extracting information that helps with follow-ups and scheduling. Availability depends on the feature and account.",
+            "A selected mailbox storage region or customer-provided storage does not by itself restrict where application or third-party AI processing occurs."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2.",
+      "title": "Review AI output",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "AI output can be inaccurate, incomplete, or biased. Check summaries, dates, recipients, and action items against the original message before relying on them.",
+            "Use human review for decisions that affect people, contractual obligations, or sensitive information.",
+            "Report incorrect or unexpected results to hello@venmail.io with only the information needed to investigate."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3.",
+      "title": "Privacy and account choices",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Server-side AI analysis requires readable content. Venmail is not a blanket end-to-end encrypted or zero-access email service.",
+            "Review our Privacy Policy and discuss the current subprocessors and account controls with our team before enabling a sensitive workflow.",
+            "Do not assume a universal AI opt-out or a storage-region selection disables all content processing. Confirm which controls apply to the exact features you use."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4.",
+      "title": "Questions and feedback",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Contact hello@venmail.io for current feature behavior, data processing questions, and AI feedback."
+        }
+      ]
+    }
+  ]
 };
 
 function AIPrinciples() {

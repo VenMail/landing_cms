@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import CustomLayout from "@/components/layout/CustomLayout";
 
 export default function AboutUs() {
-  const [activeTab, setActiveTab] = useState("rewrite");
+  const [activeTab, setActiveTab] = useState("mail");
   const buttonRefs = useRef({});
 
   const handleTabClick = (tabName) => {

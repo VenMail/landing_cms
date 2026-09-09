@@ -115,11 +115,11 @@ export default function WhyVenmail() {
     <DefaultLayout>
       <Head>
         <title>Why Now — Venmail 1.0</title>
-        <meta name="description" content="A founder's memo on why email is overdue for a reset — and why we built Venmail 1.0." />
-        <meta property="og:title" content="Why Now — Venmail 1.0" />
-        <meta property="og:description" content="A founder's memo on why email is overdue for a reset." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/why-venmail" />
+        <meta name="description" key="description" content="A founder's memo on why email is overdue for a reset — and why we built Venmail 1.0." />
+        <meta property="og:title" key="og:title" content="Why Now — Venmail 1.0" />
+        <meta property="og:description" key="og:description" content="A founder's memo on why email is overdue for a reset." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/why-venmail" />
         <style>{`
           .wnw-hero-title {
             background: linear-gradient(135deg, #ffffff 35%, rgba(255,92,57,0.85) 100%);
@@ -528,7 +528,7 @@ export default function WhyVenmail() {
                   onMouseEnter={e => e.currentTarget.style.opacity = "0.88"}
                   onMouseLeave={e => e.currentTarget.style.opacity = "1"}
                 >
-                  Get Started Free
+                  Choose a plan
                   {icons.arrowRight}
                 </a>
                 <a

@@ -4,11 +4,11 @@ const DURATION_FRAMES = 1050; // 35s at 30fps
 
 function Chapter({ year, headline, subtext, accentColor = "#FF5C39" }) {
   const frame = useCurrentFrame();
-  const yearOpacity = interpolate(frame, [0, 20], [0, 1], { extrapolateRight: "clamp" });
-  const yearScale = interpolate(frame, [0, 30], [0.8, 1], { extrapolateRight: "clamp" });
-  const headlineOpacity = interpolate(frame, [20, 45], [0, 1], { extrapolateRight: "clamp" });
-  const headlineY = interpolate(frame, [20, 45], [30, 0], { extrapolateRight: "clamp" });
-  const subtextOpacity = interpolate(frame, [40, 65], [0, 1], { extrapolateRight: "clamp" });
+  const yearOpacity = interpolate(frame, [0, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const yearScale = interpolate(frame, [0, 30], [0.8, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const headlineOpacity = interpolate(frame, [20, 45], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const headlineY = interpolate(frame, [20, 45], [30, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const subtextOpacity = interpolate(frame, [40, 65], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const fadeOut = interpolate(frame, [140, 170], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
 
   return (
@@ -34,10 +34,10 @@ function ChaosScene() {
     y: (Math.cos(i * 1.3) * 0.5 + 0.5) * 100,
     rotation: Math.sin(i * 0.8) * 20,
     scale: 0.6 + Math.sin(i * 1.1) * 0.3,
-    opacity: interpolate(frame, [i * 2, i * 2 + 15], [0, 0.7], { extrapolateRight: "clamp" }),
+    opacity: interpolate(frame, [i * 2, i * 2 + 15], [0, 0.7], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
   }));
 
-  const textOpacity = interpolate(frame, [60, 80], [0, 1], { extrapolateRight: "clamp" });
+  const textOpacity = interpolate(frame, [60, 80], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const fadeOut = interpolate(frame, [150, 180], [1, 0], { extrapolateRight: "clamp", extrapolateLeft: "clamp" });
 
   return (
@@ -70,16 +70,16 @@ function BandAidScene() {
 
   return (
     <AbsoluteFill style={{ background: "#020617", opacity: fadeOut, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: 60 }}>
-      <div style={{ opacity: interpolate(frame, [0, 20], [0, 1], { extrapolateRight: "clamp" }), fontSize: 100, fontWeight: 800, color: "#f59e0b", fontFamily: "Inter, system-ui, sans-serif", letterSpacing: "-0.04em" }}>
+      <div style={{ opacity: interpolate(frame, [0, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 100, fontWeight: 800, color: "#f59e0b", fontFamily: "Inter, system-ui, sans-serif", letterSpacing: "-0.04em" }}>
         2010s
       </div>
-      <div style={{ opacity: interpolate(frame, [20, 40], [0, 1], { extrapolateRight: "clamp" }), fontSize: 42, fontWeight: 700, color: "#fff", textAlign: "center", fontFamily: "Inter, system-ui, sans-serif", marginTop: 16, marginBottom: 32 }}>
+      <div style={{ opacity: interpolate(frame, [20, 40], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 42, fontWeight: 700, color: "#fff", textAlign: "center", fontFamily: "Inter, system-ui, sans-serif", marginTop: 16, marginBottom: 32 }}>
         Big Tech promised to fix it.
       </div>
       <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
         {bandaids.map((label, i) => {
-          const pillOpacity = interpolate(frame, [50 + i * 10, 65 + i * 10], [0, 1], { extrapolateRight: "clamp" });
-          const strikethrough = interpolate(frame, [100 + i * 5, 110 + i * 5], [0, 1], { extrapolateRight: "clamp" });
+          const pillOpacity = interpolate(frame, [50 + i * 10, 65 + i * 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+          const strikethrough = interpolate(frame, [100 + i * 5, 110 + i * 5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
           return (
             <div key={label} style={{ opacity: pillOpacity, position: "relative", background: "rgba(255,255,255,0.1)", border: "1px solid rgba(255,255,255,0.2)", padding: "10px 20px", borderRadius: 24, fontSize: 16, color: "rgba(255,255,255,0.7)", fontFamily: "Inter, system-ui, sans-serif" }}>
               {label}
@@ -88,7 +88,7 @@ function BandAidScene() {
           );
         })}
       </div>
-      <div style={{ opacity: interpolate(frame, [120, 145], [0, 1], { extrapolateRight: "clamp" }), fontSize: 20, color: "rgba(255,255,255,0.5)", marginTop: 32, fontFamily: "Inter, system-ui, sans-serif" }}>
+      <div style={{ opacity: interpolate(frame, [120, 145], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 20, color: "rgba(255,255,255,0.5)", marginTop: 32, fontFamily: "Inter, system-ui, sans-serif" }}>
         They treated the symptom, not the cause.
       </div>
     </AbsoluteFill>
@@ -97,10 +97,10 @@ function BandAidScene() {
 
 function ResetRevealScene() {
   const frame = useCurrentFrame();
-  const questionOpacity = interpolate(frame, [0, 30], [0, 1], { extrapolateRight: "clamp" });
-  const questionScale = interpolate(frame, [0, 30], [0.9, 1], { extrapolateRight: "clamp" });
-  const answerOpacity = interpolate(frame, [60, 90], [0, 1], { extrapolateRight: "clamp" });
-  const glowIntensity = interpolate(frame, [90, 150], [0, 1], { extrapolateRight: "clamp" });
+  const questionOpacity = interpolate(frame, [0, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const questionScale = interpolate(frame, [0, 30], [0.9, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const answerOpacity = interpolate(frame, [60, 90], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const glowIntensity = interpolate(frame, [90, 150], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ background: "#020617", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: 60 }}>
@@ -112,7 +112,7 @@ function ResetRevealScene() {
           Email as infrastructure you own.
         </div>
       </div>
-      <div style={{ opacity: interpolate(frame, [100, 130], [0, 1], { extrapolateRight: "clamp" }), fontSize: 18, color: "rgba(255,255,255,0.5)", marginTop: 24, textAlign: "center", maxWidth: 500, fontFamily: "Inter, system-ui, sans-serif", lineHeight: 1.6 }}>
+      <div style={{ opacity: interpolate(frame, [100, 130], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 18, color: "rgba(255,255,255,0.5)", marginTop: 24, textAlign: "center", maxWidth: 500, fontFamily: "Inter, system-ui, sans-serif", lineHeight: 1.6 }}>
         Your storage. Your domain. Your data. No per-seat fees. No vendor lock-in.
       </div>
     </AbsoluteFill>

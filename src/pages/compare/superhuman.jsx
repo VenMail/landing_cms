@@ -52,11 +52,11 @@ export default function CompareSuperhuman() {
     <DefaultLayout>
       <Head>
         <title>VenMail vs Superhuman — Complete Business Email Suite</title>
-        <meta name="description" content="Compare VenMail vs Superhuman. See how VenMail includes campaigns, booking, lead generation, and AI workflows in one unified platform." />
-        <meta property="og:title" content="VenMail vs Superhuman" />
-        <meta property="og:description" content="VenMail offers complete business email with campaigns, scheduling, and AI vs Superhuman's speed-focused email client." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/compare/superhuman" />
+        <meta name="description" key="description" content="Compare VenMail vs Superhuman. See how VenMail includes campaigns, booking, lead generation, and AI workflows in one unified platform." />
+        <meta property="og:title" key="og:title" content="VenMail vs Superhuman" />
+        <meta property="og:description" key="og:description" content="VenMail offers complete business email with campaigns, scheduling, and AI vs Superhuman's speed-focused email client." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/compare/superhuman" />
       </Head>
       <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,7 +88,7 @@ export default function CompareSuperhuman() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/compare/front" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Front</a>
             <a href="/compare/apollo" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Apollo</a>
-            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Start Free</a>
+            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Explore plans</a>
           </div>
         </div>
       </section>

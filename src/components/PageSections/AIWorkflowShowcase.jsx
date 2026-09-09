@@ -110,7 +110,7 @@ const AIWorkflowShowcase = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-gray-700 bg-white border border-gray-300 hover:border-gray-400 transition-all duration-300 rounded-lg"
             >
-              Start Free Trial
+              Explore plans
             </a>
           </div>
         </div>

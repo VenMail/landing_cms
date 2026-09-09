@@ -14,7 +14,7 @@ const PILLARS = [
   {
     icon: LuLayers,
     title: "Data sovereignty requirements",
-    body: "NDPR, GDPR, DPDP, NCA compliance requires data to remain within borders. BYOS enables native compliance without custom infrastructure.",
+    body: "Choose where mailbox data is stored. Review application processing, subprocessors, and contractual requirements separately for your organization.",
     stat: "BYOS",
     statLabel: "compliance-ready",
     color: "from-orange-500 to-red-500"

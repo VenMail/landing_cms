@@ -188,7 +188,7 @@ function IllustCard({ subheading, title, description, illustration }) {
         </p>
         <a href="https://m.venmail.io/register" target="_blank" rel="noopener noreferrer"
           style={{ fontSize: "14px", fontWeight: 600, color: "#FF5C39", textDecoration: "none" }}>
-          Get started free →
+          Explore plans →
         </a>
       </div>
       <div style={{ padding: "0 24px 24px" }}>

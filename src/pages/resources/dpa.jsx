@@ -35,19 +35,17 @@ export default function DPA() {
     {
       title: "4. Security Measures",
       content: [
-        'Encryption of data at rest using AES-256 encryption standards.',
-        'Encryption of data in transit using TLS 1.3 or higher.',
-        'Regular security assessments and penetration testing.',
-        'Access controls based on the principle of least privilege.',
-        'Audit logging of all data processing activities.',
-        'Business continuity and disaster recovery procedures.'
+        'HTTPS protects connections to the web application.',
+        'Email and attachment content may be processed on Venmail servers and by AI subprocessors; this service does not provide blanket end-to-end encryption.',
+        'Storage placement depends on the selected managed region or customer-provided storage configuration.',
+        'The parties should document the applicable deployment controls, processing locations, access requirements, and supporting evidence for the contracted service.'
       ]
     },
     {
       title: "5. Sub-Processing",
       content: [
         'VenMail may engage sub-processors for providing the Services.',
-        'Sub-processors include cloud infrastructure providers and email delivery services.',
+        'Sub-processors include hosting and email delivery providers and AI providers such as Groq. Email analysis can send message content and extracted attachment text to Groq.',
         'VenMail shall maintain a list of all sub-processors and make it available to the Data Controller.',
         'VenMail shall enter into data processing agreements with all sub-processors.',
         'Data Controller may object to new sub-processors with reasonable notice.'
@@ -89,7 +87,7 @@ export default function DPA() {
         'VenMail shall make available to the Data Controller all information necessary to demonstrate compliance.',
         'VenMail shall allow for and contribute to audits, including inspections, by the Data Controller.',
         'Audit rights shall be exercised with reasonable notice and during business hours.',
-        'VenMail shall provide compliance certifications and security reports upon request.',
+        'VenMail shall identify which security reports and certifications, if any, are available and apply to the contracted service.',
         'Audit findings shall be addressed within agreed timeframes.'
       ]
     },
@@ -105,34 +103,16 @@ export default function DPA() {
     }
   ];
 
-  const securityCertifications = [
-    {
-      name: "SOC 2 Type II",
-      description: "Annual audit of security controls and operational procedures"
-    },
-    {
-      name: "ISO 27001",
-      description: "Information security management system certification"
-    },
-    {
-      name: "GDPR Compliant",
-      description: "Full compliance with EU General Data Protection Regulation"
-    },
-    {
-      name: "CCPA Compliant",
-      description: "Compliance with California Consumer Privacy Act"
-    }
-  ];
 
   return (
     <DefaultLayout>
       <Head>
         <title>Data Processing Agreement — VenMail</title>
-        <meta name="description" content="VenMail's Data Processing Agreement outlines our commitment to protecting your data and complying with global privacy regulations." />
-        <meta property="og:title" content="Data Processing Agreement" />
-        <meta property="og:description" content="Comprehensive data protection agreement ensuring GDPR, CCPA, and global privacy compliance." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/resources/dpa" />
+        <meta name="description" key="description" content="VenMail's Data Processing Agreement outlines our commitment to protecting your data and complying with global privacy regulations." />
+        <meta property="og:title" key="og:title" content="Data Processing Agreement" />
+        <meta property="og:description" key="og:description" content="Data processing terms, service boundaries, and questions to confirm for your deployment." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/resources/dpa" />
       </Head>
 
       <section className="bg-white py-12 md:py-20">
@@ -142,10 +122,10 @@ export default function DPA() {
               Data Processing Agreement
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our commitment to protecting your data and ensuring compliance with global privacy regulations.
+              Data processing obligations and the scope to confirm for your deployment.
             </p>
             <div className="mt-8 text-sm text-gray-500">
-              <p>Last updated: January 2024</p>
+              <p>Last updated: September 9, 2026</p>
               <p>Effective date: January 1, 2024</p>
             </div>
           </div>
@@ -155,33 +135,21 @@ export default function DPA() {
             <ul className="space-y-2 text-blue-800">
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
-                GDPR and CCPA compliant data processing
+                Documented processing instructions and responsibilities
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
-                End-to-end encryption of personal data
+                Disclosure of server-side content processing
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
-                Regular security audits and compliance certifications
+                Deployment-specific security requirements
               </li>
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">✓</span>
-                24/7 security monitoring and incident response
+                Data subject requests and incident notification obligations
               </li>
             </ul>
-          </div>
-
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Security Certifications</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {securityCertifications.map((cert, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{cert.name}</h3>
-                  <p className="text-gray-600">{cert.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="space-y-12">

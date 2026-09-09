@@ -294,7 +294,7 @@ const ExitIntentPopup = () => {
                 target="_blank"
                 className="block w-full bg-gradient-to-r from-black to-gray-800 text-white py-4 rounded-2xl hover:from-gray-800 hover:to-black font-semibold text-lg transition-all transform hover:scale-[1.02] shadow-lg"
               >
-                Start Your Free Trial
+                Explore plans
               </a>
               <a
                 href="https://venia.cloud/schedule/30-250503-1821-642627-437"

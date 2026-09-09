@@ -76,7 +76,7 @@ export default function MeetingVsZoom() {
           "Discover why teams prefer VenMail for integrated AI features and professional meeting experiences."
         }
         image={"/product/meetings.png"}
-        button1Text={"Start Free Trial"}
+        button1Text={"Explore plans"}
         button2Text={"View Pricing"}
       />
 
@@ -276,7 +276,7 @@ export default function MeetingVsZoom() {
               target="_blank"
               className="inline-block px-8 py-3 bg-white text-primary-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
-              Start Your Free Trial
+              Explore plans
             </a>
           </div>
         </div>
@@ -296,7 +296,7 @@ export default function MeetingVsZoom() {
               target="_blank"
               className="px-8 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors"
             >
-              Start Free Trial
+              Explore plans
             </a>
             <a
               href="/product/meeting"

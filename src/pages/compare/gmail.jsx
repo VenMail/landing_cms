@@ -4,7 +4,7 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 export default function CompareGmail() {
   const features = [
     { feature: "Custom Domain & Branding", venmail: true, gmail: true, notes: "Full white-label on VenMail incl. booking & campaigns" },
-    { feature: "AI Rewrite & Summaries", venmail: true, gmail: "limited", notes: "Deeper workflow automation and campaign generation" },
+    { feature: "AI Summaries", venmail: true, gmail: "limited", notes: "Deeper workflow automation and campaign generation" },
     { feature: "Built-in Booking Pages", venmail: true, gmail: false, notes: "Calendly-class booking without extra tools" },
     { feature: "Email Campaigns & Sequences", venmail: true, gmail: false, notes: "Replace Mailchimp with native campaigns" },
     { feature: "Lead Gen & Enrichment", venmail: true, gmail: false, notes: "Prospecting + enrichment included" },
@@ -50,11 +50,11 @@ export default function CompareGmail() {
     <DefaultLayout>
       <Head>
         <title>VenMail vs Gmail — Unified Email, Campaigns, Booking, and Leads</title>
-        <meta name="description" content="Compare VenMail vs Gmail. See how VenMail unifies email, campaigns, scheduling, AI, and lead generation with easy DNS setup and bulk import." />
-        <meta property="og:title" content="VenMail vs Gmail" />
-        <meta property="og:description" content="VenMail replaces multiple tools with one SME-focused suite: email, campaigns, booking, AI, and more." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/compare/gmail" />
+        <meta name="description" key="description" content="Compare VenMail vs Gmail. See how VenMail unifies email, campaigns, scheduling, AI, and lead generation with easy DNS setup and bulk import." />
+        <meta property="og:title" key="og:title" content="VenMail vs Gmail" />
+        <meta property="og:description" key="og:description" content="VenMail replaces multiple tools with one SME-focused suite: email, campaigns, booking, AI, and more." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/compare/gmail" />
       </Head>
       <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -86,7 +86,7 @@ export default function CompareGmail() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/compare/outlook" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Outlook</a>
             <a href="/compare/zoho" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Zoho</a>
-            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Start Free</a>
+            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Explore plans</a>
           </div>
         </div>
       </section>

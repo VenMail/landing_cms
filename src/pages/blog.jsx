@@ -13,12 +13,12 @@ export default function Blog({ articles }) {
     <DefaultLayout>
       <Head>
         <title>Venmail Guides — Free Tools, Email Marketing and Developer How-Tos</title>
-        <meta name="description" content="Practical email guides with free tools, templates and checklists for small businesses, developers, stores and agencies." />
-        <link rel="canonical" href="https://venmail.io/blog" />
+        <meta name="description" key="description" content="Practical email guides with free tools, templates and checklists for small businesses, developers, stores and agencies." />
+        <link rel="canonical" key="canonical" href="https://venmail.io/blog" />
         <link rel="alternate" type="application/rss+xml" title="Venmail Guides" href="https://venmail.io/rss.xml" />
-        <meta property="og:title" content="Venmail practical email guides" />
-        <meta property="og:description" content="Free tools, practical templates and step-by-step email guides for businesses and developers." />
-        <meta property="og:url" content="https://venmail.io/blog" />
+        <meta property="og:title" key="og:title" content="Venmail practical email guides" />
+        <meta property="og:description" key="og:description" content="Free tools, practical templates and step-by-step email guides for businesses and developers." />
+        <meta property="og:url" key="og:url" content="https://venmail.io/blog" />
       </Head>
 
       <section className="border-y border-slate-200 bg-[radial-gradient(circle_at_top_left,_#fff1e6,_white_55%)] py-16 md:py-24">

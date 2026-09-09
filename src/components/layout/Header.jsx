@@ -449,7 +449,7 @@ export default function Header({
             Login
           </Link>
           <Link href="https://m.venmail.io/register" target="_blank" className="bg-primary-600 text-white fw-bold rounded-none px-3 py-2">
-            Signup for Free
+            Get started
           </Link>
         </div>
       </nav>
@@ -603,7 +603,7 @@ export default function Header({
                   target="_blank"
                   className="w-full bg-primary-600 text-white px-3 py-2.5 text-base/7 font-semibold"
                 >
-                  Sign up for Free
+                  Get started
                 </Link>
               </div>
             </div>

@@ -49,12 +49,12 @@ export default function EmailHeaderAnalyzer() {
   return <>
     <Head>
       <title>Free Email Header Analyzer: SPF, DKIM &amp; DMARC | Venmail</title>
-      <meta name="description" content="Understand SPF, DKIM and DMARC results in your email headers. Free, no account, no uploads. Get clear next steps and a private support summary." />
-      <link rel="canonical" href={toolUrl} />
-      <meta property="og:title" content="Free Email Header Analyzer | Venmail" />
-      <meta property="og:description" content="Turn confusing email headers into a clear next step. Free and processed in your browser." />
-      <meta property="og:url" content={toolUrl} />
-      <meta property="og:type" content="website" />
+      <meta name="description" key="description" content="Understand SPF, DKIM and DMARC results in your email headers. Free, no account, no uploads. Get clear next steps and a private support summary." />
+      <link rel="canonical" key="canonical" href={toolUrl} />
+      <meta property="og:title" key="og:title" content="Free Email Header Analyzer | Venmail" />
+      <meta property="og:description" key="og:description" content="Turn confusing email headers into a clear next step. Free and processed in your browser." />
+      <meta property="og:url" key="og:url" content={toolUrl} />
+      <meta property="og:type" key="og:type" content="website" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     </Head>
     <Header logoVariant="dark" />
@@ -101,7 +101,7 @@ export default function EmailHeaderAnalyzer() {
         </div>
       </section>
       <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
-        <div className="rounded-2xl bg-slate-900 p-7 text-white sm:p-10"><h2 className="text-2xl font-bold">Turn a result into a fix</h2><p className="mt-3 max-w-3xl leading-7 text-slate-300">Start with the guide that matches your situation. If you need a workspace for business email, explore Venmail’s Free plan and check the current sending limits.</p><div className="mt-6 flex flex-wrap gap-4"><Link href="/pricing" onClick={() => event('venmail_clicked')} className="rounded-xl bg-white px-5 py-3 font-bold text-slate-900">Explore Venmail’s free plan</Link><Link href="/blog/free-email-deliverability-audit" className="rounded-xl border border-slate-500 px-5 py-3 font-bold">Follow the free audit</Link></div></div>
+        <div className="rounded-2xl bg-slate-900 p-7 text-white sm:p-10"><h2 className="text-2xl font-bold">Turn a result into a fix</h2><p className="mt-3 max-w-3xl leading-7 text-slate-300">Start with the guide that matches your situation. If you need a workspace for business email, explore Venmail’s business plans and check the current sending limits.</p><div className="mt-6 flex flex-wrap gap-4"><Link href="/pricing" onClick={() => event('venmail_clicked')} className="rounded-xl bg-white px-5 py-3 font-bold text-slate-900">Explore Venmail’s business plans</Link><Link href="/blog/free-email-deliverability-audit" className="rounded-xl border border-slate-500 px-5 py-3 font-bold">Follow the free audit</Link></div></div>
         <div className="mt-10 grid gap-8 md:grid-cols-3">{[
           ['free-email-deliverability-audit', 'Email going to spam?', 'Use a repeatable audit to separate authentication, list quality and placement problems.'],
           ['spf-dkim-dmarc-after-migration', 'Changed email providers?', 'Check a fresh message after migration before removing old DNS records.'],

@@ -6,7 +6,7 @@ export default function WhiteLabelClip() {
   const frame = useCurrentFrame();
 
   // Morph progress (0 = Venmail, 1 = Acme Mail)
-  const morphProgress = interpolate(frame, [60, 120], [0, 1], { extrapolateRight: "clamp" });
+  const morphProgress = interpolate(frame, [60, 120], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // Color interpolation
   const r = interpolate(morphProgress, [0, 1], [255, 59]);
@@ -14,8 +14,8 @@ export default function WhiteLabelClip() {
   const b = interpolate(morphProgress, [0, 1], [57, 246]);
   const accentColor = `rgb(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)})`;
 
-  const fadeIn = interpolate(frame, [0, 20], [0, 1], { extrapolateRight: "clamp" });
-  const taglineOpacity = interpolate(frame, [150, 175], [0, 1], { extrapolateRight: "clamp" });
+  const fadeIn = interpolate(frame, [0, 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const taglineOpacity = interpolate(frame, [150, 175], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   const brandName = morphProgress < 0.5 ? "Venmail" : "Acme Mail";
   const domain = morphProgress < 0.5 ? "@venmail.io" : "@acmemail.com";

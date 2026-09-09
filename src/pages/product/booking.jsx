@@ -157,7 +157,7 @@ export default function Booking() {
               Ready to streamline your scheduling?
             </h2>
             <p className="text-gray-500 sm:text-xl mb-8">
-              Join thousands of professionals who have eliminated back-and-forth scheduling emails
+              Reduce back-and-forth scheduling emails
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -165,7 +165,7 @@ export default function Booking() {
                 target="_blank"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 rounded-lg"
               >
-                Start Free Trial
+                Explore plans
               </a>
               <a
                 href="/pricing"

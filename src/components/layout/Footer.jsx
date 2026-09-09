@@ -101,23 +101,23 @@ export default function Footer({ hideFooterJumbo = false }) {
             </div>
             <div className="md:col-span-5">
               <div className="bg-white/10 border border-white/10 rounded-2xl p-5 md:p-6 text-white shadow-lg backdrop-blur">
-                <h3 className="text-lg font-semibold mb-4">Trusted operations stack</h3>
+                <h3 className="text-lg font-semibold mb-4">Plan your deployment</h3>
                 <ul className="space-y-3 text-sm text-white/80">
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />
-                    SOC 2-aligned controls and audited vendors
+                    Discuss deployment security controls
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />
-                    24/7 support for migrations and deliverability
+                    Discuss migration and deliverability support
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />
-                    Multi-region data residency and SSO/SAML
+                    Review hosting regions and access requirements
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />
-                    White-glove onboarding for teams of any size
+                    Plan onboarding for your team
                   </li>
                 </ul>
               </div>
@@ -134,14 +134,14 @@ export default function Footer({ hideFooterJumbo = false }) {
               <span className="text-sm text-white/70">Email and revenue operations that just work.</span>
             </div>
             <div className="flex flex-wrap gap-3">
-              <span className="inline-flex items-center px-3 py-1 text-xs rounded-full bg-white/10 border border-white/10 text-white/80">SOC 2-ready</span>
+              <span className="inline-flex items-center px-3 py-1 text-xs rounded-full bg-white/10 border border-white/10 text-white/80">Data processing details</span>
               <a
                 href="https://status.venmail.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-3 py-1 text-xs rounded-full bg-white/10 border border-white/10 text-white/80 hover:bg-white/15 hover:text-white transition-colors"
               >
-                99.9% uptime
+                Service status
               </a>
               <span className="inline-flex items-center px-3 py-1 text-xs rounded-full bg-white/10 border border-white/10 text-white/80">Global support</span>
             </div>
@@ -152,8 +152,8 @@ export default function Footer({ hideFooterJumbo = false }) {
               <h3 className="text-sm font-semibold text-white mb-4">Get Started</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="https://m.venmail.io/register" target="_blank" className="text-sm text-white/80 hover:text-white transition-colors">
-                    Start free
+                  <Link href="/pricing" className="text-sm text-white/80 hover:text-white transition-colors">
+                    View plans
                   </Link>
                 </li>
                 <li>

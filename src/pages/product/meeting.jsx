@@ -105,7 +105,7 @@ export default function Meeting() {
               See how teams collaborate better
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Join thousands of freelancers, contractors, and businesses who've transformed their meetings
+              Bring scheduling and meetings into one workflow
             </p>
           </div>
           

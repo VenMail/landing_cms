@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { useCurrency } from "@/contexts/CurrencyContext";
 
 const providers = [
-  { key: "google", name: "Google Workspace (min)", perUser: 6 },
-  { key: "microsoft", name: "Microsoft 365 (min)", perUser: 6 },
-  { key: "zoho", name: "Zoho Workplace (min)", perUser: 3 },
+  { key: "google", name: "$6/seat example", perUser: 6 },
+  { key: "microsoft", name: "$8/seat example", perUser: 8 },
+  { key: "zoho", name: "$3/seat example", perUser: 3 },
 ];
 
 export default function CostComparisonSlider({ hasButton = false }) {
   const [users, setUsers] = useState(3);
   const { formatPrice, isLoading } = useCurrency();
 
-  const venmailCost = users <= 3 ? 0 : 7; // Minimum above 3 users is $7/mo
+  const venmailCost = 7; // Startup base price; region and storage affect final price.
 
   function formatCurrency(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -28,7 +28,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
           What would it cost elsewhere?
         </h2>
         <p className="text-center text-gray-600 mb-8">
-          Pay for your true size. Pay for the actual features/storage you use.
+          Illustrative per-seat rates, not current competitor quotes. Compare the storage, region and features your team needs.
         </p>
         <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
           <div className="text-lg sm:text-xl text-black">Team size: {users} {users === 1 ? "user" : "users"}</div>
@@ -77,7 +77,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
               <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
-              <div className="text-xs text-gray-600">Free for 1–3 users, then starts at {formatCurrency(7)}/mo</div>
+              <div className="text-xs text-gray-600">Startup base: {formatCurrency(7)}/mo. Region and storage affect final price.</div>
             </div>
 
             {providers.map((p) => {
@@ -86,7 +86,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
                 <div key={p.key} className="glass-card p-6 rounded-md border bg-white/60 backdrop-blur-sm">
                   <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">{p.name}</div>
                   <div className="text-2xl font-bold text-black mb-1">{formatCurrency(total)}/mo</div>
-                  <div className="text-xs text-gray-600">Assumes minimum plan at {formatCurrency(p.perUser)}/user</div>
+                  <div className="text-xs text-gray-600">Illustrative rate: {formatCurrency(p.perUser)}/user</div>
                 </div>
               );
             })}

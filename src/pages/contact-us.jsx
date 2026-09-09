@@ -74,7 +74,7 @@ function ContactUs() {
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                   <p className="font-semibold">Security</p>
-                  <p className="text-white/60">SOC 2-aligned vendors and reviews.</p>
+                  <p className="text-white/60">Discuss your deployment security requirements.</p>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                   <p className="font-semibold">Data residency</p>

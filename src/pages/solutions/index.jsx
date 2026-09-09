@@ -142,7 +142,7 @@ export default function Solutions() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Enterprise Security</h3>
-              <p className="text-gray-600 text-sm">BYOS, GDPR compliance, and data sovereignty</p>
+              <p className="text-gray-600 text-sm">Storage options and data processing requirements</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mx-auto mb-4">
@@ -173,14 +173,14 @@ export default function Solutions() {
             Find Your Perfect Solution
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Start with our free plan. No credit card required.
+            Business workspaces require a paid plan. Free personal accounts use a venia.cloud address.
           </p>
           <a
             href="https://m.venmail.io/register"
             target="_blank"
             className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-gray-900 bg-white hover:bg-gray-100 transition-colors rounded-lg"
           >
-            Get Started Free
+            Explore plans
           </a>
         </div>
       </section>

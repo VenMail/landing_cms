@@ -49,8 +49,10 @@ const worker = {
     let servedKey = requestedKey;
     let obj = await env.BUCKET.get(requestedKey);
     const status = !obj || requestedKey === '404.html' ? 404 : 200;
-    if (status === 200 && canonical !== url.pathname) {
-      url.pathname = canonical;
+    if (url.hostname === 'www.venmail.io' || (status === 200 && canonical !== url.pathname)) {
+      if (url.hostname === 'www.venmail.io') url.hostname = 'venmail.io';
+      if (status === 200) url.pathname = canonical;
+      url.protocol = 'https:';
       return new Response(null, { status: 301, headers: { Location: url.href, 'cache-control': 'no-cache' } });
     }
     if (status === 404) {

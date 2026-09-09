@@ -6,37 +6,18 @@ import { trackSectionView } from "@/utils/trackConversion";
 
 const STATS = [
   {
-    value: 100,
-    suffix: "%",
-    label: "Data ownership",
-    description: "BYOS by design",
-  },
-  {
     value: 0,
     prefix: "$",
     suffix: "",
     label: "Per-seat fees",
     description: "Storage-based pricing",
   },
-  {
-    value: 0,
-    suffix: "",
-    label: "Cost savings",
-    description: "vs traditional providers",
-  },
-  {
-    value: 99.9,
-    suffix: "%",
-    label: "Uptime SLA",
-    description: "Enterprise-grade",
-    decimals: 1,
-  },
 ];
 
 const PROVIDERS = [
-  { key: "google", name: "Google Workspace", perUser: 6 },
-  { key: "microsoft", name: "Microsoft 365", perUser: 6 },
-  { key: "zoho", name: "Zoho Workplace", perUser: 3 },
+  { key: "google", name: "$6/seat example", perUser: 6 },
+  { key: "microsoft", name: "$8/seat example", perUser: 8 },
+  { key: "zoho", name: "$3/seat example", perUser: 3 },
 ];
 
 export default function BusinessCase() {
@@ -50,7 +31,7 @@ export default function BusinessCase() {
     }
   }, [inView]);
 
-  const venmailCost = users <= 3 ? 0 : 7;
+  const venmailCost = 7;
 
   function fmt(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -61,16 +42,16 @@ export default function BusinessCase() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">
-            The numbers that close the deal
+            Compare illustrative email costs
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Infrastructure pricing that scales with storage, not headcount.
+            Illustrative comparison, not current competitor quotes. Startup base includes 60GB shared storage; region, additional storage and features affect the final price.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Stats */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-4">
             {STATS.map((stat, i) => (
               <div
                 key={stat.label}
@@ -140,7 +121,7 @@ export default function BusinessCase() {
                     Venmail
                   </div>
                   <div className="text-xs text-gray-500">
-                    {users <= 3 ? "Free tier" : "Starts at $7/mo"}
+                    Startup base · region and storage affect final price
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-green-700">
@@ -159,7 +140,7 @@ export default function BusinessCase() {
                       {p.name}
                     </div>
                     <div className="text-xs text-gray-500">
-                      {fmt(p.perUser)}/user minimum
+                      {fmt(p.perUser)}/user example
                     </div>
                   </div>
                   <div className="text-2xl font-bold text-gray-900">

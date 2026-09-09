@@ -96,7 +96,7 @@ const EmailAutomationPage = () => {
           "Transform your email infrastructure into an intelligent business automation platform. Leverage advanced AI to process documents, automate payments, and generate qualified leads at scale."
         }
         image={"/home/section-ai-workflows.svg"}
-        button1Text={"Start Free Trial"}
+        button1Text={"Explore plans"}
         button2Text={"Explore Workflows"}
       />
 
@@ -157,7 +157,7 @@ const EmailAutomationPage = () => {
               Transform Your Business Operations
             </h2>
             <p className="text-gray-500 sm:text-xl mb-8">
-              Join thousands of enterprises leveraging AI to automate critical business processes and accelerate growth
+              Explore email automation for your business workflows
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -165,7 +165,7 @@ const EmailAutomationPage = () => {
                 target="_blank"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 rounded-lg"
               >
-                Start Free Trial
+                Explore plans
               </a>
               <a
                 href="/pricing"

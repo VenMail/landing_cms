@@ -86,7 +86,7 @@ export default function SolutionPage({ solution }) {
                   rel="noopener noreferrer"
                   className={`inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white transition-colors ${colors.button}`}
                 >
-                  Start Free Trial
+                  Explore plans
                 </a>
                 <a
                   href="/pricing"
@@ -162,7 +162,7 @@ export default function SolutionPage({ solution }) {
                 rel="noopener noreferrer"
                 className={`inline-flex items-center font-medium ${colors.link}`}
               >
-                Get started free &rarr;
+                Explore plans &rarr;
               </a>
             </div>
             <div className="md:col-span-6">
@@ -233,7 +233,7 @@ export default function SolutionPage({ solution }) {
             Ready to Try It?
           </h2>
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Free plan. No credit card. See if it fits.
+            Choose a paid plan for your business domain, or explore a free personal venia.cloud account.
           </p>
           <a
             href="https://m.venmail.io/register"
@@ -241,7 +241,7 @@ export default function SolutionPage({ solution }) {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-900 bg-white hover:bg-gray-100 transition-colors rounded-lg"
           >
-            Get Started Free
+            Explore plans
           </a>
         </div>
       </section>

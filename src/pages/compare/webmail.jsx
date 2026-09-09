@@ -4,7 +4,7 @@ import DefaultLayout from "@/components/layout/DefaultLayout";
 export default function CompareWebmail() {
   const features = [
     { feature: "Custom Domain & Branding", venmail: true, webmail: true, notes: "Both support custom domains; VenMail adds cohesive branding across booking and campaigns" },
-    { feature: "AI Rewrite & Summaries", venmail: true, webmail: false, notes: "AI embedded across inbox and campaigns on VenMail" },
+    { feature: "AI Summaries", venmail: true, webmail: false, notes: "AI embedded across inbox and campaigns on VenMail" },
     { feature: "Built-in Booking Pages", venmail: true, webmail: false, notes: "Calendly-class booking native to VenMail" },
     { feature: "Email Campaigns & Sequences", venmail: true, webmail: false, notes: "Replace Mailchimp with native campaigns and automation" },
     { feature: "Lead Gen & Enrichment", venmail: true, webmail: false, notes: "Prospecting + enrichment built-in" },
@@ -50,11 +50,11 @@ export default function CompareWebmail() {
     <DefaultLayout>
       <Head>
         <title>VenMail vs Webmail — All-in-One vs Basic Inbox</title>
-        <meta name="description" content="Compare VenMail vs typical webmail (Roundcube/Horde). VenMail unifies email, campaigns, booking, AI, and lead gen with simple DNS and bulk import." />
-        <meta property="og:title" content="VenMail vs Webmail" />
-        <meta property="og:description" content="VenMail replaces multiple tools with one SME-focused suite: email, campaigns, booking, AI, and more." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/compare/webmail" />
+        <meta name="description" key="description" content="Compare VenMail vs typical webmail (Roundcube/Horde). VenMail unifies email, campaigns, booking, AI, and lead gen with simple DNS and bulk import." />
+        <meta property="og:title" key="og:title" content="VenMail vs Webmail" />
+        <meta property="og:description" key="og:description" content="VenMail replaces multiple tools with one SME-focused suite: email, campaigns, booking, AI, and more." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/compare/webmail" />
       </Head>
       <section className="bg-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,7 +87,7 @@ export default function CompareWebmail() {
             <a href="/compare/gmail" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Gmail</a>
             <a href="/compare/outlook" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Outlook</a>
             <a href="/compare/zoho" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Zoho</a>
-            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Start Free</a>
+            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Explore plans</a>
           </div>
         </div>
       </section>

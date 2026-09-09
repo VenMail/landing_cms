@@ -119,11 +119,11 @@ Best regards`;
     <DefaultLayout>
       <Head>
         <title>Careers at VenMail — Join Our Team</title>
-        <meta name="description" content="Build the future of email with VenMail. View open positions and join our remote-first team." />
-        <meta property="og:title" content="Careers at VenMail" />
-        <meta property="og:description" content="Join our team and help build the future of email communication and automation." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/career" />
+        <meta name="description" key="description" content="Build the future of email with VenMail. View open positions and join our remote-first team." />
+        <meta property="og:title" key="og:title" content="Careers at VenMail" />
+        <meta property="og:description" key="og:description" content="Join our team and help build the future of email communication and automation." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/career" />
       </Head>
 
       <section className="bg-white py-12 md:py-20">
@@ -143,7 +143,7 @@ Best regards`;
               <div>
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Why VenMail?</h2>
                 <p className="text-lg text-gray-700 mb-6">
-                  We're a remote-first team building email tools that thousands of businesses rely on every day. 
+                  We're a remote-first team building email tools for business communication.
                   Join us if you want to solve meaningful problems and work with talented, passionate people.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
@@ -170,7 +170,7 @@ Best regards`;
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 mt-1">✓</span>
-                    <span className="text-gray-700">99.9% uptime and deliverability rates</span>
+                    <span className="text-gray-700">Service reliability and deliverability</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-green-500 mr-3 mt-1">✓</span>

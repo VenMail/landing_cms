@@ -29,3 +29,14 @@ test('HEAD has the same status and headers but no response body; writes are not 
   const head = await request('/blog/guide', 'HEAD'); assert.equal(head.status, 200); assert.equal(await head.text(), '');
   assert.equal((await request('/blog/guide', 'POST')).status, 405);
 });
+test('www redirects to apex in one hop while retaining path and attribution query', async () => {
+  const res = await worker.fetch(new Request('https://www.venmail.io/blog/guide.html?utm_source=video&plan=startup'), env);
+  assert.equal(res.status, 301);
+  assert.equal(res.headers.get('location'), 'https://venmail.io/blog/guide?utm_source=video&plan=startup');
+});
+test('www redirects missing URLs without turning the apex missing page into a soft 404', async () => {
+  const res = await worker.fetch(new Request('https://www.venmail.io/missing?ref=a%2Bb'), env);
+  assert.equal(res.status, 301);
+  assert.equal(res.headers.get('location'), 'https://venmail.io/missing?ref=a%2Bb');
+  assert.equal((await request('/missing?ref=a%2Bb')).status, 404);
+});

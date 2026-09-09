@@ -86,9 +86,9 @@ export default function EmailAutomation() {
       image: "/seamless_track.png",
     },
     {
-      subheading: "AI-Powered Writing",
-      title: "Write better emails with AI assistance",
-      description: "AI rewrites help you craft professional emails, improve clarity, and maintain consistent communication style across all messages.",
+      subheading: "Reusable Email Templates",
+      title: "Keep recurring emails consistent",
+      description: "Create reusable email templates for recurring client communication and review each message before sending.",
       image: "/quick-replies-ai.png",
     },
     {

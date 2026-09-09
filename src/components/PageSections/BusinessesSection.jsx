@@ -27,7 +27,7 @@ const AUDIENCES = [
   {
     title: "Enterprise & Regulated Industries",
     story:
-      "Your 200-person legal team uses email you control. Patient data stays on your servers. Compliance is built into the architecture.",
+      "Review storage location, access controls and service processing with our team before moving regulated data. Your requirements determine the appropriate configuration.",
     bestFor: ["Government", "Healthcare", "Legal", "Finance"],
     clip: { component: LazySovereigntyClip, frames: 240 },
     accentColor: "blue",
@@ -43,7 +43,7 @@ const AUDIENCES = [
   {
     title: "Growing Organizations",
     story:
-      "Hire 30 people this quarter. Your email costs stay the same. Infrastructure scales with storage, not headcount.",
+      "Add team members without per-seat charges. Choose storage capacity, hosting region and features for the workspace you need.",
     bestFor: ["Startups", "SMEs", "Schools", "Nonprofits"],
     clip: { component: LazyGrowthScalingClip, frames: 240 },
     accentColor: "green",

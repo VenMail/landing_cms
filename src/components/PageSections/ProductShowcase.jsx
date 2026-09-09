@@ -27,7 +27,7 @@ const ProductShowcase = () => {
         </svg>
       ),
       title: "Data Sovereignty",
-      description: "GDPR, NDPR, DPDP, NCA — natively compliant because your data stays in the storage you control"
+      description: "Choose storage placement and review processing, access, and contractual requirements for your organization"
     },
     {
       icon: (
@@ -91,7 +91,7 @@ const ProductShowcase = () => {
         <div className="text-center mb-12 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold rounded-full bg-white/5 border border-white/10 text-white/70">
             <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            BYOS-native • 99.9% uptime
+            Managed or customer-provided storage
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
             Step up your <span className="line-through">game</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">stack</span> with.<br />
@@ -133,7 +133,7 @@ const ProductShowcase = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-black bg-primary-400 rounded-full shadow-lg hover:bg-primary-300 transition-transform hover:-translate-y-[1px]"
             >
-              Get started for free
+              Explore plans
             </a>
             <a
               href="#see-it-in-action"

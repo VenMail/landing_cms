@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta charSet="utf-8" />
         <meta name="author" content="VenMail LLC" />
         
         {/* Favicon and App Icons */}
@@ -22,28 +21,13 @@ export default function Document() {
         <meta name="apple-mobile-web-app-status-bar-style" content="#ea580c" />
         
         {/* Viewport and Mobile */}
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" />
         <meta content="telephone=no" name="format-detection" />
         
         {/* Theme and Colors */}
         <meta name="theme-color" content="#ea580c" />
         <meta name="msapplication-TileColor" content="#ea580c" />
         
-        {/* SEO Meta */}
-        <meta name="description" content="AI-powered email management platform for efficient communication" />
-        <meta name="keywords" content="venmail, email, gmail, mailbox, AI email, business email" />
-        
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="VenMail - AI-Powered Email Management" />
-        <meta property="og:description" content="AI-powered email management platform for efficient communication" />
-        <meta property="og:site_name" content="VenMail" />
-        <meta property="og:url" content="https://venmail.io" />
-        <meta property="og:image" content="/android-chrome-512x512.png" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        
+        {/* Page SEO is supplied by SeoDefaults through next/head. */}
         {/* Additional Meta */}
         <meta name="google" content="nopagereadaloud" />
         <meta name="renderer" content="webkit" />
@@ -57,12 +41,7 @@ export default function Document() {
               "@type": "SoftwareApplication",
               "name": "VenMail",
               "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Web",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              }
+              "operatingSystem": "Web"
             })
           }}
         />

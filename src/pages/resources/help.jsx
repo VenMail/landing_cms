@@ -105,11 +105,11 @@ export default function Help() {
     <DefaultLayout>
       <Head>
         <title>Help Center — VenMail Support</title>
-        <meta name="description" content="Get help with VenMail's email platform. Find guides, tutorials, and support for all features." />
-        <meta property="og:title" content="VenMail Help Center" />
-        <meta property="og:description" content="Comprehensive support documentation and guides for VenMail features." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="/resources/help" />
+        <meta name="description" key="description" content="Get help with VenMail's email platform. Find guides, tutorials, and support for all features." />
+        <meta property="og:title" key="og:title" content="VenMail Help Center" />
+        <meta property="og:description" key="og:description" content="Comprehensive support documentation and guides for VenMail features." />
+        <meta property="og:type" key="og:type" content="website" />
+        <meta property="og:url" key="og:url" content="/resources/help" />
       </Head>
 
       <section className="bg-white py-12 md:py-20">

@@ -157,7 +157,7 @@ export default function EmailToAction() {
               Ready to transform your email workflow?
             </h2>
             <p className="text-gray-500 sm:text-xl mb-8">
-              Join thousands of professionals who have eliminated manual email processing
+              Explore tools that reduce manual email processing
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -165,7 +165,7 @@ export default function EmailToAction() {
                 target="_blank"
                 className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 rounded-lg"
               >
-                Start Free Trial
+                Explore plans
                 <ArrowRightIcon className="ml-2 h-4 w-4" />
               </a>
               <a

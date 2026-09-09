@@ -127,8 +127,8 @@ export default function DevelopersSection() {
               "Real-time webhooks",
               "SDKs for popular languages",
               "Comprehensive documentation",
-              "99.9% uptime SLA",
-              "GDPR compliant",
+              "Discuss service requirements",
+              "Data processing documentation",
               "No vendor lock-in",
               "Instant API keys"
             ].map((item) => (

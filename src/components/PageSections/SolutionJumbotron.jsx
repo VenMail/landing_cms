@@ -17,7 +17,7 @@ function SolutionJumbotron({ subheading, title, text }) {
             target="_blank"
             className="inline-flex cursor-pointer justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-sm bg-primary-600"
           >
-            Get started free
+            Explore plans
           </a>
         </div>
       </div>

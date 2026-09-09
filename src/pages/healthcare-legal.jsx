@@ -80,7 +80,7 @@ const HealthcareHero = () => {
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-white/80 text-sm font-medium">HIPAA & GDPR Compliant • SOC 2 Type II</span>
+            <span className="text-white/80 text-sm font-medium">Review controls and contracts for your deployment</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
@@ -106,7 +106,7 @@ const HealthcareHero = () => {
               rel="noopener noreferrer"
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-full transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-green-500/25"
             >
-              <span className="relative z-10">Start Compliant Free</span>
+              <span className="relative z-10">Discuss your requirements</span>
               <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
             </a>
             
@@ -197,13 +197,13 @@ const ComplianceCrisisSection = () => {
             <div className="text-5xl font-bold text-red-600 mb-4">239%</div>
             <div className="text-lg font-semibold text-gray-900 mb-2">Increase in Hacking</div>
             <div className="text-gray-600 mb-4">Healthcare data breaches 2018-2023</div>
-            <div className="text-sm text-red-700 font-medium">HIPAA violations at all-time high</div>
+            <div className="text-sm text-red-700 font-medium">Protect patient communications</div>
           </div>
           
           <div className="crisis-stat bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8 border border-orange-100">
             <div className="text-5xl font-bold text-orange-600 mb-4">€2.92B</div>
             <div className="text-lg font-semibold text-gray-900 mb-2">GDPR Fines Since 2018</div>
-            <div className="text-gray-600 mb-4">90% say GDPR is hardest compliance</div>
+            <div className="text-gray-600 mb-4">Confirm your data protection requirements</div>
             <div className="text-sm text-orange-700 font-medium">Legal firms facing massive penalties</div>
           </div>
           
@@ -367,7 +367,7 @@ const VenmailSolutionSection = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Your Servers, Your Compliance</h3>
             <p className="text-gray-600 mb-4">
               BYOS (Bring Your Own Storage) keeps your patient/client data in your infrastructure. VenMail may temporarily process or cache data to run workflows and deliver messages.
-              HIPAA & GDPR compliant by design.
+              Review your regulatory requirements before deployment.
             </p>
             <div className="text-blue-600 font-semibold">Zero data exfiltration risk →</div>
           </div>
@@ -448,7 +448,7 @@ const FinalCTASection = () => {
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-6">Start Compliant Today</h3>
             <p className="text-gray-300 mb-8">
-              Free for up to 5 users. HIPAA & GDPR compliant from day one. 
+              Business workspaces require a paid plan. Confirm processing and contractual requirements before using regulated data.
               Your data stays on your servers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -458,7 +458,7 @@ const FinalCTASection = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-full transition-all"
               >
-                Start Free Trial
+                Explore plans
               </a>
               <a
                 href="mailto:compliance@venmail.io"

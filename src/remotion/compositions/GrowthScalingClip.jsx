@@ -1,4 +1,5 @@
 import { AbsoluteFill, useCurrentFrame, interpolate } from "remotion";
+import { growthState } from "../growthState.mjs";
 
 const DURATION_FRAMES = 240; // 8s at 30fps
 
@@ -6,8 +7,7 @@ export default function GrowthScalingClip() {
   const frame = useCurrentFrame();
 
   // User counter
-  const userCount = Math.round(interpolate(frame, [30, 180], [10, 200], { extrapolateRight: "clamp" }));
-  const progress = interpolate(frame, [30, 180], [0, 1], { extrapolateRight: "clamp" });
+  const { userCount, progress, competitorCost, venmailCost } = growthState(frame);
 
   // Chart dimensions
   const chartWidth = 480;
@@ -16,21 +16,19 @@ export default function GrowthScalingClip() {
   const chartLeft = 80;
 
   // Cost lines
-  const competitorCost = userCount * 6; // $6/user/mo (Google/Microsoft)
-  const venmailCost = userCount <= 3 ? 0 : 7; // Flat $7/mo
 
   const maxCost = 200 * 6;
   const competitorY = chartTop + chartHeight - (competitorCost / maxCost) * chartHeight;
   const venmailY = chartTop + chartHeight - (venmailCost / maxCost) * chartHeight;
 
-  const savingsOpacity = interpolate(frame, [160, 185], [0, 1], { extrapolateRight: "clamp" });
+  const savingsOpacity = interpolate(frame, [160, 185], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const savings = competitorCost - venmailCost;
 
   return (
     <AbsoluteFill style={{ background: "#020617", fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* Title */}
-      <div style={{ position: "absolute", top: 24, left: 32, opacity: interpolate(frame, [0, 15], [0, 1], { extrapolateRight: "clamp" }) }}>
-        <div style={{ fontSize: 18, fontWeight: 700, color: "#fff" }}>Monthly Cost Comparison</div>
+      <div style={{ position: "absolute", top: 24, left: 32, opacity: interpolate(frame, [0, 15], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+        <div style={{ fontSize: 18, fontWeight: 700, color: "#fff" }}>Illustrative Monthly Costs</div>
       </div>
 
       {/* User counter */}
@@ -73,18 +71,21 @@ export default function GrowthScalingClip() {
       <div style={{ position: "absolute", bottom: 60, left: 32, display: "flex", gap: 24 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <div style={{ width: 12, height: 3, background: "#ef4444", borderRadius: 2 }} />
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>Per-seat pricing (${userCount * 6}/mo)</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>$6/seat example (${userCount * 6}/mo)</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <div style={{ width: 12, height: 3, background: "#22c55e", borderRadius: 2 }} />
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>Venmail (${venmailCost}/mo)</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>Startup base (${venmailCost}/mo)</span>
         </div>
       </div>
 
       {/* Savings highlight */}
+      <div style={{ position: "absolute", bottom: 12, left: 32, fontSize: 9, color: "rgba(255,255,255,0.5)", maxWidth: 220 }}>
+        Startup includes 60GB. Region and storage needs affect final price.
+      </div>
       <div style={{ position: "absolute", bottom: 20, right: 32, opacity: savingsOpacity }}>
         <div style={{ fontSize: 20, fontWeight: 800, color: "#22c55e" }}>
-          Save ${savings}/mo
+          Illustrated difference: ${savings}/mo
         </div>
       </div>
     </AbsoluteFill>

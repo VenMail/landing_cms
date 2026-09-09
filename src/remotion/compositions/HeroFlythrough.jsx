@@ -4,8 +4,8 @@ const DURATION_FRAMES = 360; // 12s at 30fps
 
 function InboxScene() {
   const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 30], [0, 1], { extrapolateRight: "clamp" });
-  const scale = interpolate(frame, [0, 30], [1.05, 1], { extrapolateRight: "clamp" });
+  const opacity = interpolate(frame, [0, 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const scale = interpolate(frame, [0, 30], [1.05, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   return (
     <AbsoluteFill style={{ opacity, transform: `scale(${scale})`, backgroundColor: "#f9fafb" }}>
@@ -28,7 +28,7 @@ function InboxScene() {
               { from: "Legal Dept", subject: "NDA review — signatures needed", time: "1h ago", unread: false },
               { from: "Alex Morgan", subject: "Campaign results: 47% open rate", time: "2h ago", unread: false },
             ].map((email, i) => {
-              const rowOpacity = interpolate(frame, [15 + i * 8, 30 + i * 8], [0, 1], { extrapolateRight: "clamp" });
+              const rowOpacity = interpolate(frame, [15 + i * 8, 30 + i * 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
               return (
                 <div key={i} style={{ opacity: rowOpacity, display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid #f3f4f6" }}>
                   <div>
@@ -46,32 +46,32 @@ function InboxScene() {
   );
 }
 
-function AIRewriteScene() {
+function SummaryScene() {
   const frame = useCurrentFrame();
-  const shimmer = interpolate(frame, [0, 60], [0, 100], { extrapolateRight: "clamp" });
+  const shimmer = interpolate(frame, [0, 60], [0, 100], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const buttonPulse = Math.sin(frame * 0.15) * 0.1 + 1;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#f9fafb", padding: 40, fontFamily: "Inter, system-ui, sans-serif" }}>
       <div style={{ maxWidth: 700, margin: "0 auto", background: "#fff", borderRadius: 12, padding: 32, border: "1px solid #e5e7eb", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
-        <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>To: sarah@partnerco.com</div>
+        <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 12 }}>From: sarah@partnerco.com</div>
         <div style={{ fontSize: 14, color: "#6b7280", marginBottom: 20 }}>Subject: Re: Q3 Partnership Proposal</div>
 
-        {/* Original text fading out */}
-        <div style={{ opacity: interpolate(frame, [20, 40], [1, 0.3], { extrapolateRight: "clamp" }), fontSize: 15, lineHeight: 1.7, color: "#374151", marginBottom: 16 }}>
-          Hi Sarah, thanks for the proposal. We think it looks good and would like to move forward with the partnership...
+        {/* Original message */}
+        <div style={{ opacity: interpolate(frame, [20, 40], [1, 0.3], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 15, lineHeight: 1.7, color: "#374151", marginBottom: 16 }}>
+          Our Q3 proposal covers the partnership timeline. Please review it before our call this week...
         </div>
 
         {/* AI button */}
         <div style={{ display: "flex", gap: 8, marginBottom: 16, transform: `scale(${buttonPulse})` }}>
           <div style={{ background: "linear-gradient(135deg, #FF5C39, #ea580c)", color: "white", padding: "8px 16px", borderRadius: 6, fontSize: 13, fontWeight: 600 }}>
-            AI Rewrite
+            Email Summary
           </div>
         </div>
 
-        {/* Rewritten text appearing */}
-        <div style={{ opacity: interpolate(frame, [40, 70], [0, 1], { extrapolateRight: "clamp" }), fontSize: 15, lineHeight: 1.7, color: "#111", background: `linear-gradient(90deg, #FFEFEB ${shimmer}%, transparent ${shimmer}%)` }}>
-          Hi Sarah, your Q3 proposal aligns well with our strategic goals. We'd like to proceed — let's schedule a call this week to discuss implementation timelines and resource allocation.
+        {/* Summary appearing */}
+        <div style={{ opacity: interpolate(frame, [40, 70], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 15, lineHeight: 1.7, color: "#111", background: `linear-gradient(90deg, #FFEFEB ${shimmer}%, transparent ${shimmer}%)` }}>
+          Summary: Review the Q3 partnership proposal and discuss the timeline on a call this week. Check the original message before acting.
         </div>
       </div>
     </AbsoluteFill>
@@ -87,10 +87,10 @@ function AnalyticsScene() {
         <div style={{ fontSize: 22, fontWeight: 700, color: "#111", marginBottom: 24 }}>Campaign Analytics</div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16 }}>
           {[
-            { label: "Delivered", value: interpolate(frame, [0, 60], [0, 1247], { extrapolateRight: "clamp" }), color: "#22c55e" },
-            { label: "Opened", value: interpolate(frame, [10, 70], [0, 586], { extrapolateRight: "clamp" }), color: "#3b82f6" },
-            { label: "Clicked", value: interpolate(frame, [20, 80], [0, 203], { extrapolateRight: "clamp" }), color: "#FF5C39" },
-            { label: "Replied", value: interpolate(frame, [30, 90], [0, 89], { extrapolateRight: "clamp" }), color: "#8b5cf6" },
+            { label: "Delivered", value: interpolate(frame, [0, 60], [0, 1247], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), color: "#22c55e" },
+            { label: "Opened", value: interpolate(frame, [10, 70], [0, 586], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), color: "#3b82f6" },
+            { label: "Clicked", value: interpolate(frame, [20, 80], [0, 203], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), color: "#FF5C39" },
+            { label: "Replied", value: interpolate(frame, [30, 90], [0, 89], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), color: "#8b5cf6" },
           ].map((stat) => (
             <div key={stat.label} style={{ background: "#fff", borderRadius: 8, padding: 20, border: "1px solid #e5e7eb", textAlign: "center" }}>
               <div style={{ fontSize: 32, fontWeight: 700, color: stat.color }}>{Math.round(stat.value)}</div>
@@ -112,7 +112,7 @@ export default function HeroFlythrough() {
         <InboxScene />
       </Sequence>
       <Sequence from={90} durationInFrames={150}>
-        <AIRewriteScene />
+        <SummaryScene />
       </Sequence>
       <Sequence from={210} durationInFrames={150}>
         <AnalyticsScene />

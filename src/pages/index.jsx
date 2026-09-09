@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import ABVariant from "@/components/ABVariant";
 import EmailReckoningVideo from "@/components/PageSections/EmailReckoningVideo";
-import SocialProofNarrative from "@/components/PageSections/SocialProofNarrative";
 import ProductDemo from "@/components/PageSections/ProductDemo";
 import BusinessesSection from "@/components/PageSections/BusinessesSection";
 import AgentApiSection from "@/components/PageSections/AgentApiSection";
@@ -49,7 +48,7 @@ function HeroVisionLed() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://m.venmail.io/register"
+              href="https://m.venmail.io/register?type=business"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCTAClick("hero", variant, "hero_v1")}
@@ -58,7 +57,7 @@ function HeroVisionLed() {
               <ABVariant
                 testName="hero_cta_v1"
                 a={<>Get Started</>}
-                b={<>Get Started Free</>}
+                b={<>Choose a Business Plan</>}
               />
             </a>
             <a
@@ -129,7 +128,7 @@ function HeroProblemLed() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="https://m.venmail.io/register"
+              href="https://m.venmail.io/register?type=business"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackCTAClick("hero", variant, "hero_v1")}
@@ -138,7 +137,7 @@ function HeroProblemLed() {
               <ABVariant
                 testName="hero_cta_v1"
                 a={<>Get Started</>}
-                b={<>Get Started Free</>}
+                b={<>Choose a Business Plan</>}
               />
             </a>
             <a
@@ -200,7 +199,7 @@ function FooterCTA() {
                 Email infrastructure designed for your business.
               </h2>
               <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Professional email accessible to every organization. Start free. Bring your own storage. Control everything.
+                Professional email on your business domain. Choose a paid plan, or explore a free personal venia.cloud account.
               </p>
             </>
           }
@@ -210,7 +209,7 @@ function FooterCTA() {
                 Deploy in minutes. Maintain full control.
               </h2>
               <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Connect your storage, configure your domain, and start sending. Free tier included. No credit card required.
+                Choose a business plan and hosting region, then configure your domain. Our team can help you plan the migration.
               </p>
             </>
           }
@@ -218,7 +217,7 @@ function FooterCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="https://m.venmail.io/register"
+            href="https://m.venmail.io/register?type=business"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackCTAClick("footer", variant, "footer_cta_v1")}
@@ -256,9 +255,6 @@ export default function Home() {
       {/* Section 2: The Reckoning */}
       <EmailReckoningVideo />
 
-      {/* ACT II — THE INSIGHT */}
-      {/* Section 3: The Sandra Moment */}
-      <SocialProofNarrative />
 
       {/* ACT III — THE VISION */}
       {/* Section 4: The Reset — See It In Action */}
