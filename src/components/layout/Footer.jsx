@@ -113,7 +113,7 @@ export default function Footer({ hideFooterJumbo = false }) {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />
-                    Review hosting regions and access requirements
+                    Review storage and access requirements
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-emerald-300" />

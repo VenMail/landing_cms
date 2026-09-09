@@ -101,7 +101,7 @@ const data = {
           type: "list",
           items: [
             "The web application uses HTTPS. Venmail processes email content on its servers to provide mailbox and AI features; this is not a blanket end-to-end encrypted or zero-access service.",
-            "Managed storage region and customer-provided storage settings govern storage placement. They do not by themselves confine application or third-party AI processing to that location.",
+            "Managed plans currently use the same shared storage infrastructure. Nigeria, South Africa, and Europe selections record a future region preference, not current data residency. Customer-provided storage settings govern mailbox storage placement but do not by themselves confine application or third-party AI processing to that location.",
             "Ask our team for the current deployment controls, subprocessors, and contractual requirements before using the service for regulated or sensitive workloads.",
           ],
         },

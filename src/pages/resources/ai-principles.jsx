@@ -24,7 +24,7 @@ const data = {
           "items": [
             "Venmail performs email analysis on its servers. Message content and extracted attachment text can be sent to Groq, a third-party AI provider, for analysis.",
             "AI features include summaries and extracting information that helps with follow-ups and scheduling. Availability depends on the feature and account.",
-            "A selected mailbox storage region or customer-provided storage does not by itself restrict where application or third-party AI processing occurs."
+            "Managed plans currently use shared storage; regional selections are future preferences, not current data residency choices. Customer-provided storage does not by itself restrict where application or third-party AI processing occurs."
           ]
         }
       ]

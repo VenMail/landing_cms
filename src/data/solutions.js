@@ -100,7 +100,7 @@ export const solutions = {
     pricingImage: "/solutions/founders/content-image-2.png",
     pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
-      "Business domain email requires a paid plan. Choose storage and hosting region with no per-seat fees.",
+      "Business domain email requires a paid plan. Choose storage capacity with no per-seat fees. Managed plans currently use shared storage.",
     perSeatComparison: 360,
   },
   marketing: {
@@ -163,7 +163,7 @@ export const solutions = {
       {
         icon: "shield",
         title: "Data Sovereignty",
-        description: "Email data stays in your own storage — S3, Azure, or on-premises.",
+        description: "The separate Custom Storage plan uses customer-provided mailbox storage. Review application processing and access requirements with our team.",
       },
       {
         icon: "lock",
@@ -187,7 +187,7 @@ export const solutions = {
     featureImage: "/solutions/healthcare/content-image-1.png",
     benefits: [
       "Bring Your Own Storage (BYOS)",
-      "Data residency compliance",
+      "Discuss data residency requirements",
       "Unlimited staff accounts",
       "Audit trail for communications",
       "Custom domain with full DNS control",
@@ -204,19 +204,19 @@ export const solutions = {
     category: "For Law Firms & Legal Teams",
     headline: "Privileged Communications, Your Servers",
     description:
-      "Attorney-client privilege requires communication infrastructure you control. Venmail runs on your storage, under your jurisdiction.",
+      "Review storage, application processing, and access requirements for privileged communications. Managed plans use shared storage; the separate Custom Storage plan uses customer-provided mailbox storage.",
     heroImage: "/solutions/legal/section-1.png",
     accentColor: "indigo",
     capabilities: [
       {
         icon: "shield",
         title: "Data Sovereignty",
-        description: "Email data stays in your firm's storage — never on shared infrastructure.",
+        description: "Choose the separate Custom Storage plan for customer-provided mailbox storage. Confirm processing locations and access before handling privileged content.",
       },
       {
         icon: "lock",
         title: "Privilege Protection",
-        description: "Full control over where privileged communications are stored and accessed.",
+        description: "Review where privileged communications are stored, processed, and accessed before choosing your deployment.",
       },
       {
         icon: "document",
@@ -235,7 +235,7 @@ export const solutions = {
     featureImage: "/solutions/legal/content-image-1.png",
     benefits: [
       "Bring Your Own Storage (BYOS)",
-      "Data jurisdiction control",
+      "Review storage and processing jurisdiction",
       "Unlimited firm-wide accounts",
       "Document approval workflows",
       "Electronic signature support",
@@ -264,7 +264,7 @@ export const solutions = {
       {
         icon: "lock",
         title: "Data Sovereignty",
-        description: "Keep financial communications in your storage, under your jurisdiction.",
+        description: "The separate Custom Storage plan supports customer-provided mailbox storage. Confirm all processing locations for your financial data requirements.",
       },
       {
         icon: "chart",
@@ -283,7 +283,7 @@ export const solutions = {
     featureImage: "/solutions/finance/content-image-1.png",
     benefits: [
       "Bring Your Own Storage (BYOS)",
-      "Data residency controls",
+      "Review storage and processing locations",
       "Unlimited team accounts",
       "Compliance-ready audit trails",
       "Custom domain configuration",
@@ -307,7 +307,7 @@ export const solutions = {
       {
         icon: "shield",
         title: "Student Data Control",
-        description: "Email data stays in your institution's storage — not a vendor's servers.",
+        description: "Managed plans use shared storage. The separate Custom Storage plan supports customer-provided mailbox storage; review service processing for student data.",
       },
       {
         icon: "users",

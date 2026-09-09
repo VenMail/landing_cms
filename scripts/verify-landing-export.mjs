@@ -17,5 +17,14 @@ for (const plan of ['startup', 'business', 'enterprise', 'custom']) {
 }
 assert.ok(pricing.includes('type=personal'), 'personal mailbox remains separate');
 assert.ok(!pricing.includes('AI Rewrite'), 'retired rewrite offer absent');
+assert.ok(pricing.includes('Future region preference'), 'region selector describes a future preference');
+for (const route of ['pricing', 'security-whitepaper', 'resources/privacy-policy', 'resources/dpa']) {
+  const html = fs.readFileSync(`out/${route}.html`, 'utf8');
+  assert.ok(html.includes('same shared storage infrastructure'), `${route}: shared hosting is disclosed`);
+  assert.match(html, /future region preference/i, `${route}: regional preference is not a residency claim`);
+}
 assert.ok(fs.readFileSync('out/resources/privacy-policy.html', 'utf8').includes('Groq'), 'AI processor disclosed');
+const legal = fs.readFileSync('out/solutions/legal.html', 'utf8');
+assert.ok(legal.includes('Managed plans use shared storage'), 'industry storage copy distinguishes managed plans');
+assert.ok(!legal.includes('never on shared infrastructure'), 'industry pages do not promise dedicated infrastructure for every plan');
 console.log('Exported homepage, pricing, and trust pages have valid metadata and signup offers.');

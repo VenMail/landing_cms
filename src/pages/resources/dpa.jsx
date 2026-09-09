@@ -37,7 +37,7 @@ export default function DPA() {
       content: [
         'HTTPS protects connections to the web application.',
         'Email and attachment content may be processed on Venmail servers and by AI subprocessors; this service does not provide blanket end-to-end encryption.',
-        'Storage placement depends on the selected managed region or customer-provided storage configuration.',
+        'Managed plans currently use the same shared storage infrastructure. Nigeria, South Africa, and Europe selections record a future region preference, not current data residency. Custom Storage placement depends on the customer-provided storage configuration.',
         'The parties should document the applicable deployment controls, processing locations, access requirements, and supporting evidence for the contracted service.'
       ]
     },

@@ -29,15 +29,16 @@ export default function PricingPlans({ comparison = false }) {
           {period === 'monthly' ? 'Monthly' : 'Yearly'}
         </button>)}
       </fieldset>
-      <label className="text-sm text-gray-700">Hosting region
-        <select aria-label="Hosting region" value={region} onChange={event => setRegion(event.target.value)} className="block mt-2 border border-gray-300 bg-white p-2 text-gray-900" disabled={!regions.length}>
+      <label className="text-sm text-gray-700">Future region preference
+        <select aria-label="Future region preference" value={region} onChange={event => setRegion(event.target.value)} className="block mt-2 border border-gray-300 bg-white p-2 text-gray-900" disabled={!regions.length}>
           <option value="">Choose during signup</option>
           {regions.map(item => <option key={item.code} value={item.code}>{item.label || item.name || item.code.toUpperCase()}</option>)}
         </select>
       </label>
     </div>
     <p className="mt-5 text-sm text-gray-600 text-center" aria-live="polite">
-      {loading ? 'Loading regional quotes. Base USD prices are shown below.' : region ? 'Regional USD quotes shown where available. Confirm your final amount in checkout.' : 'Base USD prices shown. Your hosting region can change the price; choose it here or during signup.'}
+      Managed plans currently use the same shared storage infrastructure. Nigeria, South Africa, and Europe are future region preferences, not current data residency choices.
+      {' '}{loading ? 'Loading current quotes. Base USD prices are shown below.' : region ? 'Current USD quotes shown where available. Confirm your final amount in checkout.' : 'Base USD prices shown. Choose a preference here or during signup and confirm your final amount in checkout.'}
       {' '}Yearly amounts are billed annually. Custom Storage is a separate plan, not an add-on; your storage provider bills separately.
     </p>
     <div className="my-16 grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-4 gap-6">
@@ -45,7 +46,7 @@ export default function PricingPlans({ comparison = false }) {
         const offer = getOffer(plan.id, billing, region, data);
         return <div key={plan.id} className={`p-7 border flex flex-col ${plan.featured ? 'bg-[#FFFBEE]' : 'bg-white/60'}`}>
           <h3 id={`plan-${plan.id}`} className="text-sm font-semibold text-gray-900 uppercase">{plan.name}</h3>
-          <p className="text-xs text-gray-600 mt-4">{offer.isQuote ? 'Regional price · USD' : 'Base price · USD'}</p>
+          <p className="text-xs text-gray-600 mt-4">{offer.isQuote ? 'Current price · USD' : 'Base price · USD'}</p>
           <p className="mt-1 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/{billing === 'monthly' ? 'month' : 'year'}</span></p>
           <p className="text-gray-800 mt-6">{plan.description}</p>
           <p className="text-gray-700 mt-2">{plan.storage}</p>
@@ -59,11 +60,11 @@ export default function PricingPlans({ comparison = false }) {
     {comparison && <div className="overflow-x-auto mb-16">
       <h2 className="text-3xl font-semibold text-gray-900 mb-6">Compare business plans</h2>
       <table className="min-w-full border text-left text-sm text-gray-700">
-        <caption className="text-left mb-4">The same billing period and hosting-region selection applies to every plan link.</caption>
+        <caption className="text-left mb-4">The same billing period applies to every plan link. Your future region preference is carried into managed-plan signup.</caption>
         <thead><tr><th scope="col" className="p-4">Plan</th><th scope="col" className="p-4">Users</th><th scope="col" className="p-4">Storage</th><th scope="col" className="p-4">Price (USD)</th><th scope="col" className="p-4">Get started</th></tr></thead>
         <tbody>{PLANS.map(plan => { const offer = getOffer(plan.id, billing, region, data); return <tr key={plan.id} className="border-t">
           <th scope="row" className="p-4">{plan.name}</th><td className="p-4">Unlimited</td><td className="p-4">{plan.storage}</td>
-          <td className="p-4">{formatUsd(offer.amount)}/{billing === 'monthly' ? 'month' : 'year'}<span className="block text-xs">{offer.isQuote ? 'Regional price' : 'Base price'}</span></td>
+          <td className="p-4">{formatUsd(offer.amount)}/{billing === 'monthly' ? 'month' : 'year'}<span className="block text-xs">{offer.isQuote ? 'Current price' : 'Base price'}</span></td>
           <td className="p-4"><a className="underline" href={signup(plan)}>Choose {plan.name}</a></td>
         </tr>; })}</tbody>
       </table>

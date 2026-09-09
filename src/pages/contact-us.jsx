@@ -77,8 +77,8 @@ function ContactUs() {
                   <p className="text-white/60">Discuss your deployment security requirements.</p>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <p className="font-semibold">Data residency</p>
-                  <p className="text-white/60">Multi-region options for teams.</p>
+                  <p className="font-semibold">Storage requirements</p>
+                  <p className="text-white/60">Shared storage today; discuss future regional needs.</p>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                   <p className="font-semibold">Onboarding</p>

@@ -209,7 +209,7 @@ function FooterCTA() {
                 Deploy in minutes. Maintain full control.
               </h2>
               <p className="text-lg text-white/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Choose a business plan and hosting region, then configure your domain. Our team can help you plan the migration.
+                Choose a business plan, then configure your domain. Managed plans currently use shared storage. Our team can help you plan the migration.
               </p>
             </>
           }

@@ -10,7 +10,7 @@ function FAQs() {
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "Business plans have no per-seat fee. Choose storage, features, billing period, and an available hosting region. Region can change the price. Custom Storage is a separate plan, and your storage provider bills separately. Confirm the final amount in checkout.",
+      answer: "Business plans have no per-seat fee. Choose storage, features, and billing period. Managed plans currently use the same shared storage infrastructure; Nigeria, South Africa, and Europe record a future region preference, not current data residency. Custom Storage is a separate plan, and your storage provider bills separately. Confirm the final amount in checkout.",
     },
     {
       question: "Will my team need training?",

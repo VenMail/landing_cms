@@ -43,7 +43,7 @@ const AUDIENCES = [
   {
     title: "Growing Organizations",
     story:
-      "Add team members without per-seat charges. Choose storage capacity, hosting region and features for the workspace you need.",
+      "Add team members without per-seat charges. Choose storage capacity and features for your workspace. Managed plans currently use shared storage.",
     bestFor: ["Startups", "SMEs", "Schools", "Nonprofits"],
     clip: { component: LazyGrowthScalingClip, frames: 240 },
     accentColor: "green",
