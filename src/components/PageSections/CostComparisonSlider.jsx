@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCurrency } from "@/contexts/CurrencyContext";
-import { getOffer } from "@/config/pricing.mjs";
+import { getRecommendedOffer } from "@/config/pricing.mjs";
 
 const providers = [
   { key: "google", name: "$6/seat example", perUser: 6 },
@@ -12,7 +12,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
   const [users, setUsers] = useState(3);
   const { formatPrice, isLoading } = useCurrency();
 
-  const venmailCost = getOffer("business").amount;
+  const recommendation = getRecommendedOffer(users);
 
   function formatCurrency(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -29,7 +29,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
           What would it cost elsewhere?
         </h2>
         <p className="text-center text-gray-600 mb-8">
-          Illustrative per-seat rates, not current competitor quotes. Compare the storage, region and features your team needs.
+          Standard starts at $1/month. Business is $20/month with unlimited accounts. Competitor rates are illustrative, not current quotes.
         </p>
         <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
           <div className="text-lg sm:text-xl text-black">Team size: {users} {users === 1 ? "user" : "users"}</div>
@@ -77,8 +77,8 @@ export default function CostComparisonSlider({ hasButton = false }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-4 sm:mt-8">
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
-              <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
-              <div className="text-xs text-gray-600">Business base: {formatCurrency(venmailCost)}/mo. 200 GB pooled storage included.</div>
+              <div className="text-2xl font-bold text-black mb-1">{formatCurrency(recommendation.amount)}/mo</div>
+              <div className="text-xs text-gray-600">{recommendation.plan === 'standard' ? 'Standard: five accounts included, then $1 per additional account.' : 'Business: unlimited accounts and 200 GB pooled storage.'}</div>
             </div>
 
             {providers.map((p) => {

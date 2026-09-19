@@ -282,7 +282,7 @@ const ExitIntentPopup = () => {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">Unlimited users</span>
+                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">Business: unlimited accounts</span>
                   <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">250GB storage</span>
                   <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">All features</span>
                 </div>

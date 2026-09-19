@@ -3,15 +3,15 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { trackSectionView } from "@/utils/trackConversion";
-import { getOffer } from "@/config/pricing.mjs";
+import { getRecommendedOffer } from "@/config/pricing.mjs";
 
 const STATS = [
   {
-    value: 0,
+    value: 1,
     prefix: "$",
     suffix: "",
-    label: "Per-seat fees",
-    description: "Storage-based pricing",
+    label: "Starting monthly price",
+    description: "Five email accounts included",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function BusinessCase() {
     }
   }, [inView]);
 
-  const venmailCost = getOffer("business").amount;
+  const recommendation = getRecommendedOffer(users);
 
   function fmt(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -46,7 +46,7 @@ export default function BusinessCase() {
             Compare illustrative email costs
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Illustrative comparison, not current competitor quotes. Business includes unlimited email accounts and 200 GB pooled storage.
+            Standard starts at $1/month. Business is $20/month with unlimited email accounts and 200 GB pooled storage.
           </p>
         </div>
 
@@ -122,11 +122,13 @@ export default function BusinessCase() {
                     Venmail
                   </div>
                   <div className="text-xs text-gray-500">
-                    Business base · 200 GB pooled storage included
+                    {recommendation.plan === "standard"
+                      ? "Standard · five accounts included, then $1 per additional account"
+                      : "Business · unlimited accounts and 200 GB pooled storage"}
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-green-700">
-                  {fmt(venmailCost)}<span className="text-sm font-normal text-green-600">/mo</span>
+                  {fmt(recommendation.amount)}<span className="text-sm font-normal text-green-600">/mo</span>
                 </div>
               </div>
 

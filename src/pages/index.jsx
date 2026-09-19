@@ -77,7 +77,7 @@ function HeroProblemLed() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Scale email without per-user costs. Control your data.
+            Start at $1/month. Move to $20/month Business for unlimited email accounts.
             <br className="hidden md:block" />
             Venmail reimagines professional email.
           </p>

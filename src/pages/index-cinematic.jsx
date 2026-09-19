@@ -180,7 +180,7 @@ const TheProblemSection = () => {
             Modern Email Challenges
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional email should scale with your business, not your headcount.
+            Standard starts at $1/month. Business is $20/month with unlimited accounts.
             Every organization deserves enterprise-grade email at predictable costs.
           </p>
         </div>
@@ -189,7 +189,7 @@ const TheProblemSection = () => {
           <div className="stat-item text-center p-8 bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl border border-red-100">
             <div className="text-5xl font-bold text-red-600 mb-4">$25+</div>
             <div className="text-lg font-semibold text-gray-900 mb-2">Per User Per Month</div>
-            <div className="text-gray-600">The industry standard for per-seat pricing</div>
+            <div className="text-gray-600">Illustrative competitor seat pricing</div>
           </div>
           
           <div className="stat-item text-center p-8 bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl border border-orange-100">
