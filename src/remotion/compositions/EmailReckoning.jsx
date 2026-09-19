@@ -113,7 +113,7 @@ function ResetRevealScene() {
         </div>
       </div>
       <div style={{ opacity: interpolate(frame, [100, 130], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 18, color: "rgba(255,255,255,0.5)", marginTop: 24, textAlign: "center", maxWidth: 500, fontFamily: "Inter, system-ui, sans-serif", lineHeight: 1.6 }}>
-        Your storage. Your domain. Your data. No per-seat fees. No vendor lock-in.
+        Your storage. Your domain. Your data. Standard from $1/month. Business at $20/month.
       </div>
     </AbsoluteFill>
   );

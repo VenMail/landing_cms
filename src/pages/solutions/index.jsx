@@ -16,7 +16,7 @@ export default function Solutions() {
       href: "/solutions/agency",
       icon: <LuUsers className="w-8 h-8" />,
       title: "Agencies & Consultancies",
-      description: "Scale client campaigns without scaling costs. Multi-client management, white-label options, and flat pricing.",
+      description: "Scale client campaigns with multi-client management and white-label options. Business is $20/month; Enterprise is tailored.",
       color: "blue"
     },
     {
@@ -151,7 +151,7 @@ export default function Solutions() {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Unlimited Team</h3>
-              <p className="text-gray-600 text-sm">No per-seat pricing. Add unlimited team members.</p>
+              <p className="text-gray-600 text-sm">Business includes unlimited email accounts for $20/month.</p>
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-primary-50 rounded-lg flex items-center justify-center text-primary-600 mx-auto mb-4">

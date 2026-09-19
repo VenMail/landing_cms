@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { businessSignupUrl, getOffer, formatNgn } from '../../src/config/pricing.mjs';
+import { businessSignupUrl, getOffer, getRecommendedOffer, formatNgn } from '../../src/config/pricing.mjs';
 
 test('published offers use the approved monthly USD and NGN amounts', () => {
   assert.equal(getOffer('standard', 'monthly').amount, 1);
@@ -25,6 +25,15 @@ test('published amounts match the approved monthly catalog', () => {
   assert.equal(getOffer('standard', 'monthly').isQuote, false);
   assert.throws(() => getOffer('enterprise', 'monthly'));
   assert.throws(() => getOffer('standard', 'yearly'));
+});
+
+test('recommended monthly pricing rises from one dollar and never exceeds Business at twenty dollars', () => {
+  assert.deepEqual(getRecommendedOffer(1), { plan: 'standard', accounts: 1, amount: 1 });
+  assert.deepEqual(getRecommendedOffer(5), { plan: 'standard', accounts: 5, amount: 1 });
+  assert.deepEqual(getRecommendedOffer(6), { plan: 'standard', accounts: 6, amount: 2 });
+  assert.deepEqual(getRecommendedOffer(23), { plan: 'standard', accounts: 23, amount: 19 });
+  assert.deepEqual(getRecommendedOffer(24), { plan: 'business', accounts: 24, amount: 20 });
+  assert.deepEqual(getRecommendedOffer(200), { plan: 'business', accounts: 200, amount: 20 });
 });
 
 test('localized Naira prices use the approved fixed exchange rate', async () => {
@@ -57,9 +66,35 @@ test('commercial pricing surfaces use the approved three-plan catalog', async ()
   const surfaces = files.join('\n');
 
   assert.doesNotMatch(surfaces, /Startup base|60GB|250GB|1\.5TB|venmailCost\s*=\s*7/);
-  assert.match(surfaces, /Business base/);
+  assert.match(surfaces, /Business(?: is|:| ·)[^\n]*\$20\/month|Business[^\n]*200 GB pooled storage/);
   assert.match(surfaces, /200 GB pooled storage/);
   assert.match(surfaces, /plan=\$\{plan\}/);
+});
+
+test('customer-visible pricing copy does not claim zero per-seat cost or unlimited accounts on Standard', async () => {
+  const paths = [
+    '../../src/components/PageSections/BusinessCase.jsx',
+    '../../src/components/PageSections/CostComparisonSlider.jsx',
+    '../../src/components/PageSections/CountUpStats.jsx',
+    '../../src/components/PageSections/WhyVenmailSection.jsx',
+    '../../src/components/PageSections/BusinessesSection.jsx',
+    '../../src/components/PageSections/ProductShowcase.jsx',
+    '../../src/components/ExitIntentPopup.jsx',
+    '../../src/pages/index.jsx',
+    '../../src/pages/index-cinematic.jsx',
+    '../../src/pages/about-us.jsx',
+    '../../src/pages/why-venmail.jsx',
+    '../../src/pages/healthcare-legal.jsx',
+    '../../src/pages/solutions/index.jsx',
+    '../../src/pages/product/meeting-vs-zoom.jsx',
+    '../../src/remotion/compositions/EmailReckoning.jsx',
+    '../../src/data/solutions.js',
+  ];
+  const copy = (await Promise.all(paths.map(path => readFile(new URL(path, import.meta.url), 'utf8')))).join('\n');
+
+  assert.doesNotMatch(copy, /\$0\s*\/?(?:seat|user)|no per-seat fees|no per-seat pricing|without per-seat fees|unlimited team (?:members|accounts)|pricing scales with storage, not headcount/i);
+  assert.match(copy, /Standard starts at \$1\/month/i);
+  assert.match(copy, /Business[^\n]{0,100}\$20\/month/i);
 });
 
 test('enterprise requests are submitted to the approved quote endpoint', async () => {

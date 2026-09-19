@@ -296,7 +296,7 @@ const CostComparisonSection = () => {
               <div className="text-sm text-green-600 mb-2 font-semibold">50-Person Firm</div>
               <div className="text-3xl font-bold text-gray-900 mb-1">VenMail</div>
               <div className="text-4xl font-bold text-green-600 mb-2">$27/mo</div>
-              <div className="text-sm text-gray-500">Startup plan + BYOS add-on</div>
+              <div className="text-sm text-gray-500">Enterprise / White-label quote</div>
               <div className="text-lg font-bold text-green-700 mt-2">95% SAVINGS</div>
             </div>
           </div>
@@ -380,7 +380,7 @@ const VenmailSolutionSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">95% Cost Reduction</h3>
             <p className="text-gray-600 mb-4">
-              Storage-based pricing means you pay for what you use, not per-user. 
+              Standard starts at $1/month. Business is $20/month with unlimited email accounts.
               $27/month for 50 users vs $600+ with Microsoft.
             </p>
             <div className="text-green-600 font-semibold">$6,876 annual savings →</div>

@@ -4,7 +4,7 @@ export const solutions = {
     category: "For Agencies & Consultancies",
     headline: "Scale Without the Bill Shock",
     description:
-      "Manage clients, run campaigns, deliver results — all from one workspace tailored to how agencies actually work. Flat pricing, no surprises.",
+      "Manage clients, run campaigns, and deliver results with Standard from $1/month or Business at $20/month.",
     heroImage: "/solutions/agencies/section-1.png",
     accentColor: "blue",
     capabilities: [
@@ -38,8 +38,8 @@ export const solutions = {
       "VenMail gives agencies the tools to manage multiple clients efficiently while maintaining healthy margins with flat, predictable pricing.",
     featureImage: "/solutions/agencies/content-image-1.png",
     benefits: [
-      "Unlimited team members included",
-      "Flat pricing that protects margins",
+      "Unlimited email accounts on Business",
+      "Business stays at $20/month",
       "Separate client workspaces",
       "Shared templates and assets",
       "Campaign automation tools",
@@ -48,7 +48,7 @@ export const solutions = {
     pricingImage: "/solutions/agencies/content-image-2.png",
     pricingTitle: "Flat Pricing That Protects Margins",
     pricingDescription:
-      "Unlike per-seat tools that eat into your margins as you grow, VenMail offers flat pricing with unlimited team members.",
+      "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts.",
     perSeatComparison: 650,
   },
   founders: {
@@ -100,7 +100,7 @@ export const solutions = {
     pricingImage: "/solutions/founders/content-image-2.png",
     pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
-      "Business domain email requires a paid plan. Choose storage capacity with no per-seat fees. Managed plans currently use shared storage.",
+      "Business domain email requires a paid plan. Standard starts at $1/month; Business is $20/month. Managed plans currently use shared storage.",
     perSeatComparison: 360,
   },
   marketing: {
@@ -146,9 +146,9 @@ export const solutions = {
       "Deliverability monitoring",
     ],
     pricingImage: "/solutions/marketing/content-image-2.png",
-    pricingTitle: "No Per-Seat Tax on Your Team",
+    pricingTitle: "Business stays at $20/month",
     pricingDescription:
-      "Marketing teams shouldn't have to justify email seats. VenMail pricing scales with usage, not headcount.",
+      "Standard starts at $1/month for five accounts. Business is $20/month with unlimited accounts.",
     perSeatComparison: 800,
   },
   healthcare: {
@@ -173,7 +173,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Team Management",
-        description: "Unlimited users with role-based access for departments and facilities.",
+        description: "Business includes unlimited accounts with role-based access for departments and facilities.",
       },
       {
         icon: "mail",
@@ -244,7 +244,7 @@ export const solutions = {
     pricingImage: "/solutions/legal/content-image-2.png",
     pricingTitle: "Predictable Costs for Growing Firms",
     pricingDescription:
-      "As your firm grows, your email costs shouldn't grow per-seat. Venmail scales with your storage needs, not your headcount.",
+      "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts.",
     perSeatComparison: 900,
   },
   finance: {
@@ -284,7 +284,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing locations",
-      "Unlimited team accounts",
+      "Unlimited email accounts on Business",
       "Compliance-ready audit trails",
       "Custom domain configuration",
       "Enterprise SLA available",
@@ -292,7 +292,7 @@ export const solutions = {
     pricingImage: "/solutions/finance/content-image-2.png",
     pricingTitle: "Enterprise Compliance, Startup Pricing",
     pricingDescription:
-      "Financial firms shouldn't pay enterprise prices for every analyst. Venmail scales with usage, not headcount.",
+      "Standard starts at $1/month. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
     perSeatComparison: 1000,
   },
   education: {
@@ -312,7 +312,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Unlimited Accounts",
-        description: "Students, faculty, and staff — no per-seat fees, ever.",
+        description: "Business includes unlimited email accounts for students, faculty, and staff.",
       },
       {
         icon: "mail",
@@ -327,11 +327,11 @@ export const solutions = {
     ],
     featureSectionTitle: "Why Schools Choose Venmail",
     featureSectionSubtitle:
-      "Educational institutions need email for thousands of users without per-seat fees eating into budgets.",
+      "Business supports unlimited email accounts for $20/month, with 200 GB pooled storage included.",
     featureImage: "/solutions/education/content-image-1.png",
     benefits: [
       "Unlimited student and staff accounts",
-      "No per-seat pricing",
+      "Business: unlimited email accounts",
       "Bring Your Own Storage",
       "Custom domain with full DNS",
       "Student data sovereignty",
@@ -383,12 +383,12 @@ export const solutions = {
       "Candidate outreach campaigns",
       "Interview scheduling built in",
       "Template library for HR comms",
-      "No per-seat fees as you hire",
+      "Business remains $20/month as you hire",
     ],
     pricingImage: "/solutions/hr/content-image-2.png",
     pricingTitle: "Growing Teams Shouldn't Mean Growing Email Bills",
     pricingDescription:
-      "As your team grows, your communication costs shouldn't grow per-head. Venmail scales with storage, not headcount.",
+      "Standard starts at $1/month. Business caps the monthly plan price at $20 with unlimited accounts.",
     perSeatComparison: 600,
   },
   nonprofit: {
@@ -396,14 +396,14 @@ export const solutions = {
     category: "For Nonprofits & NGOs",
     headline: "Mission-First Email Infrastructure",
     description:
-      "Every dollar matters. Venmail gives nonprofits professional email for the whole team without per-seat fees eating into program budgets.",
+      "Standard starts at $1/month. Business gives nonprofits unlimited email accounts for $20/month.",
     heroImage: "/solutions/nonprofit/section-1.png",
     accentColor: "lime",
     capabilities: [
       {
         icon: "users",
         title: "Unlimited Team",
-        description: "Staff, volunteers, and board members — no per-seat pricing.",
+        description: "Business includes unlimited accounts for staff, volunteers, and board members.",
       },
       {
         icon: "mail",
@@ -430,13 +430,13 @@ export const solutions = {
       "Unlimited staff and volunteer accounts",
       "Donor communication campaigns",
       "Template library included",
-      "No per-seat fees",
+      "Business: unlimited email accounts",
       "Data sovereignty for sensitive info",
     ],
     pricingImage: "/solutions/nonprofit/content-image-2.png",
     pricingTitle: "Professional Email at Nonprofit-Friendly Pricing",
     pricingDescription:
-      "A 50-person nonprofit shouldn't pay $300/month for email. Venmail's storage-based pricing keeps costs predictable.",
+      "Standard starts at $1/month; Business caps the plan price at $20/month for unlimited accounts.",
     perSeatComparison: 300,
   },
   deliverability: {

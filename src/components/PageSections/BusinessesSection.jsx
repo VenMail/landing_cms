@@ -43,7 +43,7 @@ const AUDIENCES = [
   {
     title: "Growing Organizations",
     story:
-      "Add team members without per-seat charges. Choose storage capacity and features for your workspace. Managed plans currently use shared storage.",
+      "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
     bestFor: ["Startups", "SMEs", "Schools", "Nonprofits"],
     clip: { component: LazyGrowthScalingClip, frames: 240 },
     accentColor: "green",

@@ -22,9 +22,9 @@ const PILLARS = [
   {
     icon: LuMail,
     title: "Should communication costs scale with users or usage?",
-    body: "Predictable pricing matters for growing teams. VenMail scales costs by storage and usage. Storage-based pricing enables predictable costs.",
-    stat: "$0",
-    statLabel: "per-user fees",
+    body: "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
+    stat: "$1–$20",
+    statLabel: "monthly plans",
     color: "from-green-500 to-emerald-500"
   },
 ];
@@ -136,16 +136,16 @@ export default function WhyVenmailSection() {
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <LuDollarSign className="w-5 h-5 text-green-600" />
-                <span className="text-3xl font-bold text-gray-900">$0</span>
+                <span className="text-3xl font-bold text-gray-900">$1–$20</span>
               </div>
-              <p className="text-sm text-gray-600">Per-seat fees. Now and structurally.</p>
+              <p className="text-sm text-gray-600">Standard to Business monthly pricing.</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <LuUsers className="w-5 h-5 text-purple-600" />
                 <span className="text-3xl font-bold text-gray-900">∞</span>
               </div>
-              <p className="text-sm text-gray-600">Users on every plan</p>
+              <p className="text-sm text-gray-600">Email accounts on Business</p>
             </div>
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">

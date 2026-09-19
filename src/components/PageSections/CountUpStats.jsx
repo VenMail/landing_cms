@@ -10,10 +10,11 @@ const stats = [
     description: 'Your email data stays in your storage — BYOS by design (VenMail may temporarily process or cache it)'
   },
   {
-    value: 0,
-    suffix: '$',
-    label: 'per-seat fees',
-    description: 'Cost scales with storage, not headcount. Ever.'
+    value: 1,
+    prefix: '$',
+    suffix: '',
+    label: 'starting monthly price',
+    description: 'Five email accounts included on Standard.'
   },
   {
     value: 90,
@@ -44,7 +45,7 @@ function StatCard({ stat, index }) {
       <div className="text-4xl md:text-5xl font-bold text-primary-600 mb-2">
         {inView ? (
           <>
-            <CountUp 
+            {stat.prefix}<CountUp
               end={stat.value} 
               duration={2.5}
               start={0}
@@ -89,7 +90,7 @@ export default function CountUpStats() {
                   </svg>
                 </div>
               </div>
-              <span className="text-orange-600 font-bold text-lg">→ $0/seat</span>
+              <span className="text-orange-600 font-bold text-lg">→ $1/month to start</span>
             </div>
             
             <div className="space-y-2">
@@ -110,7 +111,7 @@ export default function CountUpStats() {
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Unlimited users — pricing scales with storage, not headcount</span>
+                <span className="text-gray-700 font-medium">Standard starts at $1/month; Business is $20/month with unlimited accounts</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>

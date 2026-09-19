@@ -235,7 +235,7 @@ export default function MeetingVsZoom() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  No per-user AI fees
+                  AI meeting features included
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>

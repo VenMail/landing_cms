@@ -430,9 +430,8 @@ export default function WhyVenmail() {
               </p>
 
               <p style={{ marginBottom: "22px" }}>
-                We also believe infrastructure costs should reflect actual usage, not headcount.
-                Venmail is built around storage-based pricing. A five-person team and a fifty-person
-                team use roughly the same infrastructure. They should pay roughly the same amount.
+                Standard starts at $1/month for five email accounts. Each additional account is $1/month.
+                Business gives larger teams unlimited accounts and 200 GB pooled storage for $20/month.
               </p>
 
               <p style={{ marginBottom: "22px" }}>
