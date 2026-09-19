@@ -4,15 +4,16 @@ import { readFileSync } from 'node:fs';
 
 const source = path => readFileSync(new URL(`../../src/${path}`, import.meta.url), 'utf8');
 
-test('managed storage disclosures describe shared hosting and future regional preferences', () => {
-  for (const path of ['components/PageSections/PricingPlans.jsx', 'pages/security-whitepaper.jsx', 'pages/resources/privacy-policy.jsx', 'pages/resources/dpa.jsx']) {
+test('managed storage disclosures describe the approved catalog and regional limitations', () => {
+  for (const path of ['pages/security-whitepaper.jsx', 'pages/resources/privacy-policy.jsx', 'pages/resources/dpa.jsx']) {
     const text = source(path);
     assert.match(text, /shared storage/i, `${path}: current storage is disclosed`);
     assert.match(text, /future.*preference|preference.*future/i, `${path}: regional choice is a future preference`);
   }
   const pricing = source('components/PageSections/PricingPlans.jsx');
-  assert.match(pricing, /aria-label="Future region preference"/);
-  assert.doesNotMatch(pricing, /Your hosting region can change the price/);
+  assert.match(pricing, /200 GB included; upgrades or customer-provided storage/);
+  assert.match(pricing, /Shared storage included/);
+  assert.doesNotMatch(pricing, /Future region preference/);
 });
 
 test('Cloudflare-hosted pages do not load Vercel-only speed insight scripts', () => {

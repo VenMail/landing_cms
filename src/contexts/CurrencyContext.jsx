@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { USD_TO_NGN } from '@/config/pricing.mjs';
 
-// Currency conversion rates (USD to other currencies)
-// These should be updated periodically or fetched from an API
+// Published Naira prices use the fixed commercial rate approved for this catalog.
 const CONVERSION_RATES = {
-  NGN: 1400, // 1 USD = 1400 NGN (approximate, should be updated regularly)
+  NGN: USD_TO_NGN,
 };
 
 // Country to currency mapping
