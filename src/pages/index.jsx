@@ -1,6 +1,3 @@
-import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import DefaultLayout from "@/components/layout/DefaultLayout";
 import ABVariant from "@/components/ABVariant";
 import EmailReckoningVideo from "@/components/PageSections/EmailReckoningVideo";
@@ -8,31 +5,17 @@ import ProductDemo from "@/components/PageSections/ProductDemo";
 import BusinessesSection from "@/components/PageSections/BusinessesSection";
 import AgentApiSection from "@/components/PageSections/AgentApiSection";
 import BusinessCase from "@/components/PageSections/BusinessCase";
+import Pricing from "@/components/PageSections/Pricing";
+import WorkspaceHero from "@/components/PageSections/WorkspaceHero";
 import { trackCTAClick } from "@/utils/trackConversion";
 import { useABTest } from "@/contexts/ABTestContext";
 
-const Player = dynamic(
-  () => import("@remotion/player").then((mod) => mod.Player),
-  { ssr: false }
-);
-
-const LazyHeroFlythrough = dynamic(
-  () => import("@/remotion/compositions/HeroFlythrough"),
-  { ssr: false }
-);
-
 // ─── HERO VARIANT A: Vision-Led ───────────────────────────────────────────────
 function HeroVisionLed() {
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [isClient, setIsClient] = useState(false);
   const { variant } = useABTest("hero_v1");
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
-    <section ref={heroRef} className="bg-white">
+    <section className="bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center mb-14">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.1]">
@@ -72,29 +55,7 @@ function HeroVisionLed() {
           </div>
         </div>
 
-        {/* Remotion hero flythrough */}
-        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden border border-gray-200">
-          {isClient && LazyHeroFlythrough ? (
-            <Player
-              component={LazyHeroFlythrough}
-              durationInFrames={360}
-              fps={30}
-              compositionWidth={1280}
-              compositionHeight={720}
-              style={{ width: "100%", aspectRatio: "16/9" }}
-              autoPlay
-              loop
-              showVolumeControls={false}
-            />
-          ) : (
-            <div
-              className="w-full bg-gray-100 flex items-center justify-center"
-              style={{ aspectRatio: "16/9" }}
-            >
-              <div className="text-gray-400">Loading...</div>
-            </div>
-          )}
-        </div>
+        <WorkspaceHero />
       </div>
     </section>
   );
@@ -102,16 +63,10 @@ function HeroVisionLed() {
 
 // ─── HERO VARIANT B: Problem-Led ──────────────────────────────────────────────
 function HeroProblemLed() {
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [isClient, setIsClient] = useState(false);
   const { variant } = useABTest("hero_v1");
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
-    <section ref={heroRef} className="bg-white">
+    <section className="bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div className="text-center mb-14">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 mb-6 leading-[1.1]">
@@ -152,29 +107,7 @@ function HeroProblemLed() {
           </div>
         </div>
 
-        {/* Remotion hero flythrough */}
-        <div className="relative max-w-4xl mx-auto rounded-lg overflow-hidden border border-gray-200">
-          {isClient && LazyHeroFlythrough ? (
-            <Player
-              component={LazyHeroFlythrough}
-              durationInFrames={360}
-              fps={30}
-              compositionWidth={1280}
-              compositionHeight={720}
-              style={{ width: "100%", aspectRatio: "16/9" }}
-              autoPlay
-              loop
-              showVolumeControls={false}
-            />
-          ) : (
-            <div
-              className="w-full bg-gray-100 flex items-center justify-center"
-              style={{ aspectRatio: "16/9" }}
-            >
-              <div className="text-gray-400">Loading...</div>
-            </div>
-          )}
-        </div>
+        <WorkspaceHero />
       </div>
     </section>
   );
@@ -271,6 +204,8 @@ export default function Home() {
       {/* ACT IV — THE PROOF */}
       {/* Section 6: The Business Case */}
       <BusinessCase />
+
+      <Pricing />
 
       {/* ACT V — THE MOVEMENT */}
       {/* Section 7: Join the Mission */}
