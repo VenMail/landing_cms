@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 import { useCurrency } from "@/contexts/CurrencyContext";
 import { trackSectionView } from "@/utils/trackConversion";
+import { getOffer } from "@/config/pricing.mjs";
 
 const STATS = [
   {
@@ -31,7 +32,7 @@ export default function BusinessCase() {
     }
   }, [inView]);
 
-  const venmailCost = 7;
+  const venmailCost = getOffer("business").amount;
 
   function fmt(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -45,7 +46,7 @@ export default function BusinessCase() {
             Compare illustrative email costs
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Illustrative comparison, not current competitor quotes. Startup base includes 60GB shared storage; region, additional storage and features affect the final price.
+            Illustrative comparison, not current competitor quotes. Business includes unlimited email accounts and 200 GB pooled storage.
           </p>
         </div>
 
@@ -121,7 +122,7 @@ export default function BusinessCase() {
                     Venmail
                   </div>
                   <div className="text-xs text-gray-500">
-                    Startup base · region and storage affect final price
+                    Business base · 200 GB pooled storage included
                   </div>
                 </div>
                 <div className="text-2xl font-bold text-green-700">

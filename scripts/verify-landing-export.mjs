@@ -12,13 +12,14 @@ for (const route of ['', 'pricing', 'resources/privacy-policy', 'resources/ai-pr
   assert.equal((head.match(/<meta\b[^>]*name="description"[^>]*>/g) || []).length, 1, `${route}: one description`);
 }
 const pricing = fs.readFileSync('out/pricing.html', 'utf8');
-for (const plan of ['startup', 'business', 'enterprise', 'custom']) {
-  assert.ok(pricing.includes(`type=business&amp;plan=${plan}&amp;billing=monthly`), `${plan}: signup intent rendered`);
+for (const plan of ['standard', 'business']) {
+  assert.ok(pricing.includes(`type=business&amp;plan=${plan}`), `${plan}: signup intent rendered`);
 }
+assert.ok(pricing.includes('/request-quote'), 'enterprise quote request rendered');
+assert.ok(!pricing.includes('plan=enterprise'), 'enterprise remains quote-only');
 assert.ok(pricing.includes('type=personal'), 'personal mailbox remains separate');
 assert.ok(!pricing.includes('AI Rewrite'), 'retired rewrite offer absent');
-assert.ok(pricing.includes('Future region preference'), 'region selector describes a future preference');
-for (const route of ['pricing', 'security-whitepaper', 'resources/privacy-policy', 'resources/dpa']) {
+for (const route of ['security-whitepaper', 'resources/privacy-policy', 'resources/dpa']) {
   const html = fs.readFileSync(`out/${route}.html`, 'utf8');
   assert.ok(html.includes('same shared storage infrastructure'), `${route}: shared hosting is disclosed`);
   assert.match(html, /future region preference/i, `${route}: regional preference is not a residency claim`);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useCurrency } from "@/contexts/CurrencyContext";
+import { getOffer } from "@/config/pricing.mjs";
 
 const providers = [
   { key: "google", name: "$6/seat example", perUser: 6 },
@@ -11,7 +12,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
   const [users, setUsers] = useState(3);
   const { formatPrice, isLoading } = useCurrency();
 
-  const venmailCost = 7; // Startup base price; region and storage affect final price.
+  const venmailCost = getOffer("business").amount;
 
   function formatCurrency(n) {
     return isLoading ? `$${n.toFixed(2)}` : formatPrice(n);
@@ -77,7 +78,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
               <div className="text-2xl font-bold text-black mb-1">{formatCurrency(venmailCost)}/mo</div>
-              <div className="text-xs text-gray-600">Startup base: {formatCurrency(7)}/mo. Region and storage affect final price.</div>
+              <div className="text-xs text-gray-600">Business base: {formatCurrency(venmailCost)}/mo. 200 GB pooled storage included.</div>
             </div>
 
             {providers.map((p) => {

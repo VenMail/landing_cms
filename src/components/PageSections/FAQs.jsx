@@ -5,12 +5,12 @@ import { useState } from "react";
 function FAQs() {
   const faqs = [
     {
-      question: "Do paid plans include unlimited users?",
-      answer: "Yes — every paid plan includes unlimited users. Choose a plan by storage (60GB, 250GB, or 1.5TB) and features; you never pay per seat.",
+      question: "Does Business include unlimited email accounts?",
+      answer: "Yes. Business starts at $20 per month with unlimited email accounts and 200 GB of pooled storage. Storage upgrades and customer-provided storage are available.",
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "Business plans have no per-seat fee. Choose storage, features, and billing period. Managed plans currently use the same shared storage infrastructure; Nigeria, South Africa, and Europe record a future region preference, not current data residency. Custom Storage is a separate plan, and your storage provider bills separately. Confirm the final amount in checkout.",
+      answer: "Standard is $1 per month for five email accounts, then $1 per additional account each month. Business is $20 per month for unlimited email accounts and 200 GB of pooled storage. Enterprise and white-label deployments are quoted after requirements review.",
     },
     {
       question: "Will my team need training?",

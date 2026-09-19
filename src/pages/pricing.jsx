@@ -8,9 +8,9 @@ export default function Pricing() {
       <div className="relative isolate mx-auto max-w-screen-xl py-8 px-4 lg:px-6">
         <div className="text-center">
           <p className="uppercase text-sm text-black tracking-[0.3em]">pricing</p>
-          <h1 className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Pricing that scales with your business.</h1>
+          <h1 className="mt-2 max-w-4xl mx-auto text-balance text-3xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Pricing that grows with your business.</h1>
           <p className="mt-4 text-base text-gray-600 max-w-3xl mx-auto">
-            Choose storage, features, and for paid business plans, where your data is hosted. No per-user pricing.
+            Start with five email accounts for $1/month, choose unlimited accounts with Business, or request a tailored Enterprise / White-label quote.
           </p>
         </div>
         <PricingPlans comparison />

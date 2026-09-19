@@ -164,7 +164,7 @@ const resources = [
 
 const callsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
+  { name: "Contact sales", href: "/request-quote", icon: PhoneIcon },
 ];
 
 export default function Header({
