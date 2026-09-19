@@ -75,13 +75,13 @@ export default function GrowthScalingClip() {
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <div style={{ width: 12, height: 3, background: "#22c55e", borderRadius: 2 }} />
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>Startup base (${venmailCost}/mo)</span>
+          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.6)" }}>Business base (${venmailCost}/mo)</span>
         </div>
       </div>
 
       {/* Savings highlight */}
       <div style={{ position: "absolute", bottom: 12, left: 32, fontSize: 9, color: "rgba(255,255,255,0.5)", maxWidth: 220 }}>
-        Startup includes 60GB. Region and storage needs affect final price.
+        Business includes 200 GB pooled storage. Storage upgrades are available.
       </div>
       <div style={{ position: "absolute", bottom: 20, right: 32, opacity: savingsOpacity }}>
         <div style={{ fontSize: 20, fontWeight: 800, color: "#22c55e" }}>

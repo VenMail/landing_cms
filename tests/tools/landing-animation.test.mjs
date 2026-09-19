@@ -4,7 +4,7 @@ import { growthState } from '../../src/remotion/growthState.mjs';
 
 test('growth illustration holds its initial team size until animation starts', () => {
   for (const frame of [0, 1, 15, 29, 30]) {
-    assert.deepEqual(growthState(frame), { userCount: 10, progress: 0, competitorCost: 60, venmailCost: 7 });
+    assert.deepEqual(growthState(frame), { userCount: 10, progress: 0, competitorCost: 60, venmailCost: 20 });
   }
 });
 test('growth illustration remains within chart bounds throughout and after playback', () => {

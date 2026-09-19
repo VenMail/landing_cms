@@ -1,5 +1,5 @@
 import { interpolate } from 'remotion';
-import { PLANS } from '../config/pricing.mjs';
+import { getOffer } from '../config/pricing.mjs';
 
 export function growthState(frame) {
   const clamp = { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' };
@@ -8,6 +8,6 @@ export function growthState(frame) {
     userCount,
     progress: interpolate(frame, [30, 180], [0, 1], clamp),
     competitorCost: userCount * 6,
-    venmailCost: PLANS.find(plan => plan.id === 'startup').monthly,
+    venmailCost: getOffer('business').amount,
   };
 }
