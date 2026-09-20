@@ -1,17 +1,6 @@
-import dynamic from "next/dynamic";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { trackSectionView, trackVideoEvent } from "@/utils/trackConversion";
-
-const Player = dynamic(
-  () => import("@remotion/player").then((mod) => mod.Player),
-  { ssr: false }
-);
-
-const LazyProductWalkthrough = dynamic(
-  () => import("@/remotion/compositions/ProductWalkthrough"),
-  { ssr: false }
-);
 
 const FEATURES = [
   {
@@ -72,11 +61,6 @@ const FEATURES = [
 
 export default function ProductDemo() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -97,32 +81,20 @@ export default function ProductDemo() {
           </p>
         </div>
 
-        {/* Remotion Player */}
-        <div className="mb-16 rounded-lg overflow-hidden border border-gray-200 bg-gray-100">
-          {isClient && LazyProductWalkthrough ? (
-            <Player
-              component={LazyProductWalkthrough}
-              durationInFrames={1350}
-              fps={30}
-              compositionWidth={1280}
-              compositionHeight={720}
-              style={{ width: "100%", aspectRatio: "16/9" }}
-              controls
-              autoPlay={inView}
-              loop={false}
-              clickToPlay
-              showVolumeControls={false}
-              onPlay={() => trackVideoEvent("played", "product_walkthrough")}
-              onEnded={() => trackVideoEvent("completed", "product_walkthrough")}
-            />
-          ) : (
-            <div
-              className="w-full bg-gray-200 flex items-center justify-center"
-              style={{ aspectRatio: "16/9" }}
-            >
-              <div className="text-gray-400 text-lg">Loading demo...</div>
-            </div>
-          )}
+        <div className="mb-16 overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-[0_24px_80px_-32px_rgba(15,23,42,0.45)]">
+          <video
+            className="block w-full aspect-video"
+            controls
+            controlsList="nodownload"
+            playsInline
+            preload="metadata"
+            poster="/screenshot-full.webp"
+            src="/venmail_demo_v4.mp4"
+            onPlay={() => trackVideoEvent("played", "product_demo")}
+            onEnded={() => trackVideoEvent("completed", "product_demo")}
+          >
+            Your browser does not support the product demo video.
+          </video>
         </div>
 
         {/* Feature grid */}
