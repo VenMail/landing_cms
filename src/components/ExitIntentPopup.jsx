@@ -278,12 +278,12 @@ const ExitIntentPopup = () => {
                 <div className="flex items-center justify-between mb-2">
                   <p className="font-bold text-lg text-gray-900 dark:text-white">With Venmail</p>
                   <div className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                    $23/month
+                    $20/month
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2 text-sm text-gray-600 dark:text-gray-400">
                   <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">Business: unlimited accounts</span>
-                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">250GB storage</span>
+                  <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">200 GB pooled storage</span>
                   <span className="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-lg">All features</span>
                 </div>
               </div>

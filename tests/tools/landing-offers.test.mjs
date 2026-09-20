@@ -15,9 +15,20 @@ test('self-service signup carries the approved plan and blocks quote-only Enterp
   assert.equal(url.origin, 'https://m.venmail.io');
   assert.equal(url.searchParams.get('type'), 'business');
   assert.equal(url.searchParams.get('plan'), 'business');
+  assert.equal(url.searchParams.get('signup_source'), 'cloudflare_landing');
   assert.equal(url.searchParams.get('billing'), null);
   assert.throws(() => businessSignupUrl('enterprise'));
   assert.throws(() => businessSignupUrl('startup'));
+});
+
+test('public pricing keeps Nigerian payment information out of the static default markup', async () => {
+  const pricing = await readFile(new URL('../../src/components/PageSections/PricingPlans.jsx', import.meta.url), 'utf8');
+  const market = await readFile(new URL('../../src/hooks/useNigeriaMarket.js', import.meta.url), 'utf8');
+
+  assert.match(pricing, /useNigeriaMarket/);
+  assert.match(pricing, /Gigalayer/);
+  assert.match(market, /__market/);
+  assert.match(market, /useState\(false\)/);
 });
 test('published amounts match the approved monthly catalog', () => {
   assert.equal(getOffer('standard', 'monthly').amount, 1);
@@ -65,7 +76,7 @@ test('commercial pricing surfaces use the approved three-plan catalog', async ()
   ]);
   const surfaces = files.join('\n');
 
-  assert.doesNotMatch(surfaces, /Startup base|60GB|250GB|1\.5TB|venmailCost\s*=\s*7/);
+  assert.doesNotMatch(surfaces, /Startup base|60GB|250GB|1\.5TB|venmailCost\s*=\s*7|\$0\s*<\/span>/);
   assert.match(surfaces, /Business(?: is|:| ·)[^\n]*\$20\/month|Business[^\n]*200 GB pooled storage/);
   assert.match(surfaces, /200 GB pooled storage/);
   assert.match(surfaces, /plan=\$\{plan\}/);
@@ -95,6 +106,20 @@ test('customer-visible pricing copy does not claim zero per-seat cost or unlimit
   assert.doesNotMatch(copy, /\$0\s*\/?(?:seat|user)|no per-seat fees|no per-seat pricing|without per-seat fees|unlimited team (?:members|accounts)|pricing scales with storage, not headcount/i);
   assert.match(copy, /Standard starts at \$1\/month/i);
   assert.match(copy, /Business[^\n]{0,100}\$20\/month/i);
+});
+
+test('retired offers and arithmetic do not remain in customer-visible promotional pricing', async () => {
+  const paths = [
+    '../../src/components/ExitIntentPopup.jsx',
+    '../../src/pages/healthcare-legal.jsx',
+    '../../src/data/solutions.js',
+    '../../src/pages/security-whitepaper.jsx',
+  ];
+  const copy = (await Promise.all(paths.map(path => readFile(new URL(path, import.meta.url), 'utf8')))).join('\n');
+
+  assert.doesNotMatch(copy, /\$23\/month|\$27\/month|\$6,876|250\s?GB|Custom Storage plan|separate Custom Storage/i);
+  assert.match(copy, /\$20\/month/);
+  assert.match(copy, /200 GB pooled storage/);
 });
 
 test('enterprise requests are submitted to the approved quote endpoint', async () => {

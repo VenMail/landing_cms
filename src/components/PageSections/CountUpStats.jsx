@@ -55,7 +55,7 @@ function StatCard({ stat, index }) {
             {stat.suffix}
           </>
         ) : (
-          <span>0{stat.suffix}</span>
+          <span>{stat.prefix}{stat.value}{stat.suffix}</span>
         )}
       </div>
       <h3 className="text-lg font-semibold text-gray-900 mb-1">

@@ -163,7 +163,7 @@ export const solutions = {
       {
         icon: "shield",
         title: "Data Sovereignty",
-        description: "The separate Custom Storage plan uses customer-provided mailbox storage. Review application processing and access requirements with our team.",
+        description: "Business storage upgrades or customer-provided storage are arranged with Venmail. Review application processing and access requirements with our team.",
       },
       {
         icon: "lock",
@@ -204,14 +204,14 @@ export const solutions = {
     category: "For Law Firms & Legal Teams",
     headline: "Privileged Communications, Your Servers",
     description:
-      "Review storage, application processing, and access requirements for privileged communications. Managed plans use shared storage; the separate Custom Storage plan uses customer-provided mailbox storage.",
+      "Review storage, application processing, and access requirements for privileged communications. Managed plans use shared storage; Business storage upgrades or customer-provided storage are arranged with Venmail.",
     heroImage: "/solutions/legal/section-1.png",
     accentColor: "indigo",
     capabilities: [
       {
         icon: "shield",
         title: "Data Sovereignty",
-        description: "Choose the separate Custom Storage plan for customer-provided mailbox storage. Confirm processing locations and access before handling privileged content.",
+        description: "Discuss Business storage upgrades or customer-provided storage with Venmail. Confirm processing locations and access before handling privileged content.",
       },
       {
         icon: "lock",
@@ -264,7 +264,7 @@ export const solutions = {
       {
         icon: "lock",
         title: "Data Sovereignty",
-        description: "The separate Custom Storage plan supports customer-provided mailbox storage. Confirm all processing locations for your financial data requirements.",
+        description: "Business storage upgrades or customer-provided storage are arranged with Venmail. Confirm all processing locations for your financial data requirements.",
       },
       {
         icon: "chart",
@@ -290,7 +290,7 @@ export const solutions = {
       "Enterprise SLA available",
     ],
     pricingImage: "/solutions/finance/content-image-2.png",
-    pricingTitle: "Enterprise Compliance, Startup Pricing",
+    pricingTitle: "Enterprise Requirements, Business Pricing",
     pricingDescription:
       "Standard starts at $1/month. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
     perSeatComparison: 1000,
@@ -300,14 +300,14 @@ export const solutions = {
     category: "For Schools & Universities",
     headline: "Sovereign Student Data",
     description:
-      "Student email data should stay under institutional control. Venmail gives schools email infrastructure without per-student fees.",
+      "Student email data should stay under institutional control. Business includes unlimited email accounts for $20/month.",
     heroImage: "/solutions/education/section-1.png",
     accentColor: "amber",
     capabilities: [
       {
         icon: "shield",
         title: "Student Data Control",
-        description: "Managed plans use shared storage. The separate Custom Storage plan supports customer-provided mailbox storage; review service processing for student data.",
+        description: "Managed plans use shared storage. Business storage upgrades or customer-provided storage are arranged with Venmail; review service processing for student data.",
       },
       {
         icon: "users",
@@ -348,7 +348,7 @@ export const solutions = {
     category: "For HR Departments",
     headline: "Recruitment & Team Communication",
     description:
-      "Manage candidate outreach, onboarding emails, and internal communication from one platform. No per-employee fees.",
+      "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes unlimited email accounts for $20/month.",
     heroImage: "/solutions/hr/section-1.png",
     accentColor: "rose",
     capabilities: [
@@ -375,7 +375,7 @@ export const solutions = {
     ],
     featureSectionTitle: "Streamline HR Communications",
     featureSectionSubtitle:
-      "From recruitment to onboarding to daily operations — VenMail gives HR teams the tools they need without per-employee costs.",
+      "From recruitment to onboarding to daily operations, Business includes unlimited email accounts for $20/month.",
     featureImage: "/solutions/hr/content-image-1.png",
     benefits: [
       "Unlimited employee accounts",

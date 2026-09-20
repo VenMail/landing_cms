@@ -23,5 +23,6 @@ test('Cloudflare-hosted pages do not load Vercel-only speed insight scripts', ()
 test('industry pages distinguish optional customer storage from managed shared hosting', () => {
   const text = source('data/solutions.js');
   assert.doesNotMatch(text, /never on shared infrastructure|not a vendor's servers|Venmail runs on your storage, under your jurisdiction/);
-  assert.match(text, /Custom Storage plan/);
+  assert.doesNotMatch(text, /Custom Storage plan|separate Custom Storage/i);
+  assert.match(text, /Business storage upgrades or customer-provided storage/i);
 });

@@ -75,9 +75,7 @@ export default function BusinessCase() {
                       {stat.suffix}
                     </>
                   ) : (
-                    <span>
-                      {stat.prefix}0{stat.suffix}
-                    </span>
+                    <span>{stat.prefix}{stat.value}{stat.suffix}</span>
                   )}
                 </div>
                 <div className="font-semibold text-gray-700 text-sm mb-1">
