@@ -1,27 +1,7 @@
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useInView } from "react-intersection-observer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { trackSectionView } from "@/utils/trackConversion";
-
-const Player = dynamic(
-  () => import("@remotion/player").then((mod) => mod.Player),
-  { ssr: false }
-);
-
-const LazySovereigntyClip = dynamic(
-  () => import("@/remotion/compositions/SovereigntyClip"),
-  { ssr: false }
-);
-
-const LazyWhiteLabelClip = dynamic(
-  () => import("@/remotion/compositions/WhiteLabelClip"),
-  { ssr: false }
-);
-
-const LazyGrowthScalingClip = dynamic(
-  () => import("@/remotion/compositions/GrowthScalingClip"),
-  { ssr: false }
-);
 
 const AUDIENCES = [
   {
@@ -29,7 +9,9 @@ const AUDIENCES = [
     story:
       "Review storage location, access controls and service processing with our team before moving regulated data. Your requirements determine the appropriate configuration.",
     bestFor: ["Government", "Healthcare", "Legal", "Finance"],
-    clip: { component: LazySovereigntyClip, frames: 240 },
+    image: "/email-dashboard-preview.png",
+    imageAlt: "Venmail inbox with organizational mail controls",
+    imagePosition: "object-left-top",
     accentColor: "blue",
   },
   {
@@ -37,7 +19,9 @@ const AUDIENCES = [
     story:
       "Your brand, your infrastructure, your margin.",
     bestFor: ["Hosting companies", "ISPs", "Telcos", "MSPs"],
-    clip: { component: LazyWhiteLabelClip, frames: 240 },
+    image: "/screenshot-full.webp",
+    imageAlt: "Venmail mail workspace on a laptop",
+    imagePosition: "object-center",
     accentColor: "purple",
   },
   {
@@ -45,7 +29,9 @@ const AUDIENCES = [
     story:
       "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
     bestFor: ["Startups", "SMEs", "Schools", "Nonprofits"],
-    clip: { component: LazyGrowthScalingClip, frames: 240 },
+    image: "/campaign_composer.png",
+    imageAlt: "Venmail campaign composer",
+    imagePosition: "object-left-top",
     accentColor: "green",
   },
 ];
@@ -67,11 +53,6 @@ const ACCENT_STYLES = {
 
 export default function BusinessesSection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -101,32 +82,22 @@ export default function BusinessesSection() {
             return (
               <div
                 key={i}
-                className={`premium-card rounded-lg overflow-hidden ${styles.border} transition-all duration-200`}
+                className={`group premium-card rounded-lg overflow-hidden ${styles.border} transition-all duration-200`}
                 style={{
                   opacity: inView ? 1 : 0,
                   transform: inView ? "translateY(0)" : "translateY(20px)",
                   transition: `all 0.5s ease ${i * 0.12}s`,
                 }}
               >
-                {/* Remotion clip */}
-                <div className="aspect-video bg-slate-950 relative">
-                  {isClient && audience.clip.component ? (
-                    <Player
-                      component={audience.clip.component}
-                      durationInFrames={audience.clip.frames}
-                      fps={30}
-                      compositionWidth={640}
-                      compositionHeight={360}
-                      style={{ width: "100%", height: "100%" }}
-                      autoPlay={inView}
-                      loop
-                      showVolumeControls={false}
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-white/20 text-sm">
-                      Loading...
-                    </div>
-                  )}
+                <div className="relative aspect-video overflow-hidden bg-slate-100">
+                  <Image
+                    src={audience.image}
+                    alt={audience.imageAlt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className={`object-cover ${audience.imagePosition} transition-transform duration-500 motion-reduce:transition-none group-hover:scale-[1.02]`}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/5" />
                 </div>
 
                 {/* Content */}
