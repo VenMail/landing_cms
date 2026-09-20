@@ -40,3 +40,12 @@ test('www redirects missing URLs without turning the apex missing page into a so
   assert.equal(res.headers.get('location'), 'https://venmail.io/missing?ref=a%2Bb');
   assert.equal((await request('/missing?ref=a%2Bb')).status, 404);
 });
+
+test('market endpoint reports Nigeria only from the Cloudflare country signal and is never cached', async () => {
+  const nigeria = await worker.fetch(new Request('https://venmail.io/__market', { headers: { 'cf-ipcountry': 'NG' } }), env);
+  assert.deepEqual(await nigeria.json(), { country: 'NG', nigeria: true });
+  assert.equal(nigeria.headers.get('cache-control'), 'no-store');
+
+  const other = await worker.fetch(new Request('https://venmail.io/__market', { headers: { 'cf-ipcountry': 'US' } }), env);
+  assert.deepEqual(await other.json(), { country: 'US', nigeria: false });
+});

@@ -295,8 +295,8 @@ const CostComparisonSection = () => {
             <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-4 border-2 border-green-500">
               <div className="text-sm text-green-600 mb-2 font-semibold">50-Person Firm</div>
               <div className="text-3xl font-bold text-gray-900 mb-1">VenMail</div>
-              <div className="text-4xl font-bold text-green-600 mb-2">$27/mo</div>
-              <div className="text-sm text-gray-500">Enterprise / White-label quote</div>
+              <div className="text-4xl font-bold text-green-600 mb-2">$20/mo</div>
+              <div className="text-sm text-gray-500">Business: unlimited email accounts and 200 GB pooled storage</div>
               <div className="text-lg font-bold text-green-700 mt-2">95% SAVINGS</div>
             </div>
           </div>
@@ -305,15 +305,15 @@ const CostComparisonSection = () => {
             <h3 className="text-xl font-bold text-gray-900 mb-4">Annual Savings Breakdown</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-green-600 mb-1">$6,876</div>
+                <div className="text-2xl font-bold text-green-600 mb-1">$6,960</div>
                 <div className="text-gray-600">vs Microsoft 365</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600 mb-1">$5,676</div>
+                <div className="text-2xl font-bold text-green-600 mb-1">$5,760</div>
                 <div className="text-gray-600">vs Google Workspace</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-green-600 mb-1">$4,476</div>
+                <div className="text-2xl font-bold text-green-600 mb-1">$4,560</div>
                 <div className="text-gray-600">vs Traditional Host</div>
               </div>
             </div>
@@ -381,9 +381,9 @@ const VenmailSolutionSection = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">95% Cost Reduction</h3>
             <p className="text-gray-600 mb-4">
               Standard starts at $1/month. Business is $20/month with unlimited email accounts.
-              $27/month for 50 users vs $600+ with Microsoft.
+              $20/month for Business with unlimited email accounts, compared with illustrative per-user examples.
             </p>
-            <div className="text-green-600 font-semibold">$6,876 annual savings →</div>
+            <div className="text-green-600 font-semibold">$6,960 annual savings →</div>
           </div>
           
           <div className="solution-card group bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border border-purple-100">
@@ -437,7 +437,7 @@ const FinalCTASection = () => {
               you're exposing your practice to $4.88M in breach costs.
             </p>
             <p className="mb-8">
-              VenMail eliminates the risk while saving you $6,876 annually.
+              Business reduces the illustrated annual email cost by $6,960 compared with the Microsoft example above.
             </p>
             <p className="text-2xl md:text-3xl font-light text-green-300 italic">
               "The question isn't if you can afford VenMail. 

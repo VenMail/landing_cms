@@ -1,6 +1,7 @@
 export const USD_TO_NGN = 1500;
 export const QUOTE_ENDPOINT = 'https://m.venmail.io/api/public/quote-requests';
-export const PERSONAL_SIGNUP_URL = 'https://m.venmail.io/register?type=personal';
+export const LANDING_SIGNUP_SOURCE = 'cloudflare_landing';
+export const PERSONAL_SIGNUP_URL = signupUrl('personal');
 export const STANDARD_INCLUDED_ACCOUNTS = 5;
 export const BUSINESS_MONTHLY_USD = 20;
 
@@ -12,9 +13,14 @@ export const PLANS = [
 
 export function businessSignupUrl(plan) {
   if (!PLANS.some(item => item.id === plan && item.checkout === 'self_serve')) throw new Error('Unsupported self-service business plan');
+  return signupUrl('business', plan);
+}
+
+export function signupUrl(type, plan) {
   const url = new URL('https://m.venmail.io/register');
-  url.searchParams.set('type', 'business');
-  url.searchParams.set('plan', plan);
+  url.searchParams.set('type', type);
+  if (plan) url.searchParams.set('plan', plan);
+  url.searchParams.set('signup_source', LANDING_SIGNUP_SOURCE);
   return url.href;
 }
 
