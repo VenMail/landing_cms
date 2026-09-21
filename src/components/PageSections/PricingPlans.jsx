@@ -30,7 +30,6 @@ export default function PricingPlans({ comparison = false }) {
     </div>
 
     {isNigeria && <div className="mx-auto max-w-3xl border border-gray-200 bg-gray-50 p-5 text-center text-sm text-gray-700"><p>Naira pricing uses a fixed rate of $1 = ₦1,500. Contact Venmail to arrange payment through Gigalayer.</p><a href="/contact-us" className="mt-3 inline-block font-semibold underline">Arrange Naira payment</a></div>}
-
     <div className="mx-auto mt-5 max-w-3xl border border-sky-200 bg-sky-50 p-5 text-center text-sm text-sky-950"><p>USDC/USDT payments are available through Venmail Billing. Contact us for the amount, supported network, and payment confirmation steps before sending funds.</p><a href="/contact-us" className="mt-3 inline-block font-semibold underline">Arrange USDC or USDT payment</a></div>
 
     {comparison && <div className="mb-16 mt-12 overflow-x-auto">
