@@ -27,6 +27,7 @@ test('public pricing keeps Nigerian payment information out of the static defaul
 
   assert.match(pricing, /useNigeriaMarket/);
   assert.match(pricing, /Gigalayer/);
+  assert.match(pricing, /USDC\/USDT/);
   assert.match(market, /__market/);
   assert.match(market, /useState\(false\)/);
 });
