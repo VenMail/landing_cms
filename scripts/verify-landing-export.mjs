@@ -16,9 +16,14 @@ const homepage = fs.readFileSync('out/index.html', 'utf8');
 for (const text of [
   'Business email.',
   'Built for the inbox.',
-  'Outgoing spam checks and domain authentication help your emails reach customers.',
+  'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.',
   '/email-dashboard-preview.png',
-  'Check outgoing spam risks',
+  'Inbox placement comes first',
+  'Inbox placement strategy',
+  'See email opens',
+  'Privacy settings can hide or add opens, so counts are estimates.',
+  'Get follow-up suggestions',
+  'Quotes, invoices, and customer questions',
   'Filter unwanted incoming mail',
   'Manage customer conversations',
   'POST https://m.venmail.io/api/v1/agent/messages',
@@ -27,7 +32,6 @@ for (const text of [
   'What do I need to create an account?',
 ]) assert.ok(homepage.includes(text), `homepage: ${text}`);
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
-assert.ok(homepage.includes('/tools/email-header-analyzer'), 'homepage: header analyzer linked');
 assert.ok(homepage.includes('/request-quote'), 'homepage: migration and enterprise quote linked');
 for (const route of ['contacts', 'calendar', 'meeting', 'booking', 'email-automation']) {
   assert.ok(homepage.includes(`/product/${route}`), `homepage: ${route} linked`);

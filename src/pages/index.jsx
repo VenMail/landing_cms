@@ -28,10 +28,16 @@ const apiResponse = `{
   "held_for_review": false
 }`;
 
-const deliverySignals = [
-  ['Authenticate your domain', 'SPF, DKIM, and DMARC help verify your sending identity.', 'shield'],
-  ['Check outgoing spam risks', 'Content and sending-pattern checks detect potential spam risks before sending.', 'check'],
-  ['Investigate delivery problems', 'Email-header analysis clarifies what happened when a message does not arrive as expected.', 'search'],
+const deliveryOutcomes = [
+  ['Inbox placement strategy', 'Improve your chances of reaching customer inboxes with checks that detect common sending risks.', 'inbox'],
+  ['See email opens', 'See how many times an email was opened, including repeat opens, when tracking is enabled.', 'opens', 'Privacy settings can hide or add opens, so counts are estimates.'],
+  ['Get follow-up suggestions', 'Get a draft based on the original email, conversation, and open status. Review it before sending.', 'follow-up'],
+];
+
+const useCases = [
+  ['Quotes', 'Send a quote, see whether it was opened, and decide when to follow up.'],
+  ['Invoices', 'Send an invoice with a clear next step and prepare a reminder for the right moment.'],
+  ['Customer questions', 'Reply to a customer question and get a suggested next message.'],
 ];
 
 const suiteItems = [
@@ -62,13 +68,13 @@ function ArrowIcon() {
 }
 
 function SignalIcon({ type }) {
-  if (type === 'shield') {
-    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M12 3.5 19 6v5.3c0 4.2-2.7 7.5-7 9.2-4.3-1.7-7-5-7-9.2V6l7-2.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="m8.7 12 2.1 2.1 4.5-4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  if (type === 'inbox') {
+    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M4 6.5h16v11H4v-11Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="m5 8 7 5 7-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
   }
-  if (type === 'check') {
-    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M4 7.5h16M7 12h10M9.5 16.5h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M18.5 4.5 20 6l2.5-2.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  if (type === 'opens') {
+    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M3.5 12s3.2-5 8.5-5 8.5 5 8.5 5-3.2 5-8.5 5-8.5-5-8.5-5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><circle cx="12" cy="12" r="2.2" stroke="currentColor" strokeWidth="1.6" /></svg>;
   }
-  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" strokeWidth="1.6" /><path d="m15 15 5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M8 10.5h5M10.5 8v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M5 5.5h14v10H9l-4 3v-13Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="M8.5 9h7M8.5 12h4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;
 }
 
 export default function Home() {
@@ -82,7 +88,7 @@ export default function Home() {
               <span className="block">Business email.</span>
               <span className="block text-orange-700">Built for the inbox.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Outgoing spam checks and domain authentication help your emails reach customers. Incoming filtering keeps unwanted mail in check.</p>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.</p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
@@ -100,17 +106,31 @@ export default function Home() {
           <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <div>
               <p className="text-sm font-semibold text-orange-800">Outgoing email</p>
-              <h2 className="mt-3 max-w-md text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Outgoing spam checks</h2>
-              <a href="/tools/email-header-analyzer" className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Analyze email headers <ArrowIcon /></a>
+              <h2 className="mt-3 max-w-md text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Inbox placement comes first</h2>
             </div>
             <div className="border-b border-[#dadce0]">
-              {deliverySignals.map(([title, text, icon]) => (
+              {deliveryOutcomes.map(([title, text, icon, condition]) => (
                 <article key={title} className="flex gap-5 border-t border-[#dadce0] py-7 sm:gap-6 sm:py-8">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-800"><SignalIcon type={icon} /></span>
                   <div>
                     <h3 className="text-xl font-semibold tracking-[-0.01em]">{title}</h3>
                     <p className="mt-2 max-w-2xl text-base leading-7 text-[#5f6368]">{text}</p>
+                    {condition && <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5f6368]">{condition}</p>}
                   </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[#dadce0] px-4 py-14 sm:px-6 md:py-16">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="max-w-3xl text-3xl font-semibold leading-[1.2] tracking-[-0.02em]">Quotes, invoices, and customer questions</h2>
+            <div className="mt-9 grid border-y border-[#dadce0] md:grid-cols-3">
+              {useCases.map(([title, text], index) => (
+                <article key={title} className={`py-7 ${index ? 'border-t border-[#dadce0] md:border-l md:border-t-0 md:pl-8' : ''} ${index < useCases.length - 1 ? 'md:pr-8' : ''}`}>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 text-base leading-7 text-[#5f6368]">{text}</p>
                 </article>
               ))}
             </div>
@@ -122,12 +142,12 @@ export default function Home() {
             <article>
               <p className="text-sm font-semibold text-orange-800">Incoming email</p>
               <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Filter unwanted incoming mail</h2>
-              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Incoming messages are checked for content and sender patterns, with suspicious messages routed to Spam and optional AI review.</p>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Incoming filtering keeps unwanted mail in check.</p>
             </article>
             <article className="border-t border-[#dadce0] pt-7 md:border-l md:border-t-0 md:pl-16 md:pt-0">
               <p className="text-sm font-semibold text-orange-800">Helpdesk and CRM follow-up</p>
               <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Manage customer conversations</h2>
-              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Route customer conversations to the team responsible for the next response.</p>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Keep customer questions moving with clear ownership and timely replies.</p>
             </article>
           </div>
         </section>

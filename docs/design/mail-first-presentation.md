@@ -15,7 +15,9 @@
 
 ## Claims and content boundaries
 
-- Lead with outgoing spam checks and domain authentication. Incoming filtering comes second; customer conversations, programmatic mail, and the wider operations suite remain supporting capabilities.
+- Lead with practical customer-email outcomes: inbox placement strategy, estimated open counts when tracking is enabled, and reviewable follow-up drafts. Follow immediately with quotes, invoices, and customer questions. Incoming filtering comes second; customer conversations, programmatic mail, and the wider operations suite remain supporting capabilities.
+- Open counts may include repeat opens. State that privacy settings can hide or add opens, so counts are estimates.
+- Follow-up suggestions use the original email, conversation, and open status. Describe them as drafts that require review before sending.
 - Delivery copy may describe outbound content and sending-pattern checks, SPF, DKIM, DMARC, and email-header diagnostics. Enforcement mode is not verified, so do not claim that outgoing messages are automatically held or blocked. Do not promise inbox placement, premium delivery, uptime certifications, or outcomes controlled by recipient systems.
 - Incoming filtering may describe content and sender-pattern checks, Spam routing, and optional AI review. Do not present AI review as mandatory or imply a specific probability threshold.
 - API examples must match the verified agent messages contract. Label responses as excerpts and describe server acceptance without treating it as inbox proof.

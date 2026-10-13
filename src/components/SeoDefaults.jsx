@@ -12,7 +12,7 @@ export default function SeoDefaults() {
   const path = (asPath || '/').split(/[?#]/)[0].replace(/\.html$/, '').replace(/\/+$/, '') || '/';
   const title = TITLES[path] || `${path.split('/').filter(Boolean).pop()?.replaceAll('-', ' ') || 'Business email'} — Venmail`;
   const description = path === '/'
-    ? 'Business email with outgoing spam checks, domain authentication, incoming filtering, and email-header analysis.'
+    ? 'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.'
     : path === '/pricing'
       ? 'Compare Venmail paid business email plans and shared storage. Review monthly or annual pricing and choose a plan for your team.'
       : 'Professional email on your business domain, with calendar, contacts and shared storage. Explore Venmail plans and get help moving your team.';

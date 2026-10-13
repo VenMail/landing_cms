@@ -4,13 +4,12 @@ import test from 'node:test';
 
 const readSource = path => readFile(new URL(path, import.meta.url), 'utf8');
 
-test('homepage leads with outgoing spam control and account conditions', async () => {
+test('homepage leads with practical mail outcomes and account conditions', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
   assert.match(homepage, /Business email\./);
   assert.match(homepage, /Built for the inbox\./);
-  assert.match(homepage, /Outgoing spam checks and domain authentication help your emails reach customers\./);
-  assert.match(homepage, /Incoming filtering keeps unwanted mail in check\./);
+  assert.match(homepage, /Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one\./);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
   assert.match(homepage, /Standard \$1\/month · 5 accounts included/);
@@ -44,14 +43,16 @@ test('homepage loads restrained Inter typography and avoids rejected visual trea
   assert.doesNotMatch(source, /#0d252c|#102d35|#fffdf9|#edf4f3/);
 });
 
-test('homepage presents outgoing safeguards before incoming filtering', async () => {
+test('homepage presents delivery outcomes and practical use cases before incoming filtering', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
-  for (const text of ['Authenticate your domain', 'Check outgoing spam risks', 'Investigate delivery problems', 'Filter unwanted incoming mail']) {
+  for (const text of ['Inbox placement comes first', 'Inbox placement strategy', 'See email opens', 'Get follow-up suggestions', 'Quotes, invoices, and customer questions', 'Quotes', 'Invoices', 'Customer questions', 'Filter unwanted incoming mail']) {
     assert.match(homepage, new RegExp(text));
   }
-  assert.ok(homepage.indexOf('Check outgoing spam risks') < homepage.indexOf('Filter unwanted incoming mail'));
-  assert.match(homepage, /href="\/tools\/email-header-analyzer"/);
+  assert.ok(homepage.indexOf('Inbox placement strategy') < homepage.indexOf('Filter unwanted incoming mail'));
+  assert.match(homepage, /Privacy settings can hide or add opens, so counts are estimates\./);
+  assert.match(homepage, /Review it before sending\./);
+  assert.doesNotMatch(homepage, /Analyze email headers/);
   assert.doesNotMatch(homepage, /automatically (?:hold|block)|>Pass<|Review needed|Policy missing/i);
 });
 
@@ -60,6 +61,7 @@ test('homepage keeps customer conversation ownership visible', async () => {
 
   assert.match(homepage, /Manage customer conversations/);
   assert.match(homepage, /Helpdesk and CRM follow-up/);
+  assert.match(homepage, /Keep customer questions moving with clear ownership and timely replies\./);
 });
 
 test('homepage API excerpt matches the verified agent message contract', async () => {
