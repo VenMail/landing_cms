@@ -79,12 +79,15 @@ test('homepage presents delivery outcomes and practical use cases before incomin
   assert.doesNotMatch(homepage, /automatically (?:hold|block)|>Pass<|Review needed|Policy missing/i);
 });
 
-test('homepage keeps customer conversation ownership visible', async () => {
+test('homepage presents dedicated support mailboxes without claiming built-in CRM routing', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
-  assert.match(homepage, /Manage customer conversations/);
-  assert.match(homepage, /Helpdesk and CRM follow-up/);
-  assert.match(homepage, /Keep customer questions moving with clear ownership and timely replies\./);
+  assert.match(homepage, /A dedicated support address for your CRM/);
+  assert.match(homepage, /Receive customer requests at mail@support\.<wbr \/>yourdomain\.com while your main business email stays unchanged\./);
+  assert.match(homepage, /CRM routing requires a custom integration\./);
+  assert.match(homepage, /Subdomain DNS setup required\./);
+  assert.match(homepage, /href="\/request-quote"[^>]*>\s*Discuss CRM integration/);
+  assert.doesNotMatch(homepage, /automatically route|assigned follow-up|Platform Email API/i);
 });
 
 test('homepage API excerpt matches the verified agent message contract', async () => {

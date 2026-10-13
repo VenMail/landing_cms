@@ -227,9 +227,11 @@ export default function Home() {
               <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Incoming filtering keeps unwanted mail in check.</p>
             </article>
             <article className="border-t border-[#dadce0] pt-7 md:border-l md:border-t-0 md:pl-16 md:pt-0">
-              <p className="text-sm font-semibold text-orange-800">Helpdesk and CRM follow-up</p>
-              <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Manage customer conversations</h2>
-              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Keep customer questions moving with clear ownership and timely replies.</p>
+              <p className="text-sm font-semibold text-orange-800">Shared inbox and CRM integration</p>
+              <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">A dedicated support address for your CRM</h2>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Receive customer requests at mail@support.<wbr />yourdomain.com while your main business email stays unchanged.</p>
+              <p className="mt-4 text-base leading-7 text-[#5f6368]">CRM routing requires a custom integration. Subdomain DNS setup required.</p>
+              <a href="/request-quote" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Discuss CRM integration <ArrowIcon /></a>
             </article>
           </div>
         </section>
