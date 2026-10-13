@@ -90,7 +90,10 @@ for (const text of [
 assert.ok(homepage.indexOf('Plans that fit your team') < homepage.indexOf('Filter unwanted incoming mail'), 'homepage: pricing follows primary use cases');
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
 assert.ok(homepage.includes('/request-quote'), 'homepage: migration and enterprise quote linked');
-for (const route of ['contacts', 'calendar', 'meeting', 'booking', 'email-automation']) {
+assert.ok(homepage.includes('/solutions/marketing'), 'homepage: campaigns linked');
+assert.ok(homepage.includes('>Campaigns</span>'), 'homepage: Campaigns label rendered');
+assert.ok(homepage.includes('>Appointments</span>'), 'homepage: Appointments label rendered');
+for (const route of ['calendar', 'meeting', 'booking', 'email-automation']) {
   assert.ok(homepage.includes(`/product/${route}`), `homepage: ${route} linked`);
 }
 assert.ok(!/webhook|Bring your own storage|BYOS/i.test(homepage), 'homepage: unsupported API and storage claims absent');

@@ -109,7 +109,7 @@ test('homepage links the verified operations suite', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
   assert.match(homepage, /Work beyond email/);
-  for (const href of ['/product/contacts', '/product/calendar', '/product/meeting', '/product/booking', '/product/email-automation']) {
+  for (const href of ['/solutions/marketing', '/product/calendar', '/product/meeting', '/product/booking', '/product/email-automation']) {
     assert.match(homepage, new RegExp(`['\"]${href}['\"]`));
   }
   assert.doesNotMatch(homepage, /href="\/product\/files"/);
