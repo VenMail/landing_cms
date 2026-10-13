@@ -3,13 +3,39 @@ const footerGroups = [
     ['Pricing', '/#pricing'],
     ['Request a quote', '/request-quote'],
   ]],
-  ['Support', [
+  ['Products', [
+    ['Mail', '/product/mail'],
+    ['Calendar', '/product/calendar'],
+    ['Contacts', '/product/contacts'],
+    ['Meetings', '/product/meeting'],
+    ['Bookings', '/product/booking'],
+    ['Email automation', '/product/email-automation'],
+    ['Email-to-Action', '/product/email-to-action'],
+  ]],
+  ['Compare', [
+    ['Gmail', '/compare/gmail'],
+    ['Outlook', '/compare/outlook'],
+    ['Zoho', '/compare/zoho'],
+    ['Webmail', '/compare/webmail'],
+  ]],
+  ['Resources', [
+    ['Blog', '/blog'],
+    ['Email header analyzer', '/tools/email-header-analyzer'],
+    ['FAQs', '/resources/faqs'],
     ['Help', '/resources/help'],
+  ]],
+  ['Support', [
     ['Contact us', '/contact-us'],
     ['Service status', 'https://status.venmail.app'],
   ]],
   ['Company', [
+    ['Solutions', '/solutions'],
+    ['Integrations', '/integrations'],
+    ['Why Venmail', '/why-venmail'],
+    ['Venmail Agent', '/venmail-agent'],
     ['About us', '/about-us'],
+    ['Careers', '/career'],
+    ['Partners', '/resources/partner'],
     ['AI principles', '/resources/ai-principles'],
     ['Security whitepaper', '/security-whitepaper'],
     ['GitHub', 'https://github.com/VenMail'],
@@ -44,22 +70,21 @@ export default function MailFirstFooter() {
           Web availability for venmail.io, m.venmail.io, and venia.cloud, reported by <a href="https://status.venmail.app" className="font-medium text-white underline decoration-white/40 underline-offset-4 hover:decoration-white focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-[#202124]">Pulsetic</a> as of 13 October 2026.
         </p>
 
-        <div className="grid gap-12 py-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-          <div>
-            <a href="/" className="flex h-11 w-fit items-center rounded-lg bg-white px-3 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-[#202124]">
+        <div className="py-12">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+            <a href="/" className="flex h-11 w-fit shrink-0 items-center rounded-lg bg-white px-3 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-[#202124]">
               <span className="sr-only">Venmail home</span>
               <img src="/logo-text.png" alt="" className="w-36" />
             </a>
-            <address className="mt-6 space-y-1 text-sm not-italic leading-6 text-white/70">
+            <address className="flex max-w-3xl flex-col text-sm not-italic leading-6 text-white/70 sm:flex-row sm:flex-wrap sm:items-center sm:justify-end sm:gap-x-6">
               <p className="font-medium text-white">VenMail LLC</p>
-              <p>8 The Green</p>
-              <p>Dover, Delaware, USA</p>
+              <p>8 The Green, Dover, Delaware, USA</p>
               <a href="mailto:hello@venmail.io" className={linkClass}>hello@venmail.io</a>
               <a href="tel:+19027090836" className={linkClass}>+1 902-709-0836</a>
             </address>
           </div>
 
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
+          <nav aria-label="Footer" className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 border-t border-white/15 pt-10 sm:grid-cols-3 lg:grid-cols-7">
             {footerGroups.map(([heading, links]) => (
               <section key={heading} aria-labelledby={`footer-${heading.toLowerCase()}`}>
                 <h2 id={`footer-${heading.toLowerCase()}`} className="text-sm font-semibold text-white">{heading}</h2>

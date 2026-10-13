@@ -29,7 +29,7 @@ export default function AboutUs() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/careers"
+                href="/career"
                 className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-white hover:bg-white hover:text-gray-900 transition-colors"
               >
                 Explore Careers
@@ -188,7 +188,7 @@ export default function AboutUs() {
               Try VenMail
             </a>
             <a
-              href="/careers"
+              href="/career"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-gray-800 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
             >
               Explore Careers

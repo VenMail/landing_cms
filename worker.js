@@ -22,6 +22,10 @@ const MIME = new Map(Object.entries({
   eot: 'application/vnd.ms-fontobject',
 }));
 
+const PERMANENT_REDIRECTS = new Map([
+  ['/careers', '/career'],
+]);
+
 function canonicalPath(pathname) {
   let path = pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '') || '/';
   if (path === '/index.html') return '/';
@@ -75,6 +79,13 @@ const worker = {
     if (!['GET', 'HEAD'].includes(req.method)) return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
     const url = new URL(req.url);
     const canonical = canonicalPath(url.pathname);
+    const movedTo = PERMANENT_REDIRECTS.get(canonical);
+    if (movedTo) {
+      if (url.hostname === 'www.venmail.io') url.hostname = 'venmail.io';
+      url.pathname = movedTo;
+      url.protocol = 'https:';
+      return new Response(null, { status: 301, headers: { Location: url.href, 'cache-control': 'no-cache' } });
+    }
     if (canonical === '/__market') {
       return Response.json(market(req), { headers: { 'cache-control': 'no-store', 'vary': 'CF-IPCountry' } });
     }

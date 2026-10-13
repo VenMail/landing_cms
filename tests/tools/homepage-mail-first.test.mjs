@@ -116,7 +116,10 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   for (const [label, href] of [['Delivery', '#delivery'], ['Spam control', '#spam-control'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
     assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
   }
-  for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
+  for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/career', '/resources/partner', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
+    assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+  }
+  for (const href of ['/blog', '/solutions', '/integrations', '/why-venmail', '/venmail-agent', '/tools/email-header-analyzer', '/product/mail', '/product/email-to-action', '/compare/gmail', '/compare/outlook']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   assert.match(source, />Sign up<\/a>/);

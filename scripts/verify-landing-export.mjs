@@ -1,5 +1,39 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { getPublishedArticles } from '../src/data/content/catalog.mjs';
+
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const exportRoot = path.join(repositoryRoot, 'out');
+const legacyPageRoutes = fs.readFileSync(path.join(repositoryRoot, 'tests', 'fixtures', 'legacy-page-routes-2ce872d.txt'), 'utf8')
+  .trim()
+  .split(/\r?\n/);
+const legacyArticleRoutes = fs.readFileSync(path.join(repositoryRoot, 'tests', 'fixtures', 'legacy-article-routes-2ce872d.txt'), 'utf8')
+  .trim()
+  .split(/\r?\n/);
+const articleRoutes = getPublishedArticles().map((article) => new URL(article.canonicalUrl).pathname);
+const preservedRoutes = [...new Set([...legacyPageRoutes, ...legacyArticleRoutes, ...articleRoutes])];
+const alternateHomepageRoutes = new Set(['/cinematic', '/index-cinematic']);
+
+const workerSource = fs.readFileSync(path.join(repositoryRoot, 'worker.js'), 'utf8');
+const { default: worker } = await import(`data:text/javascript;base64,${Buffer.from(workerSource).toString('base64')}`);
+const exportEnv = {
+  BUCKET: {
+    async get(key) {
+      const target = path.resolve(exportRoot, key);
+      assert.ok(target.startsWith(`${exportRoot}${path.sep}`), `export key stays inside out/: ${key}`);
+      try {
+        return { body: fs.readFileSync(target) };
+      } catch (error) {
+        if (error.code === 'ENOENT') return null;
+        throw error;
+      }
+    },
+  },
+};
+const exportedRequest = (url, method = 'GET') => worker.fetch(new Request(url, { method }), exportEnv);
 
 for (const route of ['', 'pricing', 'resources/privacy-policy', 'resources/ai-principles', 'security-whitepaper']) {
   const html = fs.readFileSync(`out/${route || 'index'}.html`, 'utf8');
@@ -66,4 +100,64 @@ assert.ok(fs.readFileSync('out/resources/privacy-policy.html', 'utf8').includes(
 const legal = fs.readFileSync('out/solutions/legal.html', 'utf8');
 assert.ok(legal.includes('Managed plans use shared storage'), 'industry storage copy distinguishes managed plans');
 assert.ok(!legal.includes('never on shared infrastructure'), 'industry pages do not promise dedicated infrastructure for every plan');
-console.log('Exported homepage, pricing, and trust pages have valid metadata and signup offers.');
+
+const exportedHtml = new Map();
+for (const route of preservedRoutes) {
+  const url = `https://venmail.io${route}`;
+  const response = await exportedRequest(url);
+  assert.equal(response.status, 200, `${route}: preserved route returns 200`);
+  const body = await response.text();
+  assert.ok(body.length > 0, `${route}: preserved route has a body`);
+  exportedHtml.set(route, body);
+
+  if (route === '/') {
+    const alias = await exportedRequest('https://venmail.io/index.html?legacy=1');
+    assert.equal(alias.status, 301, '/index.html: permanent canonical redirect');
+    assert.equal(alias.headers.get('location'), 'https://venmail.io/?legacy=1', '/index.html: query retained');
+  } else {
+    for (const aliasPath of [`${route}/`, `${route}.html`]) {
+      const alias = await exportedRequest(`https://venmail.io${aliasPath}?legacy=1`);
+      assert.equal(alias.status, 301, `${aliasPath}: permanent canonical redirect`);
+      assert.equal(alias.headers.get('location'), `${url}?legacy=1`, `${aliasPath}: query retained`);
+    }
+  }
+}
+
+for (const aliasPath of ['/careers', '/careers/', '/careers.html']) {
+  const response = await exportedRequest(`https://www.venmail.io${aliasPath}?legacy=1`);
+  assert.equal(response.status, 301, `${aliasPath}: verified moved route redirects permanently`);
+  assert.equal(response.headers.get('location'), 'https://venmail.io/career?legacy=1', `${aliasPath}: redirects directly to canonical route`);
+}
+
+const sitemap = fs.readFileSync(path.join(exportRoot, 'sitemap.xml'), 'utf8');
+const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/venmail\.io[^<]*)<\/loc>/g)].map((match) => match[1]);
+const sitemapPaths = new Set(sitemapUrls.map((url) => new URL(url).pathname));
+for (const route of preservedRoutes) {
+  if (!alternateHomepageRoutes.has(route)) assert.ok(sitemapPaths.has(route), `${route}: preserved route remains in sitemap`);
+}
+for (const url of sitemapUrls) {
+  const response = await exportedRequest(url, 'HEAD');
+  assert.equal(response.status, 200, `${url}: sitemap URL resolves in the export`);
+}
+
+for (const [sourceRoute, html] of exportedHtml) {
+  for (const match of html.matchAll(/\shref=(["'])(.*?)\1/g)) {
+    const href = match[2].replaceAll('&amp;', '&');
+    if (!href || href.startsWith('#')) continue;
+    let target;
+    try {
+      target = new URL(href, `https://venmail.io${sourceRoute}`);
+    } catch {
+      continue;
+    }
+    if (target.hostname !== 'venmail.io' || !['http:', 'https:'].includes(target.protocol)) continue;
+    const response = await exportedRequest(target.href, 'HEAD');
+    assert.ok(response.status < 400, `${sourceRoute}: internal link ${href} resolves`);
+    if (response.status >= 300) {
+      const redirected = await exportedRequest(response.headers.get('location'), 'HEAD');
+      assert.equal(redirected.status, 200, `${sourceRoute}: internal link ${href} resolves after one redirect`);
+    }
+  }
+}
+
+console.log(`Exported metadata, offers, and ${preservedRoutes.length} preserved routes verified.`);

@@ -16,6 +16,18 @@ test('known page aliases redirect once to canonical URLs and retain query string
   }
   assert.equal((await request('/index.html')).headers.get('location'), 'https://venmail.io/');
 });
+test('verified legacy careers aliases redirect permanently to the existing career page in one hop', async () => {
+  for (const url of [
+    'https://venmail.io/careers?ref=about',
+    'https://venmail.io/careers/?ref=about',
+    'https://venmail.io/careers.html?ref=about',
+    'https://www.venmail.io/careers.html?ref=about',
+  ]) {
+    const res = await worker.fetch(new Request(url), env);
+    assert.equal(res.status, 301);
+    assert.equal(res.headers.get('location'), 'https://venmail.io/career?ref=about');
+  }
+});
 test('missing pages and assets return a genuine 404, even if no custom 404 exists', async () => {
   for (const path of ['/missing', '/missing/', '/missing.js', '/404', '/404.html']) assert.equal((await request(path)).status, 404);
   assert.equal((await request('/missing', 'GET', { BUCKET: { get: async () => null } })).status, 404);

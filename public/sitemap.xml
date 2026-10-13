@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://venmail.io/tools/email-header-analyzer</loc>
-  </url>
-  <url>
     <loc>https://venmail.io/</loc>
   </url>
   <url>
@@ -13,7 +10,37 @@
     <loc>https://venmail.io/blog</loc>
   </url>
   <url>
+    <loc>https://venmail.io/career</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/apollo</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/front</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/gmail</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/outlook</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/superhuman</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/webmail</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/compare/zoho</loc>
+  </url>
+  <url>
     <loc>https://venmail.io/contact-us</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/email-automation</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/healthcare-legal</loc>
   </url>
   <url>
     <loc>https://venmail.io/integrations</loc>
@@ -22,19 +49,46 @@
     <loc>https://venmail.io/pricing</loc>
   </url>
   <url>
-    <loc>https://venmail.io/solutions</loc>
-  </url>
-  <url>
-    <loc>https://venmail.io/why-venmail</loc>
-  </url>
-  <url>
-    <loc>https://venmail.io/product/mail</loc>
+    <loc>https://venmail.io/product/booking</loc>
   </url>
   <url>
     <loc>https://venmail.io/product/calendar</loc>
   </url>
   <url>
     <loc>https://venmail.io/product/contacts</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/email-automation</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/email-to-action</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/mail</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/meeting</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/meeting-vs-google-meet</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/product/meeting-vs-zoom</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/request-quote</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/ai-principles</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/cookie-policy</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/cookie_ccpa-policy</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/dpa</loc>
   </url>
   <url>
     <loc>https://venmail.io/resources/faqs</loc>
@@ -44,6 +98,60 @@
   </url>
   <url>
     <loc>https://venmail.io/resources/partner</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/resources/terms-of-service</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/security-whitepaper</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/agency</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/deliverability</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/education</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/finance</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/founders</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/freelancers</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/healthcare</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/hr</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/legal</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/marketing</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/solutions/nonprofit</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/tools/email-header-analyzer</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/venmail-agent</loc>
+  </url>
+  <url>
+    <loc>https://venmail.io/why-venmail</loc>
   </url>
   <url>
     <loc>https://venmail.io/blog/cloudflare-email-hosting-vs-email-routing</loc>
