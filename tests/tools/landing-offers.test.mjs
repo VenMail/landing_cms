@@ -1,13 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { businessSignupUrl, getOffer, getRecommendedOffer, formatNgn } from '../../src/config/pricing.mjs';
+import { businessSignupUrl, getOffer, getRecommendedOffer, formatNgn, PLANS } from '../../src/config/pricing.mjs';
 
 test('published offers use the approved monthly USD and NGN amounts', () => {
   assert.equal(getOffer('standard', 'monthly').amount, 1);
   assert.equal(getOffer('business', 'monthly').amount, 20);
   assert.equal(formatNgn(20 * 1500), '₦30,000');
   assert.throws(() => businessSignupUrl('enterprise'));
+});
+
+test('Business states the qualified first-year annual domain offer', () => {
+  const business = PLANS.find(plan => plan.id === 'business');
+
+  assert.ok(business);
+  assert.ok(business.features.includes('Annual Business includes one .com domain free for the first year.'));
+});
+
+test('shared pricing separates monthly checkout from the annual Business inquiry', async () => {
+  const pricing = await readFile(new URL('../../src/components/PageSections/PricingPlans.jsx', import.meta.url), 'utf8');
+
+  assert.match(pricing, /Choose monthly Business/);
+  assert.equal((pricing.match(/Choose monthly Business/g) || []).length, 2);
+  assert.match(pricing, /Annual Business plan and included \.com domain/);
+  assert.match(pricing, /Ask about annual Business/);
 });
 
 test('self-service signup carries the approved plan and blocks quote-only Enterprise', () => {

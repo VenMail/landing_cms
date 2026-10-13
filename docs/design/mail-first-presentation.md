@@ -34,3 +34,8 @@
 
 - `8,000+ Email accounts — As of 13 October 2026` comes from a production aggregate across 153 Employee shards: 8,188 non-deleted records with `kind=human`. The public claim excludes assistant accounts, shared accounts, records with unset kinds, activity, payment status, and customer or person counts. Only the aggregate and snapshot date are public.
 - `100% Reported web uptime — 90-day reporting window` is a dated Pulsetic snapshot for `venmail.io`, `m.venmail.io`, and `venia.cloud` as of 13 October 2026. It describes web availability only and is not an SMTP, delivery, or SLA claim.
+
+## Professional email illustration
+
+- `public/professional-address-art.png` was generated with OpenAI's built-in image generation tool for the custom-domain email section.
+- Prompt summary: a text-free, transparent-background editorial illustration with two business people, an oversized envelope and an `@` motif; flat coral, orange, cream, and charcoal shapes matching the Contacts and Calendar artwork. The prompt excluded product UI, status indicators, dashboards, and screenshots.

@@ -7,7 +7,7 @@ export const BUSINESS_MONTHLY_USD = 20;
 
 export const PLANS = [
   { id: 'standard', name: 'Standard', monthly: 1, checkout: 'self_serve', description: 'Professional email for small teams on a custom domain.', features: ['5 email accounts included', '$1/month for each additional account', 'Shared storage included', 'Calendar and contacts'] },
-  { id: 'business', name: 'Business', monthly: 20, checkout: 'self_serve', featured: true, description: 'Email infrastructure for teams that need room to grow.', features: ['Unlimited email accounts', '200 GB pooled storage included', 'Storage upgrades available', 'Bring your own storage'] },
+  { id: 'business', name: 'Business', monthly: 20, checkout: 'self_serve', featured: true, description: 'Email infrastructure for teams that need room to grow.', features: ['Unlimited email accounts', '200 GB pooled storage included', 'Annual Business includes one .com domain free for the first year.', 'Storage upgrades available', 'Bring your own storage'] },
   { id: 'enterprise', name: 'Enterprise / White-label', checkout: 'quote', description: 'A tailored deployment for branded services and complex requirements.', features: ['White-label requirements', 'Migration and onboarding', 'Storage and security design', 'Priority support and SLAs'] },
 ];
 
