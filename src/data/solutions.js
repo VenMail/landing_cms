@@ -57,7 +57,8 @@ export const solutions = {
     headline: "Your First 100 Customers",
     description:
       "No sales team? No problem. Everything you need to find leads, run campaigns, and close deals — cut to fit how you actually work.",
-    heroImage: "/solutions/founders/section-1.png",
+    heroImage: "/solutions/founder/section-1.png",
+    heroImageAlt: "Founder at work",
     accentColor: "orange",
     capabilities: [
       {
@@ -88,7 +89,8 @@ export const solutions = {
     featureSectionTitle: "Close Deals Without a Sales Team",
     featureSectionSubtitle:
       "VenMail helps you write compelling outreach, find the right prospects, and automate follow-ups — so you can focus on building your product.",
-    featureImage: "/solutions/founders/content-image-1.png",
+    featureImage: "/campaign_composer.png",
+    featureImageAlt: "Venmail campaign composer",
     benefits: [
       "AI-powered email composition",
       "Prospect discovery built in",
@@ -97,7 +99,8 @@ export const solutions = {
       "Campaign analytics and tracking",
       "Paid plans for business domains",
     ],
-    pricingImage: "/solutions/founders/content-image-2.png",
+    pricingImage: "/personal_booking.png",
+    pricingImageAlt: "Venmail personal booking page",
     pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
       "Business domain email requires a paid plan. Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts. Managed plans currently use shared storage.",
@@ -136,7 +139,8 @@ export const solutions = {
     featureSectionTitle: "One Platform for All Your Email",
     featureSectionSubtitle:
       "Stop juggling between your inbox, campaign tool, CRM, and analytics dashboard. VenMail puts it all in one place.",
-    featureImage: "/solutions/marketing/content-image-1.png",
+    featureImage: "/campaign_composer.png",
+    featureImageAlt: "Venmail campaign composer",
     benefits: [
       "Unified inbox and campaign tool",
       "Template library with AI assist",
@@ -145,7 +149,8 @@ export const solutions = {
       "Contact groups and segmentation",
       "Deliverability monitoring",
     ],
-    pricingImage: "/solutions/marketing/content-image-2.png",
+    pricingImage: "/sent_metrics.png",
+    pricingImageAlt: "Venmail sent email analytics",
     pricingTitle: "Business is $20/month for up to 100 email accounts",
     pricingDescription:
       "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
@@ -157,7 +162,8 @@ export const solutions = {
     headline: "Patient Data Stays In Your Hands",
     description:
       "Review mailbox storage, access controls, and service processing requirements before using email for patient communications.",
-    heroImage: "/solutions/healthcare/section-1.png",
+    heroImage: "/email-dashboard-preview.png",
+    heroImageAlt: "Venmail inbox",
     accentColor: "cyan",
     capabilities: [
       {
@@ -184,7 +190,8 @@ export const solutions = {
     featureSectionTitle: "Why Healthcare Trusts Venmail",
     featureSectionSubtitle:
       "When patient data is involved, you need infrastructure you control. Venmail gives you that control without the enterprise price tag.",
-    featureImage: "/solutions/healthcare/content-image-1.png",
+    featureImage: "/screenshot-full.webp",
+    featureImageAlt: "Venmail mail workspace on a laptop",
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Discuss data residency requirements",
@@ -193,7 +200,8 @@ export const solutions = {
       "Custom domain with full DNS control",
       "Priority support with SLA",
     ],
-    pricingImage: "/solutions/healthcare/content-image-2.png",
+    pricingImage: "/sent_metrics.png",
+    pricingImageAlt: "Venmail sent email analytics",
     pricingTitle: "Enterprise Security Without Enterprise Pricing",
     pricingDescription:
       "Healthcare organizations need compliant email but shouldn't pay enterprise prices for every doctor, nurse, and admin.",
@@ -205,7 +213,8 @@ export const solutions = {
     headline: "Privileged Communications, Your Servers",
     description:
       "Review storage, application processing, and access requirements for privileged communications. Managed plans use shared storage; Business storage upgrades or customer-provided storage are arranged with Venmail.",
-    heroImage: "/solutions/legal/section-1.png",
+    heroImage: "/docs-editor.png",
+    heroImageAlt: "Venmail document editor",
     accentColor: "indigo",
     capabilities: [
       {
@@ -232,7 +241,8 @@ export const solutions = {
     featureSectionTitle: "Built for Legal Workflows",
     featureSectionSubtitle:
       "When every email could be discoverable, you need infrastructure that protects privilege and gives you full control.",
-    featureImage: "/solutions/legal/content-image-1.png",
+    featureImage: "/new_docs.png",
+    featureImageAlt: "Venmail document workspace",
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing jurisdiction",
@@ -241,7 +251,8 @@ export const solutions = {
       "Electronic signature support",
       "Dedicated account management",
     ],
-    pricingImage: "/solutions/legal/content-image-2.png",
+    pricingImage: "/email-dashboard-preview.png",
+    pricingImageAlt: "Venmail inbox",
     pricingTitle: "Predictable Costs for Growing Firms",
     pricingDescription:
       "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
@@ -253,7 +264,8 @@ export const solutions = {
     headline: "Compliant Communication Infrastructure",
     description:
       "Financial data requires strict controls. Venmail gives you email infrastructure that meets regulatory requirements without the enterprise complexity.",
-    heroImage: "/solutions/finance/section-1.png",
+    heroImage: "/sent_metrics.png",
+    heroImageAlt: "Venmail sent email analytics",
     accentColor: "emerald",
     capabilities: [
       {
@@ -280,7 +292,8 @@ export const solutions = {
     featureSectionTitle: "Why Finance Chooses Venmail",
     featureSectionSubtitle:
       "Financial institutions need communication infrastructure that meets strict regulatory standards while remaining affordable.",
-    featureImage: "/solutions/finance/content-image-1.png",
+    featureImage: "/email-dashboard-preview.png",
+    featureImageAlt: "Venmail inbox",
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing locations",
@@ -289,7 +302,8 @@ export const solutions = {
       "Custom domain configuration",
       "Enterprise SLA available",
     ],
-    pricingImage: "/solutions/finance/content-image-2.png",
+    pricingImage: "/screenshot-full.webp",
+    pricingImageAlt: "Venmail mail workspace on a laptop",
     pricingTitle: "Enterprise Requirements, Business Pricing",
     pricingDescription:
       "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.",
@@ -301,7 +315,8 @@ export const solutions = {
     headline: "Sovereign Student Data",
     description:
       "Student email data should stay under institutional control. Business includes up to 100 email accounts for $20/month.",
-    heroImage: "/solutions/education/section-1.png",
+    heroImage: "/email-dashboard-preview.png",
+    heroImageAlt: "Venmail inbox",
     accentColor: "amber",
     capabilities: [
       {
@@ -328,7 +343,8 @@ export const solutions = {
     featureSectionTitle: "Why Schools Choose Venmail",
     featureSectionSubtitle:
       "Business includes up to 100 email accounts for $20/month, with 200 GB pooled storage included.",
-    featureImage: "/solutions/education/content-image-1.png",
+    featureImage: "/new_docs.png",
+    featureImageAlt: "Venmail document workspace",
     benefits: [
       "Up to 100 student and staff accounts",
       "Business: up to 100 email accounts",
@@ -337,7 +353,8 @@ export const solutions = {
       "Student data sovereignty",
       "Personal accounts use venia.cloud",
     ],
-    pricingImage: "/solutions/education/content-image-2.png",
+    pricingImage: "/screenshot-full.webp",
+    pricingImageAlt: "Venmail mail workspace on a laptop",
     pricingTitle: "Email for Every Student Without Breaking the Budget",
     pricingDescription:
       "A 5,000-student school and a 500-student school use similar infrastructure. They should pay similarly.",
@@ -349,7 +366,8 @@ export const solutions = {
     headline: "Recruitment & Team Communication",
     description:
       "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes up to 100 email accounts for $20/month.",
-    heroImage: "/solutions/hr/section-1.png",
+    heroImage: "/personal_booking.png",
+    heroImageAlt: "Venmail personal booking page",
     accentColor: "rose",
     capabilities: [
       {
@@ -376,7 +394,8 @@ export const solutions = {
     featureSectionTitle: "Streamline HR Communications",
     featureSectionSubtitle:
       "Business includes up to 100 email accounts for recruitment, onboarding, and daily operations at $20/month.",
-    featureImage: "/solutions/hr/content-image-1.png",
+    featureImage: "/campaign_composer.png",
+    featureImageAlt: "Venmail campaign composer",
     benefits: [
       "Up to 100 employee accounts on Business",
       "Automated onboarding sequences",
@@ -385,7 +404,8 @@ export const solutions = {
       "Template library for HR comms",
       "Business remains $20/month for up to 100 email accounts",
     ],
-    pricingImage: "/solutions/hr/content-image-2.png",
+    pricingImage: "/email-dashboard-preview.png",
+    pricingImageAlt: "Venmail inbox",
     pricingTitle: "Growing Teams Shouldn't Mean Growing Email Bills",
     pricingDescription:
       "Standard costs $1/month total for 5 inboxes. Business costs $20/month for up to 100 email accounts.",
@@ -397,7 +417,8 @@ export const solutions = {
     headline: "Mission-First Email Infrastructure",
     description:
       "Standard costs $1/month total for 5 inboxes. Business gives nonprofits up to 100 email accounts for $20/month.",
-    heroImage: "/solutions/nonprofit/section-1.png",
+    heroImage: "/campaign_composer.png",
+    heroImageAlt: "Venmail campaign composer",
     accentColor: "lime",
     capabilities: [
       {
@@ -424,7 +445,8 @@ export const solutions = {
     featureSectionTitle: "More Budget for Programs, Less for Email",
     featureSectionSubtitle:
       "Nonprofits shouldn't have to choose between giving staff email and funding programs. Venmail makes that choice unnecessary.",
-    featureImage: "/solutions/nonprofit/content-image-1.png",
+    featureImage: "/sent_metrics.png",
+    featureImageAlt: "Venmail sent email analytics",
     benefits: [
       "Personal accounts use venia.cloud",
       "Up to 100 staff and volunteer accounts",
@@ -433,7 +455,8 @@ export const solutions = {
       "Business: up to 100 email accounts",
       "Data sovereignty for sensitive info",
     ],
-    pricingImage: "/solutions/nonprofit/content-image-2.png",
+    pricingImage: "/email-dashboard-preview.png",
+    pricingImageAlt: "Venmail inbox",
     pricingTitle: "Professional Email at Nonprofit-Friendly Pricing",
     pricingDescription:
       "Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts.",
@@ -445,7 +468,8 @@ export const solutions = {
     headline: "Every Email Deserves to Arrive",
     description:
       "SPF, DKIM, DMARC configured in minutes. Spam detection, threat filtering, and deliverability monitoring built into the infrastructure.",
-    heroImage: "/solutions/deliverability/section-1.png",
+    heroImage: "/validator.png",
+    heroImageAlt: "Venmail email content validator",
     accentColor: "teal",
     capabilities: [
       {
@@ -472,7 +496,8 @@ export const solutions = {
     featureSectionTitle: "Deliverability Built Into the Infrastructure",
     featureSectionSubtitle:
       "Most email platforms treat deliverability as an add-on. Venmail builds it into the foundation.",
-    featureImage: "/solutions/deliverability/content-image-1.png",
+    featureImage: "/sent_metrics.png",
+    featureImageAlt: "Venmail sent email analytics",
     benefits: [
       "SPF/DKIM/DMARC in minutes",
       "AI spam detection",
@@ -481,7 +506,8 @@ export const solutions = {
       "Deliverability analytics",
       "Reputation monitoring",
     ],
-    pricingImage: "/solutions/deliverability/content-image-2.png",
+    pricingImage: "/email-dashboard-preview.png",
+    pricingImageAlt: "Venmail inbox",
     pricingTitle: "Deliverability Shouldn't Be an Add-On",
     pricingDescription:
       "With Venmail, email authentication and deliverability tools come standard — not as a premium upsell.",
@@ -520,7 +546,8 @@ export const solutions = {
     featureSectionTitle: "Your Professional Email Hub",
     featureSectionSubtitle:
       "Freelancers need professional email, scheduling, and client management — but shouldn't pay for enterprise features they don't use.",
-    featureImage: "/solutions/freelancers/content-image-1.png",
+    featureImage: "/email-dashboard-preview.png",
+    featureImageAlt: "Venmail inbox",
     benefits: [
       "Paid plans for business domains",
       "Custom domain support",
@@ -529,7 +556,8 @@ export const solutions = {
       "Email tracking and analytics",
       "Template library",
     ],
-    pricingImage: "/solutions/freelancers/content-image-2.png",
+    pricingImage: "/personal_booking.png",
+    pricingImageAlt: "Venmail personal booking page",
     pricingTitle: "Plans for Your Workspace",
     pricingDescription:
       "Use a free venia.cloud personal account, or choose a paid plan for your business domain.",

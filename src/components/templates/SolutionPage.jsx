@@ -99,7 +99,7 @@ export default function SolutionPage({ solution }) {
             <div className="md:col-span-5">
               <img
                 src={solution.heroImage}
-                alt={solution.headline}
+                alt={solution.heroImageAlt || solution.headline}
                 className="rounded-lg shadow-2xl"
                 loading="lazy"
               />
@@ -168,7 +168,7 @@ export default function SolutionPage({ solution }) {
             <div className="md:col-span-6">
               <img
                 src={solution.featureImage}
-                alt={solution.featureSectionTitle}
+                alt={solution.featureImageAlt || solution.featureSectionTitle}
                 className="rounded-lg shadow-lg"
                 loading="lazy"
               />
@@ -184,7 +184,7 @@ export default function SolutionPage({ solution }) {
             <div className="md:col-span-6 order-2 md:order-1">
               <img
                 src={solution.pricingImage}
-                alt={solution.pricingTitle}
+                alt={solution.pricingImageAlt || solution.pricingTitle}
                 className="rounded-lg shadow-lg"
                 loading="lazy"
               />
