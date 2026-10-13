@@ -22,7 +22,7 @@ const PILLARS = [
   {
     icon: LuMail,
     title: "Should communication costs scale with users or usage?",
-    body: "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
+    body: "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.",
     stat: "$1–$20",
     statLabel: "monthly plans",
     color: "from-green-500 to-emerald-500"
@@ -143,7 +143,7 @@ export default function WhyVenmailSection() {
             <div>
               <div className="flex items-center justify-center gap-2 mb-2">
                 <LuUsers className="w-5 h-5 text-purple-600" />
-                <span className="text-3xl font-bold text-gray-900">∞</span>
+                <span className="text-3xl font-bold text-gray-900">100</span>
               </div>
               <p className="text-sm text-gray-600">Email accounts on Business</p>
             </div>

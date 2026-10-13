@@ -12,7 +12,7 @@ test('homepage leads with practical mail outcomes and account conditions', async
   assert.match(homepage, /Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one\./);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
-  assert.match(homepage, /\$1\/month total — includes 5 email accounts\./);
+  assert.match(homepage, /From \$0\.20 per inbox\/month\. Standard costs \$1\/month total for 5 inboxes\. Each additional inbox costs \$1\/month\./);
   assert.match(homepage, /No payment required to create an account\. Mailbox activation requires a verified domain and a paid plan\./);
 });
 
@@ -40,7 +40,8 @@ test('homepage presents professional custom-domain email before delivery details
   assert.match(homepage, /src="\/professional-address-art\.png"/);
   assert.match(homepage, /alt=""/);
   assert.match(homepage, /Business plan/);
-  assert.match(homepage, /Unlimited email accounts/);
+  assert.match(homepage, /Up to 100 email accounts included/);
+  assert.match(homepage, /200 GB pooled storage/);
   assert.match(homepage, /Free \.com domain/);
   assert.match(homepage, /Annual Business includes one \.com domain free for the first year\./);
   assert.match(homepage, /Annual Business plan and included \.com domain/);
@@ -118,7 +119,8 @@ test('homepage pricing uses approved offers, signup helpers, quote, and crypto p
   assert.match(homepage, /businessSignupUrl\("standard"\)/);
   assert.match(homepage, /businessSignupUrl\("business"\)/);
   assert.match(homepage, /Choose monthly Business/);
-  assert.match(homepage, /Additional accounts: \$1\/account\/month\./);
+  assert.match(homepage, /5 inboxes included — \$0\.20 per inbox/);
+  assert.match(homepage, /\+\$1\/month per additional inbox/);
   assert.match(homepage, /\$20/);
   assert.match(homepage, /200 GB pooled/);
   assert.match(homepage, /Standard uses a domain you already own\. Annual Business includes one \.com domain free for the first year\./);

@@ -273,10 +273,10 @@ const TheSolutionSection = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Storage-Based Pricing</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Clear monthly pricing</h3>
             <p className="text-gray-600 mb-4">
-              Pay for what you use, not how many people work for you. 
-              A 5-person team and 50-person team pay about the same for same storage.
+              Standard costs $1/month total for 5 inboxes; each additional inbox costs $1/month.
+              Business costs $20/month with up to 100 email accounts and 200 GB pooled storage.
             </p>
             <div className="text-blue-600 font-semibold">Fair and predictable →</div>
           </div>

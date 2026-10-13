@@ -4,7 +4,7 @@ export const solutions = {
     category: "For Agencies & Consultancies",
     headline: "Scale Without the Bill Shock",
     description:
-      "Manage clients, run campaigns, and deliver results with Standard from $1/month or Business at $20/month.",
+      "Manage clients, run campaigns, and deliver results with Standard at $1/month total for 5 inboxes or Business at $20/month for up to 100 email accounts.",
     heroImage: "/solutions/agencies/section-1.png",
     accentColor: "blue",
     capabilities: [
@@ -38,8 +38,8 @@ export const solutions = {
       "VenMail gives agencies the tools to manage multiple clients efficiently while maintaining healthy margins with flat, predictable pricing.",
     featureImage: "/solutions/agencies/content-image-1.png",
     benefits: [
-      "Unlimited email accounts on Business",
-      "Business stays at $20/month",
+      "Up to 100 email accounts on Business",
+      "Business is $20/month for up to 100 email accounts",
       "Separate client workspaces",
       "Shared templates and assets",
       "Campaign automation tools",
@@ -48,7 +48,7 @@ export const solutions = {
     pricingImage: "/solutions/agencies/content-image-2.png",
     pricingTitle: "Flat Pricing That Protects Margins",
     pricingDescription:
-      "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
     perSeatComparison: 650,
   },
   founders: {
@@ -100,7 +100,7 @@ export const solutions = {
     pricingImage: "/solutions/founders/content-image-2.png",
     pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
-      "Business domain email requires a paid plan. Standard starts at $1/month; Business is $20/month. Managed plans currently use shared storage.",
+      "Business domain email requires a paid plan. Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts. Managed plans currently use shared storage.",
     perSeatComparison: 360,
   },
   marketing: {
@@ -146,9 +146,9 @@ export const solutions = {
       "Deliverability monitoring",
     ],
     pricingImage: "/solutions/marketing/content-image-2.png",
-    pricingTitle: "Business stays at $20/month",
+    pricingTitle: "Business is $20/month for up to 100 email accounts",
     pricingDescription:
-      "Standard starts at $1/month for five accounts. Business is $20/month with unlimited accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
     perSeatComparison: 800,
   },
   healthcare: {
@@ -173,7 +173,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Team Management",
-        description: "Business includes unlimited accounts with role-based access for departments and facilities.",
+        description: "Business includes up to 100 email accounts with role-based access for departments and facilities.",
       },
       {
         icon: "mail",
@@ -188,7 +188,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Discuss data residency requirements",
-      "Unlimited staff accounts",
+      "Up to 100 staff accounts on Business",
       "Audit trail for communications",
       "Custom domain with full DNS control",
       "Priority support with SLA",
@@ -226,7 +226,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Firm-Wide Access",
-        description: "Unlimited accounts for partners, associates, and support staff.",
+        description: "Business includes up to 100 email accounts for partners, associates, and support staff.",
       },
     ],
     featureSectionTitle: "Built for Legal Workflows",
@@ -236,7 +236,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing jurisdiction",
-      "Unlimited firm-wide accounts",
+      "Up to 100 firm-wide accounts on Business",
       "Document approval workflows",
       "Electronic signature support",
       "Dedicated account management",
@@ -244,7 +244,7 @@ export const solutions = {
     pricingImage: "/solutions/legal/content-image-2.png",
     pricingTitle: "Predictable Costs for Growing Firms",
     pricingDescription:
-      "Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
     perSeatComparison: 900,
   },
   finance: {
@@ -284,7 +284,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing locations",
-      "Unlimited email accounts on Business",
+      "Up to 100 email accounts on Business",
       "Compliance-ready audit trails",
       "Custom domain configuration",
       "Enterprise SLA available",
@@ -292,7 +292,7 @@ export const solutions = {
     pricingImage: "/solutions/finance/content-image-2.png",
     pricingTitle: "Enterprise Requirements, Business Pricing",
     pricingDescription:
-      "Standard starts at $1/month. Business is $20/month with unlimited accounts and 200 GB pooled storage.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.",
     perSeatComparison: 1000,
   },
   education: {
@@ -300,7 +300,7 @@ export const solutions = {
     category: "For Schools & Universities",
     headline: "Sovereign Student Data",
     description:
-      "Student email data should stay under institutional control. Business includes unlimited email accounts for $20/month.",
+      "Student email data should stay under institutional control. Business includes up to 100 email accounts for $20/month.",
     heroImage: "/solutions/education/section-1.png",
     accentColor: "amber",
     capabilities: [
@@ -311,8 +311,8 @@ export const solutions = {
       },
       {
         icon: "users",
-        title: "Unlimited Accounts",
-        description: "Business includes unlimited email accounts for students, faculty, and staff.",
+        title: "Up to 100 Accounts",
+        description: "Business includes up to 100 email accounts for students, faculty, and staff.",
       },
       {
         icon: "mail",
@@ -327,11 +327,11 @@ export const solutions = {
     ],
     featureSectionTitle: "Why Schools Choose Venmail",
     featureSectionSubtitle:
-      "Business supports unlimited email accounts for $20/month, with 200 GB pooled storage included.",
+      "Business includes up to 100 email accounts for $20/month, with 200 GB pooled storage included.",
     featureImage: "/solutions/education/content-image-1.png",
     benefits: [
-      "Unlimited student and staff accounts",
-      "Business: unlimited email accounts",
+      "Up to 100 student and staff accounts",
+      "Business: up to 100 email accounts",
       "Bring Your Own Storage",
       "Custom domain with full DNS",
       "Student data sovereignty",
@@ -348,7 +348,7 @@ export const solutions = {
     category: "For HR Departments",
     headline: "Recruitment & Team Communication",
     description:
-      "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes unlimited email accounts for $20/month.",
+      "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes up to 100 email accounts for $20/month.",
     heroImage: "/solutions/hr/section-1.png",
     accentColor: "rose",
     capabilities: [
@@ -375,20 +375,20 @@ export const solutions = {
     ],
     featureSectionTitle: "Streamline HR Communications",
     featureSectionSubtitle:
-      "From recruitment to onboarding to daily operations, Business includes unlimited email accounts for $20/month.",
+      "Business includes up to 100 email accounts for recruitment, onboarding, and daily operations at $20/month.",
     featureImage: "/solutions/hr/content-image-1.png",
     benefits: [
-      "Unlimited employee accounts",
+      "Up to 100 employee accounts on Business",
       "Automated onboarding sequences",
       "Candidate outreach campaigns",
       "Interview scheduling built in",
       "Template library for HR comms",
-      "Business remains $20/month as you hire",
+      "Business remains $20/month for up to 100 email accounts",
     ],
     pricingImage: "/solutions/hr/content-image-2.png",
     pricingTitle: "Growing Teams Shouldn't Mean Growing Email Bills",
     pricingDescription:
-      "Standard starts at $1/month. Business caps the monthly plan price at $20 with unlimited accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business costs $20/month for up to 100 email accounts.",
     perSeatComparison: 600,
   },
   nonprofit: {
@@ -396,14 +396,14 @@ export const solutions = {
     category: "For Nonprofits & NGOs",
     headline: "Mission-First Email Infrastructure",
     description:
-      "Standard starts at $1/month. Business gives nonprofits unlimited email accounts for $20/month.",
+      "Standard costs $1/month total for 5 inboxes. Business gives nonprofits up to 100 email accounts for $20/month.",
     heroImage: "/solutions/nonprofit/section-1.png",
     accentColor: "lime",
     capabilities: [
       {
         icon: "users",
-        title: "Unlimited Team",
-        description: "Business includes unlimited accounts for staff, volunteers, and board members.",
+        title: "Up to 100 Accounts",
+        description: "Business includes up to 100 email accounts for staff, volunteers, and board members.",
       },
       {
         icon: "mail",
@@ -427,16 +427,16 @@ export const solutions = {
     featureImage: "/solutions/nonprofit/content-image-1.png",
     benefits: [
       "Personal accounts use venia.cloud",
-      "Unlimited staff and volunteer accounts",
+      "Up to 100 staff and volunteer accounts",
       "Donor communication campaigns",
       "Template library included",
-      "Business: unlimited email accounts",
+      "Business: up to 100 email accounts",
       "Data sovereignty for sensitive info",
     ],
     pricingImage: "/solutions/nonprofit/content-image-2.png",
     pricingTitle: "Professional Email at Nonprofit-Friendly Pricing",
     pricingDescription:
-      "Standard starts at $1/month; Business caps the plan price at $20/month for unlimited accounts.",
+      "Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts.",
     perSeatComparison: 300,
   },
   deliverability: {

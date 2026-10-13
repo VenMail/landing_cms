@@ -59,7 +59,7 @@ export default function AboutUs() {
               Professional email for every organization.
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.
+              Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.
             </p>
             <p className="text-lg text-gray-600">
               Our mission: email infrastructure that respects budgets, privacy, and control.
@@ -131,7 +131,7 @@ export default function AboutUs() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Pay for Storage, Not Users</h3>
-              <p className="text-gray-600">Standard starts at $1/month. Business is $20/month with unlimited email accounts.</p>
+              <p className="text-gray-600">Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.</p>
             </div>
 
             <div className="text-center">

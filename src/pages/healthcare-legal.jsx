@@ -296,7 +296,7 @@ const CostComparisonSection = () => {
               <div className="text-sm text-green-600 mb-2 font-semibold">50-Person Firm</div>
               <div className="text-3xl font-bold text-gray-900 mb-1">VenMail</div>
               <div className="text-4xl font-bold text-green-600 mb-2">$20/mo</div>
-              <div className="text-sm text-gray-500">Business: unlimited email accounts and 200 GB pooled storage</div>
+              <div className="text-sm text-gray-500">Business: up to 100 email accounts and 200 GB pooled storage</div>
               <div className="text-lg font-bold text-green-700 mt-2">95% SAVINGS</div>
             </div>
           </div>
@@ -380,8 +380,8 @@ const VenmailSolutionSection = () => {
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">95% Cost Reduction</h3>
             <p className="text-gray-600 mb-4">
-              Standard starts at $1/month. Business is $20/month with unlimited email accounts.
-              $20/month for Business with unlimited email accounts, compared with illustrative per-user examples.
+              Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.
+              Business includes up to 100 email accounts, compared with illustrative per-user examples.
             </p>
             <div className="text-green-600 font-semibold">$6,960 annual savings →</div>
           </div>

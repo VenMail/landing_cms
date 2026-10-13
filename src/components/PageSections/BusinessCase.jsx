@@ -11,7 +11,7 @@ const STATS = [
     prefix: "$",
     suffix: "",
     label: "Starting monthly price",
-    description: "Five email accounts included",
+    description: "5 inboxes included — $0.20 per inbox",
   },
 ];
 
@@ -46,7 +46,7 @@ export default function BusinessCase() {
             Compare illustrative email costs
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Standard starts at $1/month. Business is $20/month with unlimited email accounts and 200 GB pooled storage.
+            Standard costs $1/month total for 5 inboxes. Business is $20/month with 200 GB pooled storage and up to 100 email accounts included.
           </p>
         </div>
 
@@ -121,13 +121,19 @@ export default function BusinessCase() {
                   </div>
                   <div className="text-xs text-gray-500">
                     {recommendation.plan === "standard"
-                      ? "Standard · five accounts included, then $1 per additional account"
-                      : "Business · unlimited accounts and 200 GB pooled storage"}
+                      ? "Standard · 5 inboxes included, then $1/month per additional inbox"
+                      : recommendation.plan === "business"
+                        ? "Business · up to 100 email accounts and 200 GB pooled storage"
+                        : `${recommendation.accounts} email accounts require a custom quote.`}
                   </div>
                 </div>
-                <div className="text-2xl font-bold text-green-700">
-                  {fmt(recommendation.amount)}<span className="text-sm font-normal text-green-600">/mo</span>
-                </div>
+                {recommendation.isQuote ? (
+                  <a href="/request-quote" className="text-lg font-bold text-green-700 underline underline-offset-4">Request a custom quote</a>
+                ) : (
+                  <div className="text-2xl font-bold text-green-700">
+                    {fmt(recommendation.amount)}<span className="text-sm font-normal text-green-600">/mo</span>
+                  </div>
+                )}
               </div>
 
               {/* Competitors */}

@@ -11,7 +11,7 @@ function Price({ plan, isNigeria }) {
   if (plan.checkout === 'quote') return <p className="mt-3 text-3xl font-medium text-gray-900">Request a quote</p>;
   const offer = getOffer(plan.id);
   return <>
-    <p className="mt-3 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/month</span></p>
+    <p className="mt-3 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/month{plan.id === 'standard' ? ' total' : ''}</span></p>
     {isNigeria && <p className="mt-2 text-sm text-gray-600">{formatNgn(offer.amount * USD_TO_NGN)}/month</p>}
   </>;
 }
@@ -44,7 +44,7 @@ export default function PricingPlans({ comparison = false }) {
         <thead><tr><th scope="col" className="p-4">Plan</th><th scope="col" className="p-4">Email accounts</th><th scope="col" className="p-4">Storage</th><th scope="col" className="p-4">Monthly price</th><th scope="col" className="p-4">Next step</th></tr></thead>
         <tbody>{PLANS.map(plan => <tr key={plan.id} className="border-t">
           <th scope="row" className="p-4">{plan.name}</th>
-          <td className="p-4">{plan.id === 'standard' ? '5 included, then $1 each' : plan.id === 'business' ? 'Unlimited' : 'Tailored'}</td>
+          <td className="p-4">{plan.id === 'standard' ? '5 included, then $1/month each' : plan.id === 'business' ? 'Up to 100 included' : 'Tailored'}</td>
           <td className="p-4">{plan.id === 'business' ? '200 GB included; upgrades or customer-provided storage' : plan.id === 'standard' ? 'Shared storage included' : 'Tailored'}</td>
           <td className="p-4">{plan.checkout === 'quote' ? 'Quote' : `${formatUsd(getOffer(plan.id).amount)}${isNigeria ? ` / ${formatNgn(getOffer(plan.id).amount * USD_TO_NGN)}` : ''}`}</td>
           <td className="p-4"><a className="underline" href={plan.checkout === 'quote' ? '/request-quote' : businessSignupUrl(plan.id)}>{plan.checkout === 'quote' ? 'Request a quote' : plan.id === 'business' ? 'Choose monthly Business' : `Choose ${plan.name}`}</a></td>

@@ -102,7 +102,7 @@ export default function Home() {
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
             </div>
-            <p className="mt-6 text-sm leading-6 text-[#5f6368]">$1/month total — includes 5 email accounts.</p>
+            <p className="mt-6 text-sm leading-6 text-[#5f6368]">From $0.20 per inbox/month. Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.</p>
             <p className="mx-auto max-w-2xl text-sm leading-6 text-[#5f6368]">No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.</p>
           </div>
 
@@ -135,7 +135,8 @@ export default function Home() {
                 <span className="block text-orange-700">@yourbusinessdomain.com</span>
               </p>
               <div className="mt-8 border-y border-[#e2cfc1] text-base font-medium text-[#202124]">
-                <p className="py-4">Unlimited email accounts</p>
+                <p className="py-4">Up to 100 email accounts included</p>
+                <p className="border-t border-[#e2cfc1] py-4">200 GB pooled storage</p>
                 <div className="border-t border-[#e2cfc1] py-4">
                   <p>Free .com domain</p>
                   <p className="mt-1 text-sm font-normal leading-6 text-[#5f6368]">Annual Business includes one .com domain free for the first year.</p>
@@ -189,14 +190,14 @@ export default function Home() {
             <div className="mt-12 grid border-y border-[#dadce0] lg:grid-cols-3">
               <article className="flex flex-col py-8 lg:pr-8">
                 <h3 className="text-xl font-semibold">Standard</h3>
-                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$1<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 email accounts included</li><li>Additional accounts: $1/account/month.</li><li>Shared storage included</li></ul>
+                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$1<span className="ml-1 text-base font-normal text-[#5f6368]">/month total</span></p>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 inboxes included — $0.20 per inbox</li><li>+$1/month per additional inbox</li><li>Shared storage included</li></ul>
                 <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_pricing_standard', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Standard</a>
               </article>
               <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:px-8">
                 <h3 className="text-xl font-semibold">Business</h3>
                 <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$20<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Unlimited email accounts</li><li>200 GB pooled storage</li><li>Annual Business includes one .com domain free for the first year.</li><li>Storage upgrades available</li></ul>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Up to 100 email accounts included</li><li>200 GB pooled storage</li><li>Annual Business includes one .com domain free for the first year.</li><li>Storage upgrades available</li></ul>
                 <a href={businessSignupUrl("business")} onClick={() => trackCTAClick('homepage_pricing_business', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-orange-700 px-5 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose monthly Business</a>
                 <a href={annualBusinessInquiryUrl} onClick={() => trackCTAClick('homepage_pricing_annual_business', 'annual_business', 'homepage_mail_first')} className="mt-4 inline-flex min-h-11 items-center justify-center text-center text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Ask about annual Business</a>
               </article>
