@@ -93,12 +93,15 @@ export default function Home() {
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
             </div>
-            <p className="mt-6 text-sm leading-6 text-[#5f6368]">Standard $1/month · 5 accounts included</p>
-            <p className="text-sm leading-6 text-[#5f6368]">Existing domain required for mailbox activation.</p>
+            <p className="mt-6 text-sm leading-6 text-[#5f6368]">$1/month total — includes 5 email accounts.</p>
+            <p className="mx-auto max-w-2xl text-sm leading-6 text-[#5f6368]">No payment required to create an account. Mailbox activation requires existing domain ownership verification and a paid plan.</p>
           </div>
 
           <div className="mx-auto mt-14 max-w-[1040px] overflow-hidden rounded-xl border border-[#dadce0] md:mt-16">
-            <Image src="/email-dashboard-preview.png" width={1802} height={905} priority sizes="(max-width: 1088px) calc(100vw - 32px), 1040px" alt="Venmail inbox" className="block h-auto w-full" />
+            <a href="/email-dashboard-preview.png" className="group block focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700">
+              <Image src="/email-dashboard-preview.png" width={1802} height={905} priority sizes="(max-width: 1088px) calc(100vw - 32px), 1040px" alt="Venmail inbox" className="block h-auto w-full" />
+              <span className="block border-t border-[#dadce0] px-4 py-3 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 group-hover:text-orange-900">Open full-size Venmail inbox image.</span>
+            </a>
           </div>
         </section>
 
@@ -137,6 +140,42 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="pricing" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Plans that fit your team</h2>
+            <p className="mt-5 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">Bring an existing domain; mailbox activation follows domain ownership and payment confirmation.</p>
+
+            <div className="mt-12 grid border-y border-[#dadce0] lg:grid-cols-3">
+              <article className="flex flex-col py-8 lg:pr-8">
+                <h3 className="text-xl font-semibold">Standard</h3>
+                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$1<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 email accounts included</li><li>Additional accounts: $1/account/month.</li><li>Shared storage included</li></ul>
+                <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_pricing_standard', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Standard</a>
+              </article>
+              <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:px-8">
+                <h3 className="text-xl font-semibold">Business</h3>
+                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$20<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Unlimited email accounts</li><li>200 GB pooled storage</li><li>Storage upgrades available</li></ul>
+                <a href={businessSignupUrl("business")} onClick={() => trackCTAClick('homepage_pricing_business', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-orange-700 px-5 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Business</a>
+              </article>
+              <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:pl-8">
+                <h3 className="text-xl font-semibold">Enterprise</h3>
+                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">Quote</p>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>White-label requirements</li><li>Migration and onboarding</li><li>Storage and security design</li></ul>
+                <a href="/request-quote" className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Request a quote</a>
+              </article>
+            </div>
+
+            <details className="border-b border-[#dadce0] text-sm leading-6 text-[#5f6368]">
+              <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-5 py-4 font-semibold text-[#202124] marker:content-none focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700">Other payment methods <span aria-hidden="true" className="text-2xl font-normal text-[#5f6368]">+</span></summary>
+              <div className="pb-6">
+                <p>USDC/USDT payments are available through Venmail Billing. Contact us for the amount, supported network, and payment confirmation steps before sending funds.</p>
+                <a href="/contact-us" className="mt-2 inline-block font-semibold text-[#202124] underline underline-offset-4">Arrange USDC or USDT payment</a>
+              </div>
+            </details>
+          </div>
+        </section>
+
         <section id="spam-control" className="scroll-mt-24 border-t border-[#dadce0] bg-[#f8f9fa] px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:gap-16">
             <article>
@@ -170,10 +209,10 @@ export default function Home() {
                     <p className="px-5 pt-4 text-sm font-medium text-[#5f6368] sm:px-6">200 response excerpt</p>
                     <pre className="overflow-x-auto p-5 pt-3 text-[13px] leading-6 text-[#202124] sm:px-6 sm:pb-6 sm:text-sm"><code>{apiResponse}</code></pre>
                   </div>
+                  <p className="border-t border-[#dadce0] px-5 py-4 text-sm leading-6 text-[#5f6368] sm:px-6">A successful response means Venmail accepted the message for sending. It does not confirm inbox placement.</p>
                 </div>
               </details>
             </div>
-            <p className="mt-5 text-sm leading-6 text-[#5f6368]">A successful response means Venmail accepted the message for sending. It does not confirm inbox placement.</p>
           </div>
         </section>
 
@@ -189,39 +228,6 @@ export default function Home() {
                   <span>{label}</span><span className="shrink-0 text-orange-800 transition-transform group-hover:translate-x-1"><ArrowIcon /></span>
                 </a>
               ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="pricing" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Plans that fit your team</h2>
-            <p className="mt-5 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">Bring an existing domain; mailbox activation follows domain ownership and payment confirmation.</p>
-
-            <div className="mt-12 grid border-y border-[#dadce0] lg:grid-cols-3">
-              <article className="flex flex-col py-8 lg:pr-8">
-                <h3 className="text-xl font-semibold">Standard</h3>
-                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$1<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 email accounts included</li><li>$1 each additional</li><li>Shared storage included</li></ul>
-                <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_pricing_standard', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Standard</a>
-              </article>
-              <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:px-8">
-                <h3 className="text-xl font-semibold">Business</h3>
-                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$20<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Unlimited email accounts</li><li>200 GB pooled storage</li><li>Storage upgrades available</li></ul>
-                <a href={businessSignupUrl("business")} onClick={() => trackCTAClick('homepage_pricing_business', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-orange-700 px-5 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Business</a>
-              </article>
-              <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:pl-8">
-                <h3 className="text-xl font-semibold">Enterprise</h3>
-                <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">Quote</p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>White-label requirements</li><li>Migration and onboarding</li><li>Storage and security design</li></ul>
-                <a href="/request-quote" className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Request a quote</a>
-              </article>
-            </div>
-
-            <div className="border-b border-[#dadce0] py-6 text-sm leading-6 text-[#5f6368]">
-              <p>USDC/USDT payments are available through Venmail Billing. Contact us for the amount, supported network, and payment confirmation steps before sending funds.</p>
-              <a href="/contact-us" className="mt-2 inline-block font-semibold text-[#202124] underline underline-offset-4">Arrange USDC or USDT payment</a>
             </div>
           </div>
         </section>

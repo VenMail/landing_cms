@@ -17,13 +17,17 @@ for (const text of [
   'Business email.',
   'Built for the inbox.',
   'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.',
+  '$1/month total — includes 5 email accounts.',
+  'No payment required to create an account. Mailbox activation requires existing domain ownership verification and a paid plan.',
   '/email-dashboard-preview.png',
+  'Open full-size Venmail inbox image.',
   'Inbox placement comes first',
   'Inbox placement strategy',
   'See email opens',
   'Privacy settings can hide or add opens, so counts are estimates.',
   'Get follow-up suggestions',
   'Quotes, invoices, and customer questions',
+  'Other payment methods',
   'Filter unwanted incoming mail',
   'Manage customer conversations',
   'POST https://m.venmail.io/api/v1/agent/messages',
@@ -31,6 +35,7 @@ for (const text of [
   'Plans that fit your team',
   'What do I need to create an account?',
 ]) assert.ok(homepage.includes(text), `homepage: ${text}`);
+assert.ok(homepage.indexOf('Plans that fit your team') < homepage.indexOf('Filter unwanted incoming mail'), 'homepage: pricing follows primary use cases');
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
 assert.ok(homepage.includes('/request-quote'), 'homepage: migration and enterprise quote linked');
 for (const route of ['contacts', 'calendar', 'meeting', 'booking', 'email-automation']) {

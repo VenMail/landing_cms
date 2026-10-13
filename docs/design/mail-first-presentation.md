@@ -13,6 +13,13 @@
 - Use an 8px spacing rhythm, 80–104px desktop section spacing, 48–64px mobile section spacing, and 1080–1180px content containers. Controls should be at least 44px high, with 8–10px corner radii.
 - Avoid gradients, decorative browser chrome, pill-heavy layouts, heavy shadows, fabricated badges or stats, fake customer logos, and colored panels that compete with product evidence.
 
+## Conversion audit findings
+
+- Put pricing directly after the three practical use cases so the commercial decision follows the primary value case.
+- Keep one persistent 44px signup target at mobile widths; switch to the existing desktop account actions at `sm` without duplicate hidden tab stops.
+- Link the authentic inbox capture directly to its full-size source and give that link a visible caption.
+- Keep secondary payment guidance and the API sample caveat inside native disclosure controls so closed details do not compete with the primary offer.
+
 ## Claims and content boundaries
 
 - Lead with practical customer-email outcomes: inbox placement strategy, estimated open counts when tracking is enabled, and reviewable follow-up drafts. Follow immediately with quotes, invoices, and customer questions. Incoming filtering comes second; customer conversations, programmatic mail, and the wider operations suite remain supporting capabilities.

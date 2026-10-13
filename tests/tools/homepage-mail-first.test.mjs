@@ -12,8 +12,8 @@ test('homepage leads with practical mail outcomes and account conditions', async
   assert.match(homepage, /Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one\./);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
-  assert.match(homepage, /Standard \$1\/month · 5 accounts included/);
-  assert.match(homepage, /Existing domain required for mailbox activation\./);
+  assert.match(homepage, /\$1\/month total — includes 5 email accounts\./);
+  assert.match(homepage, /No payment required to create an account\. Mailbox activation requires existing domain ownership verification and a paid plan\./);
 });
 
 test('homepage uses the real Venmail inbox asset without recreating product chrome', async () => {
@@ -23,6 +23,8 @@ test('homepage uses the real Venmail inbox asset without recreating product chro
   assert.match(homepage, /width=\{1802\}/);
   assert.match(homepage, /height=\{905\}/);
   assert.match(homepage, /alt="Venmail inbox"/);
+  assert.match(homepage, /href="\/email-dashboard-preview\.png"/);
+  assert.match(homepage, /Open full-size Venmail inbox image\./);
   assert.doesNotMatch(homepage, /MailExample|Customer inquiry|Server accepted|simulated|Policy missing|fake|browser-dot/i);
   assert.doesNotMatch(homepage, /mail\.png|screenshot-full\.webp/);
 });
@@ -75,6 +77,7 @@ test('homepage API excerpt matches the verified agent message contract', async (
   assert.match(homepage, /"held_for_review": false/);
   assert.match(homepage, /200 response excerpt/);
   assert.match(homepage, /https:\/\/m\.venmail\.io\/docs\/agents/);
+  assert.ok(homepage.indexOf('A successful response means Venmail accepted the message for sending.') < homepage.indexOf('</details>', homepage.indexOf('API request and 200 response excerpt')));
   assert.doesNotMatch(homepage, /webhook/i);
 });
 
@@ -94,11 +97,13 @@ test('homepage pricing uses approved offers, signup helpers, quote, and crypto p
   assert.match(homepage, /Plans that fit your team/);
   assert.match(homepage, /businessSignupUrl\("standard"\)/);
   assert.match(homepage, /businessSignupUrl\("business"\)/);
-  assert.match(homepage, /\$1 each additional/);
+  assert.match(homepage, /Additional accounts: \$1\/account\/month\./);
   assert.match(homepage, /\$20/);
   assert.match(homepage, /200 GB pooled/);
   assert.match(homepage, /href="\/request-quote"/);
   assert.match(homepage, /USDC\/USDT payments are available through Venmail Billing/);
+  assert.match(homepage, /<summary[^>]*>Other payment methods/);
+  assert.ok(homepage.indexOf('Plans that fit your team') < homepage.indexOf('Filter unwanted incoming mail'));
 });
 
 test('homepage navigation reaches delivery and incoming spam sections', async () => {
@@ -114,6 +119,11 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/resources/terms-of-service', '/resources/privacy-policy']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
+  assert.match(source, />Sign up<\/a>/);
+  assert.match(source, /homepage_mobile_header/);
+  assert.match(source, /className="relative lg:hidden"/);
+  assert.match(source, /className="hidden items-center gap-4 sm:flex"/);
+  assert.doesNotMatch(source, /homepage_mobile_nav/);
 });
 
 test('homepage FAQ uses native disclosure controls and approved answers', async () => {
