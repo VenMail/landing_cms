@@ -158,6 +158,19 @@ for (const url of sitemapUrls) {
 }
 
 for (const [sourceRoute, html] of exportedHtml) {
+  for (const match of html.matchAll(/<img\b[^>]*\ssrc=(["'])(.*?)\1/g)) {
+    const src = match[2].replaceAll('&amp;', '&');
+    let target;
+    try {
+      target = new URL(src, `https://venmail.io${sourceRoute}`);
+    } catch {
+      continue;
+    }
+    if (target.hostname !== 'venmail.io' || !['http:', 'https:'].includes(target.protocol)) continue;
+    const response = await exportedRequest(target.href, 'HEAD');
+    assert.equal(response.status, 200, `${sourceRoute}: image ${target.pathname} exists in the export`);
+  }
+
   for (const match of html.matchAll(/\shref=(["'])(.*?)\1/g)) {
     const href = match[2].replaceAll('&amp;', '&');
     if (!href || href.startsWith('#')) continue;
