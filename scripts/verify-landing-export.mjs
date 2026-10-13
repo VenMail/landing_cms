@@ -34,6 +34,12 @@ for (const text of [
   'Work beyond email',
   'Plans that fit your team',
   'What do I need to create an account?',
+  '8,000+',
+  'Email accounts',
+  'As of 13 October 2026',
+  'Reported web uptime',
+  '90-day reporting window',
+  'Web availability for venmail.io, m.venmail.io, and venia.cloud',
 ]) assert.ok(homepage.includes(text), `homepage: ${text}`);
 assert.ok(homepage.indexOf('Plans that fit your team') < homepage.indexOf('Filter unwanted incoming mail'), 'homepage: pricing follows primary use cases');
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
@@ -43,6 +49,7 @@ for (const route of ['contacts', 'calendar', 'meeting', 'booking', 'email-automa
 }
 assert.ok(!/webhook|Bring your own storage|BYOS/i.test(homepage), 'homepage: unsupported API and storage claims absent');
 assert.ok(!/Customer inquiry|Server accepted|simulated only|Review needed|Policy missing/i.test(homepage), 'homepage: simulated product and delivery states absent');
+assert.ok(!/active users|paid customers|live status|uptime guarantee|SMTP uptime/i.test(homepage), 'homepage: trust snapshots avoid broader claims');
 for (const plan of ['standard', 'business']) {
   assert.ok(pricing.includes(`type=business&amp;plan=${plan}`), `${plan}: signup intent rendered`);
 }

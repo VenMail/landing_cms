@@ -29,3 +29,8 @@
 - Incoming filtering may describe content and sender-pattern checks, Spam routing, and optional AI review. Do not present AI review as mandatory or imply a specific probability threshold.
 - API examples must match the verified agent messages contract. Label responses as excerpts and describe server acceptance without treating it as inbox proof.
 - Pricing, domain activation conditions, cryptocurrency guidance, signup attribution, and destination URLs must continue to come from the established pricing and signup configuration.
+
+## Public trust claim provenance
+
+- `8,000+ Email accounts — As of 13 October 2026` comes from a production aggregate across 153 Employee shards: 8,188 non-deleted records with `kind=human`. The public claim excludes assistant accounts, shared accounts, records with unset kinds, activity, payment status, and customer or person counts. Only the aggregate and snapshot date are public.
+- `100% Reported web uptime — 90-day reporting window` is a dated Pulsetic snapshot for `venmail.io`, `m.venmail.io`, and `venia.cloud` as of 13 October 2026. It describes web availability only and is not an SMTP, delivery, or SLA claim.

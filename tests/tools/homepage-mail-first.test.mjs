@@ -116,7 +116,7 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   for (const [label, href] of [['Delivery', '#delivery'], ['Spam control', '#spam-control'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
     assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
   }
-  for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/resources/terms-of-service', '/resources/privacy-policy']) {
+  for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   assert.match(source, />Sign up<\/a>/);
@@ -124,6 +124,12 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   assert.match(source, /className="relative lg:hidden"/);
   assert.match(source, /className="hidden items-center gap-4 sm:flex"/);
   assert.doesNotMatch(source, /homepage_mobile_nav/);
+  assert.match(source, /8,000\+/);
+  assert.match(source, /Email accounts/);
+  assert.match(source, /100%/);
+  assert.match(source, /Reported web uptime/);
+  assert.match(source, /Web availability for venmail\.io, m\.venmail\.io, and venia\.cloud/);
+  assert.doesNotMatch(source, /active users|paid customers|live status|uptime guarantee|SMTP uptime/i);
 });
 
 test('homepage FAQ uses native disclosure controls and approved answers', async () => {
