@@ -46,10 +46,10 @@ const useCases = [
 ];
 
 const suiteItems = [
-  ['Contacts', '/product/contacts'],
+  ['Campaigns', '/solutions/marketing'],
   ['Calendar', '/product/calendar'],
   ['Meetings', '/product/meeting'],
-  ['Bookings', '/product/booking'],
+  ['Appointments', '/product/booking'],
   ['Email automation', '/product/email-automation'],
 ];
 
@@ -265,7 +265,7 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="max-w-3xl">
               <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Work beyond email</h2>
-              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Contacts, Calendar, Meetings, Bookings, and Email automation support customer communication.</p>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Campaigns, Calendar, Meetings, Appointments, and Email automation support customer communication.</p>
             </div>
             <div className="mt-10 grid border-y border-[#dadce0] sm:grid-cols-2 lg:grid-cols-5">
               {suiteItems.map(([label, href], index) => (

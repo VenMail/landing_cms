@@ -6,9 +6,9 @@ const footerGroups = [
   ['Products', [
     ['Mail', '/product/mail'],
     ['Calendar', '/product/calendar'],
-    ['Contacts', '/product/contacts'],
+    ['Campaigns', '/solutions/marketing'],
     ['Meetings', '/product/meeting'],
-    ['Bookings', '/product/booking'],
+    ['Appointments', '/product/booking'],
     ['Email automation', '/product/email-automation'],
     ['Email-to-Action', '/product/email-to-action'],
   ]],
