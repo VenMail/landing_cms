@@ -1,0 +1,21 @@
+# Mail-first homepage presentation
+
+## Product evidence
+
+- The homepage must use authentic Venmail product captures. Fabricated screenshots, reconstructed inboxes, simulated customer messages, and simulated delivery-result panels are prohibited.
+- The approved homepage image is `public/email-dashboard-preview.png`. It was added in commit `4663280` (`Improve landing`) and is presented without a browser, device, or decorative overlay.
+- Future imagery must come from an authentic product capture. Do not generate or reconstruct product interfaces for marketing use.
+
+## Visual direction
+
+- Use a white canvas, charcoal text (`#202124`), secondary text (`#5f6368`), and fine neutral rules (`#dadce0`). Reserve Venmail orange for the logo, primary actions, links, and small accents. White text on orange actions requires an accessible orange such as Tailwind `orange-700`.
+- Load Inter through `next/font/google` at weights 400, 500, and 600. Keep headings at 600 or below. Desktop hero headings should be 56–64px with about 1.1 line height and modest negative tracking; section headings should be 36–40px. Body copy should be approximately 18px with 1.65 line height.
+- Use an 8px spacing rhythm, 80–104px desktop section spacing, 48–64px mobile section spacing, and 1080–1180px content containers. Controls should be at least 44px high, with 8–10px corner radii.
+- Avoid gradients, decorative browser chrome, pill-heavy layouts, heavy shadows, fabricated badges or stats, fake customer logos, and colored panels that compete with product evidence.
+
+## Claims and content boundaries
+
+- Present business mail first. Customer conversations, delivery diagnostics, programmatic mail, and the wider operations suite remain supporting capabilities.
+- Delivery copy may describe SPF, DKIM, DMARC, and email-header diagnostics. It must not promise inbox placement, premium delivery, uptime certifications, or outcomes controlled by recipient systems.
+- API examples must match the verified agent messages contract. Label responses as excerpts and describe server acceptance without treating it as inbox proof.
+- Pricing, domain activation conditions, cryptocurrency guidance, signup attribution, and destination URLs must continue to come from the established pricing and signup configuration.

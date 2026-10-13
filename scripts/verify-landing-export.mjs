@@ -14,16 +14,19 @@ for (const route of ['', 'pricing', 'resources/privacy-policy', 'resources/ai-pr
 const pricing = fs.readFileSync('out/pricing.html', 'utf8');
 const homepage = fs.readFileSync('out/index.html', 'utf8');
 for (const text of [
-  'Send and receive from your business domain',
-  'Customer inquiry',
-  'Improve delivery with clear diagnostics',
+  'Business email on your domain',
+  'Professional business email for clearer customer conversations and smoother daily operations.',
+  '/email-dashboard-preview.png',
+  'Understand delivery issues',
   'POST https://m.venmail.io/api/v1/agent/messages',
-  'No real email was sent. Server acceptance does not confirm inbox placement.',
+  'Plans that fit your team',
+  'What do I need to create an account?',
 ]) assert.ok(homepage.includes(text), `homepage: ${text}`);
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
 assert.ok(homepage.includes('/tools/email-header-analyzer'), 'homepage: header analyzer linked');
 assert.ok(homepage.includes('/request-quote'), 'homepage: migration and enterprise quote linked');
 assert.ok(!/webhook|Bring your own storage|BYOS/i.test(homepage), 'homepage: unsupported API and storage claims absent');
+assert.ok(!/Customer inquiry|Server accepted|simulated only|Review needed|Policy missing/i.test(homepage), 'homepage: simulated product and delivery states absent');
 for (const plan of ['standard', 'business']) {
   assert.ok(pricing.includes(`type=business&amp;plan=${plan}`), `${plan}: signup intent rendered`);
 }
