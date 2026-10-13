@@ -4,8 +4,8 @@ import { trackCTAClick } from '@/utils/trackConversion';
 import { closeDetailsMenu } from './mobileMenuState.mjs';
 
 const links = [
-  ['Business mail', '#business-mail'],
-  ['Deliverability', '#deliverability'],
+  ['Delivery', '#delivery'],
+  ['Spam control', '#spam-control'],
   ['Developers', '#developers'],
   ['Pricing', '#pricing'],
 ];

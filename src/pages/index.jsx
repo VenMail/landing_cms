@@ -28,7 +28,25 @@ const apiResponse = `{
   "held_for_review": false
 }`;
 
+const deliverySignals = [
+  ['Authenticate your domain', 'SPF, DKIM, and DMARC help verify your sending identity.', 'shield'],
+  ['Check outgoing spam risks', 'Content and sending-pattern checks detect potential spam risks before sending.', 'check'],
+  ['Investigate delivery problems', 'Email-header analysis clarifies what happened when a message does not arrive as expected.', 'search'],
+];
+
+const suiteItems = [
+  ['Contacts', '/product/contacts'],
+  ['Calendar', '/product/calendar'],
+  ['Meetings', '/product/meeting'],
+  ['Bookings', '/product/booking'],
+  ['Email automation', '/product/email-automation'],
+];
+
 const faqs = [
+  {
+    question: 'How does Venmail help delivery?',
+    answer: 'Domain authentication, outgoing checks, and header analysis support responsible sending and diagnosis. Recipient systems and sender reputation still determine inbox placement.',
+  },
   {
     question: 'What do I need to create an account?',
     answer: 'Enter your name, existing email address, and password. A domain is required before activation.',
@@ -37,14 +55,20 @@ const faqs = [
     question: 'When does service activate?',
     answer: 'Activation follows domain ownership verification and payment.',
   },
-  {
-    question: 'Do you guarantee inbox placement?',
-    answer: 'No. Inbox placement depends on recipient systems, sender practices, authentication, content, and reputation. Venmail provides diagnostics for SPF, DKIM, DMARC, and email headers.',
-  },
 ];
 
 function ArrowIcon() {
   return <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-4 w-4"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
+function SignalIcon({ type }) {
+  if (type === 'shield') {
+    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M12 3.5 19 6v5.3c0 4.2-2.7 7.5-7 9.2-4.3-1.7-7-5-7-9.2V6l7-2.5Z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /><path d="m8.7 12 2.1 2.1 4.5-4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  }
+  if (type === 'check') {
+    return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><path d="M4 7.5h16M7 12h10M9.5 16.5h5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M18.5 4.5 20 6l2.5-2.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+  }
+  return <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" className="h-6 w-6"><circle cx="10.5" cy="10.5" r="5.5" stroke="currentColor" strokeWidth="1.6" /><path d="m15 15 5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /><path d="M8 10.5h5M10.5 8v5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>;
 }
 
 export default function Home() {
@@ -52,10 +76,13 @@ export default function Home() {
     <div className={`${inter.className} bg-white text-[#202124]`}>
       <MailFirstHeader />
       <main id="main-content">
-        <section className="px-4 pb-16 pt-16 sm:px-6 md:pb-24 md:pt-24">
+        <section className="px-4 pb-16 pt-16 sm:px-6 sm:pt-20 md:pb-24 md:pt-24">
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-[42px] font-semibold leading-[1.1] tracking-[-0.025em] sm:text-[50px] md:text-[60px]">Business email on your domain</h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">Professional business email for clearer customer conversations and smoother daily operations.</p>
+            <h1 className="text-[40px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[50px] md:text-[60px]">
+              <span className="block">Business email.</span>
+              <span className="block text-orange-700">Built for the inbox.</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Outgoing spam checks and domain authentication help your emails reach customers. Incoming filtering keeps unwanted mail in check.</p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
@@ -69,52 +96,79 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="business-mail" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="max-w-2xl text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Business mail</h2>
-            <div className="mt-12 grid gap-10 md:grid-cols-2 md:gap-16">
-              <article className="border-t border-[#dadce0] pt-7">
-                <h3 className="text-2xl font-semibold tracking-[-0.015em]">Send from your domain</h3>
-                <p className="mt-4 max-w-lg text-lg leading-[1.65] text-[#5f6368]">Branded addresses give customer conversations and daily operations a credible sender.</p>
-              </article>
-              <article className="border-t border-[#dadce0] pt-7">
-                <h3 className="text-2xl font-semibold tracking-[-0.015em]">Connect mail to your workflow</h3>
-                <p className="mt-4 max-w-lg text-lg leading-[1.65] text-[#5f6368]">Applications, helpdesks, and CRM follow-up stay aligned with customer conversations.</p>
-              </article>
+        <section id="delivery" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+            <div>
+              <p className="text-sm font-semibold text-orange-800">Outgoing email</p>
+              <h2 className="mt-3 max-w-md text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Outgoing spam checks</h2>
+              <a href="/tools/email-header-analyzer" className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Analyze email headers <ArrowIcon /></a>
+            </div>
+            <div className="border-b border-[#dadce0]">
+              {deliverySignals.map(([title, text, icon]) => (
+                <article key={title} className="flex gap-5 border-t border-[#dadce0] py-7 sm:gap-6 sm:py-8">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-orange-800"><SignalIcon type={icon} /></span>
+                  <div>
+                    <h3 className="text-xl font-semibold tracking-[-0.01em]">{title}</h3>
+                    <p className="mt-2 max-w-2xl text-base leading-7 text-[#5f6368]">{text}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="deliverability" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
-            <div>
-              <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Understand delivery issues</h2>
-              <p className="mt-5 max-w-xl text-lg leading-[1.65] text-[#5f6368]">Authentication and email-header analysis clarify what happened when a message does not arrive as expected.</p>
-            </div>
-            <div className="border-t border-[#dadce0] pt-7 md:mt-1">
-              <h3 className="text-xl font-semibold">Delivery signals</h3>
-              <p className="mt-4 text-lg leading-[1.65] text-[#5f6368]">Review authentication results and message headers when delivery needs investigation.</p>
-              <a href="/tools/email-header-analyzer" className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Analyze email headers <ArrowIcon /></a>
-              <p className="mt-4 text-sm leading-6 text-[#5f6368]">Authentication checks identify configuration issues; they do not guarantee inbox placement.</p>
-            </div>
+        <section id="spam-control" className="scroll-mt-24 border-t border-[#dadce0] bg-[#f8f9fa] px-4 py-16 sm:px-6 md:py-24">
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:gap-16">
+            <article>
+              <p className="text-sm font-semibold text-orange-800">Incoming email</p>
+              <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Filter unwanted incoming mail</h2>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Incoming messages are checked for content and sender patterns, with suspicious messages routed to Spam and optional AI review.</p>
+            </article>
+            <article className="border-t border-[#dadce0] pt-7 md:border-l md:border-t-0 md:pl-16 md:pt-0">
+              <p className="text-sm font-semibold text-orange-800">Helpdesk and CRM follow-up</p>
+              <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Manage customer conversations</h2>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Route customer conversations to the team responsible for the next response.</p>
+            </article>
           </div>
         </section>
 
         <section id="developers" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
-          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16">
-            <div>
-              <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Programmatic mail</h2>
-              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Send authenticated messages through SMTP or API requests.</p>
-              <p className="mt-5 text-sm leading-6 text-[#5f6368]">A successful response means Venmail accepted the message for sending. It does not confirm inbox placement.</p>
-              <a href="https://m.venmail.io/docs/agents" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900">API documentation · sign-in required <ArrowIcon /></a>
-            </div>
-            <div className="overflow-hidden rounded-xl border border-[#dadce0] bg-[#f8f9fa]">
-              <div className="flex items-center justify-between border-b border-[#dadce0] px-5 py-3 text-sm font-medium text-[#5f6368]"><span>Request</span><span>mail:send</span></div>
-              <pre className="overflow-x-auto p-5 text-[13px] leading-6 text-[#202124] sm:p-6 sm:text-sm"><code>{apiRequest}</code></pre>
-              <div className="border-t border-[#dadce0] bg-white">
-                <p className="px-5 pt-4 text-sm font-medium text-[#5f6368] sm:px-6">200 response excerpt</p>
-                <pre className="overflow-x-auto p-5 pt-3 text-[13px] leading-6 text-[#202124] sm:px-6 sm:pb-6 sm:text-sm"><code>{apiResponse}</code></pre>
+          <div className="mx-auto max-w-6xl">
+            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16">
+              <div>
+                <p className="text-sm font-semibold text-orange-800">SMTP and API</p>
+                <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Send from your applications</h2>
+                <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Send email from your applications through SMTP or API.</p>
+                <a href="https://m.venmail.io/docs/agents" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900">API documentation · sign-in required <ArrowIcon /></a>
               </div>
+              <details className="overflow-hidden rounded-xl border border-[#dadce0] bg-[#f8f9fa]">
+                <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-5 px-5 text-base font-medium marker:content-none focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700 sm:px-6">API request and 200 response excerpt <span aria-hidden="true" className="text-2xl font-normal text-[#5f6368]">+</span></summary>
+                <div className="border-t border-[#dadce0]">
+                  <div className="flex items-center justify-between border-b border-[#dadce0] px-5 py-3 text-sm font-medium text-[#5f6368] sm:px-6"><span>Request</span><span>mail:send</span></div>
+                  <pre className="overflow-x-auto p-5 text-[13px] leading-6 text-[#202124] sm:p-6 sm:text-sm"><code>{apiRequest}</code></pre>
+                  <div className="border-t border-[#dadce0] bg-white">
+                    <p className="px-5 pt-4 text-sm font-medium text-[#5f6368] sm:px-6">200 response excerpt</p>
+                    <pre className="overflow-x-auto p-5 pt-3 text-[13px] leading-6 text-[#202124] sm:px-6 sm:pb-6 sm:text-sm"><code>{apiResponse}</code></pre>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <p className="mt-5 text-sm leading-6 text-[#5f6368]">A successful response means Venmail accepted the message for sending. It does not confirm inbox placement.</p>
+          </div>
+        </section>
+
+        <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-3xl">
+              <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Work beyond email</h2>
+              <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Contacts, Calendar, Meetings, Bookings, and Email automation support customer communication.</p>
+            </div>
+            <div className="mt-10 grid border-y border-[#dadce0] sm:grid-cols-2 lg:grid-cols-5">
+              {suiteItems.map(([label, href], index) => (
+                <a key={href} href={href} className={`group flex min-h-20 items-center justify-between gap-3 py-5 text-base font-medium text-[#202124] ${index ? 'border-t border-[#dadce0] lg:border-l lg:border-t-0' : ''} ${index % 2 ? 'sm:border-l' : ''} ${index === 1 ? 'sm:border-t-0' : ''} sm:px-5 first:sm:pl-0 first:lg:pl-0`}>
+                  <span>{label}</span><span className="shrink-0 text-orange-800 transition-transform group-hover:translate-x-1"><ArrowIcon /></span>
+                </a>
+              ))}
             </div>
           </div>
         </section>
@@ -152,19 +206,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Tools for daily operations</h2>
-            <div className="mt-10 grid border-y border-[#dadce0] sm:grid-cols-2">
-              <a href="/product/contacts" className="group flex min-h-20 items-center justify-between py-5 text-lg font-medium text-[#202124] sm:pr-8">Contacts <span className="text-orange-800 transition-transform group-hover:translate-x-1"><ArrowIcon /></span></a>
-              <a href="/product/calendar" className="group flex min-h-20 items-center justify-between border-t border-[#dadce0] py-5 text-lg font-medium text-[#202124] sm:border-l sm:border-t-0 sm:pl-8">Calendar <span className="text-orange-800 transition-transform group-hover:translate-x-1"><ArrowIcon /></span></a>
-            </div>
-          </div>
-        </section>
-
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Account and activation</h2>
+            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Account and delivery</h2>
             <div className="mt-10 border-y border-[#dadce0]">
               {faqs.map((item, index) => (
                 <details key={item.question} className={index ? 'border-t border-[#dadce0]' : ''}>
@@ -176,10 +220,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-t border-[#dadce0] px-4 py-16 text-center sm:px-6 md:py-24">
+        <section className="bg-[#202124] px-4 py-16 text-center text-white sm:px-6 md:py-24">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Put business mail on your domain</h2>
-            <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_final', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
+            <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Business email. <span className="text-orange-400">Built for the inbox.</span></h2>
+            <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_final', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:ring-offset-2 focus:ring-offset-[#202124]">Create your account <ArrowIcon /></a>
           </div>
         </section>
       </main>

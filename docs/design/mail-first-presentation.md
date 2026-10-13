@@ -15,7 +15,8 @@
 
 ## Claims and content boundaries
 
-- Present business mail first. Customer conversations, delivery diagnostics, programmatic mail, and the wider operations suite remain supporting capabilities.
-- Delivery copy may describe SPF, DKIM, DMARC, and email-header diagnostics. It must not promise inbox placement, premium delivery, uptime certifications, or outcomes controlled by recipient systems.
+- Lead with outgoing spam checks and domain authentication. Incoming filtering comes second; customer conversations, programmatic mail, and the wider operations suite remain supporting capabilities.
+- Delivery copy may describe outbound content and sending-pattern checks, SPF, DKIM, DMARC, and email-header diagnostics. Enforcement mode is not verified, so do not claim that outgoing messages are automatically held or blocked. Do not promise inbox placement, premium delivery, uptime certifications, or outcomes controlled by recipient systems.
+- Incoming filtering may describe content and sender-pattern checks, Spam routing, and optional AI review. Do not present AI review as mandatory or imply a specific probability threshold.
 - API examples must match the verified agent messages contract. Label responses as excerpts and describe server acceptance without treating it as inbox proof.
 - Pricing, domain activation conditions, cryptocurrency guidance, signup attribution, and destination URLs must continue to come from the established pricing and signup configuration.

@@ -4,11 +4,13 @@ import test from 'node:test';
 
 const readSource = path => readFile(new URL(path, import.meta.url), 'utf8');
 
-test('homepage leads with the approved domain-mail offer and account conditions', async () => {
+test('homepage leads with outgoing spam control and account conditions', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
-  assert.match(homepage, /Business email on your domain/);
-  assert.match(homepage, /Professional business email for clearer customer conversations and smoother daily operations\./);
+  assert.match(homepage, /Business email\./);
+  assert.match(homepage, /Built for the inbox\./);
+  assert.match(homepage, /Outgoing spam checks and domain authentication help your emails reach customers\./);
+  assert.match(homepage, /Incoming filtering keeps unwanted mail in check\./);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
   assert.match(homepage, /Standard \$1\/month · 5 accounts included/);
@@ -42,15 +44,22 @@ test('homepage loads restrained Inter typography and avoids rejected visual trea
   assert.doesNotMatch(source, /#0d252c|#102d35|#fffdf9|#edf4f3/);
 });
 
-test('homepage keeps delivery investigation factual and links the real analyzer', async () => {
+test('homepage presents outgoing safeguards before incoming filtering', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
-  assert.match(homepage, /Understand delivery issues/);
-  assert.match(homepage, /Authentication and email-header analysis clarify what happened when a message does not arrive as expected\./);
-  assert.match(homepage, /Review authentication results and message headers when delivery needs investigation\./);
+  for (const text of ['Authenticate your domain', 'Check outgoing spam risks', 'Investigate delivery problems', 'Filter unwanted incoming mail']) {
+    assert.match(homepage, new RegExp(text));
+  }
+  assert.ok(homepage.indexOf('Check outgoing spam risks') < homepage.indexOf('Filter unwanted incoming mail'));
   assert.match(homepage, /href="\/tools\/email-header-analyzer"/);
-  assert.match(homepage, /they do not guarantee inbox placement/);
-  assert.doesNotMatch(homepage, />Pass<|Review needed|Policy missing/);
+  assert.doesNotMatch(homepage, /automatically (?:hold|block)|>Pass<|Review needed|Policy missing/i);
+});
+
+test('homepage keeps customer conversation ownership visible', async () => {
+  const homepage = await readSource('../../src/pages/index.jsx');
+
+  assert.match(homepage, /Manage customer conversations/);
+  assert.match(homepage, /Helpdesk and CRM follow-up/);
 });
 
 test('homepage API excerpt matches the verified agent message contract', async () => {
@@ -67,6 +76,16 @@ test('homepage API excerpt matches the verified agent message contract', async (
   assert.doesNotMatch(homepage, /webhook/i);
 });
 
+test('homepage links the verified operations suite', async () => {
+  const homepage = await readSource('../../src/pages/index.jsx');
+
+  assert.match(homepage, /Work beyond email/);
+  for (const href of ['/product/contacts', '/product/calendar', '/product/meeting', '/product/booking', '/product/email-automation']) {
+    assert.match(homepage, new RegExp(`['\"]${href}['\"]`));
+  }
+  assert.doesNotMatch(homepage, /href="\/product\/files"/);
+});
+
 test('homepage pricing uses approved offers, signup helpers, quote, and crypto paths', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
@@ -80,14 +99,14 @@ test('homepage pricing uses approved offers, signup helpers, quote, and crypto p
   assert.match(homepage, /USDC\/USDT payments are available through Venmail Billing/);
 });
 
-test('homepage navigation and footer preserve approved destinations', async () => {
+test('homepage navigation reaches delivery and incoming spam sections', async () => {
   const files = await Promise.all([
     readSource('../../src/components/home/MailFirstHeader.jsx'),
     readSource('../../src/components/home/MailFirstFooter.jsx'),
   ]);
   const source = files.join('\n');
 
-  for (const [label, href] of [['Business mail', '#business-mail'], ['Deliverability', '#deliverability'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
+  for (const [label, href] of [['Delivery', '#delivery'], ['Spam control', '#spam-control'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
     assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
   }
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/resources/terms-of-service', '/resources/privacy-policy']) {
@@ -104,8 +123,8 @@ test('homepage FAQ uses native disclosure controls and approved answers', async 
   assert.match(homepage, /Enter your name, existing email address, and password\. A domain is required before activation\./);
   assert.match(homepage, /When does service activate\?/);
   assert.match(homepage, /Activation follows domain ownership verification and payment\./);
-  assert.match(homepage, /Do you guarantee inbox placement\?/);
-  assert.match(homepage, /No\. Inbox placement depends on recipient systems, sender practices, authentication, content, and reputation\./);
+  assert.match(homepage, /How does Venmail help delivery\?/);
+  assert.match(homepage, /Domain authentication, outgoing checks, and header analysis support responsible sending and diagnosis\. Recipient systems and sender reputation still determine inbox placement\./);
 });
 
 test('homepage copy avoids interface narration and unsupported delivery promises', async () => {
