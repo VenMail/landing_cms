@@ -29,7 +29,7 @@ export default function CostComparisonSlider({ hasButton = false }) {
           What would it cost elsewhere?
         </h2>
         <p className="text-center text-gray-600 mb-8">
-          Standard starts at $1/month. Business is $20/month with unlimited accounts. Competitor rates are illustrative, not current quotes.
+          Standard costs $1/month total for 5 inboxes. Business is $20/month with 200 GB pooled storage and up to 100 email accounts included. Competitor rates are illustrative, not current quotes.
         </p>
         <div className="w-full flex flex-col items-center gap-6 sm:gap-8">
           <div className="text-lg sm:text-xl text-black">Team size: {users} {users === 1 ? "user" : "users"}</div>
@@ -77,8 +77,12 @@ export default function CostComparisonSlider({ hasButton = false }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-4 sm:mt-8">
             <div className="glass-card p-6 rounded-md border bg-white/80 backdrop-blur-sm feature-glow">
               <div className="text-sm uppercase tracking-wide text-gray-700 mb-1">VenMail</div>
-              <div className="text-2xl font-bold text-black mb-1">{formatCurrency(recommendation.amount)}/mo</div>
-              <div className="text-xs text-gray-600">{recommendation.plan === 'standard' ? 'Standard: five accounts included, then $1 per additional account.' : 'Business: unlimited accounts and 200 GB pooled storage.'}</div>
+              {recommendation.isQuote ? (
+                <a href="/request-quote" className="text-2xl font-bold text-black underline underline-offset-4">Request a custom quote</a>
+              ) : (
+                <div className="text-2xl font-bold text-black mb-1">{formatCurrency(recommendation.amount)}/mo</div>
+              )}
+              <div className="text-xs text-gray-600">{recommendation.plan === 'standard' ? 'Standard: 5 inboxes included, then $1/month per additional inbox.' : recommendation.plan === 'business' ? 'Business: up to 100 email accounts and 200 GB pooled storage.' : `${recommendation.accounts} email accounts require a custom quote.`}</div>
             </div>
 
             {providers.map((p) => {

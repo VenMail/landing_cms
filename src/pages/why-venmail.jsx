@@ -394,7 +394,7 @@ export default function WhyVenmail() {
               </blockquote>
 
               <p style={{ marginBottom: "22px" }}>
-                Per-seat pricing limits email access. Small businesses
+                Email costs can limit access. Small businesses
                 give "official" addresses to a handful of people and tell everyone else to use
                 personal Gmail. Important conversations become fragmented. Context is lost. Email
                 — the center of all business communication — becomes a cost center.
@@ -430,8 +430,8 @@ export default function WhyVenmail() {
               </p>
 
               <p style={{ marginBottom: "22px" }}>
-                Standard starts at $1/month for five email accounts. Each additional account is $1/month.
-                Business gives larger teams unlimited accounts and 200 GB pooled storage for $20/month.
+                Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.
+                Business includes up to 100 email accounts and 200 GB pooled storage for $20/month.
               </p>
 
               <p style={{ marginBottom: "22px" }}>

@@ -53,7 +53,7 @@ export default function MeetingVsGoogleMeet() {
     },
     {
       feature: "Recording Storage",
-      venmail: "Unlimited cloud storage included",
+      venmail: "200 GB pooled storage on Business",
       googleMeet: "Limited storage, requires Google Drive",
       venmailHas: true,
       googleMeetHas: false,
@@ -210,7 +210,7 @@ export default function MeetingVsGoogleMeet() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  Unlimited recording storage
+                  Business includes 200 GB pooled storage
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>

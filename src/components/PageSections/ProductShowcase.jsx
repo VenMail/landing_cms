@@ -54,7 +54,7 @@ const ProductShowcase = () => {
         </svg>
       ),
       title: "Plans for every team size",
-      description: "Standard starts at $1/month. Business is $20/month with unlimited email accounts."
+      description: "Standard is $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts included."
     },
     {
       icon: (
@@ -145,7 +145,7 @@ const ProductShowcase = () => {
               </svg>
             </a>
           </div>
-          <p className="text-sm text-white/60">Standard from $1/month · Business $20/month · BYOS available</p>
+          <p className="text-sm text-white/60">Standard $1/month total for 5 inboxes · Business $20/month for up to 100 email accounts</p>
         </div>
       </div>
     </section>

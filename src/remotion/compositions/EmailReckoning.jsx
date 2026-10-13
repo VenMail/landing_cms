@@ -113,7 +113,7 @@ function ResetRevealScene() {
         </div>
       </div>
       <div style={{ opacity: interpolate(frame, [100, 130], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), fontSize: 18, color: "rgba(255,255,255,0.5)", marginTop: 24, textAlign: "center", maxWidth: 500, fontFamily: "Inter, system-ui, sans-serif", lineHeight: 1.6 }}>
-        Your storage. Your domain. Your data. Standard from $1/month. Business at $20/month.
+        Your storage. Your domain. Your data. Standard is $1/month total for 5 inboxes. Business is $20/month for up to 100 email accounts.
       </div>
     </AbsoluteFill>
   );

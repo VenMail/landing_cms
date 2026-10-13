@@ -53,7 +53,7 @@ export default function MeetingVsZoom() {
     },
     {
       feature: "Recording Storage",
-      venmail: "Unlimited cloud storage included",
+      venmail: "200 GB pooled storage on Business",
       zoom: "Limited storage, requires paid plan",
       venmailHas: true,
       zoomHas: false,
@@ -189,7 +189,7 @@ export default function MeetingVsZoom() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  Unlimited recording storage
+                  Business includes 200 GB pooled storage
                 </li>
               </ul>
             </div>
@@ -267,8 +267,8 @@ export default function MeetingVsZoom() {
                 <p className="text-sm">Optimal meeting duration</p>
               </div>
               <div className="bg-white/10 rounded-lg p-6">
-                <div className="text-2xl font-bold mb-2">∞</div>
-                <p className="text-sm">Recording storage</p>
+                <div className="text-2xl font-bold mb-2">200 GB</div>
+                <p className="text-sm">Pooled Business storage</p>
               </div>
             </div>
             <a

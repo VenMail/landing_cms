@@ -29,7 +29,7 @@ export default function AboutUs() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="/careers"
+                href="/career"
                 className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-white hover:bg-white hover:text-gray-900 transition-colors"
               >
                 Explore Careers
@@ -59,7 +59,7 @@ export default function AboutUs() {
               Professional email for every organization.
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Standard starts at $1/month for five email accounts. Business is $20/month with unlimited accounts and 200 GB pooled storage.
+              Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.
             </p>
             <p className="text-lg text-gray-600">
               Our mission: email infrastructure that respects budgets, privacy, and control.
@@ -131,7 +131,7 @@ export default function AboutUs() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Pay for Storage, Not Users</h3>
-              <p className="text-gray-600">Standard starts at $1/month. Business is $20/month with unlimited email accounts.</p>
+              <p className="text-gray-600">Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.</p>
             </div>
 
             <div className="text-center">
@@ -188,7 +188,7 @@ export default function AboutUs() {
               Try VenMail
             </a>
             <a
-              href="/careers"
+              href="/career"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-gray-800 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
             >
               Explore Careers

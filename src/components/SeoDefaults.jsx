@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const TITLES = {
-  '/': 'Venmail — Professional Email for Growing Teams',
+  '/': 'Venmail — Business Email with Spam Control',
   '/pricing': 'Business Email Plans and Pricing — Venmail',
   '/resources/privacy-policy': 'Privacy and Data Processing — Venmail',
   '/resources/ai-principles': 'AI Processing and User Controls — Venmail',
@@ -11,9 +11,11 @@ export default function SeoDefaults() {
   const { asPath } = useRouter();
   const path = (asPath || '/').split(/[?#]/)[0].replace(/\.html$/, '').replace(/\/+$/, '') || '/';
   const title = TITLES[path] || `${path.split('/').filter(Boolean).pop()?.replaceAll('-', ' ') || 'Business email'} — Venmail`;
-  const description = path === '/pricing'
-    ? 'Compare Venmail paid business email plans and shared storage. Review monthly or annual pricing and choose a plan for your team.'
-    : 'Professional email on your business domain, with calendar, contacts and shared storage. Explore Venmail plans and get help moving your team.';
+  const description = path === '/'
+    ? 'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.'
+    : path === '/pricing'
+      ? 'Compare Venmail paid business email plans and shared storage. Review monthly or annual pricing and choose a plan for your team.'
+      : 'Professional email on your business domain, with calendar, contacts and shared storage. Explore Venmail plans and get help moving your team.';
   return <Head>
     <title>{title}</title>
     <meta name="description" content={description} key="description" />

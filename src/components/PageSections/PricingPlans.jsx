@@ -1,12 +1,17 @@
 import { BsCheck2 } from 'react-icons/bs';
+import { getContactMailtoHref } from '@/config/contact';
 import { PERSONAL_SIGNUP_URL, PLANS, businessSignupUrl, formatNgn, formatUsd, getOffer, USD_TO_NGN } from '@/config/pricing.mjs';
 import useNigeriaMarket from '@/hooks/useNigeriaMarket';
+
+const annualBusinessInquiryUrl = getContactMailtoHref({
+  subject: 'Annual Business plan and included .com domain',
+});
 
 function Price({ plan, isNigeria }) {
   if (plan.checkout === 'quote') return <p className="mt-3 text-3xl font-medium text-gray-900">Request a quote</p>;
   const offer = getOffer(plan.id);
   return <>
-    <p className="mt-3 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/month</span></p>
+    <p className="mt-3 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/month{plan.id === 'standard' ? ' total' : ''}</span></p>
     {isNigeria && <p className="mt-2 text-sm text-gray-600">{formatNgn(offer.amount * USD_TO_NGN)}/month</p>}
   </>;
 }
@@ -24,8 +29,9 @@ export default function PricingPlans({ comparison = false }) {
           {plan.features.map(feature => <li key={feature} className="flex gap-3"><BsCheck2 aria-hidden="true" className="h-5 w-5 flex-none" />{feature}</li>)}
         </ul>
         <a href={plan.checkout === 'quote' ? '/request-quote' : businessSignupUrl(plan.id)} aria-describedby={`plan-${plan.id}`} className={`mt-auto block px-3.5 py-2.5 text-center text-sm font-semibold ${plan.featured ? 'bg-primary-600 text-white' : 'border border-black bg-white text-black'}`}>
-          {plan.checkout === 'quote' ? 'Request a quote' : `Choose ${plan.name}`}
+          {plan.checkout === 'quote' ? 'Request a quote' : plan.id === 'business' ? 'Choose monthly Business' : `Choose ${plan.name}`}
         </a>
+        {plan.id === 'business' && <a href={annualBusinessInquiryUrl} aria-describedby={`plan-${plan.id}`} className="mt-3 inline-flex min-h-11 items-center justify-center text-center text-sm font-semibold text-primary-700 underline underline-offset-4">Ask about annual Business</a>}
       </article>)}
     </div>
 
@@ -38,10 +44,10 @@ export default function PricingPlans({ comparison = false }) {
         <thead><tr><th scope="col" className="p-4">Plan</th><th scope="col" className="p-4">Email accounts</th><th scope="col" className="p-4">Storage</th><th scope="col" className="p-4">Monthly price</th><th scope="col" className="p-4">Next step</th></tr></thead>
         <tbody>{PLANS.map(plan => <tr key={plan.id} className="border-t">
           <th scope="row" className="p-4">{plan.name}</th>
-          <td className="p-4">{plan.id === 'standard' ? '5 included, then $1 each' : plan.id === 'business' ? 'Unlimited' : 'Tailored'}</td>
+          <td className="p-4">{plan.id === 'standard' ? '5 included, then $1/month each' : plan.id === 'business' ? 'Up to 100 included' : 'Tailored'}</td>
           <td className="p-4">{plan.id === 'business' ? '200 GB included; upgrades or customer-provided storage' : plan.id === 'standard' ? 'Shared storage included' : 'Tailored'}</td>
           <td className="p-4">{plan.checkout === 'quote' ? 'Quote' : `${formatUsd(getOffer(plan.id).amount)}${isNigeria ? ` / ${formatNgn(getOffer(plan.id).amount * USD_TO_NGN)}` : ''}`}</td>
-          <td className="p-4"><a className="underline" href={plan.checkout === 'quote' ? '/request-quote' : businessSignupUrl(plan.id)}>{plan.checkout === 'quote' ? 'Request a quote' : `Choose ${plan.name}`}</a></td>
+          <td className="p-4"><a className="underline" href={plan.checkout === 'quote' ? '/request-quote' : businessSignupUrl(plan.id)}>{plan.checkout === 'quote' ? 'Request a quote' : plan.id === 'business' ? 'Choose monthly Business' : `Choose ${plan.name}`}</a></td>
         </tr>)}</tbody>
       </table>
     </div>}

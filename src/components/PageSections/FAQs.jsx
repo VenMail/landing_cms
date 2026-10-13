@@ -5,12 +5,12 @@ import { useState } from "react";
 function FAQs() {
   const faqs = [
     {
-      question: "Does Business include unlimited email accounts?",
-      answer: "Yes. Business starts at $20 per month with unlimited email accounts and 200 GB of pooled storage. Storage upgrades and customer-provided storage are available.",
+      question: "How many email accounts does Business include?",
+      answer: "Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. More than 100 email accounts require a custom quote.",
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "Standard is $1 per month for five email accounts, then $1 per additional account each month. Business is $20 per month for unlimited email accounts and 200 GB of pooled storage. Enterprise and white-label deployments are quoted after requirements review.",
+      answer: "Standard costs $1 per month total for 5 inboxes, then $1 per additional inbox each month. Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. Enterprise and white-label deployments are quoted after requirements review.",
     },
     {
       question: "Will my team need training?",

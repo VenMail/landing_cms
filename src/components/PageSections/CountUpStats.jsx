@@ -14,7 +14,7 @@ const stats = [
     prefix: '$',
     suffix: '',
     label: 'starting monthly price',
-    description: 'Five email accounts included on Standard.'
+    description: '5 inboxes included — $0.20 per inbox.'
   },
   {
     value: 90,
@@ -111,7 +111,7 @@ export default function CountUpStats() {
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Standard starts at $1/month; Business is $20/month with unlimited accounts</span>
+                <span className="text-gray-700 font-medium">Standard is $1/month total for 5 inboxes; Business is $20/month for up to 100 email accounts</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-orange-600 rounded-full"></div>

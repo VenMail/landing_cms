@@ -1,13 +1,29 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { businessSignupUrl, getOffer, getRecommendedOffer, formatNgn } from '../../src/config/pricing.mjs';
+import { BUSINESS_INCLUDED_ACCOUNTS, businessSignupUrl, getOffer, getRecommendedOffer, formatNgn, PLANS } from '../../src/config/pricing.mjs';
 
 test('published offers use the approved monthly USD and NGN amounts', () => {
   assert.equal(getOffer('standard', 'monthly').amount, 1);
   assert.equal(getOffer('business', 'monthly').amount, 20);
   assert.equal(formatNgn(20 * 1500), '₦30,000');
   assert.throws(() => businessSignupUrl('enterprise'));
+});
+
+test('Business states the qualified first-year annual domain offer', () => {
+  const business = PLANS.find(plan => plan.id === 'business');
+
+  assert.ok(business);
+  assert.ok(business.features.includes('Annual Business includes one .com domain free for the first year.'));
+});
+
+test('shared pricing separates monthly checkout from the annual Business inquiry', async () => {
+  const pricing = await readFile(new URL('../../src/components/PageSections/PricingPlans.jsx', import.meta.url), 'utf8');
+
+  assert.match(pricing, /Choose monthly Business/);
+  assert.equal((pricing.match(/Choose monthly Business/g) || []).length, 2);
+  assert.match(pricing, /Annual Business plan and included \.com domain/);
+  assert.match(pricing, /Ask about annual Business/);
 });
 
 test('self-service signup carries the approved plan and blocks quote-only Enterprise', () => {
@@ -39,13 +55,16 @@ test('published amounts match the approved monthly catalog', () => {
   assert.throws(() => getOffer('standard', 'yearly'));
 });
 
-test('recommended monthly pricing rises from one dollar and never exceeds Business at twenty dollars', () => {
+test('recommended monthly pricing uses Standard, bounded Business, then an Enterprise quote', () => {
+  assert.equal(BUSINESS_INCLUDED_ACCOUNTS, 100);
   assert.deepEqual(getRecommendedOffer(1), { plan: 'standard', accounts: 1, amount: 1 });
   assert.deepEqual(getRecommendedOffer(5), { plan: 'standard', accounts: 5, amount: 1 });
   assert.deepEqual(getRecommendedOffer(6), { plan: 'standard', accounts: 6, amount: 2 });
   assert.deepEqual(getRecommendedOffer(23), { plan: 'standard', accounts: 23, amount: 19 });
   assert.deepEqual(getRecommendedOffer(24), { plan: 'business', accounts: 24, amount: 20 });
-  assert.deepEqual(getRecommendedOffer(200), { plan: 'business', accounts: 200, amount: 20 });
+  assert.deepEqual(getRecommendedOffer(100), { plan: 'business', accounts: 100, amount: 20 });
+  assert.deepEqual(getRecommendedOffer(101), { plan: 'enterprise', accounts: 101, amount: null, isQuote: true });
+  assert.deepEqual(getRecommendedOffer(200), { plan: 'enterprise', accounts: 200, amount: null, isQuote: true });
 });
 
 test('localized Naira prices use the approved fixed exchange rate', async () => {
@@ -55,17 +74,11 @@ test('localized Naira prices use the approved fixed exchange rate', async () => 
   assert.doesNotMatch(currencyContext, /NGN:\s*1400/);
 });
 
-test('the home page presents the real product workspace instead of the animated placeholder', async () => {
+test('the home page presents the real Venmail inbox instead of a simulated interface', async () => {
   const homepage = await readFile(new URL('../../src/pages/index.jsx', import.meta.url), 'utf8');
-  const hero = await readFile(new URL('../../src/components/PageSections/WorkspaceHero.jsx', import.meta.url), 'utf8');
 
-  assert.match(homepage, /WorkspaceHero/);
-  assert.doesNotMatch(homepage, /HeroFlythrough/);
-  assert.match(homepage, /<Pricing\s*\/>/);
-  assert.match(hero, /venmail-workspace-v2\.png/);
-  assert.match(hero, /screenshot-full\.webp/);
-  assert.match(hero, /data-hero-framing="close-up"/);
-  assert.doesNotMatch(hero, /rounded-t-2xl|border-\[9px\]/);
+  assert.match(homepage, /email-dashboard-preview\.png/);
+  assert.doesNotMatch(homepage, /MailExample|WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
 });
 
 test('commercial pricing surfaces use the approved three-plan catalog', async () => {
@@ -93,6 +106,7 @@ test('customer-visible pricing copy does not claim zero per-seat cost or unlimit
     '../../src/components/PageSections/ProductShowcase.jsx',
     '../../src/components/ExitIntentPopup.jsx',
     '../../src/pages/index.jsx',
+    '../../src/pages/cinematic.jsx',
     '../../src/pages/index-cinematic.jsx',
     '../../src/pages/about-us.jsx',
     '../../src/pages/why-venmail.jsx',
@@ -105,8 +119,51 @@ test('customer-visible pricing copy does not claim zero per-seat cost or unlimit
   const copy = (await Promise.all(paths.map(path => readFile(new URL(path, import.meta.url), 'utf8')))).join('\n');
 
   assert.doesNotMatch(copy, /\$0\s*\/?(?:seat|user)|no per-seat fees|no per-seat pricing|without per-seat fees|unlimited team (?:members|accounts)|pricing scales with storage, not headcount/i);
-  assert.match(copy, /Standard starts at \$1\/month/i);
+  assert.match(copy, /Standard (?:costs|is) \$1\/month total for 5 inboxes/i);
   assert.match(copy, /Business[^\n]{0,100}\$20\/month/i);
+});
+
+test('customer-visible pricing states the bounded Business account allowance', async () => {
+  const paths = [
+    '../../src/config/pricing.mjs',
+    '../../src/components/PageSections/BusinessCase.jsx',
+    '../../src/components/PageSections/CostComparisonSlider.jsx',
+    '../../src/components/PageSections/FAQs.jsx',
+    '../../src/components/PageSections/PricingPlans.jsx',
+    '../../src/components/PageSections/WhyVenmailSection.jsx',
+    '../../src/components/PageSections/BusinessesSection.jsx',
+    '../../src/components/PageSections/CountUpStats.jsx',
+    '../../src/components/PageSections/ProductShowcase.jsx',
+    '../../src/components/ExitIntentPopup.jsx',
+    '../../src/pages/index.jsx',
+    '../../src/pages/index-cinematic.jsx',
+    '../../src/pages/pricing.jsx',
+    '../../src/pages/about-us.jsx',
+    '../../src/pages/why-venmail.jsx',
+    '../../src/pages/healthcare-legal.jsx',
+    '../../src/pages/solutions/index.jsx',
+    '../../src/pages/product/meeting-vs-google-meet.jsx',
+    '../../src/pages/product/meeting-vs-zoom.jsx',
+    '../../src/data/solutions.js',
+  ];
+  const copy = (await Promise.all(paths.map(path => readFile(new URL(path, import.meta.url), 'utf8')))).join('\n');
+
+  assert.doesNotMatch(copy, /unlimited (?:email |student and staff |staff and volunteer |employee |firm-wide )?accounts|unlimited team|unlimited (?:cloud|recording) storage/i);
+  assert.doesNotMatch(copy, /storage[- ]based pricing|pay for what you use, not how many people|pay about the same for (?:the )?same storage|per-seat pricing limits email access/i);
+  assert.match(copy, /Up to 100 email accounts included/);
+  assert.match(copy, /From \$0\.20 per inbox\/month/);
+});
+
+test('cost calculators render quote-only recommendations without formatting a missing amount', async () => {
+  const paths = [
+    '../../src/components/PageSections/BusinessCase.jsx',
+    '../../src/components/PageSections/CostComparisonSlider.jsx',
+  ];
+  const calculators = (await Promise.all(paths.map(path => readFile(new URL(path, import.meta.url), 'utf8')))).join('\n');
+
+  assert.match(calculators, /recommendation\.isQuote/);
+  assert.match(calculators, /Request a custom quote/);
+  assert.match(calculators, /\/request-quote/);
 });
 
 test('retired offers and arithmetic do not remain in customer-visible promotional pricing', async () => {
