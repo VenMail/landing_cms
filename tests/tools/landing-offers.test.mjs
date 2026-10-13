@@ -55,17 +55,15 @@ test('localized Naira prices use the approved fixed exchange rate', async () => 
   assert.doesNotMatch(currencyContext, /NGN:\s*1400/);
 });
 
-test('the home page presents the real product workspace instead of the animated placeholder', async () => {
+test('the home page presents the interactive customer inquiry instead of the old workspace montage', async () => {
   const homepage = await readFile(new URL('../../src/pages/index.jsx', import.meta.url), 'utf8');
-  const hero = await readFile(new URL('../../src/components/PageSections/WorkspaceHero.jsx', import.meta.url), 'utf8');
+  const example = await readFile(new URL('../../src/components/home/MailExample.jsx', import.meta.url), 'utf8');
 
-  assert.match(homepage, /WorkspaceHero/);
-  assert.doesNotMatch(homepage, /HeroFlythrough/);
-  assert.match(homepage, /<Pricing\s*\/>/);
-  assert.match(hero, /venmail-workspace-v2\.png/);
-  assert.match(hero, /screenshot-full\.webp/);
-  assert.match(hero, /data-hero-framing="close-up"/);
-  assert.doesNotMatch(hero, /rounded-t-2xl|border-\[9px\]/);
+  assert.match(homepage, /MailExample/);
+  assert.doesNotMatch(homepage, /WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
+  assert.match(example, /aria-live="polite"/);
+  assert.match(example, /No real email was sent\. Server acceptance does not confirm inbox placement\./);
+  assert.doesNotMatch(example, /fetch\(|axios|localStorage|sessionStorage/);
 });
 
 test('commercial pricing surfaces use the approved three-plan catalog', async () => {
