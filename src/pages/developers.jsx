@@ -37,7 +37,7 @@ export default function DevelopersPage() {
     <DefaultLayout>
       <Head>
         <title>Developers — Venmail</title>
-        <meta name="description" content="Venmail APIs for email workspace provisioning and account-scoped agent operations." />
+        <meta name="description" key="description" content="Venmail APIs for email workspace provisioning and account-scoped agent operations." />
       </Head>
 
       <section className="bg-slate-950 py-20 text-white sm:py-28">
