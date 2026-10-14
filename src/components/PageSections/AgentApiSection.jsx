@@ -101,7 +101,7 @@ const AgentApiSection = () => {
           </div>
 
           {/* Code snippet + endpoint map */}
-          <div className="space-y-5">
+          <div className="space-y-5 min-w-0">
             <div className="rounded-xl bg-gray-900 text-gray-100 shadow-xl overflow-hidden">
               <div className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-800/60 border-b border-gray-700/60">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />

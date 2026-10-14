@@ -107,6 +107,15 @@ test('homepage renders the maintained agent API section once', async () => {
   assert.doesNotMatch(agentApi, /webhook/i);
 });
 
+test('developer code column can shrink without widening the mobile page', async () => {
+  const agentApi = await readSource('../../src/components/PageSections/AgentApiSection.jsx');
+
+  assert.match(
+    agentApi,
+    /\{\/\* Code snippet \+ endpoint map \*\/\}\s*<div className="space-y-5 min-w-0">/,
+  );
+});
+
 test('AI inbox agents follow the API section with authentic destinations and channel status', async () => {
   const [homepage, agents] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
