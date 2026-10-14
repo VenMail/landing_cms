@@ -120,13 +120,41 @@ test('AI inbox agents follow the API section with authentic destinations and cha
   assert.match(agents, /width=\{1586\}/);
   assert.match(agents, /height=\{992\}/);
   assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
-  assert.match(agents, /href="https:\/\/m\.venmail\.io\/admin\/agents"/);
+  assert.match(agents, /href="\/ai-inbox-agents"/);
+  assert.match(agents, /Explore AI inbox agents/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
   assert.match(agents, />Telegram</);
   assert.match(agents, />Active</);
   assert.match(agents, />WhatsApp</);
   assert.match(agents, />Coming soon</);
   assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
+});
+
+test('AI inbox agents have a dedicated product page and distinct navigation links', async () => {
+  const [page, agents, header, footer] = await Promise.all([
+    readSource('../../src/pages/ai-inbox-agents.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
+    readSource('../../src/components/layout/Header.jsx'),
+    readSource('../../src/components/home/MailFirstFooter.jsx'),
+  ]);
+
+  assert.match(agents, /href="\/ai-inbox-agents"[^>]*>[\s\S]*?Explore AI inbox agents/);
+  assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
+
+  assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
+  assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
+  assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/venmail-agent"/);
+  assert.match(footer, /\['Venmail Agent', '\/venmail-agent'\]/);
+
+  assert.match(page, /Dedicated inboxes for AI agents/);
+  assert.match(page, /Telegram/);
+  assert.match(page, /WhatsApp/);
+  assert.match(page, /20 saved routines/);
+  assert.match(page, /href="https:\/\/m\.venmail\.io\/register"/);
+  const manageLink = page.match(/<a\b(?=[^>]*href="https:\/\/m\.venmail\.io\/admin\/agents")[^>]*>/)?.[0] || '';
+  assert.match(manageLink, /target="_blank"/);
+  assert.match(manageLink, /rel="noopener noreferrer"/);
+  assert.doesNotMatch(page, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
 test('mobile apps follow AI inbox agents with verified store destinations', async () => {
