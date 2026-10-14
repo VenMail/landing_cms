@@ -171,6 +171,11 @@ test('mobile apps follow AI inbox agents with verified store destinations', asyn
   assert.ok(homepage.indexOf('<AiInboxAgentsSection />') < homepage.indexOf('<MobileAppsSection />'));
   assert.ok(homepage.indexOf('<MobileAppsSection />') < homepage.indexOf('Work beyond email'));
   assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture\.webp"/);
+  assert.equal(
+    (mobileApps.match(/src="\/images\/venmail-mobile-inbox-store-capture\.webp"/g) || []).length,
+    1,
+  );
+  assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture-tablet\.webp"/);
   assert.match(mobileApps, /alt="Venmail mobile inbox"/);
   assert.match(
     mobileApps,
