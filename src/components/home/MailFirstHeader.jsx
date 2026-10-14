@@ -7,7 +7,7 @@ const links = [
   ['Delivery', '/#delivery'],
   ['Spam control', '/#spam-control'],
   ['Developers', '/#developers'],
-  ['AI inbox agents', '/ai-inbox-agents'],
+  ['AI inbox agents', '/#ai-inbox-agents'],
   ['Pricing', '/#pricing'],
 ];
 
