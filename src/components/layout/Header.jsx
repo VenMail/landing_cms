@@ -71,6 +71,12 @@ const products = [
     icon: ShieldCheckIcon,
   },
   {
+    name: "AI inbox agents",
+    description: "Dedicated inboxes controlled through natural-language conversations",
+    href: "/ai-inbox-agents",
+    icon: SparklesIcon,
+  },
+  {
     name: "Email Automation",
     description: "AI-powered document processing and payment automation",
     href: "/email-automation",
@@ -249,7 +255,7 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {products.slice(3, 5).map((item) => (
+                  {products.slice(3, 6).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -278,7 +284,7 @@ export default function Header({
                   ))}
                 </div>
                 <div>
-                  {products.slice(5, 7).map((item) => (
+                  {products.slice(6, 9).map((item) => (
                     <a
                       key={item.name}
                       href={item.href}

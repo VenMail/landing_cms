@@ -4,6 +4,7 @@ import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
 import AgentApiSection from '@/components/PageSections/AgentApiSection';
 import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
+import MobileAppsSection from '@/components/PageSections/MobileAppsSection';
 import { getContactMailtoHref } from '@/config/contact';
 import { businessSignupUrl } from '@/config/pricing.mjs';
 import { trackCTAClick } from '@/utils/trackConversion';
@@ -223,6 +224,7 @@ export default function Home() {
 
         <AgentApiSection />
         <AiInboxAgentsSection />
+        <MobileAppsSection />
 
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
           <div className="mx-auto max-w-6xl">

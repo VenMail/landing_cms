@@ -8,6 +8,7 @@ const siteUrl = "https://venmail.io";
 const staticRoutes = [
   "/",
   "/about-us",
+  "/ai-inbox-agents",
   "/blog",
   "/career",
   "/compare/apollo",

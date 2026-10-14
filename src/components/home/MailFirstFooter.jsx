@@ -32,6 +32,7 @@ const footerGroups = [
     ['Solutions', '/solutions'],
     ['Integrations', '/integrations'],
     ['Why Venmail', '/why-venmail'],
+    ['AI inbox agents', '/ai-inbox-agents'],
     ['Venmail Agent', '/venmail-agent'],
     ['About us', '/about-us'],
     ['Careers', '/career'],
