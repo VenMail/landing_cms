@@ -90,19 +90,40 @@ test('homepage presents dedicated support mailboxes without claiming built-in CR
   assert.doesNotMatch(homepage, /automatically route|assigned follow-up|Platform Email API/i);
 });
 
-test('homepage API excerpt matches the verified agent message contract', async () => {
-  const homepage = await readSource('../../src/pages/index.jsx');
+test('homepage renders the maintained agent API section once', async () => {
+  const [homepage, agentApi] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/PageSections/AgentApiSection.jsx'),
+  ]);
 
-  assert.match(homepage, /POST https:\/\/m\.venmail\.io\/api\/v1\/agent\/messages/);
-  assert.match(homepage, /Authorization: Bearer/);
-  assert.match(homepage, /mail:send/);
-  assert.match(homepage, /"success": true/);
-  assert.match(homepage, /"status": "sent"/);
-  assert.match(homepage, /"held_for_review": false/);
-  assert.match(homepage, /200 response excerpt/);
-  assert.match(homepage, /https:\/\/m\.venmail\.io\/docs\/agents/);
-  assert.ok(homepage.indexOf('A successful response means Venmail accepted the message for sending.') < homepage.indexOf('</details>', homepage.indexOf('API request and 200 response excerpt')));
-  assert.doesNotMatch(homepage, /webhook/i);
+  assert.match(homepage, /import AgentApiSection from/);
+  assert.equal((homepage.match(/<AgentApiSection \/>/g) || []).length, 1);
+  assert.doesNotMatch(homepage, /const apiRequest|API request and 200 response excerpt/);
+  assert.match(agentApi, /\/v1\/agent\/threads/);
+  assert.match(agentApi, /\/v1\/agent\/messages/);
+  assert.match(agentApi, /mail:send/);
+  assert.match(agentApi, /id="developers"[\s\S]*scroll-mt-24/);
+  assert.match(agentApi, /href="https:\/\/m\.venmail\.io\/docs\/agents"/);
+  assert.doesNotMatch(agentApi, /webhook/i);
+});
+
+test('AI inbox agents follow the API section with authentic destinations and channel status', async () => {
+  const [homepage, agents] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
+  ]);
+
+  assert.match(homepage, /import AiInboxAgentsSection from/);
+  assert.ok(homepage.indexOf('<AgentApiSection />') < homepage.indexOf('<AiInboxAgentsSection />'));
+  assert.match(agents, /src="\/images\/ai-inbox-agents-teaser\.webp"/);
+  assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
+  assert.match(agents, /href="https:\/\/m\.venmail\.io\/admin\/agents"/);
+  assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
+  assert.match(agents, />Telegram</);
+  assert.match(agents, />Active</);
+  assert.match(agents, />WhatsApp</);
+  assert.match(agents, />Coming soon</);
+  assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
 test('homepage links the verified operations suite', async () => {
@@ -182,6 +203,8 @@ test('homepage copy avoids interface narration and unsupported delivery promises
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/home/MailFirstHeader.jsx'),
     readSource('../../src/components/home/MailFirstFooter.jsx'),
+    readSource('../../src/components/PageSections/AgentApiSection.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
   ]);
   const copy = files.join('\n');
 

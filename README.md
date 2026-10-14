@@ -31,8 +31,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Deploy to Cloudflare
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pushes to `main` run `.github/workflows/deploy.yml`. GitHub Actions tests and builds the static export, syncs `out/` to Cloudflare R2, and deploys the Worker.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Configure these GitHub Actions secrets before deployment:
+
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_ACCOUNT_ID`
+- `R2_BUCKET`
+- `CF_API_TOKEN`
+
+Set `R2_ENDPOINT` only when the account requires a jurisdiction-specific endpoint. Run the workflow manually with `workflow_dispatch` when needed.

@@ -44,8 +44,8 @@ const AgentApiSection = () => {
 
   return (
     <section
-      id="agent-api"
-      className="relative py-24 bg-gradient-to-b from-white via-orange-50/40 to-white"
+      id="developers"
+      className="relative scroll-mt-24 py-24 bg-gradient-to-b from-white via-orange-50/40 to-white"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -86,7 +86,7 @@ const AgentApiSection = () => {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="/docs/agents"
+                href="https://m.venmail.io/docs/agents"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-gray-900 text-white font-medium text-sm hover:bg-gray-800 transition-colors"
               >
                 <LuCode className="w-4 h-4" /> View the API docs
