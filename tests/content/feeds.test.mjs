@@ -41,6 +41,12 @@ test("sitemap preserves every indexable page route from the pre-redesign export"
   }
 });
 
+test("sitemap includes the public AI inbox agents route", () => {
+  const xml = buildSitemap(getPublishedArticles());
+
+  assert.ok(xml.includes("<loc>https://venmail.io/ai-inbox-agents</loc>"));
+});
+
 test("RSS emits one escaped item per published article", () => {
   const articles = getPublishedArticles();
   const xml = buildRss(articles);

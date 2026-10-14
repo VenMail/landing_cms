@@ -107,6 +107,15 @@ test('homepage renders the maintained agent API section once', async () => {
   assert.doesNotMatch(agentApi, /webhook/i);
 });
 
+test('developer code column can shrink without widening the mobile page', async () => {
+  const agentApi = await readSource('../../src/components/PageSections/AgentApiSection.jsx');
+
+  assert.match(
+    agentApi,
+    /\{\/\* Code snippet \+ endpoint map \*\/\}\s*<div className="space-y-5 min-w-0">/,
+  );
+});
+
 test('AI inbox agents follow the API section with authentic destinations and channel status', async () => {
   const [homepage, agents] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
@@ -115,15 +124,89 @@ test('AI inbox agents follow the API section with authentic destinations and cha
 
   assert.match(homepage, /import AiInboxAgentsSection from/);
   assert.ok(homepage.indexOf('<AgentApiSection />') < homepage.indexOf('<AiInboxAgentsSection />'));
+  assert.match(
+    agents,
+    /<p className="mt-5 text-lg leading-\[1\.65\] text-\[#5f6368\]">\s*Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\.\s*<\/p>/,
+  );
+  assert.doesNotMatch(agents, /Telegram is active; WhatsApp support is coming soon\./);
   assert.match(agents, /src="\/images\/ai-inbox-agents-teaser\.webp"/);
+  assert.match(agents, /width=\{1586\}/);
+  assert.match(agents, /height=\{992\}/);
   assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
-  assert.match(agents, /href="https:\/\/m\.venmail\.io\/admin\/agents"/);
+  assert.match(agents, /href="\/ai-inbox-agents"/);
+  assert.match(agents, /Explore AI inbox agents/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
   assert.match(agents, />Telegram</);
   assert.match(agents, />Active</);
   assert.match(agents, />WhatsApp</);
   assert.match(agents, />Coming soon</);
   assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
+});
+
+test('AI inbox agents have a dedicated product page and distinct navigation links', async () => {
+  const [page, agents, header, mailFirstHeader, footer] = await Promise.all([
+    readSource('../../src/pages/ai-inbox-agents.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
+    readSource('../../src/components/layout/Header.jsx'),
+    readSource('../../src/components/home/MailFirstHeader.jsx'),
+    readSource('../../src/components/home/MailFirstFooter.jsx'),
+  ]);
+
+  assert.match(agents, /href="\/ai-inbox-agents"[^>]*>[\s\S]*?Explore AI inbox agents/);
+  assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
+
+  assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
+  assert.match(mailFirstHeader, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
+  assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
+  assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/venmail-agent"/);
+  assert.match(footer, /\['Venmail Agent', '\/venmail-agent'\]/);
+
+  assert.match(page, /Dedicated inboxes for AI agents/);
+  assert.match(page, /Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\./);
+  assert.doesNotMatch(page, /WhatsApp support is coming soon|with WhatsApp coming soon/);
+  assert.match(page, /Telegram/);
+  assert.match(page, /WhatsApp/);
+  assert.match(page, /20 saved routines/);
+  assert.match(page, /href="https:\/\/m\.venmail\.io\/register"/);
+  const manageLink = page.match(/<a\b(?=[^>]*href="https:\/\/m\.venmail\.io\/admin\/agents")[^>]*>/)?.[0] || '';
+  assert.match(manageLink, /target="_blank"/);
+  assert.match(manageLink, /rel="noopener noreferrer"/);
+  assert.doesNotMatch(page, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
+});
+
+test('mobile apps follow AI inbox agents with verified store destinations', async () => {
+  const [homepage, mobileApps] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/PageSections/MobileAppsSection.jsx'),
+  ]);
+
+  assert.match(homepage, /import MobileAppsSection from/);
+  assert.ok(homepage.indexOf('<AiInboxAgentsSection />') < homepage.indexOf('<MobileAppsSection />'));
+  assert.ok(homepage.indexOf('<MobileAppsSection />') < homepage.indexOf('Work beyond email'));
+  assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture\.webp"/);
+  assert.equal(
+    (mobileApps.match(/src="\/images\/venmail-mobile-inbox-store-capture\.webp"/g) || []).length,
+    1,
+  );
+  assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture-tablet\.webp"/);
+  assert.match(mobileApps, /alt="Venmail mobile inbox"/);
+  assert.match(
+    mobileApps,
+    /aria-hidden="true"[\s\S]*?className="relative aspect-\[9\/16\] overflow-hidden rounded-\[1\.35rem\]"[\s\S]*?<Image[\s\S]*?fill[\s\S]*?alt=""[\s\S]*?className="object-cover object-\[center_28%\]"/,
+  );
+  assert.match(
+    mobileApps,
+    /width=\{598\}[\s\S]*?height=\{1130\}[\s\S]*?alt="Venmail mobile inbox"[\s\S]*?className="block h-auto w-full rounded-\[1\.35rem\]"/,
+  );
+  const appStoreLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/apps\.apple\.com\/us\/app\/venmail\/id6755040289")[^>]*>/)?.[0] || '';
+  const googlePlayLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/play\.google\.com\/store\/apps\/details\?id=io\.venmail\.app")[^>]*>/)?.[0] || '';
+  assert.match(appStoreLink, /aria-label="Download Venmail on the App Store"/);
+  assert.match(googlePlayLink, /aria-label="Get Venmail on Google Play"/);
+  for (const link of [appStoreLink, googlePlayLink]) {
+    assert.match(link, /target="_blank"/);
+    assert.match(link, /rel="noopener noreferrer"/);
+  }
+  assert.doesNotMatch(mobileApps, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
 test('homepage links the verified operations suite', async () => {
@@ -161,7 +244,7 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   ]);
   const source = files.join('\n');
 
-  for (const [label, href] of [['Delivery', '#delivery'], ['Spam control', '#spam-control'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
+  for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
     assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
   }
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/career', '/resources/partner', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
@@ -181,6 +264,14 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   assert.match(source, /Reported web uptime/);
   assert.match(source, /Web availability for venmail\.io, m\.venmail\.io, and venia\.cloud/);
   assert.doesNotMatch(source, /active users|paid customers|live status|uptime guarantee|SMTP uptime/i);
+});
+
+test('mail-first navigation keeps homepage sections reachable from product routes', async () => {
+  const header = await readSource('../../src/components/home/MailFirstHeader.jsx');
+
+  for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
+    assert.match(header, new RegExp(`['"]${label}['"], ['"]${href}['"]`));
+  }
 });
 
 test('homepage FAQ uses native disclosure controls and approved answers', async () => {
