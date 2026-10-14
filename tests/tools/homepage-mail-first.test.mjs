@@ -115,7 +115,10 @@ test('AI inbox agents follow the API section with authentic destinations and cha
 
   assert.match(homepage, /import AiInboxAgentsSection from/);
   assert.ok(homepage.indexOf('<AgentApiSection />') < homepage.indexOf('<AiInboxAgentsSection />'));
+  assert.match(agents, /Talk to your AI mail agent over Telegram or WhatsApp\./);
   assert.match(agents, /src="\/images\/ai-inbox-agents-teaser\.webp"/);
+  assert.match(agents, /width=\{1586\}/);
+  assert.match(agents, /height=\{992\}/);
   assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/admin\/agents"/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
@@ -124,6 +127,28 @@ test('AI inbox agents follow the API section with authentic destinations and cha
   assert.match(agents, />WhatsApp</);
   assert.match(agents, />Coming soon</);
   assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
+});
+
+test('mobile apps follow AI inbox agents with verified store destinations', async () => {
+  const [homepage, mobileApps] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/PageSections/MobileAppsSection.jsx'),
+  ]);
+
+  assert.match(homepage, /import MobileAppsSection from/);
+  assert.ok(homepage.indexOf('<AiInboxAgentsSection />') < homepage.indexOf('<MobileAppsSection />'));
+  assert.ok(homepage.indexOf('<MobileAppsSection />') < homepage.indexOf('Work beyond email'));
+  assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture\.webp"/);
+  assert.match(mobileApps, /alt="Venmail mobile inbox"/);
+  const appStoreLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/apps\.apple\.com\/us\/app\/venmail\/id6755040289")[^>]*>/)?.[0] || '';
+  const googlePlayLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/play\.google\.com\/store\/apps\/details\?id=io\.venmail\.app")[^>]*>/)?.[0] || '';
+  assert.match(appStoreLink, /aria-label="Download Venmail on the App Store"/);
+  assert.match(googlePlayLink, /aria-label="Get Venmail on Google Play"/);
+  for (const link of [appStoreLink, googlePlayLink]) {
+    assert.match(link, /target="_blank"/);
+    assert.match(link, /rel="noopener noreferrer"/);
+  }
+  assert.doesNotMatch(mobileApps, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
 test('homepage links the verified operations suite', async () => {
