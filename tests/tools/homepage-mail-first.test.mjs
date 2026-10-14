@@ -144,10 +144,11 @@ test('AI inbox agents follow the API section with authentic destinations and cha
 });
 
 test('AI inbox agents have a dedicated product page and distinct navigation links', async () => {
-  const [page, agents, header, footer] = await Promise.all([
+  const [page, agents, header, mailFirstHeader, footer] = await Promise.all([
     readSource('../../src/pages/ai-inbox-agents.jsx'),
     readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
     readSource('../../src/components/layout/Header.jsx'),
+    readSource('../../src/components/home/MailFirstHeader.jsx'),
     readSource('../../src/components/home/MailFirstFooter.jsx'),
   ]);
 
@@ -155,11 +156,14 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
 
   assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
+  assert.match(mailFirstHeader, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
   assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
   assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/venmail-agent"/);
   assert.match(footer, /\['Venmail Agent', '\/venmail-agent'\]/);
 
   assert.match(page, /Dedicated inboxes for AI agents/);
+  assert.match(page, /Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\./);
+  assert.doesNotMatch(page, /WhatsApp support is coming soon|with WhatsApp coming soon/);
   assert.match(page, /Telegram/);
   assert.match(page, /WhatsApp/);
   assert.match(page, /20 saved routines/);

@@ -12,7 +12,7 @@ const inter = Inter({
 
 const capabilities = [
   ['One inbox per agent', 'Give each AI agent a dedicated Venmail address for its own email conversations.'],
-  ['Natural-language control', 'Send instructions and continue agent conversations over Telegram. WhatsApp support is coming soon.'],
+  ['Natural-language control', 'Send instructions and continue agent conversations in natural language.'],
   ['Repeatable work', 'Each agent supports up to 20 saved routines for recurring email tasks.'],
 ];
 
@@ -29,7 +29,7 @@ export default function AiInboxAgents() {
                 Dedicated inboxes for AI agents
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">
-                Give every agent its own Venmail inbox. Send natural-language instructions and continue conversations over Telegram, with WhatsApp coming soon.
+                Connect a dedicated Venmail inbox to an AI agent. Talk to your AI mail agent over Telegram or WhatsApp.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
