@@ -61,7 +61,7 @@ export default function MobileAppsSection() {
             <span className="absolute left-1/2 top-2 z-10 h-1.5 w-12 -translate-x-1/2 rounded-full bg-[#292a2d]" />
             <div className="relative aspect-[9/16] overflow-hidden rounded-[1.35rem]">
               <Image
-                src="/images/venmail-mobile-inbox-store-capture.webp"
+                src="/images/venmail-mobile-inbox-store-capture-tablet.webp"
                 fill
                 sizes="(max-width: 639px) 44vw, (max-width: 1023px) 250px, 280px"
                 alt=""
