@@ -65,7 +65,7 @@ export default function MobileAppsSection() {
 
           <div
             aria-hidden="true"
-            className="absolute left-[5%] top-[12%] z-10 w-[47%] -rotate-6 overflow-hidden rounded-[2rem] border-[8px] border-[#292a2d] bg-[#292a2d] shadow-[0_22px_50px_rgba(32,33,36,0.18)]"
+            className="absolute left-[35%] top-[16%] z-10 w-[38%] -rotate-6 overflow-hidden rounded-[2rem] border-[8px] border-[#292a2d] bg-[#292a2d] shadow-[0_22px_50px_rgba(32,33,36,0.18)]"
           >
             <span className="absolute left-1/2 top-2 z-10 h-1.5 w-12 -translate-x-1/2 rounded-full bg-[#292a2d]" />
             <div className="relative aspect-[9/16] overflow-hidden rounded-[1.35rem]">
@@ -79,7 +79,7 @@ export default function MobileAppsSection() {
             </div>
           </div>
 
-          <div className="absolute right-[4%] top-[3%] z-10 w-[49%] rotate-3 overflow-hidden rounded-[2rem] border-[8px] border-[#202124] bg-[#202124] shadow-[0_28px_65px_rgba(32,33,36,0.24)]">
+          <div className="absolute right-[-2%] top-[3%] z-10 w-[52%] rotate-3 overflow-hidden rounded-[2rem] border-[8px] border-[#202124] bg-[#202124] shadow-[0_28px_65px_rgba(32,33,36,0.24)]">
             <span aria-hidden="true" className="absolute left-1/2 top-2 z-10 h-1.5 w-12 -translate-x-1/2 rounded-full bg-[#202124]" />
             <Image
               src="/images/venmail-mobile-inbox-store-capture.webp"
