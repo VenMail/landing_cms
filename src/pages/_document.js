@@ -30,7 +30,6 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#ea580c" />
         
         {/* SEO Meta */}
-        <meta name="description" content="AI-powered email management platform for efficient communication" />
         <meta name="keywords" content="venmail, email, gmail, mailbox, AI email, business email" />
         
         {/* Open Graph */}

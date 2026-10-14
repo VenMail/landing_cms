@@ -33,7 +33,9 @@ test('security whitepaper states current processing boundaries without unsupport
 test('developer and whitepaper descriptions replace the shared default metadata', () => {
   const whitepaper = source('pages/security-whitepaper.jsx');
   const developers = source('pages/developers.jsx');
+  const document = source('pages/_document.js');
 
   assert.match(whitepaper, /name="description"\s+key="description"/);
   assert.match(developers, /name="description"\s+key="description"/);
+  assert.doesNotMatch(document, /<meta name="description"/);
 });
