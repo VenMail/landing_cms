@@ -55,6 +55,7 @@ export default function SecurityWhitepaper() {
         <title>Security Whitepaper — Venmail</title>
         <meta
           name="description"
+          key="description"
           content="Venmail service boundaries for connection security, server-side processing, storage placement, and deployment review."
         />
       </Head>
@@ -148,7 +149,7 @@ export default function SecurityWhitepaper() {
 
               <Section icon={Database} eyebrow="storage" title="Storage placement">
                 <ul className="space-y-4">
-                  <Fact>Managed plans currently use shared storage infrastructure.</Fact>
+                  <Fact>Managed plans use the same shared storage infrastructure.</Fact>
                   <Fact>Nigeria, South Africa, and Europe selections record a future region preference; they do not provide current data residency.</Fact>
                   <Fact>Customer-provided storage settings govern mailbox storage placement. Application and third-party AI processing remain separate boundaries to review.</Fact>
                 </ul>
