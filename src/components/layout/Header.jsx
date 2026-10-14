@@ -66,8 +66,8 @@ const products = [
   },
   {
     name: "Venmail Agent",
-    description: "Browser extension for contact intelligence and reputation scoring",
-    href: "/venmail-agent",
+    description: "Dedicated inboxes controlled through natural-language conversations",
+    href: "/ai-inbox-agents",
     icon: ShieldCheckIcon,
   },
   {

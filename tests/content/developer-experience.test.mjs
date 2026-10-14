@@ -39,3 +39,12 @@ test('developer and whitepaper descriptions replace the shared default metadata'
   assert.match(developers, /name="description"\s+key="description"/);
   assert.doesNotMatch(document, /<meta name="description"/);
 });
+
+test('the homepage developer section uses supported API claims and the current developer destinations', () => {
+  const homepageDeveloperSection = source('components/PageSections/AgentApiSection.jsx');
+
+  assert.match(homepageDeveloperSection, /https:\/\/m\.venmail\.io\/api\/v1\/agent\/messages/);
+  assert.match(homepageDeveloperSection, /href="\/developers"/);
+  assert.match(homepageDeveloperSection, /https:\/\/m\.venmail\.io\/platform\/api\/docs/);
+  assert.doesNotMatch(homepageDeveloperSection, /@venmail\/vsm|\/v1\/agent\/threads|Drop-in MCP server/);
+});

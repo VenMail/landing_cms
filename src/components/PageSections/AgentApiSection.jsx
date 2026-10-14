@@ -1,172 +1,95 @@
-import React from "react";
 import Link from "next/link";
-import { LuBot, LuKeyRound, LuCode, LuCheck } from "react-icons/lu";
+import { ArrowUpRight, Braces, KeyRound, ShieldCheck } from "lucide-react";
 
-/**
- * AgentApiSection — highlights the Venmail Agent REST API.
- *
- * The pitch: admins (and individual users) can issue bearer tokens so AI
- * agents — Claude, MCP servers, or any HTTP client — can read threads and
- * send mail from a Venmail inbox. Two provisioning paths:
- *   1. Admin → AI Agents → create a dedicated ai_agent inbox.
- *   2. Any user → Profile → "Share with AI agent" on their own inbox.
- */
-const AgentApiSection = () => {
-  const capabilities = [
-    {
-      icon: LuKeyRound,
-      title: "Scoped bearer tokens",
-      description:
-        "Issue per-agent tokens with fine-grained scopes (inbox:read, mail:send, mark_read). Rotate or revoke any time.",
-    },
-    {
-      icon: LuBot,
-      title: "AI-agent inboxes",
-      description:
-        "Provision dedicated inboxes for automated agents, or let a human share their own inbox with a model they trust.",
-    },
-    {
-      icon: LuCode,
-      title: "Clean REST + typed SDK",
-      description:
-        "A handful of JSON endpoints, OpenAPI docs, and an official TypeScript SDK at @venmail/vsm. Drop-in MCP server too.",
-    },
-  ];
+const messageExample = `curl -X POST https://m.venmail.io/api/v1/agent/messages \\
+  -H "Authorization: Bearer <token>" \\
+  -H "Accept: application/json" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "to": "maya@acme.example",
+    "subject": "Pricing for 200 units",
+    "body": "Pricing and delivery timing will follow shortly."
+  }'`;
 
-  const endpoints = [
-    { method: "GET", path: "/v1/agent/me", desc: "Identity + scopes" },
-    { method: "GET", path: "/v1/agent/threads", desc: "List threads" },
-    { method: "GET", path: "/v1/agent/threads/{id}", desc: "Read a thread" },
-    { method: "POST", path: "/v1/agent/threads/{id}/reply", desc: "Reply inline" },
-    { method: "POST", path: "/v1/agent/messages", desc: "Send new mail" },
-    { method: "POST", path: "/v1/agent/token/refresh", desc: "Rotate token" },
-  ];
+const AgentApiSection = () => (
+  <section
+    id="developers"
+    className="relative isolate overflow-hidden scroll-mt-24 bg-slate-950 py-20 text-white sm:py-28"
+  >
+    <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_85%_15%,rgba(249,115,22,0.22),transparent_27rem),radial-gradient(circle_at_10%_100%,rgba(59,130,246,0.16),transparent_32rem)]" />
 
-  return (
-    <section
-      id="developers"
-      className="relative scroll-mt-24 py-24 bg-gradient-to-b from-white via-orange-50/40 to-white"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-primary-200 rounded-full mb-5 text-xs font-semibold uppercase tracking-wider text-primary-600 shadow-sm">
-            <span className="inline-block w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
-            New — AI agent API
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-5">
-            Give your AI its own inbox.
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Provision an email inbox, generate a scoped API token, and any AI
-            agent can read, reply, and send mail on its behalf — with audit,
-            rotation, and revocation built in.
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+        <div className="min-w-0">
+          <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200">
+            <Braces className="h-3.5 w-3.5" aria-hidden="true" />
+            Developers
           </p>
+          <h2 className="max-w-xl text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+            Email operations for your product.
+          </h2>
+          <p className="mt-6 max-w-lg text-lg leading-8 text-slate-300">
+            Send account-scoped messages or provision customer workspaces with
+            explicit credentials and documented boundaries.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href="/developers"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-orange-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Developer guide
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <a
+              href="https://m.venmail.io/platform/api/docs"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/[0.09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Platform API reference
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
+            <div className="rounded-xl border border-white/10 bg-white/[0.045] p-4">
+              <KeyRound className="h-5 w-5 text-orange-300" aria-hidden="true" />
+              <h3 className="mt-4 text-sm font-semibold text-white">Agent API</h3>
+              <p className="mt-1.5 text-sm leading-6 text-slate-300">
+                Token-scoped message operations for an authorized inbox.
+              </p>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/[0.045] p-4">
+              <ShieldCheck className="h-5 w-5 text-orange-300" aria-hidden="true" />
+              <h3 className="mt-4 text-sm font-semibold text-white">Platform API</h3>
+              <p className="mt-1.5 text-sm leading-6 text-slate-300">
+                Workspace and email integrations for customer-facing products.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
-          {/* Capability cards */}
-          <div className="space-y-5">
-            {capabilities.map(({ icon: Icon, title, description }) => (
-              <div
-                key={title}
-                className="flex gap-4 p-5 rounded-xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-              >
-                <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center text-white">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                    {title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{description}</p>
-                </div>
-              </div>
-            ))}
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link
-                href="https://m.venmail.io/docs/agents"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-gray-900 text-white font-medium text-sm hover:bg-gray-800 transition-colors"
-              >
-                <LuCode className="w-4 h-4" /> View the API docs
-              </Link>
-              <Link
-                href="/venmail-agent"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 font-medium text-sm hover:bg-gray-50 transition-colors"
-              >
-                Try Venmail Agent
-              </Link>
+        <div className="min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/85 shadow-2xl shadow-black/30 ring-1 ring-inset ring-white/[0.03]">
+          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+            <div className="flex items-center gap-2.5">
+              <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+              <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
+              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              <span className="ml-2 font-mono text-xs text-slate-400">agent-message.sh</span>
             </div>
+            <span className="rounded-full border border-emerald-300/20 bg-emerald-400/10 px-2.5 py-1 font-mono text-[11px] font-semibold text-emerald-200">
+              POST
+            </span>
           </div>
-
-          {/* Code snippet + endpoint map */}
-          <div className="space-y-5 min-w-0">
-            <div className="rounded-xl bg-gray-900 text-gray-100 shadow-xl overflow-hidden">
-              <div className="flex items-center gap-1.5 px-4 py-2.5 bg-gray-800/60 border-b border-gray-700/60">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-400/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-300/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
-                <span className="ml-3 text-xs text-gray-400 font-mono">
-                  agent.ts
-                </span>
-              </div>
-              <pre className="p-5 text-[13px] leading-relaxed font-mono overflow-x-auto">
-                <code>{`import { AgentClient } from "@venmail/vsm";
-
-const client = new AgentClient({
-  baseUrl: "https://mail.example.com",
-  token: process.env.VENMAIL_AGENT_TOKEN!,
-});
-
-const { data: threads } = await client.listThreads({
-  folder: "inbox",
-  limit: 10,
-});
-
-await client.replyToThread(threads[0].id, {
-  body: "Thanks — looking into this now.",
-});`}</code>
-              </pre>
-            </div>
-
-            <div className="rounded-xl bg-white border border-gray-100 shadow-sm p-5">
-              <div className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
-                Surface area
-              </div>
-              <ul className="space-y-1.5">
-                {endpoints.map((ep) => (
-                  <li
-                    key={ep.path}
-                    className="flex items-center justify-between text-sm"
-                  >
-                    <span className="flex items-center gap-2 font-mono text-gray-700">
-                      <span
-                        className={`inline-block text-[10px] font-bold px-1.5 py-0.5 rounded ${
-                          ep.method === "GET"
-                            ? "bg-blue-100 text-blue-700"
-                            : "bg-emerald-100 text-emerald-700"
-                        }`}
-                      >
-                        {ep.method}
-                      </span>
-                      <span className="text-xs">{ep.path}</span>
-                    </span>
-                    <span className="text-xs text-gray-500">{ep.desc}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4 pt-3 border-t border-gray-100 flex items-center gap-2 text-xs text-gray-500">
-                <LuCheck className="w-3.5 h-3.5 text-emerald-500" />
-                Ships with a TypeScript SDK + an MCP server stub for Claude
-                Desktop / Claude Code.
-              </div>
-            </div>
+          <pre className="overflow-x-auto p-5 text-left text-[12px] leading-6 text-slate-200 sm:p-7 sm:text-[13px]"><code>{messageExample}</code></pre>
+          <div className="border-t border-white/10 bg-black/15 px-5 py-4 text-sm leading-6 text-slate-400 sm:px-7">
+            Agent endpoint: <code className="text-slate-200">/api/v1/agent/messages</code>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default AgentApiSection;

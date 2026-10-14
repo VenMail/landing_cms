@@ -90,7 +90,7 @@ test('homepage presents dedicated support mailboxes without claiming built-in CR
   assert.doesNotMatch(homepage, /automatically route|assigned follow-up|Platform Email API/i);
 });
 
-test('homepage renders the maintained agent API section once', async () => {
+test('homepage renders the maintained developer API section once', async () => {
   const [homepage, agentApi] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/PageSections/AgentApiSection.jsx'),
@@ -99,21 +99,19 @@ test('homepage renders the maintained agent API section once', async () => {
   assert.match(homepage, /import AgentApiSection from/);
   assert.equal((homepage.match(/<AgentApiSection \/>/g) || []).length, 1);
   assert.doesNotMatch(homepage, /const apiRequest|API request and 200 response excerpt/);
-  assert.match(agentApi, /\/v1\/agent\/threads/);
-  assert.match(agentApi, /\/v1\/agent\/messages/);
-  assert.match(agentApi, /mail:send/);
+  assert.match(agentApi, /https:\/\/m\.venmail\.io\/api\/v1\/agent\/messages/);
+  assert.match(agentApi, /\/api\/v1\/agent\/messages/);
   assert.match(agentApi, /id="developers"[\s\S]*scroll-mt-24/);
-  assert.match(agentApi, /href="https:\/\/m\.venmail\.io\/docs\/agents"/);
-  assert.doesNotMatch(agentApi, /webhook/i);
+  assert.match(agentApi, /href="\/developers"/);
+  assert.match(agentApi, /href="https:\/\/m\.venmail\.io\/platform\/api\/docs"/);
+  assert.doesNotMatch(agentApi, /@venmail\/vsm|\/v1\/agent\/threads|Drop-in MCP server/);
 });
 
 test('developer code column can shrink without widening the mobile page', async () => {
   const agentApi = await readSource('../../src/components/PageSections/AgentApiSection.jsx');
 
-  assert.match(
-    agentApi,
-    /\{\/\* Code snippet \+ endpoint map \*\/\}\s*<div className="space-y-5 min-w-0">/,
-  );
+  assert.match(agentApi, /className="min-w-0 overflow-hidden rounded-2xl/);
+  assert.match(agentApi, /<pre className="overflow-x-auto/);
 });
 
 test('AI inbox agents follow the API section with authentic destinations and channel status', async () => {
@@ -159,8 +157,8 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
   assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
   assert.match(mailFirstHeader, /\['AI inbox agents', '\/#ai-inbox-agents'\]/);
   assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
-  assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/venmail-agent"/);
-  assert.match(footer, /\['Venmail Agent', '\/venmail-agent'\]/);
+  assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/ai-inbox-agents"/);
+  assert.match(footer, /\['Venmail Agent', '\/ai-inbox-agents'\]/);
 
   assert.match(page, /Dedicated inboxes for AI agents/);
   assert.match(page, /Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\./);
@@ -266,7 +264,7 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/career', '/resources/partner', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
-  for (const href of ['/blog', '/solutions', '/integrations', '/why-venmail', '/venmail-agent', '/tools/email-header-analyzer', '/product/mail', '/product/email-to-action', '/compare/gmail', '/compare/outlook']) {
+  for (const href of ['/blog', '/solutions', '/integrations', '/why-venmail', '/ai-inbox-agents', '/tools/email-header-analyzer', '/product/mail', '/product/email-to-action', '/compare/gmail', '/compare/outlook']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
   assert.match(source, />Sign up<\/a>/);
