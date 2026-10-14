@@ -115,7 +115,11 @@ test('AI inbox agents follow the API section with authentic destinations and cha
 
   assert.match(homepage, /import AiInboxAgentsSection from/);
   assert.ok(homepage.indexOf('<AgentApiSection />') < homepage.indexOf('<AiInboxAgentsSection />'));
-  assert.match(agents, /Talk to your AI mail agent over Telegram or WhatsApp\./);
+  assert.match(
+    agents,
+    /<p className="mt-5 text-lg leading-\[1\.65\] text-\[#5f6368\]">\s*Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\.\s*<\/p>/,
+  );
+  assert.doesNotMatch(agents, /Telegram is active; WhatsApp support is coming soon\./);
   assert.match(agents, /src="\/images\/ai-inbox-agents-teaser\.webp"/);
   assert.match(agents, /width=\{1586\}/);
   assert.match(agents, /height=\{992\}/);
@@ -168,6 +172,14 @@ test('mobile apps follow AI inbox agents with verified store destinations', asyn
   assert.ok(homepage.indexOf('<MobileAppsSection />') < homepage.indexOf('Work beyond email'));
   assert.match(mobileApps, /src="\/images\/venmail-mobile-inbox-store-capture\.webp"/);
   assert.match(mobileApps, /alt="Venmail mobile inbox"/);
+  assert.match(
+    mobileApps,
+    /aria-hidden="true"[\s\S]*?className="relative aspect-\[9\/16\] overflow-hidden rounded-\[1\.35rem\]"[\s\S]*?<Image[\s\S]*?fill[\s\S]*?alt=""[\s\S]*?className="object-cover object-\[center_28%\]"/,
+  );
+  assert.match(
+    mobileApps,
+    /width=\{598\}[\s\S]*?height=\{1130\}[\s\S]*?alt="Venmail mobile inbox"[\s\S]*?className="block h-auto w-full rounded-\[1\.35rem\]"/,
+  );
   const appStoreLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/apps\.apple\.com\/us\/app\/venmail\/id6755040289")[^>]*>/)?.[0] || '';
   const googlePlayLink = mobileApps.match(/<a\b(?=[^>]*href="https:\/\/play\.google\.com\/store\/apps\/details\?id=io\.venmail\.app")[^>]*>/)?.[0] || '';
   assert.match(appStoreLink, /aria-label="Download Venmail on the App Store"/);
