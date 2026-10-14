@@ -16,8 +16,7 @@ const AiInboxAgentsSection = () => (
           Customer conversations beyond email
         </h2>
         <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">
-          Talk to your AI mail agent over Telegram or WhatsApp. Send instructions
-          in natural language. Telegram is active; WhatsApp support is coming soon.
+          Connect a dedicated Venmail inbox to an AI agent. Talk to your AI mail agent over Telegram or WhatsApp.
         </p>
 
         <dl className="mt-8 border-y border-[#dadce0] text-sm">
