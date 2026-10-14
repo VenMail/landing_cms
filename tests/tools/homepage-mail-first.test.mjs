@@ -214,7 +214,7 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   ]);
   const source = files.join('\n');
 
-  for (const [label, href] of [['Delivery', '#delivery'], ['Spam control', '#spam-control'], ['Developers', '#developers'], ['Pricing', '#pricing']]) {
+  for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
     assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
   }
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/career', '/resources/partner', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
@@ -234,6 +234,14 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   assert.match(source, /Reported web uptime/);
   assert.match(source, /Web availability for venmail\.io, m\.venmail\.io, and venia\.cloud/);
   assert.doesNotMatch(source, /active users|paid customers|live status|uptime guarantee|SMTP uptime/i);
+});
+
+test('mail-first navigation keeps homepage sections reachable from product routes', async () => {
+  const header = await readSource('../../src/components/home/MailFirstHeader.jsx');
+
+  for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
+    assert.match(header, new RegExp(`['"]${label}['"], ['"]${href}['"]`));
+  }
 });
 
 test('homepage FAQ uses native disclosure controls and approved answers', async () => {

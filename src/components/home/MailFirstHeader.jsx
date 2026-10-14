@@ -4,10 +4,10 @@ import { trackCTAClick } from '@/utils/trackConversion';
 import { closeDetailsMenu } from './mobileMenuState.mjs';
 
 const links = [
-  ['Delivery', '#delivery'],
-  ['Spam control', '#spam-control'],
-  ['Developers', '#developers'],
-  ['Pricing', '#pricing'],
+  ['Delivery', '/#delivery'],
+  ['Spam control', '/#spam-control'],
+  ['Developers', '/#developers'],
+  ['Pricing', '/#pricing'],
 ];
 
 export default function MailFirstHeader() {
