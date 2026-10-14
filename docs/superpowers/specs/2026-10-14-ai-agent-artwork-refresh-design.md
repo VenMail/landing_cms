@@ -21,6 +21,10 @@ Choose the variant that retains clear negative space for the section layout, rea
 
 The selected raster asset replaces `public/images/ai-inbox-agents-teaser.webp` without changing the section's layout or copy. The discarded comparison asset remains outside the published asset path.
 
+## Deployment
+
+GitHub Actions deploys the static export to Cloudflare R2 and the Cloudflare Worker. Vercel runtime packages, template deployment guidance, and the external Vercel Git integration are removed so no Vercel preview or production deployment is triggered for this repository.
+
 ## Verification
 
 - Inspect both generated variants against existing landing art.
