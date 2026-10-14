@@ -134,7 +134,8 @@ test('AI inbox agents follow the API section with authentic destinations and cha
   assert.match(agents, /height=\{992\}/);
   assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
   assert.match(agents, /href="\/ai-inbox-agents"/);
-  assert.match(agents, /Explore AI inbox agents/);
+  assert.match(agents, /Explore AI Agents/);
+  assert.doesNotMatch(agents, /Explore AI inbox agents/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
   assert.match(agents, />Telegram</);
   assert.match(agents, />Active</);
@@ -152,11 +153,11 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
     readSource('../../src/components/home/MailFirstFooter.jsx'),
   ]);
 
-  assert.match(agents, /href="\/ai-inbox-agents"[^>]*>[\s\S]*?Explore AI inbox agents/);
+  assert.match(agents, /href="\/ai-inbox-agents"[^>]*>[\s\S]*?Explore AI Agents/);
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
 
   assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
-  assert.match(mailFirstHeader, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
+  assert.match(mailFirstHeader, /\['AI inbox agents', '\/#ai-inbox-agents'\]/);
   assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
   assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/venmail-agent"/);
   assert.match(footer, /\['Venmail Agent', '\/venmail-agent'\]/);
@@ -179,7 +180,7 @@ test('export verification requires the approved AI inbox agents copy', async () 
 
   assert.match(verifier, /Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\./);
   assert.match(verifier, /'\/ai-inbox-agents'/);
-  assert.match(verifier, /'Explore AI inbox agents'/);
+  assert.match(verifier, /'Explore AI Agents'/);
   assert.doesNotMatch(verifier, /Telegram is active; WhatsApp support is coming soon\./);
   assert.doesNotMatch(verifier, /https:\/\/m\.venmail\.io\/admin\/agents|Manage AI agents/);
 });
@@ -277,11 +278,16 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
 });
 
 test('mail-first navigation keeps homepage sections reachable from product routes', async () => {
-  const header = await readSource('../../src/components/home/MailFirstHeader.jsx');
+  const [header, agents] = await Promise.all([
+    readSource('../../src/components/home/MailFirstHeader.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
+  ]);
 
   for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
     assert.match(header, new RegExp(`['"]${label}['"], ['"]${href}['"]`));
   }
+  assert.match(header, /\['AI inbox agents', '\/#ai-inbox-agents'\]/);
+  assert.match(agents, /id="ai-inbox-agents"[\s\S]*scroll-mt-24/);
 });
 
 test('homepage FAQ uses native disclosure controls and approved answers', async () => {

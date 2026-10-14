@@ -78,7 +78,7 @@ for (const text of [
   'Customer conversations beyond email',
   'Connect a dedicated Venmail inbox to an AI agent. Talk to your AI mail agent over Telegram or WhatsApp.',
   '/ai-inbox-agents',
-  'Explore AI inbox agents',
+  'Explore AI Agents',
   'Work beyond email',
   'Plans that fit your team',
   'Up to 100 email accounts included',

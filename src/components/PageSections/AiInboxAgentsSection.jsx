@@ -3,8 +3,9 @@ import { trackCTAClick } from '@/utils/trackConversion';
 
 const AiInboxAgentsSection = () => (
   <section
+    id="ai-inbox-agents"
     aria-labelledby="ai-inbox-agents-title"
-    className="border-t border-[#dadce0] bg-[#f8f9fa] px-4 py-16 sm:px-6 md:py-24"
+    className="scroll-mt-24 border-t border-[#dadce0] bg-[#f8f9fa] px-4 py-16 sm:px-6 md:py-24"
   >
     <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
       <div>
@@ -36,7 +37,7 @@ const AiInboxAgentsSection = () => (
             onClick={() => trackCTAClick('homepage_ai_agents_details', 'ai_inbox_agents', 'homepage_mail_first')}
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2 focus:ring-offset-[#f8f9fa]"
           >
-            Explore AI inbox agents
+            Explore AI Agents
           </a>
           <a
             href="https://m.venmail.io/register"
