@@ -224,7 +224,6 @@ export default function Home() {
 
         <AgentApiSection />
         <AiInboxAgentsSection />
-        <MobileAppsSection />
 
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
           <div className="mx-auto max-w-6xl">
@@ -241,6 +240,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <MobileAppsSection />
 
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto max-w-3xl">

@@ -50,13 +50,22 @@ export default function MobileAppsSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto h-[400px] w-full max-w-[560px] sm:h-[640px] lg:h-[620px]">
+        <div className="relative mx-auto h-[400px] w-full max-w-[560px] overflow-hidden sm:h-[640px] lg:h-[620px]">
           <div className="absolute bottom-[8%] left-[2%] h-[70%] w-[56%] rounded-[2.5rem] bg-[#dff3e8]" aria-hidden="true" />
           <div className="absolute right-[1%] top-[6%] h-[72%] w-[57%] rounded-[2.5rem] bg-[#ede4f7]" aria-hidden="true" />
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-[1]">
+            <Image
+              src="/images/venmail-mobile-on-the-go-illustration.webp"
+              fill
+              sizes="(max-width: 1023px) 100vw, 560px"
+              alt=""
+              className="object-contain object-left-bottom opacity-95"
+            />
+          </div>
 
           <div
             aria-hidden="true"
-            className="absolute left-[5%] top-[12%] w-[47%] -rotate-6 overflow-hidden rounded-[2rem] border-[8px] border-[#292a2d] bg-[#292a2d] shadow-[0_22px_50px_rgba(32,33,36,0.18)]"
+            className="absolute left-[5%] top-[12%] z-10 w-[47%] -rotate-6 overflow-hidden rounded-[2rem] border-[8px] border-[#292a2d] bg-[#292a2d] shadow-[0_22px_50px_rgba(32,33,36,0.18)]"
           >
             <span className="absolute left-1/2 top-2 z-10 h-1.5 w-12 -translate-x-1/2 rounded-full bg-[#292a2d]" />
             <div className="relative aspect-[9/16] overflow-hidden rounded-[1.35rem]">
