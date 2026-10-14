@@ -16,8 +16,8 @@ const AiInboxAgentsSection = () => (
           Customer conversations beyond email
         </h2>
         <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">
-          Connect a dedicated Venmail inbox to an AI agent. Telegram is active;
-          WhatsApp support is coming soon.
+          Talk to your AI mail agent over Telegram or WhatsApp. Send instructions
+          in natural language. Telegram is active; WhatsApp support is coming soon.
         </p>
 
         <dl className="mt-8 border-y border-[#dadce0] text-sm">
@@ -33,11 +33,11 @@ const AiInboxAgentsSection = () => (
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <a
-            href="https://m.venmail.io/admin/agents"
-            onClick={() => trackCTAClick('homepage_ai_agents_admin', 'ai_inbox_agents', 'homepage_mail_first')}
+            href="/ai-inbox-agents"
+            onClick={() => trackCTAClick('homepage_ai_agents_details', 'ai_inbox_agents', 'homepage_mail_first')}
             className="inline-flex min-h-12 items-center justify-center rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2 focus:ring-offset-[#f8f9fa]"
           >
-            Manage AI agents
+            Explore AI inbox agents
           </a>
           <a
             href="https://m.venmail.io/register"
