@@ -174,6 +174,16 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
   assert.doesNotMatch(page, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
+test('export verification requires the approved AI inbox agents copy', async () => {
+  const verifier = await readSource('../../scripts/verify-landing-export.mjs');
+
+  assert.match(verifier, /Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\./);
+  assert.match(verifier, /'\/ai-inbox-agents'/);
+  assert.match(verifier, /'Explore AI inbox agents'/);
+  assert.doesNotMatch(verifier, /Telegram is active; WhatsApp support is coming soon\./);
+  assert.doesNotMatch(verifier, /https:\/\/m\.venmail\.io\/admin\/agents|Manage AI agents/);
+});
+
 test('mobile apps follow AI inbox agents with verified store destinations', async () => {
   const [homepage, mobileApps] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
