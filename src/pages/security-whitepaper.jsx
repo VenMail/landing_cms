@@ -1,878 +1,191 @@
-import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Shield, Lock, Mail, Database, Key, Eye, AlertTriangle, CheckCircle, Server, Cloud, Cpu, HardDrive, Globe, Users, FileText, Zap, ArrowLeft, Home, Menu, X } from 'lucide-react';
+import {
+  ArrowUpRight,
+  Check,
+  Cloud,
+  Database,
+  FileText,
+  KeyRound,
+  LockKeyhole,
+  Mail,
+  Printer,
+  Server,
+  ShieldCheck,
+} from 'lucide-react';
+
+const sections = [
+  ['summary', 'Executive summary'],
+  ['boundaries', 'Service boundaries'],
+  ['storage', 'Storage placement'],
+  ['review', 'Security review'],
+  ['developers', 'Developer integrations'],
+];
+
+function Section({ icon: Icon, eyebrow, title, children }) {
+  return (
+    <section id={eyebrow} className="scroll-mt-28 border-t border-slate-800 py-12 first:border-t-0 sm:py-16">
+      <div className="flex items-start gap-4">
+        <span className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-orange-400/20 bg-orange-400/10 text-orange-300">
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </span>
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-orange-300">{eyebrow}</p>
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{title}</h2>
+        </div>
+      </div>
+      <div className="mt-8 space-y-5 text-base leading-8 text-slate-300 sm:text-lg">{children}</div>
+    </section>
+  );
+}
+
+function Fact({ children }) {
+  return (
+    <li className="flex gap-3">
+      <Check className="mt-1 h-5 w-5 shrink-0 text-orange-300" aria-hidden="true" />
+      <span>{children}</span>
+    </li>
+  );
+}
 
 export default function SecurityWhitepaper() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <>
       <Head>
-        <title>Security Whitepaper - VenMail</title>
-        <meta name="description" content="Comprehensive security architecture and infrastructure details for VenMail email platform" />
-        <meta name="keywords" content="email security, postal, encryption, cybersecurity, whitepaper" />
-        <style>{`
-          @media print {
-            body {
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-              color-adjust: exact !important;
-            }
-            
-            /* High contrast brand colors for print */
-            h1, h2, h3, h4, h5, h6 {
-              color: #1f2937 !important;
-              font-weight: 700 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Dark brand text for print */
-            p, span, div, li, td, th {
-              color: #374151 !important;
-              font-weight: 400 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Brand primary colors in print (darker versions) */
-            .text-primary-400, .text-primary-500, .text-primary-600 {
-              color: #ea580c !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-primary-300 {
-              color: #c2410c !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Orange accents */
-            .text-orange-400, .text-orange-500, .text-orange-600 {
-              color: #c2410c !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-orange-300 {
-              color: #9a3412 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Green accents */
-            .text-green-400, .text-green-500, .text-green-600 {
-              color: #15803d !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-green-300 {
-              color: #166534 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Blue accents */
-            .text-blue-400, .text-blue-500, .text-blue-600 {
-              color: #1e40af !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-blue-300 {
-              color: #1d4ed8 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Yellow accents */
-            .text-yellow-400, .text-yellow-500, .text-yellow-600 {
-              color: #a16207 !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-yellow-300 {
-              color: #854d0e !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Cyan accents */
-            .text-cyan-400, .text-cyan-500, .text-cyan-600 {
-              color: #0891b2 !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-cyan-300 {
-              color: #0e7490 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Red accents */
-            .text-red-400, .text-red-500, .text-red-600 {
-              color: #dc2626 !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-red-300 {
-              color: #b91c1c !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Purple accents */
-            .text-purple-400, .text-purple-500, .text-purple-600 {
-              color: #7c3aed !important;
-              font-weight: 600 !important;
-            }
-            
-            .text-purple-300 {
-              color: #6d28d9 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* Bold for emphasis */
-            .text-xl, .text-lg, .text-base {
-              color: #1f2937 !important;
-              font-weight: 500 !important;
-            }
-            
-            /* White text on dark backgrounds - use dark text instead */
-            .text-white {
-              color: #1f2937 !important;
-              font-weight: 600 !important;
-            }
-            
-            /* Light grey text - make darker */
-            .text-slate-300, .text-slate-400 {
-              color: #4b5563 !important;
-              font-weight: 400 !important;
-            }
-            
-            /* Maintain brand backgrounds but lighter */
-            .bg-primary-500\/20, .bg-primary-500\/30 {
-              background-color: #fed7aa !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-orange-500\/20 {
-              background-color: #fed7aa !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-blue-500\/20 {
-              background-color: #dbeafe !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-green-500\/20 {
-              background-color: #dcfce7 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-red-500\/20 {
-              background-color: #fee2e2 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-yellow-500\/20 {
-              background-color: #fef3c7 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Dark backgrounds to light */
-            .bg-slate-900, .bg-slate-800, .bg-slate-700 {
-              background-color: #f9fafb !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-slate-900\/50, .bg-slate-800\/50 {
-              background-color: #f3f4f6 !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            .bg-slate-900\/95 {
-              background-color: #ffffff !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Hide navigation in print */
-            .sticky {
-              display: none !important;
-            }
-            
-            /* Ensure containers have light background */
-            .min-h-screen, .container {
-              background-color: #ffffff !important;
-            }
-            
-            /* Keep brand borders but darker */
-            .border-primary-400\/30, .border-primary-500\/30 {
-              border-color: #ea580c !important;
-              border-width: 1px !important;
-            }
-            
-            .border-slate-700 {
-              border-color: #d1d5db !important;
-              border-width: 1px !important;
-            }
-            
-            /* Keep icons with brand colors */
-            svg {
-              fill: currentColor !important;
-              stroke: currentColor !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Page breaks for sections */
-            section {
-              page-break-inside: avoid;
-              page-break-after: always;
-            }
-            
-            /* Lighten gradients but keep brand feel */
-            .bg-gradient-to-br, .bg-gradient-to-r {
-              background: linear-gradient(to right, #fed7aa, #fef3c7) !important;
-              -webkit-print-color-adjust: exact !important;
-              print-color-adjust: exact !important;
-            }
-            
-            /* Ensure cards have light backgrounds with brand borders */
-            .rounded-xl, .rounded-lg {
-              border: 1px solid #d1d5db !important;
-              background: #ffffff !important;
-            }
-            
-            .bg-slate-900\/50 .rounded-xl, .bg-slate-800\/50 .rounded-lg {
-              background: #f9fafb !important;
-              border-color: #ea580c !important;
-            }
-            
-            /* Print-friendly spacing */
-            .py-24, .py-16, .py-8 {
-              padding-top: 1rem !important;
-              padding-bottom: 1rem !important;
-            }
-            
-            .px-6, .px-8 {
-              padding-left: 1rem !important;
-              padding-right: 1rem !important;
-            }
-          }
-        `}</style>
+        <title>Security Whitepaper — Venmail</title>
+        <meta
+          name="description"
+          content="Venmail service boundaries for connection security, server-side processing, storage placement, and deployment review."
+        />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        {/* Navigation Header */}
-        <div className="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-700">
-          <div className="container mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <img src="/logo-white.png" alt="VenMail" className="h-8 w-auto" />
-              </div>
-              
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-4">
-                <Link 
-                  href="/" 
-                  className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
-                  target="_blank"
-                >
-                  <Home className="w-4 h-4" />
-                  <span>Back to Homepage</span>
-                </Link>
-                <button
-                  onClick={() => window.print()}
-                  className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Print PDF</span>
-                </button>
-              </div>
+      <style jsx global>{`
+        @media print {
+          .print-hidden { display: none !important; }
+          html { scroll-behavior: auto; }
+          body { background: #fff !important; color: #0f172a !important; }
+          .print-surface, .print-surface * { background: #fff !important; color: #0f172a !important; border-color: #cbd5e1 !important; box-shadow: none !important; }
+          section { break-inside: avoid; }
+        }
+      `}</style>
 
-              {/* Mobile menu button */}
-              <div className="md:hidden">
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="flex items-center justify-center p-2 text-slate-300 hover:text-white transition-colors"
-                >
-                  {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
-                  ) : (
-                    <Menu className="w-6 h-6" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile Navigation */}
-            {mobileMenuOpen && (
-              <div className="md:hidden mt-4 pt-4 border-t border-slate-700">
-                <div className="flex flex-col space-y-3">
-                  <Link 
-                    href="/" 
-                    className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors py-2"
-                    target="_blank"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Home className="w-4 h-4" />
-                    <span>Back to Homepage</span>
-                  </Link>
-                  <button
-                    onClick={() => {
-                      window.print();
-                      setMobileMenuOpen(false);
-                    }}
-                    className="flex items-center gap-2 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors w-full justify-center"
-                  >
-                    <FileText className="w-4 h-4" />
-                    <span>Print PDF</span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-        {/* Hero Section */}
-        <div className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-orange-600/20"></div>
-          <div className="relative container mx-auto px-6 py-12 md:py-24">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="flex justify-center mb-6">
-                <div className="p-4 bg-primary-500/20 rounded-full border border-primary-400/30">
-                  <Shield className="w-12 h-12 text-primary-400" />
-                </div>
-              </div>
-              <h1 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                Security Whitepaper
-              </h1>
-              <p className="text-lg md:text-xl text-slate-300 mb-8 leading-relaxed px-4">
-                A comprehensive overview of VenMail's security architecture, infrastructure, and our commitment to protecting your communications
-              </p>
-              <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 px-4">
-                <div className="flex items-center gap-2 text-slate-400">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm md:text-base">15+ Years Cybersecurity Experience</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm md:text-base">Enterprise-Grade Encryption</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-sm md:text-base">Zero-Trust Architecture</span>
-                </div>
-              </div>
+      <div className="print-surface min-h-screen bg-[#070b16] text-white">
+        <header className="print-hidden sticky top-0 z-20 border-b border-white/10 bg-[#070b16]/90 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+            <Link href="/" className="inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+              <Mail className="h-6 w-6 text-primary-400" aria-hidden="true" />
+              Venmail
+            </Link>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link href="/" className="hidden text-sm font-medium text-slate-300 transition hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 sm:inline">
+                Venmail
+              </Link>
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-primary-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 sm:px-4"
+              >
+                <Printer className="h-4 w-4" aria-hidden="true" />
+                Print PDF
+              </button>
             </div>
           </div>
-        </div>
+        </header>
 
-        <div className="container mx-auto px-4 md:px-6 py-8 md:py-16 space-y-16 md:space-y-24">
-          {/* Executive Summary */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <FileText className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
-              Executive Summary
-            </h2>
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-              <p className="text-slate-300 leading-relaxed mb-4">
-                VenMail represents the culmination of over 15 years of cybersecurity expertise, combining battle-tested infrastructure with cutting-edge security innovations. When it come to email security is 50% of the job, inbox deliverability is 40% and the rest is performance. Our current core email processing backend uses a hybrid system using AWS as our primary MTA and Postal as our failover system. We've engineered a comprehensive suite of security tools that addresses several aspects of the email lifecycle with near realtime performance and reliability.
-              </p>
-              <p className="text-slate-300 leading-relaxed">
-                Our architecture leverages advanced encryption, sophisticated reputation monitoring, and flexible storage options to provide organizations with a secure, scalable email solution that adapts to their specific security requirements and compliance needs.
-              </p>
+        <main>
+          <section className="border-b border-white/10 bg-[radial-gradient(circle_at_76%_0%,rgba(249,115,22,0.20),transparent_32rem)]">
+            <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
+              <div className="max-w-3xl">
+                <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/20 bg-orange-300/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-orange-200">
+                  <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+                  Security whitepaper
+                </div>
+                <h1 className="mt-8 text-5xl font-semibold tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">Clear service boundaries for sensitive email work.</h1>
+                <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300 sm:text-xl">
+                  This paper describes the current connection, content-processing, storage, and review boundaries for Venmail deployments.
+                </p>
+              </div>
+
+              <ul className="mt-12 grid max-w-5xl gap-3 text-sm text-slate-200 sm:grid-cols-3">
+                <li className="rounded-xl border border-white/10 bg-white/[0.03] p-4">HTTPS protects the web application connection.</li>
+                <li className="rounded-xl border border-white/10 bg-white/[0.03] p-4">Server-side content processing is disclosed.</li>
+                <li className="rounded-xl border border-white/10 bg-white/[0.03] p-4">Deployment controls are confirmed per contract.</li>
+              </ul>
             </div>
           </section>
 
-          {/* Core Infrastructure */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Server className="w-6 h-6 md:w-8 md:h-8 text-primary-400" />
-              Core Infrastructure Architecture
-            </h2>
-            
-            <div className="grid md:grid-cols-2 gap-4 md:gap-6 mb-8">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-slate-700">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-orange-500/20 rounded-lg">
-                    <Zap className="w-5 h-5 md:w-6 md:h-6 text-orange-400" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white">SES Primary System</h3>
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 py-12 sm:px-8 lg:grid-cols-[15rem_minmax(0,1fr)] lg:py-20">
+            <aside className="print-hidden min-w-0 lg:sticky lg:top-24 lg:h-fit">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Contents</p>
+              <nav aria-label="Whitepaper sections" className="mt-4 flex gap-2 overflow-x-auto pb-2 lg:block lg:space-y-1 lg:overflow-visible">
+                {sections.map(([id, label]) => (
+                  <a key={id} href={`#${id}`} className="whitespace-nowrap rounded-lg px-3 py-2 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 lg:block">
+                    {label}
+                  </a>
+                ))}
+              </nav>
+            </aside>
+
+            <div className="min-w-0 max-w-3xl">
+              <Section icon={FileText} eyebrow="summary" title="Executive summary">
+                <p>Venmail provides email and related AI features through a web application. HTTPS protects the connection to the web application. The service processes email content on its servers to provide mailbox and AI features.</p>
+                <p>Venmail is not a blanket end-to-end encrypted or zero-access service. Teams with regulated, contractual, or sensitive-workload requirements should confirm the controls and supporting evidence for their deployment before processing that data.</p>
+              </Section>
+
+              <Section icon={Server} eyebrow="boundaries" title="Service boundaries">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <article className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+                    <h3 className="font-semibold text-white">Application processing</h3>
+                    <p className="mt-3 text-base leading-7 text-slate-300">Email content can be processed on Venmail servers for mailbox and AI features.</p>
+                  </article>
+                  <article className="rounded-2xl border border-slate-800 bg-slate-900/70 p-5">
+                    <h3 className="font-semibold text-white">AI processing</h3>
+                    <p className="mt-3 text-base leading-7 text-slate-300">Email analysis can send message content and extracted attachment text to Groq, a third-party AI provider.</p>
+                  </article>
                 </div>
-                <p className="text-slate-300 mb-4">
-                  Our primary email delivery backend is AWS:
-                </p>
-                <ul className="space-y-2 text-slate-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>15+ years of battle tested infrastructure</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Reliable performance and bounce tracking</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Good IP Reputation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Built-in DKIM signing and deliverability optimization</span>
-                  </li>
+                <p>Connection security, mailbox storage, application processing, and AI processing are separate concerns. A storage setting alone does not confine application or third-party AI processing to that location.</p>
+              </Section>
+
+              <Section icon={Database} eyebrow="storage" title="Storage placement">
+                <ul className="space-y-4">
+                  <Fact>Managed plans currently use shared storage infrastructure.</Fact>
+                  <Fact>Nigeria, South Africa, and Europe selections record a future region preference; they do not provide current data residency.</Fact>
+                  <Fact>Customer-provided storage settings govern mailbox storage placement. Application and third-party AI processing remain separate boundaries to review.</Fact>
                 </ul>
-              </div>
+              </Section>
 
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-slate-700">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-blue-500/20 rounded-lg">
-                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-white">Postal Failover System</h3>
-                </div>
-                <p className="text-slate-300 mb-4">
-                  Postal serves as our robust failover system, ensuring maximum reliability:
-                </p>
-                <ul className="space-y-2 text-slate-300">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Seamless automatic failover capabilities</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Proven reliability with enterprise deployments</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Comprehensive authentication and rate limiting</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                    <span>Active monitoring and health checks</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Antispam Infrastructure */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" />
-              Advanced Antispam Infrastructure
-            </h2>
-            
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary-400 mb-2">99.9%</div>
-                  <p className="text-sm md:text-base text-slate-300">Spam Detection Accuracy</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-blue-400 mb-2">&lt;100ms</div>
-                  <p className="text-sm md:text-base text-slate-300">Average Processing Time</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-orange-400 mb-2">24/7</div>
-                  <p className="text-sm md:text-base text-slate-300">Real-time Monitoring</p>
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Multi-Layered Protection</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-base md:text-lg font-medium text-primary-300 mb-2">Content Analysis</h4>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Natural language processing</li>
-                        <li>• Pattern recognition</li>
-                        <li>• Semantic analysis</li>
-                        <li>• Image content scanning</li>
-                      </ul>
-                    </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-base md:text-lg font-medium text-orange-300 mb-2">Reputation Systems</h4>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Sender reputation scoring</li>
-                        <li>• Domain reputation tracking</li>
-                        <li>• IP reputation monitoring</li>
-                        <li>• Blacklist integration</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Machine Learning Integration</h3>
-                  <p className="text-slate-300 mb-4">
-                    Our ML models are trained on billions of email samples and continuously updated with new threat patterns:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-base md:text-lg font-medium text-green-300 mb-2">Neural Networks</h4>
-                      <p className="text-slate-300 text-sm">Deep learning for complex pattern detection</p>
-                    </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-base md:text-lg font-medium text-yellow-300 mb-2">Random Forests</h4>
-                      <p className="text-slate-300 text-sm">Ensemble learning for classification accuracy</p>
-                    </div>
-                    <div className="bg-slate-900/50 rounded-lg p-4">
-                      <h4 className="text-base md:text-lg font-medium text-red-300 mb-2">Support Vector Machines</h4>
-                      <p className="text-slate-300 text-sm">Optimal boundary detection for spam vs ham</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Reputation Monitoring */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Eye className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" />
-              Reputation Monitoring & Protection
-            </h2>
-            
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-              <p className="text-slate-300 mb-6">
-                Our sophisticated reputation monitoring system provides comprehensive protection against sender reputation damage and ensures optimal deliverability rates.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Real-time Monitoring</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <Globe className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Global Blacklist Monitoring:</strong> Continuous checking against 100+ blacklists
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Users className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Sender Score Tracking:</strong> Real-time reputation score calculation
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Database className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Domain Health Analysis:</strong> Comprehensive domain reputation assessment
-                      </div>
-                    </li>
+              <Section icon={LockKeyhole} eyebrow="review" title="Security review">
+                <p>Venmail does not claim blanket end-to-end encryption, zero-access processing, certifications, or automatic regulatory compliance for every deployment. Applicable requirements depend on the service configuration and contract.</p>
+                <div className="rounded-2xl border border-orange-300/20 bg-orange-300/10 p-6">
+                  <h3 className="font-semibold text-orange-100">Before handling regulated or sensitive workloads</h3>
+                  <ul className="mt-4 space-y-3 text-base leading-7 text-slate-200">
+                    <Fact>Confirm current deployment controls and processing locations.</Fact>
+                    <Fact>Confirm subprocessors and applicable contractual terms.</Fact>
+                    <Fact>Document access, retention, and incident requirements for the intended deployment.</Fact>
                   </ul>
                 </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Protection Mechanisms</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <Shield className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Automatic Rate Limiting:</strong> Dynamic throttling based on reputation
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Threat Detection:</strong> Early warning system for reputation threats
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <Zap className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Rapid Response:</strong> Automated mitigation actions
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
+              </Section>
 
-          {/* Storage & Encryption */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Lock className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
-              Storage Flexibility & Encryption
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-                <h3 className="text-xl font-semibold text-white mb-6">Custom Storage Adapters</h3>
-                <p className="text-slate-300 mb-6">
-                  VenMail provides unparalleled flexibility with pluggable storage adapters, allowing organizations to integrate with their preferred storage solutions while maintaining security and compliance.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  <div className="bg-slate-900/50 rounded-lg p-4 md:p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <Cloud className="w-5 h-5 md:w-6 md:h-6 text-primary-400" />
-                      <h4 className="text-lg font-medium text-white">Cloud Storage</h4>
-                    </div>
-                    <ul className="space-y-2 text-slate-300 text-sm">
-                      <li>• Amazon S3 & S3-compatible services</li>
-                      <li>• Google Cloud Storage</li>
-                      <li>• Azure Blob Storage</li>
-                      <li>• DigitalOcean Spaces</li>
-                      <li>• Custom S3 endpoints</li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-slate-900/50 rounded-lg p-4 md:p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <HardDrive className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
-                      <h4 className="text-lg font-medium text-white">On-Premises Storage</h4>
-                    </div>
-                    <ul className="space-y-2 text-slate-300 text-sm">
-                      <li>• Local filesystem storage</li>
-                      <li>• Network-attached storage (NAS)</li>
-                      <li>• Storage area networks (SAN)</li>
-                      <li>• Custom database backends</li>
-                      <li>• Hybrid storage solutions</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              <Section icon={KeyRound} eyebrow="developers" title="Developer integrations">
+                <p>Platform Email API credentials are issued through the partner dashboard. The public reference documents partner-managed workspace, mailbox, domain, and credential operations.</p>
+                <a href="https://m.venmail.io/platform/api/docs" target="_blank" rel="noreferrer" className="print-hidden inline-flex min-h-11 items-center gap-2 rounded-lg border border-slate-700 px-4 py-2 text-sm font-semibold text-white transition hover:border-slate-500 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300">
+                  Platform API reference
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </Section>
 
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-                <h3 className="text-xl font-semibold text-white mb-6">Encryption at Rest</h3>
-                <p className="text-slate-300 mb-6">
-                  All email data is encrypted using industry-standard encryption algorithms, with support for customer-managed encryption keys.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Key className="w-6 h-6 md:w-8 md:h-8 text-yellow-400 mx-auto mb-2" />
-                    <h4 className="text-lg font-medium text-white mb-2">AES-256</h4>
-                    <p className="text-slate-300 text-sm">Military-grade encryption for all stored data</p>
-                  </div>
-                  <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Cpu className="w-6 h-6 md:w-8 md:h-8 text-blue-400 mx-auto mb-2" />
-                    <h4 className="text-lg font-medium text-white mb-2">Hardware Security Modules</h4>
-                    <p className="text-slate-300 text-sm">Support for HSM integration and key management</p>
-                  </div>
-                  <div className="bg-slate-900/50 rounded-lg p-4 text-center">
-                    <Database className="w-6 h-6 md:w-8 md:h-8 text-green-400 mx-auto mb-2" />
-                    <h4 className="text-lg font-medium text-white mb-2">Key Rotation</h4>
-                    <p className="text-slate-300 text-sm">Automated key rotation and versioning</p>
-                  </div>
-                </div>
-              </div>
+              <section className="rounded-2xl border border-slate-800 bg-slate-900/70 p-7 sm:p-8">
+                <Cloud className="h-6 w-6 text-orange-300" aria-hidden="true" />
+                <h2 className="mt-5 text-2xl font-semibold tracking-tight text-white">Deployment questions</h2>
+                <p className="mt-3 max-w-2xl leading-7 text-slate-300">Request current deployment controls, subprocessors, and contractual requirements before relying on Venmail for a regulated or sensitive workload.</p>
+                <a href="mailto:hello@venmail.io?subject=Venmail%20security%20review" className="print-hidden mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">
+                  Request a security review
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </section>
             </div>
-          </section>
-
-          {/* Advanced Features */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Zap className="w-6 h-6 md:w-8 md:h-8 text-orange-400" />
-              Advanced Security Features
-            </h2>
-            
-            <div className="space-y-6">
-              <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-                <h3 className="text-xl font-semibold text-white mb-6">Password-Protected Emails</h3>
-                <p className="text-slate-300 mb-6">
-                  Send sensitive information with confidence using our password-protected email feature that includes self-destruct capabilities.
-                </p>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                  <div>
-                    <h4 className="text-lg font-medium text-primary-300 mb-4">Security Features</h4>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex items-start gap-2">
-                        <Lock className="w-4 h-4 text-primary-400 flex-shrink-0 mt-0.5" />
-                        <span>End-to-end encryption with recipient password</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Eye className="w-4 h-4 text-primary-400 flex-shrink-0 mt-0.5" />
-                        <span>Optional read receipts and access tracking</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <AlertTriangle className="w-4 h-4 text-primary-400 flex-shrink-0 mt-0.5" />
-                        <span>Tamper-evident notifications</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-lg font-medium text-red-300 mb-4">Self-Destruct Options</h4>
-                    <ul className="space-y-2 text-slate-300">
-                      <li className="flex items-start gap-2">
-                        <Zap className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                        <span>Auto-delete after first access</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Database className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                        <span>Time-based expiration (hours/days)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <Shield className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                        <span>Secure data wiping beyond recovery</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Our Expertise */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <Users className="w-6 h-6 md:w-8 md:h-8 text-primary-400" />
-              15+ Years of Cybersecurity Excellence
-            </h2>
-            
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-              <p className="text-slate-300 mb-6">
-                VenMail is built by cybersecurity veterans with extensive experience in antivirus development, antifraud systems, and enterprise security solutions.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Antivirus Expertise</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Malware Analysis:</strong> Deep understanding of malware vectors and propagation methods
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Threat Intelligence:</strong> Access to global threat intelligence networks
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Heuristic Detection:</strong> Advanced pattern recognition for zero-day threats
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Antifraud Experience</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Behavioral Analysis:</strong> Sophisticated fraud pattern recognition
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Machine Learning:</strong> Deployed ML models for fraud detection
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>Risk Assessment:</strong> Comprehensive risk scoring systems
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Compliance & Certifications */}
-          <section className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <FileText className="w-6 h-6 md:w-8 md:h-8 text-green-400" />
-              Compliance & Certifications
-            </h2>
-            
-            <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 md:p-8 border border-slate-700">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Current Compliance</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>GDPR:</strong> Full compliance with data protection regulations
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>CCPA:</strong> California Consumer Privacy Act compliance
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>SOX:</strong> Sarbanes-Oxley Act compliance features
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">In Progress</h3>
-                  <ul className="space-y-3 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>SOC 2 Type II:</strong> Year 2 of certification process
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>ISO 27001:</strong> Information security management
-                      </div>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <strong>HIPAA:</strong> Healthcare information protection
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Conclusion */}
-          <section className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-primary-500/20 to-orange-600/20 rounded-xl p-4 md:p-8 border border-primary-500/30">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">Conclusion</h2>
-              <p className="text-slate-300 leading-relaxed text-center mb-6 px-4">
-                VenMail represents the pinnacle of secure email communication, combining decades of cybersecurity expertise with cutting-edge technology. Our commitment to security, privacy, and reliability ensures that your communications remain protected in an increasingly complex threat landscape.
-              </p>
-              <div className="text-center">
-                <p className="text-lg md:text-xl text-primary-300 font-semibold mb-4">
-                  Security isn't just a feature—it's our foundation.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <Shield className="w-5 h-5 text-green-400" />
-                    <span className="text-sm md:text-base">Enterprise-Grade Security</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <Lock className="w-5 h-5 text-primary-400" />
-                    <span className="text-sm md:text-base">End-to-End Encryption</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-slate-400">
-                    <Users className="w-5 h-5 text-primary-400" />
-                    <span className="text-sm md:text-base">15+ Years Expertise</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+          </div>
+        </main>
       </div>
     </>
   );

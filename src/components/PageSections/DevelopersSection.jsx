@@ -1,174 +1,48 @@
-import { useState } from "react";
-import { LuCircleCheck, LuZap, LuCode, LuWebhook, LuSend } from "react-icons/lu";
+import Link from 'next/link';
+import { ArrowUpRight, Braces, KeyRound } from 'lucide-react';
 
-const BEST_FOR = ["Dev teams", "Product apps", "Integrations"];
-
-const API_FEATURES = [
-  {
-    icon: LuSend,
-    title: "Send Email",
-    description: "Via REST API or SMTP",
-    code: "POST /api/v1/send/message"
-  },
-  {
-    icon: LuWebhook,
-    title: "Real-time Webhooks",
-    description: "Delivery, opens, reads, bounces",
-    code: "POST /webhooks/email-events"
-  },
-  {
-    icon: LuCode,
-    title: "Developer-First",
-    description: "Clean docs, SDKs, no lock-in",
-    code: "npm install @venmail/vsm"
-  }
-];
-
-const CODE_EXAMPLES = [
-  {
-    language: "curl",
-    code: `curl -X POST https://m.venmail.io/api/v1/send/message \\
-  -H "X-Server-API-Key: vm_live_..." \\
+const sendMessageExample = `curl -X POST https://m.venmail.io/api/v1/agent/messages \\
+  -H "Authorization: Bearer <token>" \\
+  -H "Accept: application/json" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "to": ["user@example.com"],
-    "from": "hello@yourdomain.com",
-    "subject": "Welcome to Venmail!",
-    "html_body": "<p>Thanks for joining us!</p>"
-  }'`
-  },
-  {
-    language: "javascript",
-    code: `import { vvs } from '@venmail/vsm';
-
-const res = await fetch('https://m.venmail.io/api/v1/send/message', {
-  method: 'POST',
-  headers: {
-    'X-Server-API-Key': 'vm_live_...',
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    to: ['user@example.com'],
-    from: 'hello@yourdomain.com',
-    subject: 'Welcome to Venmail!',
-    html_body: '<p>Thanks for joining us!</p>',
-  }),
-});`
-  },
-  {
-    language: "webhook",
-    code: `// Webhook payload received
-{
-  "event": "email.delivered",
-  "timestamp": "2025-01-29T10:00:00Z",
-  "email_id": "msg_123456",
-  "recipient": "user@example.com",
-  "status": "delivered"
-}`
-  }
-];
+    "to": "maya@acme.example",
+    "subject": "Pricing for 200 units",
+    "body": "Pricing and delivery timing will follow shortly."
+  }'`;
 
 export default function DevelopersSection() {
-  const [activeCodeTab, setActiveCodeTab] = useState(0);
-
   return (
-    <section id="for-developers" className="bg-gradient-to-b from-green-50 to-white py-20 lg:py-24 scroll-mt-20 relative overflow-hidden">
-      {/* Cinematic backdrop overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-100/20 via-transparent to-emerald-100/20 backdrop-blur-[100px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.1)_0%,transparent_50%)]" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-
-        {/* Hero Image */}
-          <div className="relative max-w-4xl mx-auto mb-16">
-            <div className="absolute -inset-4 bg-green-100 rounded-2xl transform rotate-1 cinematic-glow" />
-            <div className="relative cinematic-vignette rounded-xl overflow-hidden">
-              <img
-                src="/stock-images/dual-monitor-workspace.jpg"
-                alt="Professional developer workspace with dual monitors and clean setup"
-                className="rounded-xl shadow-xl w-full h-auto"
-              />
-            </div>
-          </div>
-
-        {/* Code Examples */}
-        <div className="cinematic-frame bg-gray-900 rounded-2xl p-8 mb-12 relative overflow-hidden">
-          {/* Subtle animated grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-          <div className="flex flex-wrap gap-2 mb-6">
-            {CODE_EXAMPLES.map((example, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveCodeTab(i)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  activeCodeTab === i
-                    ? "bg-green-600 text-white"
-                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                }`}
-              >
-                {example.language}
-              </button>
-            ))}
-          </div>
-          <pre className="text-gray-300 font-mono text-sm overflow-x-auto">
-            <code>{CODE_EXAMPLES[activeCodeTab].code}</code>
-          </pre>
-        </div>
-
-        {/* Additional Features */}
-        <div className="glass-card p-8 md:p-12 rounded-2xl border border-gray-100 shadow-lg mb-12 relative overflow-hidden">
-          {/* Subtle background pattern */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-50/30 via-transparent to-emerald-50/30" />
-          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">Developer Tools</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "RESTful API design",
-              "SMTP relay support",
-              "Real-time webhooks",
-              "SDKs for popular languages",
-              "Comprehensive documentation",
-              "99.9% uptime SLA",
-              "GDPR compliant",
-              "No vendor lock-in",
-              "Instant API keys"
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3 text-gray-700">
-                <LuCircleCheck className="w-6 h-6 text-green-600 flex-shrink-0" />
-                <span className="text-base">{item}</span>
-              </div>
-            ))}
+    <section id="for-developers" className="bg-slate-950 py-20 text-white lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+        <div>
+          <p className="mb-5 flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-orange-300">
+            <Braces className="h-4 w-4" aria-hidden="true" />
+            Developers
+          </p>
+          <h2 className="max-w-xl text-4xl font-semibold tracking-tight sm:text-5xl">Email operations for your product.</h2>
+          <p className="mt-6 max-w-lg text-lg leading-8 text-slate-300">Send account-scoped messages or provision customer workspaces with explicit credentials and documented boundaries.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/developers" className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-200">
+              Developer guide
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <a href="https://m.venmail.io/platform/api/docs" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-3 text-sm font-semibold text-white transition hover:border-slate-500 hover:bg-slate-900">
+              Platform API reference
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </a>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center">
-          <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-1 rounded-2xl inline-block">
-            <div className="bg-white p-8 md:p-12 rounded-2xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Start with Venmail API
-              </h3>
-              <p className="text-lg text-gray-600 mb-8">
-                Get your API key and start sending emails
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="https://docs.venmail.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-black hover:bg-gray-800 transition-colors"
-                >
-                  View API Docs
-                </a>
-                <a
-                  href="#see-it-in-action"
-                  className="inline-flex items-center gap-2 text-lg font-medium text-gray-700 hover:text-green-600 transition-colors"
-                >
-                  View Integration Examples
-                  <LuZap className="w-5 h-5" />
-                </a>
-              </div>
+        <div className="overflow-hidden rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl shadow-black/30">
+          <div className="flex items-center justify-between border-b border-slate-800 px-5 py-4">
+            <div className="flex items-center gap-2 text-sm text-slate-300">
+              <KeyRound className="h-4 w-4 text-orange-300" aria-hidden="true" />
+              Agent API
             </div>
+            <span className="rounded-full bg-orange-300/10 px-3 py-1 text-xs font-medium text-orange-200">POST</span>
           </div>
+          <pre className="overflow-x-auto p-5 text-sm leading-7 text-slate-200 sm:p-7"><code>{sendMessageExample}</code></pre>
         </div>
       </div>
     </section>
