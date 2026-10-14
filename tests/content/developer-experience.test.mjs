@@ -29,3 +29,11 @@ test('security whitepaper states current processing boundaries without unsupport
   assert.match(whitepaper, /print-hidden min-w-0 lg:sticky/);
   assert.match(whitepaper, /<div className="min-w-0 max-w-3xl">/);
 });
+
+test('developer and whitepaper descriptions replace the shared default metadata', () => {
+  const whitepaper = source('pages/security-whitepaper.jsx');
+  const developers = source('pages/developers.jsx');
+
+  assert.match(whitepaper, /name="description"\s+key="description"/);
+  assert.match(developers, /name="description"\s+key="description"/);
+});
