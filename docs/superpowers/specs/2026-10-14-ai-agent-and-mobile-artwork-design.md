@@ -13,6 +13,14 @@ Make the AI inbox agent offer feel warm and tangible, and make the native Venmai
 - Preserve the current 1586 x 992 rendered-asset contract and `next/image` sizing behavior.
 - Use the channel copy: `Connect a dedicated Venmail inbox to an AI agent. Talk to your AI mail agent over Telegram or WhatsApp.` The adjacent channel-status rows remain the sole availability qualification.
 
+## AI inbox agent destination
+
+- Keep `/venmail-agent` for the separate Chrome contact-intelligence extension; it must not be presented as the AI inbox agent product.
+- Create `/ai-inbox-agents` as the public product page for AI inbox agents.
+- Link the landing-page AI inbox section to `/ai-inbox-agents`; retain registration as the secondary action. The public product page owns the direct management link to `https://m.venmail.io/admin/agents`.
+- Add an `AI inbox agents` destination to the product navigation and company footer alongside, rather than in place of, the existing extension destination.
+- Explain the actual offer: a dedicated inbox per agent, natural-language conversation over Telegram or WhatsApp, and up to 20 saved routines per agent. Keep the existing visible Telegram and WhatsApp status qualifications.
+
 ## Native mobile apps
 
 - Render a dedicated native-app section immediately after AI inbox agents and before the broader product suite section.

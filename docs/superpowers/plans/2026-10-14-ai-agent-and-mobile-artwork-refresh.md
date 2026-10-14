@@ -65,7 +65,62 @@
 
   Expected: one test-only commit. If the project requires green commits, retain the staged test and commit it with Task 3 instead.
 
-### Task 2: Produce and validate owned visual assets
+### Task 2: Add a distinct public AI inbox agents destination
+
+**Files:**
+- Create: `src/pages/ai-inbox-agents.jsx`
+- Modify: `src/components/PageSections/AiInboxAgentsSection.jsx:34-50`
+- Modify: `src/components/layout/Header.jsx:40-86`
+- Modify: `src/components/home/MailFirstFooter.jsx:24-45`
+- Modify: `tests/tools/homepage-mail-first.test.mjs:110-155`
+
+- [ ] **Step 1: Add failing route and link assertions**
+
+  Add a focused source test that reads `src/pages/ai-inbox-agents.jsx`, the homepage agent section, `Header.jsx`, and `MailFirstFooter.jsx`. Assert the new page exists, the homepage contains `href="/ai-inbox-agents"`, header and footer both link to `/ai-inbox-agents`, and the extension remains separately linked at `/venmail-agent`.
+
+  Include these page-content assertions:
+
+  ```js
+  assert.match(aiInboxPage, /Dedicated inboxes for AI agents/);
+  assert.match(aiInboxPage, /Telegram/);
+  assert.match(aiInboxPage, /WhatsApp/);
+  assert.match(aiInboxPage, /20 saved routines/);
+  assert.match(aiInboxPage, /https:\/\/m\.venmail\.io\/admin\/agents/);
+  ```
+
+- [ ] **Step 2: Run the focused test to verify red state**
+
+  Run: `node --test tests/tools/homepage-mail-first.test.mjs`
+
+  Expected: it fails because `ai-inbox-agents.jsx` and the `/ai-inbox-agents` links do not exist.
+
+- [ ] **Step 3: Create the product page and accurate public links**
+
+  Create `src/pages/ai-inbox-agents.jsx` using the existing mail-first header/footer conventions. Include a focused hero, channel-status rows, a routines section stating `20 saved routines per agent`, an `Manage AI agents` link to `https://m.venmail.io/admin/agents`, and a secondary registration link. Do not reuse or rename `/venmail-agent`.
+
+  Change the primary homepage AI action to:
+
+  ```jsx
+  <a href="/ai-inbox-agents" className="...">
+    Explore AI inbox agents
+  </a>
+  ```
+
+  Add a distinct `AI inbox agents` link to `Header.jsx` and `MailFirstFooter.jsx`, retaining the existing `Venmail Agent` / `/venmail-agent` extension links.
+
+- [ ] **Step 4: Run the focused test and confirm green state**
+
+  Run: `node --test tests/tools/homepage-mail-first.test.mjs`
+
+  Expected: all homepage mail-first tests pass, including the new route and distinction assertions.
+
+- [ ] **Step 5: Commit the page and navigation change**
+
+  Run: `git add src/pages/ai-inbox-agents.jsx src/components/PageSections/AiInboxAgentsSection.jsx src/components/layout/Header.jsx src/components/home/MailFirstFooter.jsx tests/tools/homepage-mail-first.test.mjs && git commit -m "feat: add AI inbox agents product page"`
+
+  Expected: one scoped commit that preserves the Chrome extension product route.
+
+### Task 3: Produce and validate owned visual assets
 
 **Files:**
 - Create: `public/images/ai-inbox-agents-teaser.webp`
@@ -101,7 +156,7 @@
 
   Expected: only the selected final AI asset and real mobile capture are committed; existing candidate assets remain untouched.
 
-### Task 3: Implement the agent copy and premium two-device mobile section
+### Task 4: Implement the agent copy and premium two-device mobile section
 
 **Files:**
 - Modify: `src/components/PageSections/AiInboxAgentsSection.jsx:18-23`
@@ -178,7 +233,7 @@
 
   Expected: the commit includes only the new page composition, approved copy, homepage mount, and its tests.
 
-### Task 4: Verify responsive output and release readiness
+### Task 5: Verify responsive output and release readiness
 
 **Files:**
 - Verify: `src/components/PageSections/AiInboxAgentsSection.jsx`
