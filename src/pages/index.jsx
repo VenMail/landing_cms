@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
+import AgentApiSection from '@/components/PageSections/AgentApiSection';
+import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
 import { getContactMailtoHref } from '@/config/contact';
 import { businessSignupUrl } from '@/config/pricing.mjs';
 import { trackCTAClick } from '@/utils/trackConversion';
@@ -11,23 +13,6 @@ const inter = Inter({
   weight: ['400', '500', '600'],
   display: 'swap',
 });
-
-const apiRequest = `POST https://m.venmail.io/api/v1/agent/messages
-Authorization: Bearer <token with mail:send scope>
-Accept: application/json
-Content-Type: application/json
-
-{
-  "to": "maya@acme.example",
-  "subject": "Pricing for 200 units",
-  "body": "Pricing and delivery timing will follow shortly."
-}`;
-
-const apiResponse = `{
-  "success": true,
-  "status": "sent",
-  "held_for_review": false
-}`;
 
 const annualBusinessInquiryUrl = getContactMailtoHref({
   subject: 'Annual Business plan and included .com domain',
@@ -236,30 +221,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="developers" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-16">
-              <div>
-                <p className="text-sm font-semibold text-orange-800">SMTP and API</p>
-                <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Send from your applications</h2>
-                <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Send email from your applications through SMTP or API.</p>
-                <a href="https://m.venmail.io/docs/agents" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900">API documentation · sign-in required <ArrowIcon /></a>
-              </div>
-              <details className="overflow-hidden rounded-xl border border-[#dadce0] bg-[#f8f9fa]">
-                <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-5 px-5 text-base font-medium marker:content-none focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700 sm:px-6">API request and 200 response excerpt <span aria-hidden="true" className="text-2xl font-normal text-[#5f6368]">+</span></summary>
-                <div className="border-t border-[#dadce0]">
-                  <div className="flex items-center justify-between border-b border-[#dadce0] px-5 py-3 text-sm font-medium text-[#5f6368] sm:px-6"><span>Request</span><span>mail:send</span></div>
-                  <pre className="overflow-x-auto p-5 text-[13px] leading-6 text-[#202124] sm:p-6 sm:text-sm"><code>{apiRequest}</code></pre>
-                  <div className="border-t border-[#dadce0] bg-white">
-                    <p className="px-5 pt-4 text-sm font-medium text-[#5f6368] sm:px-6">200 response excerpt</p>
-                    <pre className="overflow-x-auto p-5 pt-3 text-[13px] leading-6 text-[#202124] sm:px-6 sm:pb-6 sm:text-sm"><code>{apiResponse}</code></pre>
-                  </div>
-                  <p className="border-t border-[#dadce0] px-5 py-4 text-sm leading-6 text-[#5f6368] sm:px-6">A successful response means Venmail accepted the message for sending. It does not confirm inbox placement.</p>
-                </div>
-              </details>
-            </div>
-          </div>
-        </section>
+        <AgentApiSection />
+        <AiInboxAgentsSection />
 
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
           <div className="mx-auto max-w-6xl">
