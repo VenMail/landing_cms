@@ -142,10 +142,12 @@ test('AI inbox agents follow the API section with authentic destinations and cha
   assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
-test('homepage adds a framed Venia Cloud workspace and Gmail IMAP access details', async () => {
-  const [homepage, collaboration] = await Promise.all([
+test('homepage presents Office collaboration and Gmail IMAP access details', async () => {
+  const [homepage, collaboration, mailFirstHeader, agents] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/PageSections/VeniaCollaborationSection.jsx'),
+    readSource('../../src/components/home/MailFirstHeader.jsx'),
+    readSource('../../src/components/PageSections/AiInboxAgentsSection.jsx'),
   ]);
 
   assert.match(homepage, /import VeniaCollaborationSection from/);
@@ -155,12 +157,20 @@ test('homepage adds a framed Venia Cloud workspace and Gmail IMAP access details
   assert.match(homepage, /Can I use Venmail with Gmail\?/);
   assert.match(homepage, /Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail\./);
   assert.match(collaboration, /Work together with your team/);
+  assert.match(collaboration, /Share or sign files, documents, spreadsheets, forms, and slides with your team and clients\./);
   assert.match(collaboration, /src="\/images\/venmail-office-shot-light\.png"/);
   assert.match(collaboration, /href="https:\/\/venia\.cloud"/);
   assert.match(collaboration, /target="_blank"/);
   assert.match(collaboration, /rel="noopener noreferrer"/);
+  assert.match(collaboration, /data-visual="office-laptop"/);
+  assert.match(collaboration, /data-visual="office-desk"/);
   assert.match(collaboration, /min-w-0/);
   assert.match(collaboration, /overflow-hidden/);
+  assert.match(agents, />AI Agents<\/p>/);
+  assert.match(mailFirstHeader, /\{ label: 'Office', href: 'https:\/\/venia\.cloud', external: true \}/);
+  assert.match(mailFirstHeader, /target=\{external \? '_blank' : undefined\}/);
+  assert.match(mailFirstHeader, /rel=\{external \? 'noopener noreferrer' : undefined\}/);
+  assert.doesNotMatch(mailFirstHeader, /AI inbox agents/);
 });
 
 test('AI inbox agents have a dedicated product page and distinct navigation links', async () => {
@@ -176,7 +186,7 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
   assert.match(agents, /href="https:\/\/m\.venmail\.io\/register"/);
 
   assert.match(header, /name: "AI inbox agents",[\s\S]*?href: "\/ai-inbox-agents"/);
-  assert.match(mailFirstHeader, /\['AI inbox agents', '\/#ai-inbox-agents'\]/);
+  assert.match(mailFirstHeader, /\{ label: 'AI Agents', href: '\/#ai-inbox-agents' \}/);
   assert.match(footer, /\['AI inbox agents', '\/ai-inbox-agents'\]/);
   assert.match(header, /name: "Venmail Agent",[\s\S]*?href: "\/ai-inbox-agents"/);
   assert.match(footer, /\['Venmail Agent', '\/ai-inbox-agents'\]/);
@@ -310,7 +320,7 @@ test('mail-first navigation keeps homepage sections reachable from product route
   for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
     assert.match(header, new RegExp(`['"]${label}['"], ['"]${href}['"]`));
   }
-  assert.match(header, /\['AI inbox agents', '\/#ai-inbox-agents'\]/);
+  assert.match(header, /\{ label: 'AI Agents', href: '\/#ai-inbox-agents' \}/);
   assert.match(agents, /id="ai-inbox-agents"[\s\S]*scroll-mt-24/);
 });
 
