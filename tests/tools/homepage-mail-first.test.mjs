@@ -142,6 +142,27 @@ test('AI inbox agents follow the API section with authentic destinations and cha
   assert.doesNotMatch(agents, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
+test('homepage adds a framed Venia Cloud workspace and Gmail IMAP access details', async () => {
+  const [homepage, collaboration] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/PageSections/VeniaCollaborationSection.jsx'),
+  ]);
+
+  assert.match(homepage, /import VeniaCollaborationSection from/);
+  assert.equal((homepage.match(/<VeniaCollaborationSection \/>/g) || []).length, 1);
+  assert.ok(homepage.indexOf('<AiInboxAgentsSection />') < homepage.indexOf('<VeniaCollaborationSection />'));
+  assert.ok(homepage.indexOf('<VeniaCollaborationSection />') < homepage.indexOf('Work beyond email'));
+  assert.match(homepage, /Can I use Venmail with Gmail\?/);
+  assert.match(homepage, /Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail\./);
+  assert.match(collaboration, /Work together with your team/);
+  assert.match(collaboration, /src="\/images\/venmail-office-shot-light\.png"/);
+  assert.match(collaboration, /href="https:\/\/venia\.cloud"/);
+  assert.match(collaboration, /target="_blank"/);
+  assert.match(collaboration, /rel="noopener noreferrer"/);
+  assert.match(collaboration, /min-w-0/);
+  assert.match(collaboration, /overflow-hidden/);
+});
+
 test('AI inbox agents have a dedicated product page and distinct navigation links', async () => {
   const [page, agents, header, mailFirstHeader, footer] = await Promise.all([
     readSource('../../src/pages/ai-inbox-agents.jsx'),
