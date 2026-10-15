@@ -5,6 +5,7 @@ import MailFirstHeader from '@/components/home/MailFirstHeader';
 import AgentApiSection from '@/components/PageSections/AgentApiSection';
 import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
 import MobileAppsSection from '@/components/PageSections/MobileAppsSection';
+import VeniaCollaborationSection from '@/components/PageSections/VeniaCollaborationSection';
 import { getContactMailtoHref } from '@/config/contact';
 import { businessSignupUrl } from '@/config/pricing.mjs';
 import { trackCTAClick } from '@/utils/trackConversion';
@@ -55,6 +56,10 @@ const faqs = [
   {
     question: 'When does service activate?',
     answer: 'Activation follows domain verification and payment.',
+  },
+  {
+    question: 'Can I use Venmail with Gmail?',
+    answer: 'Yes. Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail.',
   },
 ];
 
@@ -224,6 +229,7 @@ export default function Home() {
 
         <AgentApiSection />
         <AiInboxAgentsSection />
+        <VeniaCollaborationSection />
 
         <section className="border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-20">
           <div className="mx-auto max-w-6xl">
