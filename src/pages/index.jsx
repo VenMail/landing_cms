@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
 import InboxPreviewLightbox from '@/components/home/InboxPreviewLightbox';
@@ -10,12 +9,6 @@ import VeniaCollaborationSection from '@/components/PageSections/VeniaCollaborat
 import { getContactMailtoHref } from '@/config/contact';
 import { businessSignupUrl } from '@/config/pricing.mjs';
 import { trackCTAClick } from '@/utils/trackConversion';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
 
 const annualBusinessInquiryUrl = getContactMailtoHref({
   subject: 'Annual Business plan and included .com domain',
@@ -59,6 +52,14 @@ const faqs = [
     answer: 'Activation follows domain verification and payment.',
   },
   {
+    question: 'Do I pay before my mailbox activates?',
+    answer: 'No payment is required to create an account. Mailbox activation requires a verified domain and a paid plan.',
+  },
+  {
+    question: 'What happens if I cancel?',
+    answer: 'Cancel before the billing period ends to stop automatic renewal. Payments are non-refundable except as required by law.',
+  },
+  {
     question: 'Can I use Venmail with Gmail?',
     answer: 'Yes. Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail.',
   },
@@ -80,7 +81,7 @@ function SignalIcon({ type }) {
 
 export default function Home() {
   return (
-    <div className={`${inter.className} bg-white text-[#202124]`}>
+    <div className="bg-white text-[#202124]">
       <MailFirstHeader />
       <main id="main-content">
         <section className="px-4 pb-16 pt-16 sm:px-6 sm:pt-20 md:pb-24 md:pt-24">

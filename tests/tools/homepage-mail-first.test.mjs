@@ -60,18 +60,18 @@ test('homepage presents professional custom-domain email before delivery details
   assert.ok(homepage.indexOf('Professional email for your business') < homepage.indexOf('id="delivery"'));
 });
 
-test('homepage loads restrained Inter typography and avoids rejected visual treatments', async () => {
+test('homepage uses local system typography and avoids rejected visual treatments', async () => {
   const files = await Promise.all([
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/home/MailFirstHeader.jsx'),
     readSource('../../src/components/home/MailFirstFooter.jsx'),
+    readSource('../../src/components/layout/DefaultLayout.jsx'),
+    readSource('../../src/components/layout/CustomLayout.jsx'),
   ]);
   const source = files.join('\n');
 
-  assert.match(source, /from ['"]next\/font\/google['"]/);
-  assert.match(source, /Inter\(\{/);
-  assert.match(source, /weight:\s*\[['"]400['"],\s*['"]500['"],\s*['"]600['"]\]/);
-  assert.match(source, /inter\.className/);
+  assert.doesNotMatch(source, /next\/font\/google/);
+  assert.doesNotMatch(source, /Inter\(\{|inter\.className/);
   assert.doesNotMatch(source, /bg-gradient|radial-gradient|rounded-full|shadow-(?:lg|xl|2xl)|uppercase|tracking-\[0\.[12]/);
   assert.doesNotMatch(source, /#0d252c|#102d35|#fffdf9|#edf4f3/);
 });
@@ -352,6 +352,10 @@ test('homepage FAQ uses native disclosure controls and approved answers', async 
   assert.match(homepage, /Annual Business includes one \.com domain free for the first year\./);
   assert.match(homepage, /When does service activate\?/);
   assert.match(homepage, /Activation follows domain verification and payment\./);
+  assert.match(homepage, /Do I pay before my mailbox activates\?/);
+  assert.match(homepage, /No payment is required to create an account\. Mailbox activation requires a verified domain and a paid plan\./);
+  assert.match(homepage, /What happens if I cancel\?/);
+  assert.match(homepage, /Cancel before the billing period ends to stop automatic renewal\. Payments are non-refundable except as required by law\./);
   assert.match(homepage, /How does Venmail help delivery\?/);
   assert.match(homepage, /Domain authentication, outgoing checks, and header analysis support responsible sending and diagnosis\. Recipient systems and sender reputation still determine inbox placement\./);
 });
