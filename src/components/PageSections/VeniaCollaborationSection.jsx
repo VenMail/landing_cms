@@ -44,21 +44,21 @@ const VeniaCollaborationSection = () => (
         <div aria-hidden="true" data-visual="office-window-light" className="absolute left-[8%] top-0 h-32 w-32 border-x-[0.65rem] border-b-[0.65rem] border-white/70 bg-white/45 shadow-[0_22px_46px_rgba(255,255,255,0.55)] sm:h-40 sm:w-40" />
         <div aria-hidden="true" data-visual="office-tabletop" className="absolute inset-x-0 bottom-0 h-[41%] border-t border-[#b48d65] bg-[#c49b72] shadow-[inset_0_12px_24px_rgba(104,70,42,0.12)]" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-[40%] h-px bg-white/45" />
-        <div aria-hidden="true" data-visual="office-notebook" className="absolute -bottom-10 left-[-2.5rem] z-[1] h-40 w-56 -rotate-[9deg] rounded-sm border border-[#b79872] bg-[#fbf0de] shadow-[0_18px_28px_rgba(91,61,34,0.25)] sm:-bottom-7 sm:left-0 sm:h-44 sm:w-64">
+        <div aria-hidden="true" data-visual="office-notebook" className="absolute -bottom-10 left-[-1.75rem] z-[1] h-40 w-56 -rotate-[9deg] rounded-sm border border-[#b79872] bg-[#fbf0de] shadow-[0_18px_28px_rgba(91,61,34,0.25)] sm:-bottom-7 sm:left-0 sm:h-44 sm:w-64">
           <span className="absolute inset-x-5 top-7 h-px bg-[#dcc6a9]" />
           <span className="absolute inset-x-5 top-12 h-px bg-[#dcc6a9]" />
           <span className="absolute inset-x-5 top-[4.25rem] h-px bg-[#dcc6a9]" />
         </div>
-        <div aria-hidden="true" data-visual="office-pen" className="absolute bottom-[13%] left-[8%] z-[2] h-2 w-28 -rotate-[12deg] rounded-full bg-[#242832] shadow-[0_3px_5px_rgba(39,28,18,0.35)] sm:bottom-[15%] sm:left-[10%] sm:w-36">
+        <div aria-hidden="true" data-visual="office-pen" className="absolute bottom-[13%] left-0 z-[2] h-2 w-28 -rotate-[12deg] rounded-full bg-[#242832] shadow-[0_3px_5px_rgba(39,28,18,0.35)] sm:bottom-[15%] sm:left-[3%] sm:w-36">
           <span className="absolute -right-2 top-0 h-2 w-3 rounded-r-full bg-[#c89a5f]" />
         </div>
-        <div aria-hidden="true" data-visual="office-plant" className="absolute -right-7 bottom-[17%] z-[2] h-40 w-28 sm:right-0 sm:h-48 sm:w-36">
+        <div aria-hidden="true" data-visual="office-plant" className="absolute -right-3 bottom-[17%] z-[2] h-40 w-28 sm:right-[2%] sm:bottom-[19%] sm:h-48 sm:w-36">
           <span className="absolute bottom-0 left-8 h-16 w-16 rounded-b-[1.6rem] bg-[#a9794b] shadow-lg" />
           <span className="absolute bottom-12 left-3 h-24 w-10 -rotate-[28deg] rounded-t-full rounded-br-full bg-[#3c5b45]" />
           <span className="absolute bottom-14 left-14 h-28 w-10 rotate-[23deg] rounded-t-full rounded-bl-full bg-[#496c51]" />
           <span className="absolute bottom-10 left-8 h-24 w-9 -rotate-[4deg] rounded-t-full bg-[#587a5b]" />
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-[44rem]" data-visual="office-laptop">
+        <div className="relative z-10 mx-auto w-[94%] max-w-[44rem] sm:w-[82%]" data-visual="office-laptop">
           <div className="relative rounded-[1.2rem] border-[0.35rem] border-[#202124] bg-[#202124] p-1 shadow-2xl shadow-slate-900/35">
             <span aria-hidden="true" className="absolute left-1/2 top-1.5 h-1.5 w-10 -translate-x-1/2 rounded-full bg-slate-700" />
             <div className="overflow-hidden rounded-[0.9rem] bg-white pt-2">
