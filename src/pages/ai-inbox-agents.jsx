@@ -1,14 +1,7 @@
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
 import { trackCTAClick } from '@/utils/trackConversion';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  display: 'swap',
-});
 
 const capabilities = [
   ['One inbox per agent', 'Give each AI agent a dedicated Venmail address for its own email conversations.'],
@@ -18,7 +11,7 @@ const capabilities = [
 
 export default function AiInboxAgents() {
   return (
-    <div className={`${inter.className} bg-white text-[#202124]`}>
+    <div className="bg-white text-[#202124]">
       <MailFirstHeader />
       <main id="main-content">
         <section className="px-4 pb-16 pt-16 sm:px-6 sm:pt-20 md:pb-24 md:pt-24">
