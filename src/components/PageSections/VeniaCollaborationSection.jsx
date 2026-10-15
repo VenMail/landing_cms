@@ -39,7 +39,8 @@ const VeniaCollaborationSection = () => (
         </a>
       </div>
 
-      <div className="relative min-w-0 overflow-hidden rounded-[2rem] bg-[#ede5d9] px-4 pb-10 pt-12 sm:px-8 sm:pb-14 sm:pt-16" data-visual="office-desk">
+      <div className="relative min-w-0 overflow-hidden rounded-[2rem]" data-visual="office-desk">
+        <Image src="/images/venia-office-desk.png" alt="Venia Cloud workspace on an office desk" width={1792} height={1024} className="relative z-30 block h-auto w-full" />
         <div aria-hidden="true" className="absolute inset-x-0 top-0 h-[64%] bg-gradient-to-b from-[#f5f0e8] to-[#e4d5c2]" />
         <div aria-hidden="true" data-visual="office-window-light" className="absolute left-[8%] top-0 h-32 w-32 border-x-[0.65rem] border-b-[0.65rem] border-white/70 bg-white/45 shadow-[0_22px_46px_rgba(255,255,255,0.55)] sm:h-40 sm:w-40" />
         <div aria-hidden="true" data-visual="office-tabletop" className="absolute inset-x-0 bottom-0 h-[41%] border-t border-[#b48d65] bg-[#c49b72] shadow-[inset_0_12px_24px_rgba(104,70,42,0.12)]" />
@@ -62,7 +63,7 @@ const VeniaCollaborationSection = () => (
           <span className="absolute bottom-14 left-14 h-28 w-10 rotate-[23deg] rounded-t-full rounded-bl-full bg-[#496c51]" />
           <span className="absolute bottom-10 left-8 h-24 w-9 -rotate-[4deg] rounded-t-full bg-[#587a5b]" />
         </div>
-        <div className="relative z-10 mx-auto w-[96%] max-w-[44rem] sm:w-[86%]" data-visual="office-laptop">
+        <div className="hidden relative z-10 mx-auto w-[96%] max-w-[44rem] sm:w-[86%]" data-visual="office-laptop">
           <div className="relative rounded-[1.2rem] border-[0.35rem] border-[#202124] bg-[#202124] p-1 shadow-2xl shadow-slate-900/35">
             <span aria-hidden="true" className="absolute left-1/2 top-1.5 h-1.5 w-10 -translate-x-1/2 rounded-full bg-slate-700" />
             <div className="overflow-hidden rounded-[0.9rem] bg-white pt-2">
