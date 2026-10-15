@@ -17,11 +17,24 @@ test('homepage leads with practical mail outcomes and account conditions', async
 });
 
 test('homepage uses the real Venmail inbox asset without recreating product chrome', async () => {
-  const homepage = await readSource('../../src/pages/index.jsx');
+  const [homepage, lightbox] = await Promise.all([
+    readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/home/InboxPreviewLightbox.jsx'),
+  ]);
 
   assert.match(homepage, /import InboxPreviewLightbox from/);
   assert.match(homepage, /<InboxPreviewLightbox \/>/);
   assert.doesNotMatch(homepage, /href="\/email-dashboard-preview\.png"/);
+  assert.match(lightbox, /const \[isOpen, setIsOpen\] = useState\(false\)/);
+  assert.match(lightbox, /aria-haspopup="dialog"/);
+  assert.match(lightbox, /role="dialog"/);
+  assert.match(lightbox, /aria-modal="true"/);
+  assert.match(lightbox, /onKeyDown/);
+  assert.match(lightbox, /event\.key === 'Escape'/);
+  assert.match(lightbox, /event\.target === event\.currentTarget/);
+  assert.match(lightbox, /triggerRef\.current\?\.focus\(\)/);
+  assert.match(lightbox, /src="\/email-dashboard-preview\.png"/);
+  assert.match(lightbox, /Open full-size Venmail inbox image\./);
   assert.doesNotMatch(homepage, /MailExample|Customer inquiry|Server accepted|simulated|Policy missing|fake|browser-dot/i);
   assert.doesNotMatch(homepage, /mail\.png|screenshot-full\.webp/);
 });

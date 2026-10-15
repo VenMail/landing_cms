@@ -40,9 +40,12 @@ const VeniaCollaborationSection = () => (
       </div>
 
       <div className="relative min-w-0 overflow-hidden rounded-[2rem] bg-[#e7dfd5] px-4 pb-7 pt-10 sm:px-8 sm:pb-10 sm:pt-14" data-visual="office-desk">
+        <div aria-hidden="true" data-visual="office-window-light" className="absolute -left-12 top-6 h-40 w-48 -rotate-12 bg-white/45 blur-3xl" />
+        <div aria-hidden="true" data-visual="office-tabletop" className="absolute inset-x-0 bottom-0 h-[48%] bg-[#d9c7b3]" />
         <div aria-hidden="true" className="absolute inset-x-5 bottom-0 h-[70%] rounded-t-[2rem] border border-white/60 bg-[#f4eee5]" />
         <div aria-hidden="true" className="absolute right-[8%] top-5 h-20 w-20 rounded-full bg-orange-200/70 blur-2xl sm:h-28 sm:w-28" />
         <div aria-hidden="true" className="absolute bottom-5 left-[12%] h-16 w-24 rounded-full bg-slate-300/45 blur-2xl" />
+        <div aria-hidden="true" data-visual="office-folio" className="absolute -bottom-10 right-4 h-28 w-44 -rotate-6 rounded-tl-sm border border-[#b59876] bg-[#f7ead7] shadow-lg" />
         <div className="relative mx-auto w-full max-w-[46rem]" data-visual="office-laptop">
           <div className="relative rounded-[1.35rem] border-[0.45rem] border-[#202124] bg-[#202124] p-1 shadow-2xl shadow-slate-900/30">
             <span aria-hidden="true" className="absolute left-1/2 top-1.5 h-1.5 w-10 -translate-x-1/2 rounded-full bg-slate-700" />

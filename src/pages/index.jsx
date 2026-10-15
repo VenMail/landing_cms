@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
+import InboxPreviewLightbox from '@/components/home/InboxPreviewLightbox';
 import AgentApiSection from '@/components/PageSections/AgentApiSection';
 import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
 import MobileAppsSection from '@/components/PageSections/MobileAppsSection';
@@ -97,12 +98,7 @@ export default function Home() {
             <p className="mx-auto max-w-2xl text-sm leading-6 text-[#5f6368]">No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.</p>
           </div>
 
-          <div className="mx-auto mt-14 max-w-[1040px] overflow-hidden rounded-xl border border-[#dadce0] md:mt-16">
-            <a href="/email-dashboard-preview.png" className="group block focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700">
-              <Image src="/email-dashboard-preview.png" width={1802} height={905} priority sizes="(max-width: 1088px) calc(100vw - 32px), 1040px" alt="Venmail inbox" className="block h-auto w-full" />
-              <span className="block border-t border-[#dadce0] px-4 py-3 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 group-hover:text-orange-900">Open full-size Venmail inbox image.</span>
-            </a>
-          </div>
+          <InboxPreviewLightbox />
         </section>
 
         <section aria-labelledby="professional-email-title" className="border-t border-[#eadfd7] bg-[#fff8f2] px-4 py-16 sm:px-6 md:py-24">
