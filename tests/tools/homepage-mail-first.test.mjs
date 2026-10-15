@@ -19,12 +19,9 @@ test('homepage leads with practical mail outcomes and account conditions', async
 test('homepage uses the real Venmail inbox asset without recreating product chrome', async () => {
   const homepage = await readSource('../../src/pages/index.jsx');
 
-  assert.match(homepage, /src="\/email-dashboard-preview\.png"/);
-  assert.match(homepage, /width=\{1802\}/);
-  assert.match(homepage, /height=\{905\}/);
-  assert.match(homepage, /alt="Venmail inbox"/);
-  assert.match(homepage, /href="\/email-dashboard-preview\.png"/);
-  assert.match(homepage, /Open full-size Venmail inbox image\./);
+  assert.match(homepage, /import InboxPreviewLightbox from/);
+  assert.match(homepage, /<InboxPreviewLightbox \/>/);
+  assert.doesNotMatch(homepage, /href="\/email-dashboard-preview\.png"/);
   assert.doesNotMatch(homepage, /MailExample|Customer inquiry|Server accepted|simulated|Policy missing|fake|browser-dot/i);
   assert.doesNotMatch(homepage, /mail\.png|screenshot-full\.webp/);
 });
@@ -164,6 +161,9 @@ test('homepage presents Office collaboration and Gmail IMAP access details', asy
   assert.match(collaboration, /rel="noopener noreferrer"/);
   assert.match(collaboration, /data-visual="office-laptop"/);
   assert.match(collaboration, /data-visual="office-desk"/);
+  assert.match(collaboration, /data-visual="office-tabletop"/);
+  assert.match(collaboration, /data-visual="office-folio"/);
+  assert.match(collaboration, /data-visual="office-window-light"/);
   assert.match(collaboration, /min-w-0/);
   assert.match(collaboration, /overflow-hidden/);
   assert.match(agents, />AI Agents<\/p>/);
