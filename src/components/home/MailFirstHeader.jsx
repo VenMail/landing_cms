@@ -4,11 +4,12 @@ import { trackCTAClick } from '@/utils/trackConversion';
 import { closeDetailsMenu } from './mobileMenuState.mjs';
 
 const links = [
-  ['Delivery', '/#delivery'],
-  ['Spam control', '/#spam-control'],
-  ['Developers', '/#developers'],
-  ['AI inbox agents', '/#ai-inbox-agents'],
-  ['Pricing', '/#pricing'],
+  { label: 'Delivery', href: '/#delivery' },
+  { label: 'Spam control', href: '/#spam-control' },
+  { label: 'Developers', href: '/#developers' },
+  { label: 'AI Agents', href: '/#ai-inbox-agents' },
+  { label: 'Office', href: 'https://venia.cloud', external: true },
+  { label: 'Pricing', href: '/#pricing' },
 ];
 
 export default function MailFirstHeader() {
@@ -24,7 +25,7 @@ export default function MailFirstHeader() {
         </a>
 
         <div className="hidden items-center gap-8 lg:flex">
-          {links.map(([label, href]) => <a key={href} href={href} className="flex h-11 items-center text-sm font-medium text-[#5f6368] transition-colors hover:text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">{label}</a>)}
+          {links.map(({ label, href, external }) => <a key={href} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className="flex h-11 items-center text-sm font-medium text-[#5f6368] transition-colors hover:text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">{label}</a>)}
         </div>
 
         <div className="hidden items-center gap-4 sm:flex">
@@ -37,7 +38,7 @@ export default function MailFirstHeader() {
         <details ref={mobileMenuRef} className="relative lg:hidden">
           <summary className="flex h-11 cursor-pointer list-none items-center rounded-lg border border-[#dadce0] px-3 text-sm font-medium text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700">Menu</summary>
           <div className="absolute right-0 mt-2 w-64 border border-[#dadce0] bg-white p-2">
-            {links.map(([label, href]) => <a key={href} href={href} onClick={() => closeDetailsMenu(mobileMenuRef.current)} className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-[#5f6368] hover:bg-[#f8f9fa] hover:text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700">{label}</a>)}
+            {links.map(({ label, href, external }) => <a key={href} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={() => closeDetailsMenu(mobileMenuRef.current)} className="flex min-h-11 items-center rounded-lg px-3 text-sm font-medium text-[#5f6368] hover:bg-[#f8f9fa] hover:text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700">{label}</a>)}
             <a href="https://m.venmail.io/login" onClick={() => closeDetailsMenu(mobileMenuRef.current)} className="mt-2 flex min-h-11 items-center border-t border-[#dadce0] px-3 pt-2 text-sm font-medium text-[#5f6368]">Sign in</a>
           </div>
         </details>

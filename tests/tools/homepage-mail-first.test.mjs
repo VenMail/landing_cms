@@ -290,7 +290,8 @@ test('homepage navigation reaches delivery and incoming spam sections', async ()
   const source = files.join('\n');
 
   for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
-    assert.match(source, new RegExp(`['\"]${label}['\"], ['\"]${href}['\"]`));
+    const escapedHref = href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(source, new RegExp(`label: ['\"]${label}['\"], href: ['\"]${escapedHref}['\"]`));
   }
   for (const href of ['/resources/help', 'https://status.venmail.app', '/request-quote', '/contact-us', '/about-us', '/career', '/resources/partner', '/resources/ai-principles', '/security-whitepaper', 'https://github.com/VenMail', '/resources/terms-of-service', '/resources/privacy-policy', '/resources/dpa']) {
     assert.match(source, new RegExp(href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
@@ -318,7 +319,8 @@ test('mail-first navigation keeps homepage sections reachable from product route
   ]);
 
   for (const [label, href] of [['Delivery', '/#delivery'], ['Spam control', '/#spam-control'], ['Developers', '/#developers'], ['Pricing', '/#pricing']]) {
-    assert.match(header, new RegExp(`['"]${label}['"], ['"]${href}['"]`));
+    const escapedHref = href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(header, new RegExp(`label: ['"]${label}['"], href: ['"]${escapedHref}['"]`));
   }
   assert.match(header, /\{ label: 'AI Agents', href: '\/#ai-inbox-agents' \}/);
   assert.match(agents, /id="ai-inbox-agents"[\s\S]*scroll-mt-24/);

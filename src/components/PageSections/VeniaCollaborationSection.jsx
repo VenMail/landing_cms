@@ -18,7 +18,7 @@ const VeniaCollaborationSection = () => (
           Work together with your team
         </h2>
         <p className="mt-5 max-w-xl text-lg leading-[1.65] text-[#5f6368]">
-          Share files, documents, spreadsheets, forms, and slides for the work your team shares.
+          Share or sign files, documents, spreadsheets, forms, and slides with your team and clients.
         </p>
         <div className="mt-8 grid grid-cols-2 gap-3 text-sm font-medium text-[#202124] sm:grid-cols-3">
           {workTypes.map(([Icon, label]) => (
@@ -39,22 +39,26 @@ const VeniaCollaborationSection = () => (
         </a>
       </div>
 
-      <div className="min-w-0 overflow-hidden rounded-2xl bg-[#202124] p-3 shadow-2xl shadow-slate-900/20 sm:p-5">
-        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-slate-900 p-2 sm:p-3">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_0%,rgba(249,115,22,0.28),transparent_25rem),radial-gradient(circle_at_100%_100%,rgba(59,130,246,0.22),transparent_24rem)]" />
-          <div className="relative flex items-center gap-2 border-b border-white/10 px-3 py-2 text-xs font-medium text-slate-300">
-            <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-            <span className="ml-2">venia.cloud</span>
+      <div className="relative min-w-0 overflow-hidden rounded-[2rem] bg-[#e7dfd5] px-4 pb-7 pt-10 sm:px-8 sm:pb-10 sm:pt-14" data-visual="office-desk">
+        <div aria-hidden="true" className="absolute inset-x-5 bottom-0 h-[70%] rounded-t-[2rem] border border-white/60 bg-[#f4eee5]" />
+        <div aria-hidden="true" className="absolute right-[8%] top-5 h-20 w-20 rounded-full bg-orange-200/70 blur-2xl sm:h-28 sm:w-28" />
+        <div aria-hidden="true" className="absolute bottom-5 left-[12%] h-16 w-24 rounded-full bg-slate-300/45 blur-2xl" />
+        <div className="relative mx-auto w-full max-w-[46rem]" data-visual="office-laptop">
+          <div className="relative rounded-[1.35rem] border-[0.45rem] border-[#202124] bg-[#202124] p-1 shadow-2xl shadow-slate-900/30">
+            <span aria-hidden="true" className="absolute left-1/2 top-1.5 h-1.5 w-10 -translate-x-1/2 rounded-full bg-slate-700" />
+            <div className="overflow-hidden rounded-[0.9rem] bg-white pt-2">
+              <Image
+                src="/images/venmail-office-shot-light.png"
+                alt="Venia Cloud workspace with shared files and team tools"
+                width={1536}
+                height={724}
+                className="block h-auto w-full"
+              />
+            </div>
           </div>
-          <Image
-            src="/images/venmail-office-shot-light.png"
-            alt="Venia Cloud workspace with shared files and team tools"
-            width={1536}
-            height={724}
-            className="relative mt-3 h-auto w-full rounded-lg"
-          />
+          <div aria-hidden="true" className="relative mx-auto h-5 w-[88%] -translate-y-px rounded-b-[1.2rem] border border-slate-500 bg-gradient-to-b from-slate-600 to-slate-800 shadow-lg">
+            <span className="absolute left-1/2 top-0 h-1.5 w-16 -translate-x-1/2 rounded-b-md bg-slate-500" />
+          </div>
         </div>
       </div>
     </div>

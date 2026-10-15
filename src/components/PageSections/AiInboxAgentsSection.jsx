@@ -9,7 +9,7 @@ const AiInboxAgentsSection = () => (
   >
     <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
       <div>
-        <p className="text-sm font-semibold text-orange-800">AI inbox agents</p>
+        <p className="text-sm font-semibold text-orange-800">AI Agents</p>
         <h2
           id="ai-inbox-agents-title"
           className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]"
