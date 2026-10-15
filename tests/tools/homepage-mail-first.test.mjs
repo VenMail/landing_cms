@@ -175,8 +175,9 @@ test('homepage presents Office collaboration and Gmail IMAP access details', asy
   assert.match(collaboration, /data-visual="office-laptop"/);
   assert.match(collaboration, /data-visual="office-desk"/);
   assert.match(collaboration, /data-visual="office-tabletop"/);
-  assert.match(collaboration, /data-visual="office-folio"/);
-  assert.match(collaboration, /data-visual="office-window-light"/);
+  assert.match(collaboration, /data-visual="office-notebook"/);
+  assert.match(collaboration, /data-visual="office-pen"/);
+  assert.match(collaboration, /data-visual="office-plant"/);
   assert.match(collaboration, /min-w-0/);
   assert.match(collaboration, /overflow-hidden/);
   assert.match(agents, />AI Agents<\/p>/);
