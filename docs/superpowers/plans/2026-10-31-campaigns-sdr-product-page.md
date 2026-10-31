@@ -13,9 +13,9 @@
 ## File structure
 
 - Create: `src/pages/campaigns-sdr.jsx` — public product route, metadata, copy, CTA wiring, and illustration layout.
-- Create: `public/images/campaigns-sdr-prospect-research.png` — editorial prospect-research illustration.
-- Create: `public/images/campaigns-sdr-campaign-sequence.png` — editorial campaign-sequence illustration.
-- Create: `public/images/campaigns-sdr-response-review.png` — editorial reply and opt-out review illustration.
+- Create: `public/images/campaigns-sdr-prospect-research.webp` — editorial prospect-research illustration.
+- Create: `public/images/campaigns-sdr-campaign-sequence.webp` — editorial campaign-sequence illustration.
+- Create: `public/images/campaigns-sdr-response-review.webp` — editorial reply and opt-out review illustration.
 - Modify: `scripts/generate-content-feeds.mjs` — list the static sitemap route.
 - Modify: `scripts/verify-landing-export.mjs` — verify exported metadata and product copy.
 - Modify: `tests/tools/homepage-mail-first.test.mjs` — verify the public route and non-navigation constraint.
@@ -41,9 +41,9 @@ test('campaigns SDR product page is public without becoming a navigation item', 
   assert.match(page, /Prospect research and accountable outreach/);
   assert.match(page, /Recipient consent, applicable law, and opt-out requests govern outreach\./);
   assert.match(page, /Campaigns and SDR \| Venmail/);
-  assert.match(page, /\/images\/campaigns-sdr-prospect-research\.png/);
-  assert.match(page, /\/images\/campaigns-sdr-campaign-sequence\.png/);
-  assert.match(page, /\/images\/campaigns-sdr-response-review\.png/);
+  assert.match(page, /\/images\/campaigns-sdr-prospect-research\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-campaign-sequence\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-response-review\.webp/);
   assert.doesNotMatch(page, /unlimited leads|guaranteed delivery|guaranteed sales|automatic qualification|response rate/i);
   assert.doesNotMatch(header, /campaigns-sdr/);
   assert.doesNotMatch(footer, /campaigns-sdr/);
@@ -91,13 +91,13 @@ git commit -m "test: define campaigns SDR landing contract"
 ### Task 2: Generate original supporting illustrations
 
 **Files:**
-- Create: `public/images/campaigns-sdr-prospect-research.png`
-- Create: `public/images/campaigns-sdr-campaign-sequence.png`
-- Create: `public/images/campaigns-sdr-response-review.png`
+- Create: `public/images/campaigns-sdr-prospect-research.webp`
+- Create: `public/images/campaigns-sdr-campaign-sequence.webp`
+- Create: `public/images/campaigns-sdr-response-review.webp`
 
 - [ ] **Step 1: Generate the prospect-research illustration**
 
-Use ImageGen with this prompt and save its PNG output as `public/images/campaigns-sdr-prospect-research.png`:
+Use ImageGen with this prompt and save an optimized WebP output as `public/images/campaigns-sdr-prospect-research.webp`:
 
 ```text
 Editorial SaaS illustration for Venmail: a warm ivory business desk viewed at a gentle angle, one generic company profile card, three small evidence notes, a teal magnifying-glass signal and a restrained orange paper accent. Rounded geometric shapes, subtle grain, soft shadow, deep ink outlines, sparse composition, premium B2B landing-page art. No text, no logos, no product UI, no people, no customer data, no charts or performance metrics. Landscape 3:2.
@@ -105,7 +105,7 @@ Editorial SaaS illustration for Venmail: a warm ivory business desk viewed at a 
 
 - [ ] **Step 2: Generate the campaign-sequence illustration**
 
-Use ImageGen with this prompt and save its PNG output as `public/images/campaigns-sdr-campaign-sequence.png`:
+Use ImageGen with this prompt and save an optimized WebP output as `public/images/campaigns-sdr-campaign-sequence.webp`:
 
 ```text
 Editorial SaaS illustration for Venmail: warm cream background, three abstract message cards connected by a simple curved timeline with one planned follow-up marker, muted teal, soft orange and dark navy accents, light paper texture, rounded geometry and quiet depth. It communicates carefully prepared business outreach without showing an interface. No words, no logos, no realistic inbox, no customer data, no charts or success metrics. Landscape 3:2.
@@ -113,7 +113,7 @@ Editorial SaaS illustration for Venmail: warm cream background, three abstract m
 
 - [ ] **Step 3: Generate the response-review illustration**
 
-Use ImageGen with this prompt and save its PNG output as `public/images/campaigns-sdr-response-review.png`:
+Use ImageGen with this prompt and save an optimized WebP output as `public/images/campaigns-sdr-response-review.webp`:
 
 ```text
 Editorial SaaS illustration for Venmail: a calm response-review composition with generic reply envelopes, a respectful opt-out marker, and two small neutral measurement tiles on a warm ivory desk, teal and orange details with navy outline, rounded forms, subtle paper grain, premium B2B editorial art. No text, no logos, no product UI, no real names, no performance numbers, no customer data. Landscape 3:2.
@@ -124,15 +124,15 @@ Editorial SaaS illustration for Venmail: a calm response-review composition with
 Run:
 
 ```powershell
-Get-Item public\images\campaigns-sdr-*.png | Select-Object Name,Length
+Get-Item public\images\campaigns-sdr-*.webp | Select-Object Name,Length
 ```
 
-Expected: exactly three non-zero PNG files, each under 2 MB.
+Expected: exactly three non-zero WebP files, each under 2 MB.
 
 - [ ] **Step 5: Commit the artwork**
 
 ```powershell
-git add public/images/campaigns-sdr-prospect-research.png public/images/campaigns-sdr-campaign-sequence.png public/images/campaigns-sdr-response-review.png
+git add public/images/campaigns-sdr-prospect-research.webp public/images/campaigns-sdr-campaign-sequence.webp public/images/campaigns-sdr-response-review.webp
 git commit -m "feat: add campaigns SDR illustrations"
 ```
 
@@ -169,9 +169,9 @@ const workflow = [
   ['04', 'Review the response', 'Handle replies, opt-outs, and campaign results before further contact.'],
 ];
 const illustrations = [
-  ['/images/campaigns-sdr-prospect-research.png', 'Abstract prospect research materials on a desk', 'Research before contact', 'Source evidence supports more relevant outreach decisions.'],
-  ['/images/campaigns-sdr-campaign-sequence.png', 'Abstract tailored campaign sequence', 'Plan the message sequence', 'A clear purpose and timing keep follow-up accountable.'],
-  ['/images/campaigns-sdr-response-review.png', 'Abstract reply and opt-out review materials', 'Own the response', 'Replies and opt-outs shape the next action.'],
+  ['/images/campaigns-sdr-prospect-research.webp', 'Abstract prospect research materials on a desk', 'Research before contact', 'Source evidence supports more relevant outreach decisions.'],
+  ['/images/campaigns-sdr-campaign-sequence.webp', 'Abstract tailored campaign sequence', 'Plan the message sequence', 'A clear purpose and timing keep follow-up accountable.'],
+  ['/images/campaigns-sdr-response-review.webp', 'Abstract reply and opt-out review materials', 'Own the response', 'Replies and opt-outs shape the next action.'],
 ];
 
 export default function CampaignsSdrPage() {
@@ -198,7 +198,7 @@ export default function CampaignsSdrPage() {
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border border-[#e2d6c9] bg-white p-3">
-            <Image src="/images/campaigns-sdr-prospect-research.png" alt="Abstract prospect research materials on a desk" width={1500} height={1000} priority sizes="(max-width: 1023px) calc(100vw - 56px), 520px" className="h-auto w-full rounded-xl" />
+            <Image src="/images/campaigns-sdr-prospect-research.webp" alt="Abstract prospect research materials on a desk" width={1500} height={1000} priority sizes="(max-width: 1023px) calc(100vw - 56px), 520px" className="h-auto w-full rounded-xl" />
           </div>
         </div>
       </section>
