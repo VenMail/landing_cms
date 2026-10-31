@@ -229,9 +229,9 @@ test('campaigns SDR product page is public without becoming a navigation item', 
   assert.match(page, /Prospect research and accountable outreach/);
   assert.match(page, /Recipient consent, applicable law, and opt-out requests govern outreach\./);
   assert.match(page, /Campaigns and SDR \| Venmail/);
-  assert.match(page, /\/images\/campaigns-sdr-prospect-research\.png/);
-  assert.match(page, /\/images\/campaigns-sdr-campaign-sequence\.png/);
-  assert.match(page, /\/images\/campaigns-sdr-response-review\.png/);
+  assert.match(page, /\/images\/campaigns-sdr-prospect-research\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-campaign-sequence\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-response-review\.webp/);
   assert.doesNotMatch(page, /unlimited leads|guaranteed delivery|guaranteed sales|automatic qualification|response rate/i);
   assert.doesNotMatch(header, /campaigns-sdr/);
   assert.doesNotMatch(footer, /campaigns-sdr/);
