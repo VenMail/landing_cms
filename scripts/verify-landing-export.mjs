@@ -35,7 +35,7 @@ const exportEnv = {
 };
 const exportedRequest = (url, method = 'GET') => worker.fetch(new Request(url, { method }), exportEnv);
 
-for (const route of ['', 'pricing', 'resources/privacy-policy', 'resources/ai-principles', 'security-whitepaper']) {
+for (const route of ['', 'pricing', 'campaigns-sdr', 'resources/privacy-policy', 'resources/ai-principles', 'security-whitepaper']) {
   const html = fs.readFileSync(`out/${route || 'index'}.html`, 'utf8');
   const head = html.split('</head>')[0];
   assert.equal((head.match(/<title\b[^>]*>/g) || []).length, 1, `${route}: one title`);
@@ -47,6 +47,14 @@ for (const route of ['', 'pricing', 'resources/privacy-policy', 'resources/ai-pr
 }
 const pricing = fs.readFileSync('out/pricing.html', 'utf8');
 const homepage = fs.readFileSync('out/index.html', 'utf8');
+const campaignsSdr = fs.readFileSync('out/campaigns-sdr.html', 'utf8');
+for (const text of [
+  'Prospect research and accountable outreach',
+  'Recipient consent, applicable law, and opt-out requests govern outreach.',
+  'Review replies, opt-outs, and campaign results.',
+]) {
+  assert.ok(campaignsSdr.includes(text), `campaigns-sdr: expected ${text}`);
+}
 for (const text of [
   'Business email.',
   'Built for the inbox.',
