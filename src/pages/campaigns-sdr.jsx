@@ -25,7 +25,7 @@ const workflow = [
   ['01', 'Define the audience', 'Set source criteria, business fit, and message purpose.'],
   ['02', 'Review prospect evidence', 'Select contacts only after reviewing the available evidence.'],
   ['03', 'Prepare outreach', 'Send a relevant message with an accountable sender and follow-up timing.'],
-  ['04', 'Review the response', 'Handle replies, opt-outs, and campaign results before further contact.'],
+  ['04', 'Review the response', 'Review replies, opt-outs, and campaign results before further contact.'],
 ];
 
 const illustrations = [
@@ -41,9 +41,11 @@ export default function CampaignsSdrPage() {
   return (
     <div className="bg-[#fffdf9] text-[#202124]">
       <Head>
-        <title>Campaigns and SDR | Venmail</title>
-        <meta name="description" content="Prospect research, campaign preparation, accountable follow-up, and response review for business outreach." />
-        <link rel="canonical" href="https://venmail.io/campaigns-sdr" />
+        <title key="title">Campaigns and SDR | Venmail</title>
+        <meta name="description" key="description" content="Prospect research, campaign preparation, accountable follow-up, and response review for business outreach." />
+        <link rel="canonical" key="canonical" href="https://venmail.io/campaigns-sdr" />
+        <meta property="og:title" key="og:title" content="Campaigns and SDR | Venmail" />
+        <meta property="og:description" key="og:description" content="Prospect research, campaign preparation, accountable follow-up, and response review for business outreach." />
       </Head>
       <MailFirstHeader />
       <main id="main-content">

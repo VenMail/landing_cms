@@ -51,7 +51,7 @@ const campaignsSdr = fs.readFileSync('out/campaigns-sdr.html', 'utf8');
 for (const text of [
   'Prospect research and accountable outreach',
   'Recipient consent, applicable law, and opt-out requests govern outreach.',
-  'Review replies, opt-outs, and campaign results.',
+  'Review replies, opt-outs, and campaign results before further contact.',
 ]) {
   assert.ok(campaignsSdr.includes(text), `campaigns-sdr: expected ${text}`);
 }
