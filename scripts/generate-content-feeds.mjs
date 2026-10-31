@@ -9,6 +9,7 @@ const staticRoutes = [
   "/",
   "/about-us",
   "/ai-inbox-agents",
+  "/campaigns-sdr",
   "/blog",
   "/career",
   "/compare/apollo",
