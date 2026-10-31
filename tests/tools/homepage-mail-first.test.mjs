@@ -219,6 +219,24 @@ test('AI inbox agents have a dedicated product page and distinct navigation link
   assert.doesNotMatch(page, /what you(?:'|’)ve created|keep what you create|return to|in one place|this screen|this page|\bhere\b|use this to|you can find/i);
 });
 
+test('campaigns SDR product page is public without becoming a navigation item', async () => {
+  const [page, header, footer] = await Promise.all([
+    readSource('../../src/pages/campaigns-sdr.jsx'),
+    readSource('../../src/components/home/MailFirstHeader.jsx'),
+    readSource('../../src/components/home/MailFirstFooter.jsx'),
+  ]);
+
+  assert.match(page, /Prospect research and accountable outreach/);
+  assert.match(page, /Recipient consent, applicable law, and opt-out requests govern outreach\./);
+  assert.match(page, /Campaigns and SDR \| Venmail/);
+  assert.match(page, /\/images\/campaigns-sdr-prospect-research\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-campaign-sequence\.webp/);
+  assert.match(page, /\/images\/campaigns-sdr-response-review\.webp/);
+  assert.doesNotMatch(page, /unlimited leads|guaranteed delivery|guaranteed sales|automatic qualification|response rate/i);
+  assert.doesNotMatch(header, /campaigns-sdr/);
+  assert.doesNotMatch(footer, /campaigns-sdr/);
+});
+
 test('export verification requires the approved AI inbox agents copy', async () => {
   const verifier = await readSource('../../scripts/verify-landing-export.mjs');
 
