@@ -1,5 +1,9 @@
 export default Object.freeze([
   { type: "paragraph", text: "Google Workspace is a strong default when Gmail, Drive, Docs, Meet and centralized identity are one purchase. For a team that mainly needs reliable custom-domain mail, it can also be more suite than the job requires. Compare alternatives on the workflow you will actually operate, not on the longest feature list." , sourceIds: ["google-workspace-pricing"] },
+  { type: "heading", level: 2, id: "domain-email-without-workspace", text: "Can a small team use domain email without Google Workspace?" },
+  { type: "paragraph", text: "Yes. A hosted email provider can serve addresses on a domain you control. Check the number of mailboxes, aliases, storage, account recovery and migration support, then compare the complete price for your team. If you change providers, prepare the new mailboxes and copy existing mail before changing the domain's MX records." },
+  { type: "heading", level: 2, id: "shared-documents", text: "What if the team also needs shared documents?" },
+  { type: "paragraph", text: "List the document collaboration features people actually use, including simultaneous editing, external sharing and file permissions. Compare a combined suite with separate email and document services, including account administration, costs and migration. Test real files with the people who need access before moving a team." },
   { type: "table", caption: "Email-first alternatives evaluated on equal dimensions", headers: ["Provider", "Mailbox and admin model", "Distinct strength", "Best fit", "Watch for"], rows: [
     ["Google Workspace", "Per-user mailbox plus admin console", "Mature collaboration suite", "Teams living in Google apps", "Suite cost and migration scope"],
     ["Microsoft 365", "Per-user Exchange mailbox", "Office and Windows ecosystem", "Teams centered on Outlook and Office", "Tenant and licensing complexity"],
