@@ -3,6 +3,16 @@ export const faqGroups = [
     title: 'Business email',
     questions: [
       {
+        question: 'How do I create a business email address?',
+        answer: 'Choose a domain and an email host, verify domain ownership, then add the provider’s MX and authentication records to DNS. Create an address such as hello@yourdomain.com and test sending and receiving.',
+        href: '/blog/cloudflare-email-hosting-vs-email-routing', linkText: 'Compare email hosting options',
+      },
+      {
+        question: 'Can I create a business email address for free?',
+        answer: 'Some providers offer free email hosting with restrictions, but a custom domain usually has a registration or renewal cost. Check mailbox limits, sending restrictions and renewal prices. Venmail Standard requires a paid plan and a verified domain.',
+        href: '/pricing', linkText: 'See Venmail pricing',
+      },
+      {
         question: 'Can a small team use business email without Google Workspace?',
         answer: 'Yes. A business email provider can host mailboxes on your own domain without requiring a full office suite. Compare storage, migration, security and collaboration needs before choosing.',
         href: '/blog/google-workspace-alternatives-email-only', linkText: 'Compare email alternatives',
@@ -53,12 +63,27 @@ export const faqGroups = [
     title: 'Delivery and DNS',
     questions: [
       {
+        question: 'What is an SMTP server?',
+        answer: 'An SMTP server accepts and transfers outgoing email. To send through a provider from an app or website, use its server address, port, encryption and authorized credentials; incoming mail typically uses IMAP or POP instead.',
+        href: '/blog/wordpress-not-sending-email', linkText: 'Troubleshoot website email',
+      },
+      {
+        question: 'What is email forwarding?',
+        answer: 'Email forwarding redirects messages sent to one address to another inbox. It does not necessarily provide a separate mailbox or let you send replies from the original address; check whether an authenticated sending service is included.',
+        href: '/blog/cloudflare-email-hosting-vs-email-routing', linkText: 'Compare forwarding and hosting',
+      },
+      {
+        question: 'How do I set up DMARC?',
+        answer: 'Identify every service that sends for your domain and configure SPF and DKIM. Publish a DMARC DNS record with a reporting address and a monitoring policy, review reports for legitimate senders, then consider stricter enforcement when authentication is aligned.',
+        href: '/blog/cloudflare-mx-spf-dkim-dmarc-guide', linkText: 'Read the email DNS guide',
+      },
+      {
         question: 'Does Cloudflare Email Routing include a mailbox?',
         answer: 'Cloudflare Email Routing forwards incoming messages to another address; it does not itself provide a stored mailbox or authenticated outbound sending.',
         href: '/blog/cloudflare-email-hosting-vs-email-routing', linkText: 'Compare forwarding and hosting',
       },
       {
-        question: 'Why might business emails be rejected or land in spam?',
+        question: 'Why are my emails going to spam?',
         answer: 'Recipient policies, sender reputation, authentication and message content can all affect delivery. Check the bounce or headers and verify SPF, DKIM and DMARC before changing the setup.',
         href: '/blog/free-email-deliverability-audit', linkText: 'Read the deliverability guide',
       },

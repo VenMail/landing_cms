@@ -26,3 +26,18 @@ test('workspace comparison answers email-only and document-suite selection quest
     assert.ok(blocks[index + 1].text.length > 80);
   }
 });
+
+test('FAQ covers researched business-email and delivery questions with practical guidance', () => {
+  const answers = new Map(faqGroups.flatMap(group => group.questions).map(item => [item.question, item.answer]));
+  const expectations = [
+    ['How do I create a business email address?', /domain.*(?:MX|mail records)/i],
+    ['Can I create a business email address for free?', /domain.*(?:cost|paid|price)/i],
+    ['What is an SMTP server?', /send/i],
+    ['What is email forwarding?', /(?:forward|redirect).*(?:inbox|address)/i],
+    ['How do I set up DMARC?', /report/i],
+    ['Why are my emails going to spam?', /(?:SPF|DKIM|DMARC)/i],
+  ];
+  for (const [question, guidance] of expectations) {
+    assert.match(answers.get(question) ?? '', guidance, question);
+  }
+});
