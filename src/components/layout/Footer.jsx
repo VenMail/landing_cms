@@ -204,6 +204,8 @@ export default function Footer({ hideFooterJumbo = false }) {
               <a href="/resources/terms-of-service" className="hover:text-white transition-colors">Terms of Service</a>
               <a href="/resources/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
               <span>© {currentYear} VenMail LLC.</span>
+              <Link href="/pt-br/email-profissional" lang="pt-BR" className="hover:text-white transition-colors">Português (Brasil)</Link>
+              <Link href="/de/geschaeftliche-email" lang="de" className="hover:text-white transition-colors">Deutsch</Link>
             </div>
             <div className="flex flex-row space-x-3">
               <a
