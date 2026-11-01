@@ -10,6 +10,7 @@ const staticRoutes = [
   "/about-us",
   "/ai-inbox-agents",
   "/campaigns-sdr",
+  "/compare/zoho",
   "/blog",
   "/career",
   "/compare/apollo",
@@ -58,6 +59,8 @@ const staticRoutes = [
   "/solutions/nonprofit",
   "/tools/email-header-analyzer",
   "/tools/whois",
+  "/pt-br/email-profissional",
+  "/de/geschaeftliche-email",
   "/venmail-agent",
   "/why-venmail",
 ];

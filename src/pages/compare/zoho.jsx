@@ -1,95 +1,21 @@
-import Head from "next/head";
-import DefaultLayout from "@/components/layout/DefaultLayout";
+import Head from 'next/head';
+import DefaultLayout from '@/components/layout/DefaultLayout';
 
 export default function CompareZoho() {
-  const features = [
-    { feature: "Custom Domain & Branding", venmail: true, zoho: true, notes: "Full white-label on VenMail incl. booking & campaigns" },
-    { feature: "AI Summaries", venmail: true, zoho: "limited", notes: "Deeper workflow automation and campaign generation" },
-    { feature: "Built-in Booking Pages", venmail: true, zoho: "add-on", notes: "Native in VenMail; Zoho often requires add-ons" },
-    { feature: "Email Campaigns & Sequences", venmail: true, zoho: "separate", notes: "Zoho Campaigns is separate; VenMail is unified" },
-    { feature: "Lead Gen & Enrichment", venmail: true, zoho: "separate", notes: "CRM add-ons vs native on VenMail" },
-    { feature: "Deliverability Analytics", venmail: true, zoho: "basic", notes: "Opens, clicks, bounce insights across campaigns" },
-    { feature: "Advanced Spam Detection", venmail: true, zoho: true, notes: "Enterprise-grade filtering on both" },
-    { feature: "Unified Pricing", venmail: true, zoho: "varies", notes: "Single bill on VenMail vs multiple Zoho apps" },
-    { feature: "Mobile/Desktop Applications", venmail: true, zoho: true, notes: "Native apps available on VenMail; seamless experience across devices" },
-    { feature: "Bulk Mail Import from Existing Domains", venmail: true, zoho: "manual", notes: "VenMail supports credential-based CSV import—no need to export/download EML" },
-    { feature: "Easy DNS Setup", venmail: true, zoho: "manual", notes: "Instant automatic setup for Cloudflare users; guided support for others" },
-  ];
-
-  const badgeClass = (text) => {
-    const t = (text || "").toString().toLowerCase();
-    if (t === "limited") return "bg-amber-100 text-amber-700";
-    if (t === "manual") return "bg-slate-100 text-slate-700";
-    if (t === "add-on") return "bg-slate-100 text-slate-700";
-    if (t === "basic") return "bg-slate-100 text-slate-700";
-    if (t === "separate") return "bg-slate-100 text-slate-700";
-    if (t === "varies") return "bg-purple-100 text-purple-700";
-    return "bg-slate-100 text-slate-700";
-  };
-
-  const cell = (val) => (
-    <span className="inline-flex items-center text-sm">
-      {val === true && (
-        <span className="inline-flex items-center gap-1 text-green-700">
-          <svg className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293A1 1 0 106.293 10.707l2 2a1 1 0 001.414 0l4-4Z" clipRule="evenodd"/></svg>
-          <span className="font-medium">Yes</span>
-        </span>
-      )}
-      {val === false && (
-        <span className="text-gray-400">—</span>
-      )}
-      {typeof val === 'string' && val !== '' && (
-        <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${badgeClass(val)}`}>
-          {val[0].toUpperCase() + val.slice(1)}
-        </span>
-      )}
-    </span>
-  );
-
-  return (
-    <DefaultLayout>
-      <Head>
-        <title>VenMail vs Zoho — Unified Email, Campaigns, Booking, and Leads</title>
-        <meta name="description" key="description" content="Compare VenMail vs Zoho. VenMail unifies email, campaigns, scheduling, AI, and lead generation with easy DNS and bulk import." />
-        <meta property="og:title" key="og:title" content="VenMail vs Zoho" />
-        <meta property="og:description" key="og:description" content="VenMail replaces multiple tools with one SME-focused suite: email, campaigns, booking, AI, and more." />
-        <meta property="og:type" key="og:type" content="website" />
-        <meta property="og:url" key="og:url" content="/compare/zoho" />
-      </Head>
-      <section className="bg-white py-12 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 md:mb-14 text-center">
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">VenMail vs Zoho Mail</h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Zoho offers many apps. VenMail brings the essentials—email, campaigns, booking, and leads—into one streamlined experience.
-            </p>
-          </div>
-
-          <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm bg-white">
-            <div className="grid grid-cols-12 bg-gray-50 border-b border-gray-200">
-              <div className="col-span-6 p-4 md:p-5 text-sm font-semibold text-gray-700">Feature</div>
-              <div className="col-span-3 p-4 md:p-5 text-sm font-semibold text-gray-700">VenMail</div>
-              <div className="col-span-3 p-4 md:p-5 text-sm font-semibold text-gray-700">Zoho</div>
-            </div>
-            {features.map((row) => (
-              <div key={row.feature} className="grid grid-cols-12 border-b border-gray-100 hover:bg-gray-50/60">
-                <div className="col-span-6 p-4 md:p-5">
-                  <div className="text-sm font-medium text-gray-900">{row.feature}</div>
-                  {row.notes && <div className="text-xs text-gray-500 mt-1">{row.notes}</div>}
-                </div>
-                <div className="col-span-3 p-4 md:p-5">{cell(row.venmail)}</div>
-                <div className="col-span-3 p-4 md:p-5">{cell(row.zoho)}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/compare/gmail" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Gmail</a>
-            <a href="/compare/outlook" className="px-6 py-3 bg-white border border-gray-300 text-gray-800 text-sm font-medium hover:bg-gray-50">Compare with Outlook</a>
-            <a href="https://m.venmail.io/register" target="_blank" className="px-6 py-3 bg-black text-white text-sm font-medium">Explore plans</a>
-          </div>
-        </div>
-      </section>
-    </DefaultLayout>
-  );
+  return <DefaultLayout>
+    <Head><title>Zoho Mail Alternative: Compare Business Email | Venmail</title><meta name="description" key="description" content="Compare Venmail and Zoho Mail for custom-domain business email, free and paid plans, storage, migration and email clients." /></Head>
+    <section className="mx-auto max-w-5xl px-5 py-12 md:py-20">
+      <h1 className="text-4xl font-bold text-slate-900 md:text-5xl">Venmail and Zoho Mail</h1>
+      <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Compare custom-domain email plans, storage, migration and client access before choosing a provider.</p>
+      <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <article className="rounded-2xl border border-slate-200 p-6"><h2 className="text-2xl font-bold">Venmail</h2><p className="mt-4 leading-7 text-slate-700">Standard costs $1 per month for up to five inboxes; each additional inbox costs $1 per month. Calendar, contacts and shared storage are included. Mailbox activation requires a verified domain and a paid plan.</p><p className="mt-4"><a href="/pricing" className="font-semibold text-orange-700 underline">Venmail pricing</a></p></article>
+        <article className="rounded-2xl border border-slate-200 p-6"><h2 className="text-2xl font-bold">Zoho Mail</h2><p className="mt-4 leading-7 text-slate-700">Zoho offers a Free plan for one domain and up to five users, with 5 GB per user, in select data centres. IMAP, POP and ActiveSync are excluded from the free plan. Paid Mail Lite includes email-client access; pricing and availability depend on plan and region.</p><p className="mt-4"><a href="https://www.zoho.com/mail/zohomail-pricing.html" className="font-semibold text-orange-700 underline">Zoho Mail pricing and plan details</a></p></article>
+      </div>
+      <div className="mt-12 space-y-8"><section><h2 className="text-2xl font-bold">How do I choose?</h2><p className="mt-3 leading-7 text-slate-700">Compare total cost for your team, mailbox storage, mobile and desktop client access, support and the other tools you use. Zoho’s free tier may suit a small team that only needs web access. Review current plan details before deciding.</p></section>
+      <section><h2 className="text-2xl font-bold">Can I keep my domain and email address?</h2><p className="mt-3 leading-7 text-slate-700">Usually, yes, if you control your domain. Verify it with the new provider and plan the migration of existing messages before changing MX records. Test sending and receiving after the change.</p></section>
+      <section><h2 className="text-2xl font-bold">Can I use an email client?</h2><p className="mt-3 leading-7 text-slate-700">Venmail provides IMAP and SMTP credentials for compatible clients. Zoho excludes IMAP and POP from its free plan and offers client access on paid plans.</p></section></div>
+      <a href="https://m.venmail.io/register?type=business&plan=standard&signup_source=cloudflare_landing" className="mt-10 inline-block rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white">Create an account</a>
+      <p className="mt-8 flex flex-wrap gap-5 text-sm"><a href="/pt-br/email-profissional" className="text-orange-700 underline">E-mail profissional em português</a><a href="/de/geschaeftliche-email" className="text-orange-700 underline">Geschäftliche E-Mail auf Deutsch</a></p>
+    </section>
+  </DefaultLayout>;
 }
