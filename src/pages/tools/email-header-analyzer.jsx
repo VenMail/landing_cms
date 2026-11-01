@@ -109,6 +109,7 @@ export default function EmailHeaderAnalyzer() {
         ].map(([slug, title, description]) => <div key={slug}><h2 className="text-lg font-bold"><Link href={`/blog/${slug}`} className="underline underline-offset-4">{title}</Link></h2><p className="mt-3 text-sm leading-6 text-slate-600">{description}</p></div>)}</div>
         <section className="mt-10 border-t border-slate-200 pt-8"><h2 className="text-xl font-bold">How this tool works</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600">It reads Authentication-Results fields, unfolds wrapped lines, and keeps each receiver entry separate. It does not send test mail, look up DNS or validate signatures. Received fields are counted as routing context, not proof of delivery. The parser recognizes common SPF, DKIM and DMARC status words; unusual formats may need manual inspection.</p><p className="mt-3 text-sm leading-7"><a href="https://www.rfc-editor.org/rfc/rfc8601.html" className="underline underline-offset-4">Authentication-Results format and trust limitations (RFC 8601)</a><span aria-hidden="true"> · </span><a href="https://support.google.com/mail/answer/29436" className="underline underline-offset-4">Find full headers in Gmail</a></p></section>
       </section>
+      <div className="mx-auto max-w-6xl px-4 pb-12 sm:px-6"><Link href="/tools/whois" className="font-semibold text-primary-700 underline underline-offset-4">Look up a domain’s registrar and nameservers</Link></div>
     </main>
     <Footer hideFooterJumbo />
   </>;
