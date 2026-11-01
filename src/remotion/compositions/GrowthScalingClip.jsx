@@ -81,7 +81,7 @@ export default function GrowthScalingClip() {
 
       {/* Savings highlight */}
       <div style={{ position: "absolute", bottom: 12, left: 32, fontSize: 9, color: "rgba(255,255,255,0.5)", maxWidth: 220 }}>
-        Business includes 200 GB pooled storage. Storage upgrades are available.
+        Standard includes 20 GB shared storage for up to five accounts. Each added account adds 10 GB shared storage.
       </div>
       <div style={{ position: "absolute", bottom: 20, right: 32, opacity: savingsOpacity }}>
         <div style={{ fontSize: 20, fontWeight: 800, color: "#22c55e" }}>
