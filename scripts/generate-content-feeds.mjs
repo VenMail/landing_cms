@@ -57,6 +57,7 @@ const staticRoutes = [
   "/solutions/marketing",
   "/solutions/nonprofit",
   "/tools/email-header-analyzer",
+  "/tools/whois",
   "/venmail-agent",
   "/why-venmail",
 ];

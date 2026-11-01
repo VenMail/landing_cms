@@ -26,6 +26,52 @@ const PERMANENT_REDIRECTS = new Map([
   ['/careers', '/career'],
 ]);
 
+// This endpoint uses the existing anonymous onboarding lookup, not an
+// authenticated account. The per-isolate limit is an additional guard, not
+// a substitute for provider-side distributed rate limiting.
+const lookupLimits = new Map();
+function lookupDomain(value) {
+  const domain = String(value || '').trim().toLowerCase();
+  if (domain.length > 253 || !domain.includes('.') || /^\d+(?:\.\d+){3}$/.test(domain)) return null;
+  const labels = domain.split('.');
+  if (!labels.every(part => part.length > 0 && part.length <= 63 && /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/.test(part))) return null;
+  if (!/^[a-z][a-z0-9-]{1,62}$/.test(labels.at(-1))) return null;
+  return domain;
+}
+
+async function publicWhois(req, url) {
+  const domain = lookupDomain(url.searchParams.get('domain'));
+  if (!domain) return Response.json({ message: 'Enter a valid domain name, such as example.com.' }, { status: 400 });
+  const ip = req.headers.get('CF-Connecting-IP') || 'unknown';
+  const now = Date.now();
+  if (lookupLimits.size > 10000) lookupLimits.clear();
+  const previous = lookupLimits.get(ip);
+  const record = !previous || previous.until <= now ? { until: now + 60000, count: 0 } : previous;
+  if (++record.count > 12) return Response.json({ message: 'Too many requests. Try again shortly.' }, { status: 429, headers: { 'retry-after': '60' } });
+  lookupLimits.set(ip, record);
+  try {
+    const init = await fetch('https://m.venmail.io/login', { signal: AbortSignal.timeout(10000) });
+    if (!init.ok) throw new Error('session unavailable');
+    const rawCookies = typeof init.headers.getSetCookie === 'function' ? init.headers.getSetCookie().join(', ') : init.headers.get('set-cookie') || '';
+    const xsrf = rawCookies.match(/(?:^|[,;]\s*)XSRF-TOKEN=([^;]+)/i)?.[1];
+    const session = rawCookies.match(/(?:^|[,;]\s*)venmail_session=([^;]+)/i)?.[1];
+    if (!xsrf || !session) throw new Error('session unavailable');
+    const upstream = await fetch('https://m.venmail.io/domains/whois', {
+      method: 'POST', signal: AbortSignal.timeout(30000),
+      headers: { 'accept': 'application/json', 'content-type': 'application/json', 'x-xsrf-token': decodeURIComponent(xsrf), 'cookie': `XSRF-TOKEN=${xsrf}; venmail_session=${session}` },
+      body: JSON.stringify({ domain }),
+    });
+    if (!upstream.ok) throw new Error('lookup unavailable');
+    const data = await upstream.json();
+    if (!data.success || !data.results?.has_records) return Response.json({ domain, message: 'No registration or nameserver details were confirmed. This does not mean the domain is available.' }, { headers: { 'cache-control': 'no-store' } });
+    const r = data.results;
+    const nameservers = Array.isArray(r.nameservers) ? r.nameservers.filter(x => typeof x === 'string').slice(0, 20) : [];
+    return Response.json({ domain, registrar: typeof r.registrar === 'string' ? r.registrar : null, nameservers, hasRecords: true }, { headers: { 'cache-control': 'public, max-age=300' } });
+  } catch {
+    return Response.json({ message: 'Domain lookup is temporarily unavailable. Try again later.' }, { status: 503, headers: { 'cache-control': 'no-store' } });
+  }
+}
+
 function canonicalPath(pathname) {
   let path = pathname.replace(/\/{2,}/g, '/').replace(/\/+$/, '') || '/';
   if (path === '/index.html') return '/';
@@ -79,6 +125,7 @@ const worker = {
     if (!['GET', 'HEAD'].includes(req.method)) return new Response('Method not allowed', { status: 405, headers: { Allow: 'GET, HEAD' } });
     const url = new URL(req.url);
     const canonical = canonicalPath(url.pathname);
+    if (canonical === '/api/tools/whois') return publicWhois(req, url);
     const movedTo = PERMANENT_REDIRECTS.get(canonical);
     if (movedTo) {
       if (url.hostname === 'www.venmail.io') url.hostname = 'venmail.io';
