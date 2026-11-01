@@ -97,6 +97,10 @@ export default function MailFirstFooter() {
           </nav>
         </div>
 
+        <nav aria-label="Languages" className="flex flex-wrap gap-x-5 text-sm text-white/70">
+          <a href="/pt-br/email-profissional" lang="pt-BR" className="hover:text-white">Português (Brasil)</a>
+          <a href="/de/geschaeftliche-email" lang="de" className="hover:text-white">Deutsch</a>
+        </nav>
         <p className="border-t border-white/15 pt-6 text-sm text-white/60">© {new Date().getFullYear()} VenMail LLC.</p>
       </div>
     </footer>

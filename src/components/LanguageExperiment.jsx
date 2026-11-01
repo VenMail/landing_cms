@@ -7,7 +7,7 @@ const paths = { 'pt-BR': '/pt-br/email-profissional', de: '/de/geschaeftliche-em
 
 export default function LanguageExperiment({ lang, title, description, heading, intro, facts, steps, questions, cta, languageNotice }) {
   const canonical = `https://venmail.io${paths[lang]}`;
-  const signup = 'https://m.venmail.io/register?type=business&plan=standard&signup_source=cloudflare_landing';
+  const signup = `https://m.venmail.io/register?type=business&plan=standard&signup_source=cloudflare_landing&landing_language=` + encodeURIComponent(lang);
   function trackSignup() {
     if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
       window.gtag('event', 'language_experiment_signup_click', { experiment_language: lang, experiment_page: paths[lang] });

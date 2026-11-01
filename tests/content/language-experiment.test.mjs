@@ -22,3 +22,18 @@ test('Zoho comparison acknowledges its free plan and links to authoritative pric
   assert.match(source, /zoho\.com\/mail\/zohomail-pricing/);
   assert.match(source, /IMAP/);
 });
+
+test('homepage footer links directly to both language pages', () => {
+ const footer=readFileSync('src/components/home/MailFirstFooter.jsx','utf8');
+ assert.match(footer, /\/pt-br\/email-profissional/);
+ assert.match(footer, /\/de\/geschaeftliche-email/);
+});
+
+test('language survives internal browsing and is carried on registration links', async () => {
+ const { landingLanguage, registrationHref } = await import('../../src/config/landing-language.mjs');
+ assert.equal(landingLanguage('/pt-br/email-profissional'), 'pt-BR');
+ assert.equal(landingLanguage('/de/geschaeftliche-email'), 'de');
+ assert.equal(landingLanguage('/pricing'), null);
+ assert.equal(new URL(registrationHref('https://m.venmail.io/register?type=business', 'de')).searchParams.get('landing_language'), 'de');
+ assert.equal(registrationHref('https://example.com/register', 'de'), 'https://example.com/register');
+});
