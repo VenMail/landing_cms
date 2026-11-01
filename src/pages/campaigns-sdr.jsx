@@ -55,6 +55,7 @@ export default function CampaignsSdrPage() {
               <p className="text-sm font-semibold text-orange-800">Campaigns and SDR</p>
               <h1 className="mt-4 max-w-3xl text-5xl font-semibold leading-[1.04] tracking-[-0.035em] sm:text-6xl">Prospect research and accountable outreach</h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5f6368]">Review sources, prepare relevant campaign messages, schedule follow-up, and handle the resulting conversations with a clear owner.</p>
+              <p className="mt-4 text-sm font-medium text-[#5f6368]">Business and Enterprise: up to 5,000 campaign subscribers.</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href={signupHref} onClick={() => trackCTAClick('campaigns_sdr_signup', 'campaigns_sdr', 'campaigns_sdr_page')} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">
                   Start with Business <ArrowRightIcon className="h-4 w-4" />
