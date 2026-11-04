@@ -74,14 +74,14 @@ test('localized Naira prices use the approved fixed exchange rate', async () => 
   assert.doesNotMatch(currencyContext, /NGN:\s*1400/);
 });
 
-test('the home page presents the real Venmail inbox instead of a simulated interface', async () => {
+test('the home page presents a real follow-up feature instead of a simulated interface', async () => {
   const [homepage, inboxPreview] = await Promise.all([
     readFile(new URL('../../src/pages/index.jsx', import.meta.url), 'utf8'),
     readFile(new URL('../../src/components/home/InboxPreviewLightbox.jsx', import.meta.url), 'utf8'),
   ]);
 
   assert.match(homepage, /InboxPreviewLightbox/);
-  assert.match(inboxPreview, /email-dashboard-preview\.png/);
+  assert.match(inboxPreview, /follow_up\.png/);
   assert.doesNotMatch(homepage, /MailExample|WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
 });
 

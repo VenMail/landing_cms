@@ -29,8 +29,8 @@ export default function InboxPreviewLightbox() {
           onClick={() => setIsOpen(true)}
           className="group block w-full text-left focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-700"
         >
-          <Image src="/email-dashboard-preview.png" width={1802} height={905} priority sizes="(max-width: 1088px) calc(100vw - 32px), 1040px" alt="Venmail inbox" className="block h-auto w-full" />
-          <span className="block border-t border-[#dadce0] px-4 py-3 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 group-hover:text-orange-900">Open full-size Venmail inbox image.</span>
+          <div className="max-sm:h-[220px] overflow-hidden"><Image src="/follow_up.png" width={1090} height={530} priority sizes="(max-width: 700px) 700px, 1040px" alt="Follow-up list with message status and follow-up action" className="block h-auto w-[700px] max-w-none sm:w-full" /></div>
+          <span className="block border-t border-[#dadce0] px-4 py-3 text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 group-hover:text-orange-900">View follow-ups</span>
         </button>
       </div>
 
@@ -45,7 +45,7 @@ export default function InboxPreviewLightbox() {
           <section
             role="dialog"
             aria-modal="true"
-            aria-label="Venmail inbox preview"
+            aria-label="Follow-up preview"
             onKeyDown={event => {
               if (event.key === 'Escape') close();
             }}
@@ -59,7 +59,7 @@ export default function InboxPreviewLightbox() {
             >
               Close preview
             </button>
-            <Image src="/email-dashboard-preview.png" width={1802} height={905} priority alt="Venmail inbox" className="max-h-[calc(100vh-5rem)] max-w-full rounded-lg object-contain shadow-2xl shadow-black/30" />
+            <Image src="/follow_up.png" width={1090} height={530} priority alt="Follow-up list with message status and follow-up action" className="max-h-[calc(100vh-5rem)] max-w-full rounded-lg object-contain shadow-2xl shadow-black/30" />
           </section>
         </div>
       )}
