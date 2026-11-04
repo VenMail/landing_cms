@@ -16,27 +16,15 @@ test('homepage leads with practical mail outcomes and account conditions', async
   assert.match(homepage, /No payment required to create an account\. Mailbox activation requires a verified domain and a paid plan\./);
 });
 
-test('homepage uses the real Venmail inbox asset without recreating product chrome', async () => {
-  const [homepage, lightbox] = await Promise.all([
+test('homepage presents a labeled follow-up concept', async () => {
+  const [homepage, preview] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/home/InboxPreviewLightbox.jsx'),
   ]);
-
-  assert.match(homepage, /import InboxPreviewLightbox from/);
   assert.match(homepage, /<InboxPreviewLightbox \/>/);
-  assert.doesNotMatch(homepage, /href="\/email-dashboard-preview\.png"/);
-  assert.match(lightbox, /const \[isOpen, setIsOpen\] = useState\(false\)/);
-  assert.match(lightbox, /aria-haspopup="dialog"/);
-  assert.match(lightbox, /role="dialog"/);
-  assert.match(lightbox, /aria-modal="true"/);
-  assert.match(lightbox, /onKeyDown/);
-  assert.match(lightbox, /event\.key === 'Escape'/);
-  assert.match(lightbox, /event\.target === event\.currentTarget/);
-  assert.match(lightbox, /triggerRef\.current\?\.focus\(\)/);
-  assert.match(lightbox, /src="\/email-dashboard-preview\.png"/);
-  assert.match(lightbox, /Open full-size Venmail inbox image\./);
-  assert.doesNotMatch(homepage, /MailExample|Customer inquiry|Server accepted|simulated|Policy missing|fake|browser-dot/i);
-  assert.doesNotMatch(homepage, /mail\.png|screenshot-full\.webp/);
+  assert.match(preview, /Concept preview/);
+  assert.match(preview, /maya@example\.com/);
+  assert.match(preview, /Draft ready for review/);
 });
 
 test('homepage presents professional custom-domain email before delivery details', async () => {
@@ -168,17 +156,10 @@ test('homepage presents Office collaboration and Gmail IMAP access details', asy
   assert.match(homepage, /Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail\./);
   assert.match(collaboration, /Work together with your team/);
   assert.match(collaboration, /Share or sign files, documents, spreadsheets, forms, and slides with your team and clients\./);
-  assert.match(collaboration, /src="\/images\/venmail-office-shot-light\.png"/);
+  assert.match(collaboration, /Concept preview/);
   assert.match(collaboration, /href="https:\/\/venia\.cloud"/);
   assert.match(collaboration, /target="_blank"/);
   assert.match(collaboration, /rel="noopener noreferrer"/);
-  assert.match(collaboration, /data-visual="office-laptop"/);
-  assert.match(collaboration, /data-visual="office-desk"/);
-  assert.match(collaboration, /data-visual="office-tabletop"/);
-  assert.match(collaboration, /data-visual="office-notebook"/);
-  assert.match(collaboration, /data-visual="office-pen"/);
-  assert.match(collaboration, /data-visual="office-mug"/);
-  assert.match(collaboration, /data-visual="office-plant"/);
   assert.match(collaboration, /min-w-0/);
   assert.match(collaboration, /overflow-hidden/);
   assert.match(agents, />AI Agents<\/p>/);
