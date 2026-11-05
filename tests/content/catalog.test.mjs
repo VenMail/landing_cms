@@ -9,12 +9,12 @@ import {
 } from "../../src/data/content/catalog.mjs";
 import { validateCatalog } from "../../src/data/content/validate.mjs";
 
-test("catalog exposes 82 useful article records", () => {
+test("catalog exposes 83 useful article records", () => {
   const all = getAllOpportunities();
-  assert.equal(all.length, 82);
-  assert.equal(getPublishedArticles().length, 82);
+  assert.equal(all.length, 83);
+  assert.equal(getPublishedArticles().length, 83);
   assert.equal(all.filter((item) => item.status === "brief").length, 0);
-  assert.equal(new Set(all.map((item) => item.slug)).size, 82);
+  assert.equal(new Set(all.map((item) => item.slug)).size, 83);
 });
 
 test("only completed work is publicly addressable", () => {
@@ -43,7 +43,7 @@ test("measured opportunities retain production research values", () => {
 });
 
 test("all articles meet the beginner-first editorial contract", () => {
-  const approvedAuthors = new Set(["Claire from Venmail", "Ada from Venmail"]);
+  const approvedAuthors = new Set(["Claire from Venmail", "Ada from Venmail", "Venmail Editorial Team"]);
   for (const article of getPublishedArticles()) {
     assert.ok(approvedAuthors.has(article.author), `${article.slug} has an unapproved author`);
     assert.ok(article.reviewer);

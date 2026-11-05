@@ -42,7 +42,7 @@ export function validateCatalog(catalog = getAllOpportunities()) {
     for (const field of required) if (!item[field]) errors.push(`${item.slug ?? item.id}: missing ${field}.`);
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug ?? "")) errors.push(`${item.id}: invalid slug.`);
     if (!Array.isArray(item.secondaryKeywords) || item.secondaryKeywords.length < 2) errors.push(`${item.slug}: needs two secondary keywords.`);
-    if (!["Claire from Venmail", "Ada from Venmail"].includes(item.author)) errors.push(`${item.slug}: invalid public author.`);
+    if (!["Claire from Venmail", "Ada from Venmail", "Venmail Editorial Team"].includes(item.author)) errors.push(`${item.slug}: invalid public author.`);
     if (!item.plainAnswer || item.plainAnswer.length < 80) errors.push(`${item.slug}: needs a plain-English answer.`);
     if (!Array.isArray(item.painPoints) || item.painPoints.length < 3) errors.push(`${item.slug}: needs three reader pain points.`);
     if (!Array.isArray(item.targetCountries) || item.targetCountries.length < 2) errors.push(`${item.slug}: needs target-country context.`);

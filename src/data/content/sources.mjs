@@ -2,6 +2,8 @@ import { utilitySources } from "./utility/sources.mjs";
 const accessedAt = "2026-08-15";
 
 const entries = [
+  ["activtrak-ai-workdays-2026", "ActivTrak Productivity Lab", "AI users have workdays up to 90 minutes longer than non-users", "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/", "research"],
+  ["gallup-ai-productivity-2026", "Gallup", "AI and workplace productivity: What the data show", "https://www.gallup.com/workplace/713063/ai-workplace-productivity.aspx", "research"],
   ["cloudflare-email-routing", "Cloudflare", "Email Routing documentation", "https://developers.cloudflare.com/email-routing/", "official-docs"],
   ["cloudflare-email-dns", "Cloudflare", "Set up email records", "https://developers.cloudflare.com/dns/manage-dns-records/how-to/email-records/", "official-docs"],
   ["cloudflare-dmarc", "Cloudflare", "DMARC management", "https://developers.cloudflare.com/dmarc-management/", "official-docs"],
