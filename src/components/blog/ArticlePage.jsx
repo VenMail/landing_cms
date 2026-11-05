@@ -37,6 +37,7 @@ export default function ArticlePage({ article, related }) {
         <meta property="og:title" key="og:title" content={article.title} />
         <meta property="og:description" key="og:description" content={article.metaDescription} />
         <meta property="og:url" key="og:url" content={article.canonicalUrl} />
+        {article.image && <meta property="og:image" key="og:image" content={`https://venmail.io${article.image.src}`} />}
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
@@ -56,7 +57,7 @@ export default function ArticlePage({ article, related }) {
         </header>
 
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:py-20">
-          <div className="min-w-0"><ContentBlocks blocks={article.body} sources={article.sources} /></div>
+          <div className="min-w-0">{article.image && <figure className="mb-10"><img src={article.image.src} alt={article.image.alt} width="1080" height="1080" className="w-full rounded-2xl" /></figure>}<ContentBlocks blocks={article.body} sources={article.sources} /></div>
           <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
             {article.cta.href.startsWith('/tools/') && <div className="rounded-2xl border border-primary-200 bg-orange-50 p-5"><h2 className="font-bold text-slate-950">Try the free tool</h2><p className="mt-2 text-sm leading-6 text-slate-600">{article.cta.description}</p><Link href={article.cta.href} onClick={() => trackConversion('article_tool_clicked', { article_slug: article.slug, cta_location: 'sidebar', tool_id: 'email_header_analyzer' })} className="mt-3 block font-semibold text-primary-700 underline">{article.cta.label}</Link></div>}
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
