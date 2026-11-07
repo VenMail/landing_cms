@@ -2,6 +2,8 @@ import { utilitySources } from "./utility/sources.mjs";
 const accessedAt = "2026-08-15";
 
 const entries = [
+  ["wellhub-ai-workload-2026", "Wellhub", "Your Best AI Talent Is Also Your Biggest Flight Risk", "https://wellhub.com/en-us/blog/press-releases/ai-talent-burnout-retention-wellhub-study/", "research", "2026-11-07"],
+  ["gartner-ai-capacity-2026", "Gartner", "Three Steps for CFOs to Turn AI Time Savings into Business Value", "https://www.gartner.com/en/newsroom/press-releases/2026-11-04-gartner-idnetifies-three-steps-for-cfos-to-turn-ai-time-saavings-into-business-value", "research", "2026-11-07"],
   ["activtrak-ai-workdays-2026", "ActivTrak Productivity Lab", "AI users have workdays up to 90 minutes longer than non-users", "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/", "research"],
   ["gallup-ai-productivity-2026", "Gallup", "AI and workplace productivity: What the data show", "https://www.gallup.com/workplace/713063/ai-workplace-productivity.aspx", "research"],
   ["cloudflare-email-routing", "Cloudflare", "Email Routing documentation", "https://developers.cloudflare.com/email-routing/", "official-docs"],
@@ -30,8 +32,8 @@ const entries = [
   ["dmarc-org", "DMARC.org", "DMARC overview", "https://dmarc.org/overview/", "standards-guidance"],
 ];
 
-export const sources = Object.freeze([...entries.map(([id, publisher, title, url, kind]) => Object.freeze({
-  id, publisher, title, url, accessedAt, kind,
+export const sources = Object.freeze([...entries.map(([id, publisher, title, url, kind, sourceAccessedAt]) => Object.freeze({
+  id, publisher, title, url, accessedAt: sourceAccessedAt ?? accessedAt, kind,
 })), ...utilitySources]);
 
 export const sourcesById = Object.freeze(Object.fromEntries(sources.map((source) => [source.id, source])));

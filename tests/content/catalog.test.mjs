@@ -9,12 +9,12 @@ import {
 } from "../../src/data/content/catalog.mjs";
 import { validateCatalog } from "../../src/data/content/validate.mjs";
 
-test("catalog exposes 83 useful article records", () => {
+test("catalog exposes 84 useful article records", () => {
   const all = getAllOpportunities();
-  assert.equal(all.length, 83);
-  assert.equal(getPublishedArticles().length, 83);
+  assert.equal(all.length, 84);
+  assert.equal(getPublishedArticles().length, 84);
   assert.equal(all.filter((item) => item.status === "brief").length, 0);
-  assert.equal(new Set(all.map((item) => item.slug)).size, 83);
+  assert.equal(new Set(all.map((item) => item.slug)).size, 84);
 });
 
 test("only completed work is publicly addressable", () => {

@@ -1,5 +1,6 @@
 import { utilityOpportunities } from "./utility/index.mjs";
 import { aiWorkloadOpportunity } from "./articles/ai-workload-study.mjs";
+import { aiSavedTimeOpportunity } from "./articles/ai-saved-time.mjs";
 const measured = {
   "email-deliverability-services": { serverOpportunityId: 1, volume: 590, cpc: 89.76, difficulty: 15 },
   "amazon-ses-alternatives": { serverOpportunityId: 4, volume: 110, cpc: 23.68, difficulty: 0 },
@@ -324,4 +325,4 @@ function makeOpportunity(group, topic) {
   });
 }
 
-export const opportunities = Object.freeze([aiWorkloadOpportunity, ...clusters.flatMap((group) => group.topics.map((topic) => makeOpportunity(group, topic))), ...utilityOpportunities]);
+export const opportunities = Object.freeze([aiSavedTimeOpportunity, aiWorkloadOpportunity, ...clusters.flatMap((group) => group.topics.map((topic) => makeOpportunity(group, topic))), ...utilityOpportunities]);
