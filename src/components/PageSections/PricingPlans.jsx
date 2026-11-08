@@ -45,7 +45,7 @@ export default function PricingPlans({ comparison = false }) {
         <tbody>{PLANS.map(plan => <tr key={plan.id} className="border-t">
           <th scope="row" className="p-4">{plan.name}</th>
           <td className="p-4">{plan.id === 'standard' ? '5 included, then $1/month each' : plan.id === 'business' ? 'Up to 100 included' : 'Tailored'}</td>
-          <td className="p-4">{plan.id === 'business' ? '200 GB included; upgrades or customer-provided storage' : plan.id === 'standard' ? 'Shared storage included' : 'Tailored'}</td>
+          <td className="p-4">{plan.id === 'business' ? '200 GB included; upgrades or customer-provided storage' : plan.id === 'standard' ? '20 GB shared for up to 5 accounts; +10 GB per additional account' : 'Tailored'}</td>
           <td className="p-4">{plan.checkout === 'quote' ? 'Quote' : `${formatUsd(getOffer(plan.id).amount)}${isNigeria ? ` / ${formatNgn(getOffer(plan.id).amount * USD_TO_NGN)}` : ''}`}</td>
           <td className="p-4"><a className="underline" href={plan.checkout === 'quote' ? '/request-quote' : businessSignupUrl(plan.id)}>{plan.checkout === 'quote' ? 'Request a quote' : plan.id === 'business' ? 'Choose monthly Business' : `Choose ${plan.name}`}</a></td>
         </tr>)}</tbody>

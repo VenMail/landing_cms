@@ -10,7 +10,7 @@ function FAQs() {
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "Standard costs $1 per month total for 5 inboxes, then $1 per additional inbox each month. Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. Enterprise and white-label deployments are quoted after requirements review.",
+      answer: "Standard costs $1 per month total for 5 inboxes, then $1 per additional inbox each month. Standard includes 20 GB shared storage for up to 5 accounts (4 GB per included account), and each added account adds 10 GB shared storage. Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. Enterprise and white-label deployments are quoted after requirements review.",
     },
     {
       question: "Will my team need training?",

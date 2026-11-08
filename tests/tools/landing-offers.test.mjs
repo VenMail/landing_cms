@@ -127,6 +127,19 @@ test('customer-visible pricing copy does not claim zero per-seat cost or unlimit
   assert.match(copy, /Business[^\n]{0,100}\$20\/month/i);
 });
 
+test('Standard states its shared 20 GB allowance and 10 GB growth rule', async () => {
+  const files = await Promise.all([
+    readFile(new URL('../../src/config/pricing.mjs', import.meta.url), 'utf8'),
+    readFile(new URL('../../src/components/PageSections/PricingPlans.jsx', import.meta.url), 'utf8'),
+    readFile(new URL('../../src/pages/pricing.jsx', import.meta.url), 'utf8'),
+  ]);
+  const copy = files.join('\n');
+
+  assert.match(copy, /20 GB shared storage for up to 5 accounts \(4 GB per included account\)/);
+  assert.match(copy, /10 GB shared storage per additional account/);
+  assert.match(copy, /20 GB shared for up to 5 accounts; \+10 GB per additional account/);
+});
+
 test('customer-visible pricing states the bounded Business account allowance', async () => {
   const paths = [
     '../../src/config/pricing.mjs',
