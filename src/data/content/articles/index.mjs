@@ -14,6 +14,7 @@ import { expandedProfiles } from "./expandedProfiles.mjs";
 import { utilityBodies } from "../utility/index.mjs";
 import { aiWorkloadBody } from "./ai-workload-study.mjs";
 import { aiSavedTimeBody } from "./ai-saved-time.mjs";
+import { holidayFollowUpBody } from "./holiday-customer-follow-up.mjs";
 
 const originalBodies = {
   "cloudflare-email-hosting-vs-email-routing": cloudflare,
@@ -36,7 +37,7 @@ const expandedBodies = Object.fromEntries(expandedProfiles.map((profile) => {
   return [profile.slug, buildBeginnerArticle(opportunity, profile)];
 }));
 
-const registeredBodies = { ...originalBodies, ...expandedBodies, ...utilityBodies, "ai-productivity-longer-workdays": aiWorkloadBody, "ai-saved-time-who-gets-it": aiSavedTimeBody };
+const registeredBodies = { ...originalBodies, ...expandedBodies, ...utilityBodies, "ai-productivity-longer-workdays": aiWorkloadBody, "ai-saved-time-who-gets-it": aiSavedTimeBody, "holiday-customers-follow-up-small-business": holidayFollowUpBody };
 const missingBodies = opportunities.filter(({ slug }) => !registeredBodies[slug]).map(({ slug }) => slug);
 if (missingBodies.length) throw new Error(`Missing article bodies: ${missingBodies.join(", ")}`);
 
