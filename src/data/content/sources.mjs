@@ -2,6 +2,8 @@ import { utilitySources } from "./utility/sources.mjs";
 const accessedAt = "2026-08-15";
 
 const entries = [
+  ["constant-contact-holiday-2026", "Constant Contact", "Small Businesses Will Win New Holiday Customers They Aren't Prepared to Keep", "https://news.constantcontact.com/2026-11-03-Small-Businesses-Will-Win-New-Holiday-Customers-They-Arent-Prepared-to-Keep,-Constant-Contact-Research-Finds", "research", "2026-11-08"],
+  ["ico-direct-marketing-guidance", "UK Information Commissioner's Office", "Plan direct marketing", "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/direct-marketing-guidance/plan-direct-marketing/", "official-guidance", "2026-11-08"],
   ["wellhub-ai-workload-2026", "Wellhub", "Your Best AI Talent Is Also Your Biggest Flight Risk", "https://wellhub.com/en-us/blog/press-releases/ai-talent-burnout-retention-wellhub-study/", "research", "2026-11-07"],
   ["gartner-ai-capacity-2026", "Gartner", "Three Steps for CFOs to Turn AI Time Savings into Business Value", "https://www.gartner.com/en/newsroom/press-releases/2026-11-04-gartner-idnetifies-three-steps-for-cfos-to-turn-ai-time-saavings-into-business-value", "research", "2026-11-07"],
   ["activtrak-ai-workdays-2026", "ActivTrak Productivity Lab", "AI users have workdays up to 90 minutes longer than non-users", "https://www.activtrak.com/news/productivity-lab-ai-users-longer-workdays/", "research"],
