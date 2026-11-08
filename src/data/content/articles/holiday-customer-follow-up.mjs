@@ -25,7 +25,7 @@ export const holidayFollowUpOpportunity = {
   venmailFit: "Venmail offers business email and booking tools that can support individual customer follow-up.",
   nonFit: "Venmail cannot guarantee repeat sales or replace a retailer's consent and marketing compliance process.",
   originalValue: ["A florist follow-up example", "A before-and-after checklist"],
-  outline: ["The follow-up gap", "A florist's example", "A simple plan", "Permission matters"],
+  outline: ["The follow-up gap", "A florist's example", "A simple plan", "Permission matters", "The human touch"],
   questions: ["How do small businesses follow up after a holiday sale?", "When should a business ask permission to email?", "How can follow-up stay personal?"],
   researchTasks: ["Verify survey population and findings", "Check official UK guidance on marketing email", "Verify Venmail email and booking capabilities"],
   internalLinks: ["/product/booking", "/product/email-to-action"],
