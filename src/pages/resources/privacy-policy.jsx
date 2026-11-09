@@ -83,6 +83,7 @@ const data = {
           type: "list",
           items: [
             "Service providers for hosting, delivery, analytics, and AI processing. Email analysis can send message content and extracted attachment text to Groq, a third-party AI provider.",
+            <>Cloudflare Turnstile helps protect signup from abuse. See the <a href="https://www.cloudflare.com/turnstile-privacy-policy/">Cloudflare Turnstile Privacy Addendum</a>.</>,
             "Legal authorities if required by law",
             "Third-party integrations you enable (e.g., Google Calendar, Zoom)",
           ],
