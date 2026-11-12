@@ -8,8 +8,12 @@ test('homepage leads with practical mail outcomes and account conditions', async
   const homepage = await readSource('../../src/pages/index.jsx');
 
   assert.match(homepage, /Business email\./);
-  assert.match(homepage, /Built for the inbox\./);
-  assert.match(homepage, /Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one\./);
+  assert.match(homepage, /From first message to follow-up\./);
+  assert.match(homepage, /estimated opens/);
+  assert.match(homepage, /href="#shared-inbox"/);
+  assert.match(homepage, /href="#delivery"/);
+  assert.match(homepage, /href="\/product\/meeting"/);
+  assert.match(homepage, /Delivery checks, estimated opens, and follow-up suggestions/);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
   assert.match(homepage, /From \$0\.20 per inbox\/month\. Standard costs \$1\/month total for 5 inboxes\. Each additional inbox costs \$1\/month\./);
