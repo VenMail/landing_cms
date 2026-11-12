@@ -61,8 +61,9 @@ for (const text of [
   'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.',
   'From $0.20 per inbox/month. Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.',
   'No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.',
-  'Concept preview',
-  'Draft ready for review',
+  '/home/shared-inbox-desktop.png',
+  '/home/venia-signing-desktop.png',
+  'Sample data',
   '/professional-address-art.png',
   'Professional email for your business',
   '>yourname</span>',
@@ -105,6 +106,7 @@ for (const text of [
   '90-day reporting window',
   'Web availability for venmail.io, m.venmail.io, and venia.cloud',
 ]) assert.ok(homepage.includes(text), `homepage: ${text}`);
+assert.ok(!homepage.includes('Concept preview'), 'homepage: outdated preview labels absent');
 assert.ok(homepage.indexOf('Plans that fit your team') < homepage.indexOf('Filter unwanted incoming mail'), 'homepage: pricing follows primary use cases');
 for (const plan of ['standard', 'business']) assert.ok(homepage.includes(`type=business&amp;plan=${plan}`), `homepage: ${plan} signup intent rendered`);
 assert.ok(homepage.includes('/request-quote'), 'homepage: migration and enterprise quote linked');
