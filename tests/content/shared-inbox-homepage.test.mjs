@@ -21,5 +21,9 @@ test('homepage makes team inboxes discoverable and offers an access inquiry', as
   assert.match(story, /getContactMailtoHref/);
   assert.match(story, /Ask about shared inbox access/);
   assert.doesNotMatch(story, /automatically assign|never miss|sentiment|reads? emotions|reply from a shared address/i);
-  assert.doesNotMatch(story, /<img|<Image|Concept preview/i);
+  assert.match(story, /<span>Example<\/span>/);
+  assert.match(story, /Delivery question/);
+  assert.match(story, /Assigned to/);
+  assert.match(story, /Team discussion/);
+  assert.doesNotMatch(story, /<img|<Image|screenshot/i);
 });
