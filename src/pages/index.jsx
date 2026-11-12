@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
-import InboxPreviewLightbox from '@/components/home/InboxPreviewLightbox';
+import PrimaryInboxPreview from '@/components/home/PrimaryInboxPreview';
 import SharedInboxStory from '@/components/home/SharedInboxStory';
 import AgentApiSection from '@/components/PageSections/AgentApiSection';
 import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
@@ -100,7 +100,7 @@ export default function Home() {
             <p className="mx-auto max-w-2xl text-sm leading-6 text-[#5f6368]">No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.</p>
           </div>
 
-          <InboxPreviewLightbox />
+          <PrimaryInboxPreview />
 
           <nav aria-label="Products" className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
             <a href="#delivery" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Delivery and follow-up <ArrowIcon /></span></a>
