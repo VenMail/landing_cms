@@ -1,6 +1,6 @@
 # Shared inbox homepage preview provenance
 
-The desktop preview captures the shipped `SharedInboxConversationList` React component from mailer_web commit `1340c3bad35ecfda885eb41b1604475ba27af35a`, rendered with the Venmail theme and synthetic fixture data. The mobile preview is a crop of the same component's conversation rows at a 350 px viewport. Names, addresses, subjects and messages are invented; no customer account or production data was used. The screenshots represent a component, not the full application. Shared inbox access may be limited.
+The desktop preview composes the shipped `InboxSelector`, `SharedInboxConversationList`, `ConversationActionBar`, and `SharedInboxThreadView` components with the Venmail theme and synthetic fixture data. The components match deployed mailer_web commit `bacc3c0e7fc3197281460ed65c65eb8f0f3fbc2a`. The mobile preview renders the conversation list at a 350 px viewport. Names, addresses, subjects and messages are invented; no customer account or production data was used. These are component fixtures without the authenticated application shell, not captures of a live account. The homepage crops empty space below the workspace. Shared inbox access may be limited.
 
 Recapture after material changes to the application component. Verify all visible data, responsive readability and the access condition before publishing a replacement.
 
