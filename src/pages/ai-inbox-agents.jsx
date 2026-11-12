@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import TelegramSimulation from '@/components/agents/TelegramSimulation';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
 import { trackCTAClick } from '@/utils/trackConversion';
@@ -47,17 +47,7 @@ export default function AiInboxAgents() {
               <p className="mt-4 text-sm leading-6 text-[#5f6368]">Administrator access is required to manage agents.</p>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-[#dadce0] bg-[#f8f9fa]">
-              <Image
-                src="/images/ai-inbox-agents-teaser.webp"
-                width={1586}
-                height={992}
-                priority
-                sizes="(max-width: 1023px) calc(100vw - 32px), 650px"
-                alt=""
-                className="block h-auto w-full"
-              />
-            </div>
+            <TelegramSimulation />
           </div>
         </section>
 

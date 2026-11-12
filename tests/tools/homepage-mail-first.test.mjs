@@ -132,10 +132,7 @@ test('AI inbox agents follow the API section with authentic destinations and cha
     /<p className="mt-5 text-lg leading-\[1\.65\] text-\[#5f6368\]">\s*Connect a dedicated Venmail inbox to an AI agent\. Talk to your AI mail agent over Telegram or WhatsApp\.\s*<\/p>/,
   );
   assert.doesNotMatch(agents, /Telegram is active; WhatsApp support is coming soon\./);
-  assert.match(agents, /src="\/images\/ai-inbox-agents-teaser\.webp"/);
-  assert.match(agents, /width=\{1586\}/);
-  assert.match(agents, /height=\{992\}/);
-  assert.match(agents, /alt="AI assistant managing email and Telegram conversations"/);
+  assert.match(agents, /<TelegramSimulation\s*\/>/);
   assert.match(agents, /href="\/ai-inbox-agents"/);
   assert.match(agents, /Explore AI Agents/);
   assert.doesNotMatch(agents, /Explore AI inbox agents/);
