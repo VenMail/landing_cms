@@ -16,5 +16,5 @@ test('homepage distinguishes personal mail from the team shared inbox', async ()
   assert.match(shared, /<InboxPreviewLightbox\s*\/>/);
   assert.match(shared, /Shared inbox access may be limited/);
   assert.match(primary, /Primary inbox/);
-  assert.match(primary, /Sample data/);
+  assert.match(primary, /Sample demonstration/);
 });

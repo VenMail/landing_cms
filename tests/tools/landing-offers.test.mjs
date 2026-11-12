@@ -81,7 +81,7 @@ test('the home page labels primary inbox sample data', async () => {
   ]);
 
   assert.match(homepage, /PrimaryInboxPreview/);
-  assert.match(inboxPreview, /Sample data/);
+  assert.match(inboxPreview, /Sample demonstration/);
   assert.doesNotMatch(homepage, /MailExample|WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
 });
 
