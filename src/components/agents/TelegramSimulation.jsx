@@ -32,10 +32,10 @@ export default function TelegramSimulation() {
         </div>
         <div className={styles.chat} key={run} data-animate={motion && inView ? 'true' : 'false'}>
           <span className={styles.day}>Today</span>
-          <div className={`${styles.bubble} ${styles.outgoing} ${styles.first}`}>Search my emails for Project<span className={styles.time}>9:41 ✓✓</span></div>
-          <div className={`${styles.bubble} ${styles.incoming} ${styles.second}`}><strong>Matching emails:</strong><br/>• Project update — maya@example.test<span className={styles.time}>9:41</span></div>
-          <div className={`${styles.bubble} ${styles.outgoing} ${styles.third}`}>Read my email about Project<span className={styles.time}>9:42 ✓✓</span></div>
-          <div className={`${styles.bubble} ${styles.incoming} ${styles.fourth}`}>From: maya@example.test<br/>Subject: Project update<br/><br/>The project update is ready for review.<span className={styles.time}>9:42</span></div>
+          <div className={`${styles.bubble} ${styles.outgoing} ${styles.first}`}>How many unread emails do I have?<span className={styles.time}>9:41 ✓✓</span></div>
+          <div className={`${styles.bubble} ${styles.incoming} ${styles.second}`}>You have 2 unread messages, including mail from maya@example.test.<span className={styles.time}>9:41</span></div>
+          <div className={`${styles.bubble} ${styles.outgoing} ${styles.third}`}>Reply to my latest email saying Thanks for the update.<span className={styles.time}>9:42 ✓✓</span></div>
+          <div className={`${styles.bubble} ${styles.incoming} ${styles.fourth}`}><span>To: maya@example.test<br/>Subject: Re: Project update<br/><br/>Thanks for the update.<br/><br/>Reply send draft to send, or cancel draft.</span><span className={styles.time}>9:42</span></div>
         </div>
         <div className={styles.composer} aria-hidden="true"><Paperclip size={21}/><span>Message</span><Smile size={21}/><span className={styles.send}><Send size={17}/></span></div>
       </div>
