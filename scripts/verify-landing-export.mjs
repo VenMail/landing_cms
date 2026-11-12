@@ -59,7 +59,7 @@ for (const text of [
   'Business email.',
   'Built for the inbox.',
   'Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.',
-  'From $0.20 per inbox/month. Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.',
+  'Standard: $1/month total for 5 inboxes, then $1/month per additional inbox.',
   'No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.',
   '/home/shared-inbox-motion-desktop-poster.png',
   '/home/venia-signing-desktop.png',

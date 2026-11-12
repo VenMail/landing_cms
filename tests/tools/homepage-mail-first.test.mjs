@@ -9,14 +9,13 @@ test('homepage leads with practical mail outcomes and account conditions', async
 
   assert.match(homepage, /Business email\./);
   assert.match(homepage, /From first message to follow-up\./);
-  assert.match(homepage, /estimated opens/);
   assert.match(homepage, /href="#shared-inbox"/);
   assert.match(homepage, /href="#delivery"/);
   assert.match(homepage, /href="\/product\/meeting"/);
-  assert.match(homepage, /Delivery checks, estimated opens, and follow-up suggestions/);
+  assert.match(homepage, /AI assistance and meetings/);
   assert.match(homepage, /Create your account/);
   assert.match(homepage, /Compare plans/);
-  assert.match(homepage, /From \$0\.20 per inbox\/month\. Standard costs \$1\/month total for 5 inboxes\. Each additional inbox costs \$1\/month\./);
+  assert.match(homepage, /Standard: \$1\/month total for 5 inboxes, then \$1\/month per additional inbox\./);
   assert.match(homepage, /No payment required to create an account\. Mailbox activation requires a verified domain and a paid plan\./);
 });
 

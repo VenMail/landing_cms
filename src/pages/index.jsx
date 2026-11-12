@@ -91,12 +91,12 @@ export default function Home() {
               <span className="block">Business email.</span>
               <span className="block text-orange-700">From first message to follow-up.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Professional email at yourname@<wbr />yourbusinessdomain.com. Delivery checks, estimated opens, and follow-up suggestions.</p>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Professional email at yourname@<wbr />yourbusinessdomain.com. AI assistance and meetings.</p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
             </div>
-            <p className="mt-6 text-sm leading-6 text-[#5f6368]">From $0.20 per inbox/month. Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.</p>
+            <p className="mt-6 text-sm leading-6 text-[#5f6368]">Standard: $1/month total for 5 inboxes, then $1/month per additional inbox.</p>
             <p className="mx-auto max-w-2xl text-sm leading-6 text-[#5f6368]">No payment required to create an account. Mailbox activation requires a verified domain and a paid plan.</p>
           </div>
 

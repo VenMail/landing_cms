@@ -40,6 +40,6 @@ export default function TelegramSimulation() {
         <div className={styles.composer} aria-hidden="true"><Paperclip size={21}/><span>Message</span><Smile size={21}/><span className={styles.send}><Send size={17}/></span></div>
       </div>
     </div>
-    <figcaption className={styles.caption}><span>Sample conversation · Simulation</span>{motion && <button type="button" onClick={() => setRun(value => value + 1)}>Replay</button>}</figcaption>
+    {motion && <figcaption className={styles.caption}><button type="button" onClick={() => setRun(value => value + 1)}>Replay</button></figcaption>}
   </figure>;
 }
