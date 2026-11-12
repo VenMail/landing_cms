@@ -4,6 +4,7 @@ import { trackCTAClick } from '@/utils/trackConversion';
 import { closeDetailsMenu } from './mobileMenuState.mjs';
 
 const links = [
+  { label: 'Shared inbox', href: '/#shared-inbox' },
   { label: 'Delivery', href: '/#delivery' },
   { label: 'Spam control', href: '/#spam-control' },
   { label: 'Developers', href: '/#developers' },
@@ -24,7 +25,7 @@ export default function MailFirstHeader() {
           <img src="/logo-text.png" alt="" className="w-24 sm:w-36" />
         </a>
 
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex xl:gap-8">
           {links.map(({ label, href, external }) => <a key={href} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} className="flex h-11 items-center text-sm font-medium text-[#5f6368] transition-colors hover:text-[#202124] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">{label}</a>)}
         </div>
 

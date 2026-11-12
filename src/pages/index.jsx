@@ -2,6 +2,7 @@ import Image from 'next/image';
 import MailFirstFooter from '@/components/home/MailFirstFooter';
 import MailFirstHeader from '@/components/home/MailFirstHeader';
 import InboxPreviewLightbox from '@/components/home/InboxPreviewLightbox';
+import SharedInboxStory from '@/components/home/SharedInboxStory';
 import AgentApiSection from '@/components/PageSections/AgentApiSection';
 import AiInboxAgentsSection from '@/components/PageSections/AiInboxAgentsSection';
 import MobileAppsSection from '@/components/PageSections/MobileAppsSection';
@@ -101,6 +102,8 @@ export default function Home() {
 
           <InboxPreviewLightbox />
         </section>
+
+        <SharedInboxStory />
 
         <section aria-labelledby="professional-email-title" className="border-t border-[#eadfd7] bg-[#fff8f2] px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
