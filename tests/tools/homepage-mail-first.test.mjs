@@ -21,11 +21,13 @@ test('homepage leads with practical mail outcomes and account conditions', async
 });
 
 test('homepage presents the shipped shared inbox with sample data', async () => {
-  const [homepage, preview] = await Promise.all([
+  const [homepage, story, preview] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
+    readSource('../../src/components/home/SharedInboxStory.jsx'),
     readSource('../../src/components/home/InboxPreviewLightbox.jsx'),
   ]);
-  assert.match(homepage, /<InboxPreviewLightbox \/>/);
+  assert.match(homepage, /<SharedInboxStory \/>/);
+  assert.match(story, /<InboxPreviewLightbox \/>/);
   assert.match(preview, /Sample data/);
   assert.match(preview, /shared-inbox-desktop\.png/);
   assert.match(preview, /shared-inbox-mobile\.png/);

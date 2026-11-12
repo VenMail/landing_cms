@@ -74,13 +74,13 @@ test('localized Naira prices use the approved fixed exchange rate', async () => 
   assert.doesNotMatch(currencyContext, /NGN:\s*1400/);
 });
 
-test('the home page labels the follow-up concept', async () => {
+test('the home page labels primary inbox sample data', async () => {
   const [homepage, inboxPreview] = await Promise.all([
     readFile(new URL('../../src/pages/index.jsx', import.meta.url), 'utf8'),
-    readFile(new URL('../../src/components/home/InboxPreviewLightbox.jsx', import.meta.url), 'utf8'),
+    readFile(new URL('../../src/components/home/PrimaryInboxPreview.jsx', import.meta.url), 'utf8'),
   ]);
 
-  assert.match(homepage, /InboxPreviewLightbox/);
+  assert.match(homepage, /PrimaryInboxPreview/);
   assert.match(inboxPreview, /Sample data/);
   assert.doesNotMatch(homepage, /MailExample|WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
 });
