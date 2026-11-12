@@ -20,15 +20,16 @@ test('homepage leads with practical mail outcomes and account conditions', async
   assert.match(homepage, /No payment required to create an account\. Mailbox activation requires a verified domain and a paid plan\./);
 });
 
-test('homepage presents a labeled follow-up concept', async () => {
+test('homepage presents the shipped shared inbox with sample data', async () => {
   const [homepage, preview] = await Promise.all([
     readSource('../../src/pages/index.jsx'),
     readSource('../../src/components/home/InboxPreviewLightbox.jsx'),
   ]);
   assert.match(homepage, /<InboxPreviewLightbox \/>/);
-  assert.match(preview, /Concept preview/);
-  assert.match(preview, /maya@example\.com/);
-  assert.match(preview, /Draft ready for review/);
+  assert.match(preview, /Sample data/);
+  assert.match(preview, /shared-inbox-desktop\.png/);
+  assert.match(preview, /shared-inbox-mobile\.png/);
+  assert.doesNotMatch(preview, /Concept preview|Inbox briefing/);
 });
 
 test('homepage presents professional custom-domain email before delivery details', async () => {
@@ -160,12 +161,12 @@ test('homepage presents Office collaboration and Gmail IMAP access details', asy
   assert.match(homepage, /Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail\./);
   assert.match(collaboration, /Work together with your team/);
   assert.match(collaboration, /Share or sign files, documents, spreadsheets, forms, and slides with your team and clients\./);
-  assert.match(collaboration, /Concept preview/);
+  assert.doesNotMatch(collaboration, /Concept preview/);
   assert.match(collaboration, /href="https:\/\/venia\.cloud"/);
   assert.match(collaboration, /target="_blank"/);
   assert.match(collaboration, /rel="noopener noreferrer"/);
   assert.match(collaboration, /min-w-0/);
-  assert.match(collaboration, /overflow-hidden/);
+  assert.match(collaboration, /<picture>/);
   assert.match(agents, />AI Agents<\/p>/);
   assert.match(mailFirstHeader, /\{ label: 'Office', href: 'https:\/\/venia\.cloud', external: true \}/);
   assert.match(mailFirstHeader, /target=\{external \? '_blank' : undefined\}/);
