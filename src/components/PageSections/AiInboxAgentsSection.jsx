@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import TelegramSimulation from '@/components/agents/TelegramSimulation';
 import { trackCTAClick } from '@/utils/trackConversion';
 
 const AiInboxAgentsSection = () => (
@@ -52,17 +52,7 @@ const AiInboxAgentsSection = () => (
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-[#dadce0] bg-white">
-        <Image
-          src="/images/ai-inbox-agents-teaser.webp"
-          width={1586}
-          height={992}
-          loading="lazy"
-          sizes="(max-width: 1023px) calc(100vw - 32px), 650px"
-          alt="AI assistant managing email and Telegram conversations"
-          className="block h-auto w-full"
-        />
-      </div>
+      <TelegramSimulation />
     </div>
   </section>
 );
