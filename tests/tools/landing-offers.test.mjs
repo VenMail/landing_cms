@@ -81,7 +81,7 @@ test('the home page labels the follow-up concept', async () => {
   ]);
 
   assert.match(homepage, /InboxPreviewLightbox/);
-  assert.match(inboxPreview, /Concept preview/);
+  assert.match(inboxPreview, /Sample data/);
   assert.doesNotMatch(homepage, /MailExample|WorkspaceHero|HeroFlythrough|<Pricing\s*\/>/);
 });
 
