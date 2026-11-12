@@ -44,7 +44,7 @@ export default function MotionPreview({ name, caption, note, alt, desktop, mobil
         <span>{caption}</span>
         <div className="flex flex-wrap items-center gap-3">
           {note && <span>{note}</span>}
-          {ready && !failed && <button type="button" aria-label={`${wantsMotion ? 'Pause' : 'Play'} ${name.toLowerCase()} demonstration`} className="min-h-11 rounded px-2 font-semibold text-[#8a3515] underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-orange-700" onClick={() => setChoice(!wantsMotion)}>{wantsMotion ? 'Pause demonstration' : 'Play demonstration'}</button>}
+          {ready && !failed && <button type="button" aria-label={`${wantsMotion ? 'Stop' : 'Play'} ${name.toLowerCase()} demonstration`} className="min-h-11 rounded px-2 font-semibold text-[#8a3515] underline underline-offset-4 focus:outline-none focus:ring-2 focus:ring-orange-700" onClick={() => setChoice(!wantsMotion)}>{wantsMotion ? 'Stop demonstration' : 'Play demonstration'}</button>}
         </div>
       </figcaption>
     </figure>
