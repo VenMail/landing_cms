@@ -89,9 +89,9 @@ export default function Home() {
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="text-[40px] font-semibold leading-[1.08] tracking-[-0.025em] sm:text-[50px] md:text-[60px]">
               <span className="block">Business email.</span>
-              <span className="block text-orange-700">Built for the inbox.</span>
+              <span className="block text-orange-700">From first message to follow-up.</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Professional email at yourname@<wbr />yourbusinessdomain.com. Reach customer inboxes, see how many times an email was opened, and get a practical follow-up suggestion when the conversation needs one.</p>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.65] text-[#5f6368]">Professional email at yourname@<wbr />yourbusinessdomain.com. Delivery checks, estimated opens, and follow-up suggestions.</p>
             <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
               <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_hero', 'mail_first', 'homepage_mail_first')} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Create your account <ArrowIcon /></a>
               <a href="#pricing" className="inline-flex h-12 items-center justify-center rounded-lg border border-[#dadce0] bg-white px-6 text-base font-medium text-[#202124] transition-colors hover:bg-[#f8f9fa] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Compare plans</a>
@@ -101,6 +101,13 @@ export default function Home() {
           </div>
 
           <InboxPreviewLightbox />
+
+          <nav aria-label="Products" className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
+            <a href="#delivery" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Delivery and follow-up <ArrowIcon /></span></a>
+            <a href="#shared-inbox" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Shared inbox <ArrowIcon /></span><span className="mt-1 block text-xs leading-5 text-[#5f6368]">Access may be limited.</span></a>
+            <a href="/product/meeting" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Meetings <ArrowIcon /></span></a>
+          </nav>
+
         </section>
 
         <SharedInboxStory />
