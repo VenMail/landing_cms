@@ -4,5 +4,7 @@
 - Public signup MCP: `https://m.venmail.io/api/mcp/assistant-mail`. Call `assistant_mail_signup` followed by `assistant_mail_verify_otp`.
 - ChatGPT custom GPT signup schema: `https://m.venmail.io/agent-signup-actions.json` (no authentication).
 - Existing workspace agent MCP: `https://m.venmail.io/api/mcp/mailbox` with a scoped agent credential. Mail, contacts, prospects, campaign drafts, and owner-granted domain DNS and user creation depend on permissions.
+- Business email: start a 14-day trial or choose paid checkout at https://m.venmail.io/get-started. The owner provides account details and accepts the terms. A domain purchase requires payment; the trial uses an existing domain.
+- With owner-granted DNS permission, call `schedule_domain_dns_followup` to check DNS every 15 minutes for up to 24 hours, then `get_domain_dns_followup` for the latest status. Venmail creates a workspace notification when DNS is ready or the checking period ends. Ask which DNS provider hosts the records; it may differ from the registrar.
 - Existing workspace ChatGPT custom GPT schema: `https://m.venmail.io/agent-actions.json` (Bearer authentication). Keep credentialed GPTs private.
 - Domain DNS changes require the DNS provider. Check verification status; do not claim records were applied without confirmation.
