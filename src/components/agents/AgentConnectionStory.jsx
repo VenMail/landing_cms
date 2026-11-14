@@ -20,11 +20,36 @@ const stories = [
   },
   {
     tab: 'Campaign draft',
+    claudeOnly: true,
     prompt: 'Draft an introduction campaign for independent retailers.',
     intro: 'Your campaign draft is ready for review.',
     rows: [['A thoughtful introduction', 'Subject: A new partnership for your shop'], ['Campaign', 'Draft · Recipients not set']],
     outcome: 'Campaign draft in Venmail',
     icon: Sparkles,
+  },
+  {
+    tab: 'Sign up',
+    prompt: 'Start Assistant Mail for maya@example.test.',
+    intro: 'I sent a six-digit code. What is it?',
+    rows: [['maya@example.test', 'Email code · expires in 10 minutes'], ['Assistant Mail', 'Mailbox name chosen after verification']],
+    outcome: 'Verification pending',
+    icon: Mail,
+  },
+  {
+    tab: 'Domain DNS',
+    prompt: 'What DNS records does my business domain need?',
+    intro: 'Your domain DNS records:',
+    rows: [['MX', 'For receiving mail'], ['SPF and DKIM', 'Sending authentication']],
+    outcome: 'DNS changes require your provider',
+    icon: Sparkles,
+  },
+  {
+    tab: 'Add a user',
+    prompt: 'Add Ada to our business email workspace.',
+    intro: 'Ada’s workspace mailbox has been created.',
+    rows: [['ada@northline.example', 'Workspace mailbox'], ['Invitation', 'Existing email address']],
+    outcome: 'Invitation queued',
+    icon: Users,
   },
 ];
 
@@ -43,7 +68,7 @@ export default function AgentConnectionStory() {
         {['Claude', 'ChatGPT'].map(name => <button key={name} type="button" onClick={() => { setProvider(name); setSelected(0); }} aria-pressed={provider === name} className={`rounded-md px-3 py-1.5 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${provider === name ? 'bg-orange-50 text-orange-800' : 'text-[#687181] hover:bg-[#f2f3f5]'}`}>{name}</button>)}
       </div>
       <div className="flex flex-wrap gap-2 border-b border-[#eceef1] px-4 py-3" aria-label="Agent workflows">
-        {stories.filter((_, index) => provider === 'Claude' || index < 2).map((item, index) => <button key={item.tab} type="button" onClick={() => setSelected(index)} aria-pressed={selected === index} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${selected === index ? 'bg-[#252733] text-white' : 'bg-[#f2f3f5] text-[#4b5563] hover:bg-[#e8e9ec]'}`}>{item.tab}</button>)}
+        {stories.map((item, index) => provider === 'ChatGPT' && item.claudeOnly ? null : <button key={item.tab} type="button" onClick={() => setSelected(index)} aria-pressed={selected === index} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${selected === index ? 'bg-[#252733] text-white' : 'bg-[#f2f3f5] text-[#4b5563] hover:bg-[#e8e9ec]'}`}>{item.tab}</button>)}
       </div>
       <div className="space-y-5 bg-[#fbfbfc] p-5 sm:p-6">
         <div className="ml-auto max-w-[90%] rounded-2xl rounded-br-sm bg-[#eeeef0] px-4 py-3 text-sm leading-6 text-[#272a32]">{provider === 'ChatGPT' && selected === 1 ? 'Find independent retailers in Toronto.' : story.prompt}</div>

@@ -1,5 +1,6 @@
 import TelegramSimulation from '@/components/agents/TelegramSimulation';
 import AgentConnectionStory from '@/components/agents/AgentConnectionStory';
+import AgentSignupLinks from '@/components/agents/AgentSignupLinks';
 import { trackCTAClick } from '@/utils/trackConversion';
 
 const AiInboxAgentsSection = () => (
@@ -59,8 +60,9 @@ const AiInboxAgentsSection = () => (
       <div>
         <p className="text-sm font-semibold text-orange-800">Connected AI</p>
         <h2 className="mt-3 text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Your business context, ready for AI.</h2>
-        <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Claude: mail, contacts, prospects and campaign drafts. ChatGPT custom GPTs: mail and prospect searches.</p>
+        <p className="mt-5 text-lg leading-[1.65] text-[#5f6368]">Assistant Mail sign-up by email. Domain setup and user invitations require a business workspace and owner permission.</p>
         <a href="https://m.venmail.io/register" className="mt-7 inline-flex min-h-12 items-center justify-center rounded-lg bg-orange-700 px-6 text-base font-semibold text-white hover:bg-orange-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">Create your account</a>
+        <AgentSignupLinks />
       </div>
       <AgentConnectionStory />
     </div>

@@ -1,0 +1,8 @@
+# Venmail agent access
+
+- Assistant Mail signup: POST `https://m.venmail.io/api/v1/assistant-mail/signup-by-email` with JSON containing `email`. Ask the owner for the six-digit email code, then call `/api/v1/assistant-mail/verify-otp` with `challenge_id` and `code`. The owner follows the emailed link to select a mailbox name and password and accept the terms. Business workspace signup is separate at https://m.venmail.io/register.
+- Public signup MCP: `https://m.venmail.io/api/mcp/assistant-mail`. Call `assistant_mail_signup` followed by `assistant_mail_verify_otp`.
+- ChatGPT custom GPT signup schema: `https://m.venmail.io/agent-signup-actions.json` (no authentication).
+- Existing workspace agent MCP: `https://m.venmail.io/api/mcp/mailbox` with a scoped agent credential. Mail, contacts, prospects, campaign drafts, and owner-granted domain DNS and user creation depend on permissions.
+- Existing workspace ChatGPT custom GPT schema: `https://m.venmail.io/agent-actions.json` (Bearer authentication). Keep credentialed GPTs private.
+- Domain DNS changes require the DNS provider. Check verification status; do not claim records were applied without confirmation.
