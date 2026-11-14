@@ -28,6 +28,14 @@ const stories = [
     icon: Sparkles,
   },
   {
+    tab: 'Business trial',
+    prompt: 'Start a business email trial for Northline Market.',
+    intro: 'Your 14-day trial is active.',
+    rows: [['northline.example', 'Business domain'], ['Password setup', 'Email sent to the owner']],
+    outcome: 'Trial started',
+    icon: Sparkles,
+  },
+  {
     tab: 'Sign up',
     prompt: 'Start Assistant Mail for maya@example.test.',
     intro: 'I sent a six-digit code. What is it?',
