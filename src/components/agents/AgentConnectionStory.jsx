@@ -31,41 +31,42 @@ const stories = [
   },
   {
     tab: 'Business trial',
-    prompt: 'Start a business email trial for Northline Market.',
-    intro: 'Your 14-day trial is active.',
-    rows: [['northline.example', 'Business domain'], ['Password setup', 'Email sent to the owner']],
-    outcome: 'Trial started',
+    prompt: 'Can you help me set up email for my business?',
+    intro: 'Of course. What email and business domain should we use?',
+    rows: [['Business email', '14-day trial'], ['Your domain', 'For your business address']],
+    outcome: 'Details needed',
     icon: Sparkles,
   },
   {
     tab: 'Sign up',
-    prompt: 'Start Assistant Mail for maya@example.test.',
-    intro: 'I sent a six-digit code. What is it?',
-    rows: [['maya@example.test', 'Email code · expires in 10 minutes'], ['Assistant Mail', 'Mailbox name chosen after verification']],
-    outcome: 'Verification pending',
+    prompt: 'I’d like a free email address. My email is maya@example.test.',
+    intro: 'I sent you a code. What is it?',
+    rows: [['maya@example.test', 'Check your email for the code'], ['Your new address', 'Choose it after verification']],
+    outcome: 'Waiting for your code',
     icon: Mail,
   },
   {
-    tab: 'Domain DNS',
-    prompt: 'What DNS records does my business domain need?',
-    intro: 'Your domain DNS records:',
-    rows: [['MX', 'For receiving mail'], ['SPF and DKIM', 'Sending authentication']],
-    outcome: 'DNS changes require your provider',
+    tab: 'Set up email',
+    prompt: 'Help me get email working for my business.',
+    intro: 'Your email is almost ready. Your domain needs a few updates.',
+    rows: [['Receive email', 'Add your mail records'], ['Send email', 'Verify your domain']],
+    outcome: 'Domain updates required',
     icon: Sparkles,
   },
   {
-    tab: 'Add a user',
-    prompt: 'Add Ada to our business email workspace.',
-    intro: 'Ada’s workspace mailbox has been created.',
-    rows: [['ada@northline.example', 'Workspace mailbox'], ['Invitation', 'Existing email address']],
+    tab: 'Add a teammate',
+    prompt: 'Give Ada an email address for our business.',
+    intro: 'Ada’s email address has been created.',
+    rows: [['ada@northline.example', 'Business email'], ['Invitation', 'Queued for Ada’s existing email']],
     outcome: 'Invitation queued',
     icon: Users,
   },
 ];
 
 export default function AgentConnectionStory() {
-  const [selected, setSelected] = useState(2);
+  const [selected, setSelected] = useState(0);
   const [provider, setProvider] = useState('Claude');
+  const [showMore, setShowMore] = useState(false);
   const story = stories[selected];
   const Icon = story.icon;
   return (
@@ -78,7 +79,8 @@ export default function AgentConnectionStory() {
         {['Claude', 'ChatGPT'].map(name => <button key={name} type="button" onClick={() => { setProvider(name); setSelected(0); }} aria-pressed={provider === name} className={`rounded-md px-3 py-1.5 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${provider === name ? 'bg-orange-50 text-orange-800' : 'text-[#687181] hover:bg-[#f2f3f5]'}`}>{name}</button>)}
       </div>
       <div className="flex flex-wrap gap-2 border-b border-[#eceef1] px-4 py-3" aria-label="Agent workflows">
-        {stories.map((item, index) => provider === 'ChatGPT' && item.claudeOnly ? null : <button key={item.tab} type="button" onClick={() => setSelected(index)} aria-pressed={selected === index} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${selected === index ? 'bg-[#252733] text-white' : 'bg-[#f2f3f5] text-[#4b5563] hover:bg-[#e8e9ec]'}`}>{item.tab}</button>)}
+        {stories.map((item, index) => (provider === 'ChatGPT' && item.claudeOnly) || (!showMore && ![0, 2, 4].includes(index)) ? null : <button key={item.tab} type="button" onClick={() => setSelected(index)} aria-pressed={selected === index} className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${selected === index ? 'bg-[#252733] text-white' : 'bg-[#f2f3f5] text-[#4b5563] hover:bg-[#e8e9ec]'}`}>{item.tab}</button>)}
+        <button type="button" aria-expanded={showMore} onClick={() => { if (showMore && ![0, 2, 4].includes(selected)) setSelected(0); setShowMore(!showMore); }} className="rounded-full px-3 py-1.5 text-xs font-semibold text-[#4b5563] hover:bg-[#e8e9ec] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">{showMore ? 'Fewer examples' : 'More examples'}</button>
       </div>
       {(story.campaign || selected === 0) ? <CampaignAgentStory key={`${provider}-${selected}`} scenario={story.campaign ? 'campaign' : 'mail'} provider={provider} /> : <div className="space-y-5 bg-[#fbfbfc] p-5 sm:p-6">
         <div className="ml-auto max-w-[90%] rounded-2xl rounded-br-sm bg-[#eeeef0] px-4 py-3 text-sm leading-6 text-[#272a32]">{provider === 'ChatGPT' && selected === 1 ? 'Find independent retailers in Toronto.' : story.prompt}</div>

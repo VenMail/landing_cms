@@ -27,12 +27,11 @@ export default function AgentSignupLinks() {
         {Object.entries(SIGNUP_PROMPTS).map(([id, prompt]) => <button key={id} type="button" aria-pressed={kind === id} onClick={() => { setKind(id); setStatus(''); }} className={`min-h-9 rounded-full border px-3.5 text-xs font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${kind === id ? 'border-orange-700 bg-orange-700 text-white' : 'border-[#ded7d1] bg-white text-[#51453e] hover:bg-[#fff8f3]'}`}>{prompt.label}</button>)}
       </div>
       <label htmlFor={`signup-prompt-${kind}`} className="sr-only">{selection.label} signup prompt</label>
-      <textarea key={kind} ref={promptRef} id={`signup-prompt-${kind}`} readOnly value={selection.prompt} rows={6} className="mt-3 block w-full resize-y rounded-xl border border-[#e8e1dc] bg-[#faf9f8] p-3 text-sm leading-6 text-[#3c4043] focus:border-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-200" />
+      <textarea key={kind} ref={promptRef} id={`signup-prompt-${kind}`} readOnly value={selection.prompt} rows={4} className="mt-3 block w-full resize-y rounded-xl border border-[#e8e1dc] bg-[#faf9f8] p-3 text-sm leading-6 text-[#3c4043] focus:border-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-200" />
       <div className="mt-3 flex flex-wrap items-center gap-3">
         <button type="button" onClick={() => copy(selection.prompt, 'Prompt')} className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-[#a93416] px-4 text-sm font-semibold text-white hover:bg-[#86290f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700">{status === 'Prompt copied' ? <Check aria-hidden="true" className="h-4 w-4" /> : <Copy aria-hidden="true" className="h-4 w-4" />}{status === 'Prompt copied' ? 'Copied' : 'Copy prompt'}</button>
         <span role="status" className="text-xs text-[#5f6368]">{status}</span>
       </div>
-      <p className="mt-3 text-xs leading-5 text-[#5f6368]">In-chat signup requires Venmail Signup connected to a compatible assistant.</p>
       <details className="mt-3 text-xs text-[#5f6368]">
         <summary className="cursor-pointer font-semibold text-orange-800">Connector setup</summary>
         <p className="mt-2 leading-5">Claude: add the Venmail Signup URL as a custom connector. ChatGPT: add the URL as a custom app where supported, or import the actions schema into a custom GPT.</p>

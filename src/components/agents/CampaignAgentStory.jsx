@@ -58,6 +58,6 @@ export default function CampaignAgentStory({ scenario = 'campaign', provider = '
         <button type="button" onClick={() => { userPaused.current = playing; if (playing) player.current?.pause(); else { if (player.current?.getCurrentFrame() >= SCENE_FRAMES * scenes.length - 1) player.current.seekTo(0); player.current?.play(); } setPlaying(!playing); }} className="flex items-center gap-1 rounded-md px-2 py-2 text-xs font-semibold hover:bg-[#f3f1ee] focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange-700">{playing ? <Pause className="h-3.5 w-3.5" /> : <Play className="h-3.5 w-3.5" />}{playing ? 'Pause' : 'Play'}</button>
       </div>
     </div>
-    <p className="bg-white px-4 pb-3 text-xs text-[#68645f]">Demo{scenario === 'campaign' && ' · Recorded opens can include automated activity and do not prove a message was read.'}</p>
+    {scenario === 'campaign' && <p className="bg-white px-4 pb-3 text-xs text-[#68645f]">Recorded opens can include automated activity and do not prove a message was read.</p>}
   </div>;
 }

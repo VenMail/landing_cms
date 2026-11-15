@@ -13,7 +13,13 @@ test('agent story covers mailbox, prospects and campaign drafts without claiming
 test('agent story includes email-first signup and owner-authorized setup', async () => {
   const story = await readFile(new URL('../../src/components/agents/AgentConnectionStory.jsx', import.meta.url), 'utf8');
   assert.match(story, /Sign up/);
-  assert.match(story, /Domain DNS/);
-  assert.match(story, /Add a user/);
-  assert.match(story, /Verification pending/);
+  assert.match(story, /Set up email/);
+  assert.match(story, /Add a teammate/);
+  assert.match(story, /Waiting for your code/);
+});
+
+test('starts with a simple customer follow-up and keeps other examples available', async () => {
+  const story = await readFile(new URL('../../src/components/agents/AgentConnectionStory.jsx', import.meta.url), 'utf8');
+  assert.match(story, /useState\(0\)/);
+  assert.match(story, /More examples/);
 });

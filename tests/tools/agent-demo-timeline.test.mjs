@@ -17,8 +17,13 @@ test('campaign progresses from draft to confirmation and follow-up without claim
   assert.equal(DEMO_SCENES.campaign.length, 4);
 });
 
-test('mail scenario advances independently and clamps out-of-range frames', () => {
-  assert.match(getAgentDemoFrame('mail', 0).user, /six days/i);
+test('mail scenario follows a familiar customer conversation without sending implicitly', () => {
+  const scenes = DEMO_SCENES.mail;
+  assert.match(scenes[0].user, /Maya.*quote/i);
+  assert.match(scenes[1].user, /reply/i);
+  assert.match(scenes[2].user, /draft/i);
+  assert.match(scenes[3].user, /warmer/i);
+  assert.ok(scenes.every(scene => !/\bDNS\b|\bAPI\b|\bMCP\b/.test(`${scene.user} ${scene.result}`)));
   assert.equal(getAgentDemoFrame('mail', -1), DEMO_SCENES.mail[0]);
   assert.equal(getAgentDemoFrame('mail', 99999), DEMO_SCENES.mail.at(-1));
 });
