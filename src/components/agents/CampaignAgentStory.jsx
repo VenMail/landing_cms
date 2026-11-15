@@ -50,7 +50,7 @@ export default function CampaignAgentStory({ scenario = 'campaign', provider = '
     setPlaying(false);
   };
   return <div ref={root} className="bg-[#f6f5f2]">
-    <Player ref={player} component={AgentConversationFilm} inputProps={{ scenario, provider }} durationInFrames={SCENE_FRAMES * scenes.length} compositionWidth={680} compositionHeight={1000} fps={30} style={{ width: '100%', aspectRatio: '680 / 1000' }} controls={false} clickToPlay={false} showVolumeControls={false} />
+    <Player ref={player} component={AgentConversationFilm} inputProps={{ scenario, provider }} durationInFrames={SCENE_FRAMES * scenes.length} compositionWidth={680} compositionHeight={800} fps={30} style={{ width: '100%', aspectRatio: '680 / 800' }} controls={false} clickToPlay={false} showVolumeControls={false} />
     <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#e8e5df] bg-white px-3 py-3 sm:px-4">
       <div className="flex flex-wrap gap-1" aria-label="Conversation chapters">{scenes.map((scene, index) => <button type="button" key={scene.title} onClick={() => chooseStage(index)} aria-pressed={stage === index} className={`rounded-full px-2.5 py-1.5 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-700 ${stage === index ? 'bg-[#242424] text-white' : 'text-[#625e59] hover:bg-[#f3f1ee]'}`}>{scene.title}</button>)}</div>
       <div className="flex items-center gap-1 text-[#625e59]">

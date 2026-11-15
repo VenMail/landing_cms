@@ -1,4 +1,4 @@
-export const SCENE_FRAMES = 270;
+export const SCENE_FRAMES = 195;
 export const DEMO_SCENES = {
   campaign: [
     { title: 'Draft campaign', user: 'Draft an introduction for my Toronto retailers contact group. Invite them to a short call.', tool: 'Venmail · Search contact groups', detail: 'Toronto retailers · 100 contacts', result: 'I found 100 contacts. Here’s a draft for your review.', subject: 'A new partnership for your shop', body: 'Hi there, I’d love to learn more about your shop and explore how we could work together. Would you be open to a short call next week?', status: 'Ready for review · 100 contacts' },

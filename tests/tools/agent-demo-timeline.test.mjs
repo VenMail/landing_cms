@@ -2,6 +2,10 @@ import { strict as assert } from 'node:assert';
 import { test } from 'node:test';
 import { getAgentDemoFrame, DEMO_SCENES, SCENE_FRAMES } from '../../src/components/agents/agentDemoTimeline.mjs';
 
+test('each conversation chapter takes at most seven seconds at 30 fps', () => {
+  assert.ok(SCENE_FRAMES <= 210);
+});
+
 test('campaign progresses from draft to confirmation and follow-up without claiming delivery on queue', () => {
   const a = getAgentDemoFrame('campaign', 0);
   const b = getAgentDemoFrame('campaign', SCENE_FRAMES);

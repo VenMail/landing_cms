@@ -41,31 +41,37 @@ export default function AgentConversationFilm({ scenario = 'campaign', provider 
   if (provider === 'ChatGPT') return <ChatGPTFilm scene={scene} prior={prior} local={local} typed={typed} />;
   const assistant = provider === 'Claude' ? '#d27857' : '#202b27';
   return <AbsoluteFill style={{ background: '#f6f5f2', color: ink, fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontSize: 24 }}>
-    <div style={{ height: 64, padding: '0 27px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid #e8e5df', background: '#fff' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 13, fontWeight: 650 }}><span style={{ fontSize: 26, color: '#8a8681' }}>☰</span><span>{provider}</span><span style={{ fontWeight: 400, color: '#a5a19b' }}>⌄</span></div>
-      <span style={{ fontSize: 21, color: '#8f8b85' }}>↗ &nbsp; ···</span>
+    <div style={{ height: 56, background: '#f4f1ed', display: 'flex', alignItems: 'center', gap: 10, padding: '0 20px', borderBottom: '1px solid #e5e1db' }}><span style={{ color: '#d27a6f', fontSize: 19 }}>●</span><span style={{ color: '#d5ad68', fontSize: 19 }}>●</span><span style={{ color: '#87ad88', fontSize: 19 }}>●</span><div style={{ margin: '0 auto', width: 300, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, borderRadius: 9, background: '#fff', padding: '6px 12px', fontSize: 17, color: '#706c66' }}><LockKeyhole size={15}/>claude.ai</div></div>
+    <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
+      <div style={{ width: 65, background: '#f1efea', borderRight: '1px solid #e8e5df', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 30, paddingTop: 20, color: '#77736c' }}><span style={{ color: '#c86d4c', fontSize: 30, lineHeight: 1 }}>✳</span><SquarePen size={24}/><Search size={24}/></div>
+      <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+    <div style={{ height: 62, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#faf9f6' }}>
+      <div style={{ fontSize: 21, fontWeight: 600 }}>Chat <span style={{ fontSize: 15, color: '#aaa59e' }}>⌄</span></div>
+      <span style={{ display: 'flex', gap: 16, color: '#817d76' }}><Share2 size={21}/><MoreHorizontal size={23}/></span>
     </div>
     <div style={{ flex: 1, overflow: 'hidden', position: 'relative', background: '#fff' }}>
-      <div style={{ maxWidth: 660, margin: '0 auto', padding: '28px 27px 20px' }}>
-        {prior && <div style={{ color: '#9d9891', fontSize: 20, borderBottom: '1px solid #f0ede8', paddingBottom: 15, marginBottom: 22, lineHeight: 1.5 }}><span style={{ color: '#a49d96' }}>Earlier · </span>{prior.user}</div>}
-        <div style={{ display: 'flex', justifyContent: 'flex-end', minHeight: 108 }}>
-          <div style={{ opacity: fade(local, 52), maxWidth: '88%', background: '#f0eeeb', borderRadius: '24px 24px 5px 24px', padding: '17px 23px', fontSize: 26, lineHeight: 1.5, alignSelf: 'flex-start' }}>{scene.user}</div>
+      <div style={{ maxWidth: 660, margin: '0 auto', padding: '15px 25px 10px' }}>
+        {prior && <div style={{ color: '#9d9891', fontSize: 17, borderBottom: '1px solid #f0ede8', paddingBottom: 8, marginBottom: 12, lineHeight: 1.35 }}><span style={{ color: '#a49d96' }}>Earlier · </span>{prior.user}</div>}
+        <div style={{ display: 'flex', justifyContent: 'flex-end', minHeight: 88 }}>
+          <div style={{ opacity: fade(local, 52), maxWidth: '90%', background: '#f1efeb', borderRadius: 20, padding: '12px 18px', fontSize: 23, lineHeight: 1.4, alignSelf: 'flex-start' }}>{scene.user}</div>
         </div>
         <div style={{ opacity: fade(local, 61), margin: '15px 0 0 4px', display: 'flex', gap: 13 }}>
           <div style={{ width: 34, height: 34, borderRadius: 10, background: assistant, color: '#fff', display: 'grid', placeItems: 'center', fontSize: 24, flexShrink: 0 }}>{provider === 'Claude' ? '✳' : '✦'}</div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '11px 14px', borderRadius: 12, background: '#f7f6f3', border: '1px solid #eeebe6', fontSize: 21, color: '#6c6964' }}><span style={{ display: 'grid', placeItems: 'center', background: '#fc5d3f', color: 'white', borderRadius: 7, width: 28, height: 28, fontSize: 20 }}>V</span><span style={{ flex: 1 }}>{scene.tool}</span><span style={{ color: '#51936b' }}>{local < 105 ? '•••' : '✓'}</span></div>
-            <div style={{ opacity: fade(local, 105), paddingTop: 18, lineHeight: 1.55, fontSize: 26 }}>{scene.result}</div>
-            <div style={{ opacity: fade(local, 129), marginTop: 18, border: '1px solid #e8e5df', borderRadius: 15, padding: '18px 20px', background: '#fff', boxShadow: '0 4px 16px rgba(31, 26, 20, .04)' }}>
+            <div style={{ opacity: fade(local, 105), paddingTop: 12, lineHeight: 1.4, fontSize: 23 }}>{scene.result}</div>
+            <div style={{ opacity: fade(local, 129), marginTop: 12, border: '1px solid #e8e5df', borderRadius: 12, padding: '12px 16px', background: '#fff', boxShadow: '0 4px 16px rgba(31, 26, 20, .04)' }}>
               <div style={{ fontSize: 18, color: muted, textTransform: 'uppercase', letterSpacing: '.07em' }}>{scene.detail}</div>
               <div style={{ fontWeight: 650, fontSize: 21, marginTop: 8 }}>{scene.subject}</div>
-              <div style={{ color: '#5d5a56', fontSize: 23, lineHeight: 1.55, marginTop: 10 }}>{scene.body}</div>
-              <div style={{ fontSize: 19, color: '#438760', fontWeight: 600, marginTop: 14 }}>✓ &nbsp;{scene.status}</div>
+              <div style={{ color: '#5d5a56', fontSize: 21, lineHeight: 1.4, marginTop: 7 }}>{scene.body}</div>
+              <div style={{ fontSize: 18, color: '#438760', fontWeight: 600, marginTop: 8 }}>✓ &nbsp;{scene.status}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div style={{ background: '#fff', padding: '14px 52px 22px' }}><div style={{ height: 68, border: '1px solid #ddd9d2', borderRadius: 21, display: 'flex', alignItems: 'center', padding: '0 17px', gap: 14, color: '#99948d', boxShadow: '0 4px 16px rgba(0,0,0,.04)' }}><span style={{ fontSize: 27 }}>＋</span><span style={{ flex: 1, fontSize: 23, color: local < 52 ? ink : '#99948d', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{local < 52 ? typed + '|' : `Message ${provider}…`}</span><span style={{ background: '#eeeae4', borderRadius: 12, padding: '3px 11px', color: '#a39c92' }}>↑</span></div></div>
+    <div style={{ background: '#fff', padding: '10px 24px 18px' }}><div style={{ minHeight: 65, border: '1px solid #ddd9d2', borderRadius: 18, display: 'flex', alignItems: 'center', padding: '0 14px', gap: 14, color: '#99948d', boxShadow: '0 3px 12px rgba(0,0,0,.04)' }}><Plus size={24}/><span style={{ flex: 1, fontSize: 22, color: local < 52 ? ink : '#99948d', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>{local < 52 ? typed + '|' : 'Reply to Claude…'}</span><span style={{ background: '#cb785b', borderRadius: 9, padding: '4px 10px', color: '#fff' }}>↑</span></div></div>
+      </div>
+    </div>
   </AbsoluteFill>;
 }
