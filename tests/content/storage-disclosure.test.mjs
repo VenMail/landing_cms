@@ -11,7 +11,7 @@ test('managed storage disclosures describe the approved catalog and regional lim
     assert.match(text, /future.*preference|preference.*future/i, `${path}: regional choice is a future preference`);
   }
   const pricing = source('components/PageSections/PricingPlans.jsx');
-  assert.match(pricing, /200 GB included; upgrades or customer-provided storage/);
+  assert.match(pricing, /200 GB included; \$10\/month per additional 100 GB or customer-provided storage/);
   assert.match(pricing, /20 GB shared included; \+8 GB per additional user/);
   assert.doesNotMatch(pricing, /Future region preference/);
 });
