@@ -12,7 +12,7 @@ test('managed storage disclosures describe the approved catalog and regional lim
   }
   const pricing = source('components/PageSections/PricingPlans.jsx');
   assert.match(pricing, /200 GB included; upgrades or customer-provided storage/);
-  assert.match(pricing, /Shared storage included/);
+  assert.match(pricing, /20 GB shared included; \+8 GB per additional user/);
   assert.doesNotMatch(pricing, /Future region preference/);
 });
 
