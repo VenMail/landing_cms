@@ -56,13 +56,15 @@ test('published amounts match the approved monthly catalog', () => {
 });
 
 test('recommended monthly pricing uses Standard, bounded Business, then an Enterprise quote', () => {
-  assert.equal(BUSINESS_INCLUDED_ACCOUNTS, 100);
+  assert.equal(BUSINESS_INCLUDED_ACCOUNTS, 40);
   assert.deepEqual(getRecommendedOffer(1), { plan: 'standard', accounts: 1, amount: 1 });
   assert.deepEqual(getRecommendedOffer(5), { plan: 'standard', accounts: 5, amount: 1 });
   assert.deepEqual(getRecommendedOffer(6), { plan: 'standard', accounts: 6, amount: 2 });
   assert.deepEqual(getRecommendedOffer(23), { plan: 'standard', accounts: 23, amount: 19 });
   assert.deepEqual(getRecommendedOffer(24), { plan: 'business', accounts: 24, amount: 20 });
-  assert.deepEqual(getRecommendedOffer(100), { plan: 'business', accounts: 100, amount: 20 });
+  assert.deepEqual(getRecommendedOffer(40), { plan: 'business', accounts: 40, amount: 20 });
+  assert.deepEqual(getRecommendedOffer(41), { plan: 'scale', accounts: 41, amount: 20.75 });
+  assert.deepEqual(getRecommendedOffer(100), { plan: 'scale', accounts: 100, amount: 65 });
   assert.deepEqual(getRecommendedOffer(101), { plan: 'enterprise', accounts: 101, amount: null, isQuote: true });
   assert.deepEqual(getRecommendedOffer(200), { plan: 'enterprise', accounts: 200, amount: null, isQuote: true });
 });
@@ -154,7 +156,7 @@ test('customer-visible pricing states the bounded Business account allowance', a
 
   assert.doesNotMatch(copy, /unlimited (?:email |student and staff |staff and volunteer |employee |firm-wide )?accounts|unlimited team|unlimited (?:cloud|recording) storage/i);
   assert.doesNotMatch(copy, /storage[- ]based pricing|pay for what you use, not how many people|pay about the same for (?:the )?same storage|per-seat pricing limits email access/i);
-  assert.match(copy, /Up to 100 email accounts included/);
+  assert.match(copy, /40 email accounts included/);
   assert.match(copy, /From \$0\.20 per inbox\/month/);
 });
 

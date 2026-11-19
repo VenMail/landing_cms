@@ -44,7 +44,7 @@ test('homepage presents professional custom-domain email before delivery details
   assert.match(homepage, /src="\/professional-address-art\.png"/);
   assert.match(homepage, /alt=""/);
   assert.match(homepage, /Business plan/);
-  assert.match(homepage, /Up to 100 email accounts included/);
+  assert.match(homepage, /40 email accounts included/);
   assert.match(homepage, /200 GB pooled storage/);
   assert.match(homepage, /Annual Business domain/);
   assert.match(homepage, /Free \.com for the first year with annual Business, subject to sales confirmation\./);

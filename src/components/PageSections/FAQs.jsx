@@ -6,11 +6,11 @@ function FAQs() {
   const faqs = [
     {
       question: "How many email accounts does Business include?",
-      answer: "Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. More than 100 email accounts require a custom quote.",
+      answer: "Business is $20/month for 40 accounts and 200 GB pooled storage. Accounts 41–100 cost $0.75/month each. More than 100 accounts require a quote.",
     },
     {
       question: "What's the catch with the pricing?",
-      answer: "Standard costs $1 per month total for 5 inboxes, then $1 per additional inbox each month. Business is $20 per month with up to 100 email accounts and 200 GB of pooled storage included. Enterprise and white-label deployments are quoted after requirements review.",
+      answer: "Standard costs $1 per month total for 5 inboxes, then $1 per additional inbox each month. Business is $20/month for 40 accounts and 200 GB pooled storage. Accounts 41–100 cost $0.75/month each. Enterprise and white-label deployments are quoted after requirements review.",
     },
     {
       question: "Will my team need training?",

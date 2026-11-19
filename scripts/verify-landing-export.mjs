@@ -95,7 +95,7 @@ for (const text of [
   'Configure Gmail with your Venmail IMAP and SMTP credentials to send and receive through Gmail.',
   'Work beyond email',
   'Plans that fit your team',
-  'Up to 100 email accounts included',
+  '40 email accounts included',
   '+$1/month per additional inbox',
   'What do I need to create an account?',
   'Is a .com domain included?',
@@ -125,7 +125,7 @@ for (const plan of ['standard', 'business']) {
 assert.ok(pricing.includes('/request-quote'), 'enterprise quote request rendered');
 assert.ok(!pricing.includes('plan=enterprise'), 'enterprise remains quote-only');
 assert.ok(pricing.includes('type=personal'), 'personal mailbox remains separate');
-assert.ok(pricing.includes('Up to 100 email accounts included'), 'Business account allowance rendered');
+assert.ok(pricing.includes('40 email accounts included'), 'Business account allowance rendered');
 assert.ok(!/unlimited email accounts/i.test(pricing), 'pricing does not claim unlimited email accounts');
 assert.ok(!pricing.includes('AI Rewrite'), 'retired rewrite offer absent');
 for (const route of ['security-whitepaper', 'resources/privacy-policy', 'resources/dpa']) {

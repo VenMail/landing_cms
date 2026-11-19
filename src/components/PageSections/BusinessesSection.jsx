@@ -27,7 +27,7 @@ const AUDIENCES = [
   {
     title: "Growing Organizations",
     story:
-      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 40 email accounts and 200 GB pooled storage.",
     bestFor: ["Startups", "SMEs", "Schools", "Nonprofits"],
     image: "/campaign_composer.png",
     imageAlt: "Venmail campaign composer",

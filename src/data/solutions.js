@@ -4,7 +4,7 @@ export const solutions = {
     category: "For Agencies & Consultancies",
     headline: "Scale Without the Bill Shock",
     description:
-      "Manage clients, run campaigns, and deliver results with Standard at $1/month total for 5 inboxes or Business at $20/month for up to 100 email accounts.",
+      "Manage clients, run campaigns, and deliver results with Standard at $1/month total for 5 inboxes or Business at $20/month for up to 40 email accounts.",
     heroImage: "/solutions/agencies/section-1.png",
     accentColor: "blue",
     capabilities: [
@@ -38,8 +38,8 @@ export const solutions = {
       "VenMail gives agencies the tools to manage multiple clients efficiently while maintaining healthy margins with flat, predictable pricing.",
     featureImage: "/solutions/agencies/content-image-1.png",
     benefits: [
-      "Up to 100 email accounts on Business",
-      "Business is $20/month for up to 100 email accounts",
+      "Up to 40 email accounts on Business",
+      "Business is $20/month for up to 40 email accounts",
       "Separate client workspaces",
       "Shared templates and assets",
       "Campaign automation tools",
@@ -48,7 +48,7 @@ export const solutions = {
     pricingImage: "/solutions/agencies/content-image-2.png",
     pricingTitle: "Flat Pricing That Protects Margins",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 40 email accounts.",
     perSeatComparison: 650,
   },
   founders: {
@@ -103,7 +103,7 @@ export const solutions = {
     pricingImageAlt: "Venmail personal booking page",
     pricingTitle: "Choose a Plan for Your Team",
     pricingDescription:
-      "Business domain email requires a paid plan. Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts. Managed plans currently use shared storage.",
+      "Business domain email requires a paid plan. Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 40 email accounts. Managed plans currently use shared storage.",
     perSeatComparison: 360,
   },
   marketing: {
@@ -151,9 +151,9 @@ export const solutions = {
     ],
     pricingImage: "/sent_metrics.png",
     pricingImageAlt: "Venmail sent email analytics",
-    pricingTitle: "Business is $20/month for up to 100 email accounts",
+    pricingTitle: "Business is $20/month for up to 40 email accounts",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 40 email accounts.",
     perSeatComparison: 800,
   },
   healthcare: {
@@ -179,7 +179,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Team Management",
-        description: "Business includes up to 100 email accounts with role-based access for departments and facilities.",
+        description: "Business includes up to 40 email accounts with role-based access for departments and facilities.",
       },
       {
         icon: "mail",
@@ -195,7 +195,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Discuss data residency requirements",
-      "Up to 100 staff accounts on Business",
+      "Up to 40 staff accounts on Business",
       "Audit trail for communications",
       "Custom domain with full DNS control",
       "Priority support with SLA",
@@ -235,7 +235,7 @@ export const solutions = {
       {
         icon: "users",
         title: "Firm-Wide Access",
-        description: "Business includes up to 100 email accounts for partners, associates, and support staff.",
+        description: "Business includes up to 40 email accounts for partners, associates, and support staff.",
       },
     ],
     featureSectionTitle: "Built for Legal Workflows",
@@ -246,7 +246,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing jurisdiction",
-      "Up to 100 firm-wide accounts on Business",
+      "Up to 40 firm-wide accounts on Business",
       "Document approval workflows",
       "Electronic signature support",
       "Dedicated account management",
@@ -255,7 +255,7 @@ export const solutions = {
     pricingImageAlt: "Venmail inbox",
     pricingTitle: "Predictable Costs for Growing Firms",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 40 email accounts.",
     perSeatComparison: 900,
   },
   finance: {
@@ -297,7 +297,7 @@ export const solutions = {
     benefits: [
       "Bring Your Own Storage (BYOS)",
       "Review storage and processing locations",
-      "Up to 100 email accounts on Business",
+      "Up to 40 email accounts on Business",
       "Compliance-ready audit trails",
       "Custom domain configuration",
       "Enterprise SLA available",
@@ -306,7 +306,7 @@ export const solutions = {
     pricingImageAlt: "Venmail mail workspace on a laptop",
     pricingTitle: "Enterprise Requirements, Business Pricing",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 100 email accounts and 200 GB pooled storage.",
+      "Standard costs $1/month total for 5 inboxes. Business is $20/month with up to 40 email accounts and 200 GB pooled storage.",
     perSeatComparison: 1000,
   },
   education: {
@@ -314,7 +314,7 @@ export const solutions = {
     category: "For Schools & Universities",
     headline: "Sovereign Student Data",
     description:
-      "Student email data should stay under institutional control. Business includes up to 100 email accounts for $20/month.",
+      "Student email data should stay under institutional control. Business includes up to 40 email accounts for $20/month.",
     heroImage: "/email-dashboard-preview.png",
     heroImageAlt: "Venmail inbox",
     accentColor: "amber",
@@ -326,8 +326,8 @@ export const solutions = {
       },
       {
         icon: "users",
-        title: "Up to 100 Accounts",
-        description: "Business includes up to 100 email accounts for students, faculty, and staff.",
+        title: "Up to 40 Accounts",
+        description: "Business includes up to 40 email accounts for students, faculty, and staff.",
       },
       {
         icon: "mail",
@@ -342,12 +342,12 @@ export const solutions = {
     ],
     featureSectionTitle: "Why Schools Choose Venmail",
     featureSectionSubtitle:
-      "Business includes up to 100 email accounts for $20/month, with 200 GB pooled storage included.",
+      "Business includes up to 40 email accounts for $20/month, with 200 GB pooled storage included.",
     featureImage: "/new_docs.png",
     featureImageAlt: "Venmail document workspace",
     benefits: [
-      "Up to 100 student and staff accounts",
-      "Business: up to 100 email accounts",
+      "Up to 40 student and staff accounts",
+      "Business: up to 40 email accounts",
       "Bring Your Own Storage",
       "Custom domain with full DNS",
       "Student data sovereignty",
@@ -365,7 +365,7 @@ export const solutions = {
     category: "For HR Departments",
     headline: "Recruitment & Team Communication",
     description:
-      "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes up to 100 email accounts for $20/month.",
+      "Manage candidate outreach, onboarding emails, and internal communication with Business, which includes up to 40 email accounts for $20/month.",
     heroImage: "/personal_booking.png",
     heroImageAlt: "Venmail personal booking page",
     accentColor: "rose",
@@ -393,22 +393,22 @@ export const solutions = {
     ],
     featureSectionTitle: "Streamline HR Communications",
     featureSectionSubtitle:
-      "Business includes up to 100 email accounts for recruitment, onboarding, and daily operations at $20/month.",
+      "Business includes up to 40 email accounts for recruitment, onboarding, and daily operations at $20/month.",
     featureImage: "/campaign_composer.png",
     featureImageAlt: "Venmail campaign composer",
     benefits: [
-      "Up to 100 employee accounts on Business",
+      "Up to 40 employee accounts on Business",
       "Automated onboarding sequences",
       "Candidate outreach campaigns",
       "Interview scheduling built in",
       "Template library for HR comms",
-      "Business remains $20/month for up to 100 email accounts",
+      "Business remains $20/month for up to 40 email accounts",
     ],
     pricingImage: "/email-dashboard-preview.png",
     pricingImageAlt: "Venmail inbox",
     pricingTitle: "Growing Teams Shouldn't Mean Growing Email Bills",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes. Business costs $20/month for up to 100 email accounts.",
+      "Standard costs $1/month total for 5 inboxes. Business costs $20/month for up to 40 email accounts.",
     perSeatComparison: 600,
   },
   nonprofit: {
@@ -416,15 +416,15 @@ export const solutions = {
     category: "For Nonprofits & NGOs",
     headline: "Mission-First Email Infrastructure",
     description:
-      "Standard costs $1/month total for 5 inboxes. Business gives nonprofits up to 100 email accounts for $20/month.",
+      "Standard costs $1/month total for 5 inboxes. Business gives nonprofits up to 40 email accounts for $20/month.",
     heroImage: "/campaign_composer.png",
     heroImageAlt: "Venmail campaign composer",
     accentColor: "lime",
     capabilities: [
       {
         icon: "users",
-        title: "Up to 100 Accounts",
-        description: "Business includes up to 100 email accounts for staff, volunteers, and board members.",
+        title: "Up to 40 Accounts",
+        description: "Business includes up to 40 email accounts for staff, volunteers, and board members.",
       },
       {
         icon: "mail",
@@ -449,17 +449,17 @@ export const solutions = {
     featureImageAlt: "Venmail sent email analytics",
     benefits: [
       "Personal accounts use venia.cloud",
-      "Up to 100 staff and volunteer accounts",
+      "Up to 40 staff and volunteer accounts",
       "Donor communication campaigns",
       "Template library included",
-      "Business: up to 100 email accounts",
+      "Business: up to 40 email accounts",
       "Data sovereignty for sensitive info",
     ],
     pricingImage: "/email-dashboard-preview.png",
     pricingImageAlt: "Venmail inbox",
     pricingTitle: "Professional Email at Nonprofit-Friendly Pricing",
     pricingDescription:
-      "Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 100 email accounts.",
+      "Standard costs $1/month total for 5 inboxes; Business costs $20/month for up to 40 email accounts.",
     perSeatComparison: 300,
   },
   deliverability: {

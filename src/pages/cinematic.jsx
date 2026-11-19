@@ -276,7 +276,7 @@ const TheSolutionSection = () => {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Clear monthly pricing</h3>
             <p className="text-gray-600 mb-4">
               Standard costs $1/month total for 5 inboxes; each additional inbox costs $1/month.
-              Business costs $20/month with up to 100 email accounts and 200 GB pooled storage.
+              Business costs $20/month with up to 40 email accounts and 200 GB pooled storage.
             </p>
             <div className="text-blue-600 font-semibold">Fair and predictable →</div>
           </div>

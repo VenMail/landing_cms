@@ -431,7 +431,7 @@ export default function WhyVenmail() {
 
               <p style={{ marginBottom: "22px" }}>
                 Standard costs $1/month total for 5 inboxes. Each additional inbox costs $1/month.
-                Business includes up to 100 email accounts and 200 GB pooled storage for $20/month.
+                Business includes up to 40 email accounts and 200 GB pooled storage for $20/month.
               </p>
 
               <p style={{ marginBottom: "22px" }}>
