@@ -46,7 +46,7 @@ const faqs = [
   },
   {
     question: 'Is a .com domain included?',
-    answer: 'Annual Business includes one .com domain free for the first year.',
+    answer: 'Free .com for the first year with annual Business, subject to sales confirmation.',
   },
   {
     question: 'When does service activate?',
@@ -136,8 +136,8 @@ export default function Home() {
                 <p className="py-4">Up to 100 email accounts included</p>
                 <p className="border-t border-[#e2cfc1] py-4">200 GB pooled storage</p>
                 <div className="border-t border-[#e2cfc1] py-4">
-                  <p>Free .com domain</p>
-                  <p className="mt-1 text-sm font-normal leading-6 text-[#5f6368]">Annual Business includes one .com domain free for the first year.</p>
+                  <p>Annual Business domain</p>
+                  <p className="mt-1 text-sm font-normal leading-6 text-[#5f6368]">Free .com for the first year with annual Business, subject to sales confirmation.</p>
                 </div>
               </div>
               <a href={annualBusinessInquiryUrl} onClick={() => trackCTAClick('homepage_professional_email', 'annual_business', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-orange-700 px-6 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2 focus:ring-offset-[#fff8f2]">Ask about annual Business <ArrowIcon /></a>
@@ -183,7 +183,7 @@ export default function Home() {
         <section id="pricing" className="scroll-mt-24 border-t border-[#dadce0] px-4 py-16 sm:px-6 md:py-24">
           <div className="mx-auto max-w-6xl">
             <h2 className="text-4xl font-semibold leading-[1.15] tracking-[-0.025em]">Plans that fit your team</h2>
-            <p className="mt-5 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">Standard uses a domain you already own. Annual Business includes one .com domain free for the first year.</p>
+            <p className="mt-5 max-w-2xl text-lg leading-[1.65] text-[#5f6368]">Standard uses a domain you already own. Free .com for the first year with annual Business, subject to sales confirmation.</p>
 
             <div className="mt-12 grid border-y border-[#dadce0] lg:grid-cols-3">
               <article className="flex flex-col py-8 lg:pr-8">
@@ -195,7 +195,7 @@ export default function Home() {
               <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:px-8">
                 <h3 className="text-xl font-semibold">Business</h3>
                 <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$20<span className="ml-1 text-base font-normal text-[#5f6368]">/month</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Up to 100 email accounts included</li><li>200 GB pooled storage</li><li>Annual Business includes one .com domain free for the first year.</li><li>$10/month per additional 100 GB</li></ul>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>Up to 100 email accounts included</li><li>200 GB pooled storage</li><li>Free .com for the first year with annual Business, subject to sales confirmation.</li><li>$10/month per additional 100 GB</li></ul>
                 <a href={businessSignupUrl("business")} onClick={() => trackCTAClick('homepage_pricing_business', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg bg-orange-700 px-5 text-base font-semibold text-white transition-colors hover:bg-orange-800 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose monthly Business</a>
                 <a href={annualBusinessInquiryUrl} onClick={() => trackCTAClick('homepage_pricing_annual_business', 'annual_business', 'homepage_mail_first')} className="mt-4 inline-flex min-h-11 items-center justify-center text-center text-sm font-semibold text-orange-800 underline decoration-orange-300 underline-offset-4 hover:text-orange-900 focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Ask about annual Business</a>
               </article>

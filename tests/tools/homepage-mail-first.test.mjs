@@ -46,8 +46,8 @@ test('homepage presents professional custom-domain email before delivery details
   assert.match(homepage, /Business plan/);
   assert.match(homepage, /Up to 100 email accounts included/);
   assert.match(homepage, /200 GB pooled storage/);
-  assert.match(homepage, /Free \.com domain/);
-  assert.match(homepage, /Annual Business includes one \.com domain free for the first year\./);
+  assert.match(homepage, /Annual Business domain/);
+  assert.match(homepage, /Free \.com for the first year with annual Business, subject to sales confirmation\./);
   assert.match(homepage, /Annual Business plan and included \.com domain/);
   assert.match(homepage, /Ask about annual Business/);
   assert.match(homepage, /homepage_professional_email/);
@@ -292,7 +292,7 @@ test('homepage pricing uses approved offers, signup helpers, quote, and crypto p
   assert.match(homepage, /\+\$1\/month per additional inbox/);
   assert.match(homepage, /\$20/);
   assert.match(homepage, /200 GB pooled/);
-  assert.match(homepage, /Standard uses a domain you already own\. Annual Business includes one \.com domain free for the first year\./);
+  assert.match(homepage, /Standard uses a domain you already own\. Free \.com for the first year with annual Business, subject to sales confirmation\./);
   assert.match(homepage, /href="\/request-quote"/);
   assert.match(homepage, /USDC\/USDT payments are available through Venmail Billing/);
   assert.match(homepage, /<summary[^>]*>Other payment methods/);
@@ -351,7 +351,7 @@ test('homepage FAQ uses native disclosure controls and approved answers', async 
   assert.match(homepage, /What do I need to create an account\?/);
   assert.match(homepage, /Enter your name, existing email address, and password\./);
   assert.match(homepage, /Is a \.com domain included\?/);
-  assert.match(homepage, /Annual Business includes one \.com domain free for the first year\./);
+  assert.match(homepage, /Free \.com for the first year with annual Business, subject to sales confirmation\./);
   assert.match(homepage, /When does service activate\?/);
   assert.match(homepage, /Activation follows domain verification and payment\./);
   assert.match(homepage, /Do I pay before my mailbox activates\?/);

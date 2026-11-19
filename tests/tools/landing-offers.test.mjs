@@ -14,7 +14,7 @@ test('Business states the qualified first-year annual domain offer', () => {
   const business = PLANS.find(plan => plan.id === 'business');
 
   assert.ok(business);
-  assert.ok(business.features.includes('Annual Business includes one .com domain free for the first year.'));
+  assert.ok(business.features.includes('Free .com for the first year with annual Business, subject to sales confirmation.'));
 });
 
 test('shared pricing separates monthly checkout from the annual Business inquiry', async () => {
