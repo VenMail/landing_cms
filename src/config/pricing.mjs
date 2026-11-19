@@ -7,8 +7,8 @@ export const BUSINESS_MONTHLY_USD = 20;
 export const BUSINESS_INCLUDED_ACCOUNTS = 100;
 
 export const PLANS = [
-  { id: 'standard', name: 'Standard', monthly: 1, checkout: 'self_serve', description: 'Professional email for small teams on a custom domain.', features: ['5 inboxes included — $0.20 per inbox', '+$1/month per additional inbox', '20 GB shared storage included', '+8 GB per mailbox after the first five', 'Calendar and contacts'] },
-  { id: 'business', name: 'Business', monthly: 20, checkout: 'self_serve', featured: true, description: 'Email infrastructure for teams that need room to grow.', features: ['Up to 100 email accounts included', '200 GB pooled storage included', 'Campaigns', 'Free .com for the first year with annual Business, subject to sales confirmation.', '$10/month per additional 100 GB', 'Bring your own storage'] },
+  { id: 'standard', name: 'Standard', monthly: 1, checkout: 'self_serve', description: 'Professional email for small teams on a custom domain.', features: ['5 inboxes included — $0.20 per inbox', '+$1/month per additional inbox', '20 GB shared storage included', '+8 GB per mailbox after the first five', '20 monthly credits', 'Calendar and contacts'] },
+  { id: 'business', name: 'Business', monthly: 20, checkout: 'self_serve', featured: true, description: 'Email infrastructure for teams that need room to grow.', features: ['Up to 100 email accounts included', '200 GB pooled storage included', '500 monthly credits', 'Campaigns', 'Free .com for the first year with annual Business, subject to sales confirmation.', '$10/month per additional 100 GB', 'Bring your own storage'] },
   { id: 'enterprise', name: 'Enterprise / White-label', checkout: 'quote', description: 'A tailored deployment for branded services and complex requirements.', features: ['White-label requirements', 'Migration and onboarding', 'Storage and security design', 'Priority support and SLAs'] },
 ];
 

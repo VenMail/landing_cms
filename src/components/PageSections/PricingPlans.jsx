@@ -12,6 +12,8 @@ function Price({ plan, isNigeria }) {
   const offer = getOffer(plan.id);
   return <>
     <p className="mt-3 text-4xl font-medium text-gray-900">{formatUsd(offer.amount)}<span className="text-base text-gray-500">/month{plan.id === 'standard' ? ' total' : ''}</span></p>
+    <p className="text-sm text-gray-600">5 campaign recipients per credit. Additional credits: $1 per 100. Included credits expire monthly; purchased credits never expire.</p>
+
     {isNigeria && <p className="mt-2 text-sm text-gray-600">{formatNgn(offer.amount * USD_TO_NGN)}/month</p>}
   </>;
 }
