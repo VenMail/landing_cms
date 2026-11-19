@@ -105,7 +105,7 @@ export default function Home() {
           <nav aria-label="Products" className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-3">
             <a href="#delivery" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Delivery and follow-up <ArrowIcon /></span></a>
             <a href="#shared-inbox" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Shared inbox <ArrowIcon /></span><span className="mt-1 block text-xs leading-5 text-[#5f6368]">Access may be limited.</span></a>
-            <a href="/product/meeting" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Meetings <ArrowIcon /></span></a>
+            <a href="/product/meeting" className="group rounded-xl border border-[#eadfd7] bg-[#fffaf6] px-5 py-4 text-left transition-colors hover:border-[#c94716] focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2"><span className="flex items-center justify-between gap-3 text-base font-semibold">Meetings <ArrowIcon /></span><span className="mt-1 block text-sm text-[#5f6368]">Your LiveKit project</span></a>
           </nav>
 
         </section>
@@ -189,7 +189,7 @@ export default function Home() {
               <article className="flex flex-col py-8 lg:pr-8">
                 <h3 className="text-xl font-semibold">Standard</h3>
                 <p className="mt-6 text-4xl font-semibold tracking-[-0.025em]">$1<span className="ml-1 text-base font-normal text-[#5f6368]">/month total</span></p>
-                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 inboxes included — $0.20 per inbox</li><li>+$1/month per additional inbox</li><li>20 GB shared storage included</li><li>+8 GB per additional user</li></ul>
+                <ul className="mt-7 space-y-3 text-base leading-7 text-[#5f6368]"><li>5 inboxes included — $0.20 per inbox</li><li>+$1/month per additional inbox</li><li>20 GB shared storage included</li><li>+8 GB per mailbox after the first five</li></ul>
                 <a href={businessSignupUrl("standard")} onClick={() => trackCTAClick('homepage_pricing_standard', 'mail_first', 'homepage_mail_first')} className="mt-8 inline-flex h-12 items-center justify-center rounded-lg border border-[#202124] px-5 text-base font-semibold text-[#202124] transition-colors hover:bg-[#202124] hover:text-white focus:outline-none focus:ring-2 focus:ring-orange-700 focus:ring-offset-2">Choose Standard</a>
               </article>
               <article className="flex flex-col border-t border-[#dadce0] py-8 lg:border-l lg:border-t-0 lg:px-8">
