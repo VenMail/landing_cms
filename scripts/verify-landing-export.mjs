@@ -68,7 +68,7 @@ for (const text of [
   'Professional email for your business',
   '>yourname</span>',
   '>@yourbusinessdomain.com</span>',
-  'Annual Business includes one .com domain free for the first year.',
+  'Free .com for the first year with annual Business, subject to sales confirmation.',
   'Ask about annual Business',
   'Inbox placement comes first',
   'Inbox placement strategy',
