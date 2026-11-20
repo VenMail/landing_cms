@@ -1,0 +1,40 @@
+name: Configure LiveKit DNS
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  dns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure meeting and relay records
+        env:
+          CF_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.parse, urllib.request, urllib.error
+          token = os.environ['CF_TOKEN']
+          if not token: sys.exit('Cloudflare API token is unavailable')
+          def request(path, method='GET', body=None):
+              payload = None if body is None else json.dumps(body).encode()
+              req = urllib.request.Request('https://api.cloudflare.com/client/v4'+path, data=payload,
+                  headers={'Authorization':'Bearer '+token, 'Content-Type':'application/json'}, method=method)
+              try:
+                  with urllib.request.urlopen(req, timeout=25) as response: result=json.load(response)
+              except urllib.error.HTTPError as error:
+                  sys.exit('Cloudflare API returned HTTP '+str(error.code))
+              if not result.get('success'): sys.exit('Cloudflare API did not accept the request')
+              return result['result']
+          zones=request('/zones?name=venmail.io&status=active')
+          if len(zones)!=1: sys.exit('Venmail DNS zone was not available')
+          zone=zones[0]['id']
+          for name, address in [('meet-live.venmail.io','185.170.112.234'),('turn-live.venmail.io','91.204.44.28')]:
+              records=request('/zones/'+zone+'/dns_records?name='+urllib.parse.quote(name))
+              if records:
+                  if len(records)!=1 or records[0]['type']!='A' or records[0]['content']!=address or records[0]['proxied']:
+                      sys.exit('Existing DNS record needs review: '+name)
+                  print(name+' already configured')
+              else:
+                  request('/zones/'+zone+'/dns_records','POST',{'type':'A','name':name,'content':address,'proxied':False,'ttl':60})
+                  print(name+' configured')
+          PY
